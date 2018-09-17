@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <title>Projeto Leitura</title>
+
+        <!-- Required meta tags always come first -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css">
+
+        <!-- Main Styles CSS -->
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/fonts.css">
+
+        <!-- Main Font -->
+        <script src="js/webfontloader.min.js"></script>
+        <script>
+            WebFont.load({
+                google: {
+                    families: ['Roboto:300,400,500,700:latin']
+                }
+            });
+        </script>
+    </head>
+    <body>
+    
+    <!-- Header Standard -->
+    
+    <div class="header--standard header--standard-dark" id="header--standard">
+        <div class="container">
+            <div class="header--standard-wrap">
+                <a href="02-ProfilePage.html" class="logo">
+                    <div class="img-wrap">
+                        <img src="img/logo-colored-small.png" alt="Olympus">
+                    </div>
+                    <div class="title-block">
+                        <h6 class="logo-title">Udacity</h6>
+                        <div class="sub-title">Projeto Leitura</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="main-header">
+        <div class="content-bg-wrap bg-account"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col col-lg-8 m-auto col-md-8 col-sm-12 col-12">
+                    <div class="main-header-content">
+                        <h1>Projeto Leitura</h1>
+                        <p>Bem vindos ao Udacity Leitura, onde podemos discutir assuntos variados com uma gama enorme de pessoas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img class="img-bottom" src="img/blog_bottom.png" alt="Blog">
+    </div>
+    
+        <!-- ... end Main BlogV1 -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="clients-grid">
+                    <ul class="cat-list-bg-style align-center sorting-menu">
+                        <li class="cat-list__item active" data-filter="*"><a href="#" class="">ALL CATEGORIES</a></li>
+                        <li class="cat-list__item" data-filter=".community"><a href="#" class="">THE COMMUNITY</a></li>
+                        <li class="cat-list__item" data-filter=".news"><a href="#" class="">OLYMPUS NEWS</a></li>
+                        <li class="cat-list__item" data-filter=".inspiration"><a href="#" class="">INSPIRATION</a></li>
+                    </ul>
+                </div>
+                <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="ui-block responsive-flex1200">
+                        <div class="ui-block-title">
+                            <div class="w-select">
+                                <div class="title">Filter By:</div>
+                                <div class="w-select">
+                                    <fieldset class="form-group">
+                                        <div class="btn-group bootstrap-select form-control">
+                                            <button type="button" class="btn dropdown-toggle btn-secondary" data-toggle="dropdown" role="button" title="Date (Descending)" aria-expanded="true">
+                                                <span class="filter-option pull-left">Date (Descending)</span>
+                                            </button>
+                                            <div class="dropdown-menu" role="combobox" x-placement="bottom-start" style="max-height: 219px; overflow: hidden; min-height: 0px; position: absolute; transform: translate3d(0px, 40px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                                <ul class="dropdown-menu inner" role="listbox" aria-expanded="true" style="max-height: 201px; overflow-y: auto; min-height: 0px;">
+                                                    <li data-original-index="0" class="selected">
+                                                        <a tabindex="0" class="dropdown-item" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+                                                            <span class="text">Date (Descending)</span
+                                                            ><span class="glyphicon glyphicon-ok check-mark"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li data-original-index="1">
+                                                        <a tabindex="0" class="dropdown-item" data-tokens="null" role="option" aria-disabled="false" aria-selected="true">
+                                                            <span class="text">Date (Ascending)</span>
+                                                            <span class="glyphicon glyphicon-ok check-mark"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li data-original-index="0">
+                                                        <a tabindex="0" class="dropdown-item" data-tokens="null" role="option" aria-disabled="false" aria-selected="true">
+                                                            <span class="text">Vote Score</span>
+                                                            <span class="glyphicon glyphicon-ok check-mark"></span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <span class="material-input"></span>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="clients-grid">
+                        <div class="row sorting-container" id="clients-grid-1" data-layout="masonry">
+                            <div class="col col-xl-4 col-lg-4 col-md-6 col-sm-12  sorting-item community">
+                                <div class="ui-block">
+                                    <!-- Post -->
+                                    <article class="hentry blog-post">
+                                        <div class="post-content">
+                                            <a href="#" class="post-category bg-primary">THE COMMUNITY</a>
+                                            <a href="#" class="h4 post-title">Here’s the Featured Urban photo of August! </a>
+                                            <p>Here’s a photo from last month’s photoshoot. We really had a great time and got a
+                                                batch of really awesome shots for the new catalog.
+                                            </p>
+                                            <div class="author-date not-uppercase">
+                                                <div class="post__date">
+                                                    <time class="published" datetime="2017-03-24T18:18">
+                                                        7 hours ago by
+                                                    </time>
+                                                </div>
+                                                <a class="h6 post__author-name fn" href="#">Maddy Simmons</a>
+                                            </div>
+                                            <div class="post-additional-info inline-items">
+                                                <a href="#" class="post-add-icon inline-items">
+                                                        <svg id="olymp-heart-icon" viewBox="0 0 36 32" width="100%" height="100%">
+                                                            <title>Vote Up</title>
+                                                            <path d="M23.111 21.333h3.556v3.556h-3.556v-3.556z"></path>
+                                                            <path d="M32.512 2.997c-2.014-2.011-4.263-3.006-7.006-3.006-2.62 0-5.545 2.089-7.728 4.304-2.254-2.217-5.086-4.295-7.797-4.295-2.652 0-4.99 0.793-6.937 2.738-4.057 4.043-4.057 10.599 0 14.647 1.157 1.157 12.402 13.657 12.402 13.657 0.64 0.638 1.481 0.958 2.32 0.958s1.678-0.32 2.318-0.958l1.863-2.012-2.523-2.507-1.655 1.787c-2.078-2.311-11.095-12.324-12.213-13.442-1.291-1.285-2-2.994-2-4.811 0-1.813 0.709-3.518 2-4.804 1.177-1.175 2.54-1.698 4.425-1.698 0.464 0 2.215 0.236 5.303 3.273l2.533 2.492 2.492-2.532c2.208-2.242 4.201-3.244 5.196-3.244 1.769 0 3.113 0.588 4.496 1.97 1.289 1.284 1.998 2.99 1.998 4.804 0 1.815-0.709 3.522-1.966 4.775-0.087 0.085-0.098 0.094-1.9 2.041l-0.156 0.167 2.523 2.51 0.24-0.26c0 0 1.742-1.881 1.774-1.911 4.055-4.043 4.055-10.603-0.002-14.644z"></path>
+                                                        </svg>
+                                                        <svg id="olymp-heart-icon" viewBox="0 0 36 32" width="100%" height="100%">
+                                                            <title>Vote Down</title>
+                                                            <g transform="translate(35,30) rotate(180)">
+                                                                <path d="M23.111 21.333h3.556v3.556h-3.556v-3.556z"></path>
+                                                                <path d="M32.512 2.997c-2.014-2.011-4.263-3.006-7.006-3.006-2.62 0-5.545 2.089-7.728 4.304-2.254-2.217-5.086-4.295-7.797-4.295-2.652 0-4.99 0.793-6.937 2.738-4.057 4.043-4.057 10.599 0 14.647 1.157 1.157 12.402 13.657 12.402 13.657 0.64 0.638 1.481 0.958 2.32 0.958s1.678-0.32 2.318-0.958l1.863-2.012-2.523-2.507-1.655 1.787c-2.078-2.311-11.095-12.324-12.213-13.442-1.291-1.285-2-2.994-2-4.811 0-1.813 0.709-3.518 2-4.804 1.177-1.175 2.54-1.698 4.425-1.698 0.464 0 2.215 0.236 5.303 3.273l2.533 2.492 2.492-2.532c2.208-2.242 4.201-3.244 5.196-3.244 1.769 0 3.113 0.588 4.496 1.97 1.289 1.284 1.998 2.99 1.998 4.804 0 1.815-0.709 3.522-1.966 4.775-0.087 0.085-0.098 0.094-1.9 2.041l-0.156 0.167 2.523 2.51 0.24-0.26c0 0 1.742-1.881 1.774-1.911 4.055-4.043 4.055-10.603-0.002-14.644z"></path>
+                                                            </g>
+                                                        </svg>
+                                                    <span>8</span>
+                                                </a>
+                                                <div class="comments-shared">
+                                                    <a href="#" class="post-add-icon inline-items">
+                                                        <svg id="olymp-speech-balloon-icon" viewBox="0 0 35 32" width="100%" height="100%">
+                                                            <title>Comentários</title>
+                                                            <path d="M32 0h-28.8c-1.768 0-3.2 1.434-3.2 3.2v16c0 1.766 1.434 3.2 3.2 3.2 0 0 0.6 0 1.6 0v-3.2h-1.6v-16h28.8v19.2c1.766 0 3.2-1.434 3.2-3.2v-16c0-1.766-1.434-3.2-3.2-3.2zM20.8 22.4h1.6v-3.2h-1.6v3.2zM25.6 22.4h3.2v-3.2h-3.2v3.2zM27.2 6.4h-20.8v3.2h20.8v-3.2zM6.4 16h12.8v-3.2h-12.8v3.2z"></path>
+                                                            <path d="M17.6 19.2l-9.6 6.626v-6.626h-3.2v12.8l12.8-9.6h3.2v-3.2z"></path>
+                                                        </svg>
+                                                        <span>17</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    <!-- ... end Post -->
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Pagination -->
+        
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">...</a></li>
+                <li class="page-item"><a class="page-link" href="#">12</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+        
+        <!-- ... end Pagination -->
+
+    </div>
+
+    <a class="back-to-top" href="#">
+        <img src="img/back-to-top.svg" alt="arrow" class="back-icon">
+    </a>
+    <!-- SUB Footer -->
+    <div class="sub-footer-copyright">
+        <span>
+            Projeto Leitura - Udacity
+        </span>
+    </div>
+    </body>
+</html>
