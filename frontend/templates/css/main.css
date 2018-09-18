@@ -6147,15 +6147,22 @@ ol ol li {
 /*------------- #FRIENDS-HARMONIC --------------*/
 .friends-harmonic {
   margin-bottom: 0;
-  overflow: hidden; }
+  }
   .friends-harmonic a {
-    width: 28px;
-    height: 28px;
+   
     border-radius: 100%;
     overflow: hidden;
     border: 2px solid #fff;
     display: block;
     margin-left: -12px; }
+
+    .off li {
+     
+    border-radius: 100%;
+    overflow: hidden;
+    border: 2px solid #fff;
+    margin-left: -12px; }
+
   .friends-harmonic li {
     float: left; }
     .friends-harmonic li:first-child a {
