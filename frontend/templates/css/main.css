@@ -2501,7 +2501,10 @@ p {
 
 .form-group {
   position: relative;
-  margin-bottom: 1.4rem; }
+  margin-bottom: 1.4rem; 
+  margin-left: 10px;
+  margin-right: 10px;
+}
 
 .form-group textarea {
   resize: none; }
@@ -4814,8 +4817,7 @@ fieldset[disabled] .checkbox, fieldset[disabled] .checkbox input[type=checkbox],
 .img-bottom {
   position: relative;
   display: block;
-  margin: 20px auto 0;
-  margin-bottom: -70px; }
+  margin: 20px auto 0;}
 
 .bg-account {
   background-image: url("../img/top-header3.png"); }
@@ -8182,7 +8184,7 @@ ol ol li {
     -webkit-filter: grayscale(0);
             filter: grayscale(0); }
   .clients-item img {
-    transition: all .3s linear;
+    transition: all .3s linear;.control-block-button
     -webkit-transform-style: preserve-3d;
             transform-style: preserve-3d;
     opacity: 0.3;
