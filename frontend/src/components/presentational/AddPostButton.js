@@ -7,8 +7,8 @@ import {Link} from "react-router-dom"
 */
 function AddPostButton() {
     return (
-        <Link to="/add" class="back-to-top">
-            <img src="img/back-to-top.svg" alt="arrow" class="back-icon"></img>
+        <Link to="post/add" className="back-to-top">
+            <img src="img/back-to-top.svg" alt="arrow" className="back-icon"></img>
         </Link>
     )
 }

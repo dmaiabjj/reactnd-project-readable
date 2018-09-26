@@ -1,19 +1,42 @@
-import { createActions, createReducer } from "reduxsauce"
+import { getAllCategories } from '../../utilities/api'
+import { Creators as SharedCreators} from './shared'
+
+export const Types = {
+    FETCH           : "CATEGORIES/FETCH",
+    FETCH_SUCCESS   : "CATEGORIES/FETCH_SUCCESS"
+}
 
 const INITIAL_STATE = []
 
-export const {Types, Creators} = createActions({
-        receiveCategory:["categories"]
-});
 
-const receive = (state = INITIAL_STATE,action) => [
-    action.categories
-];
+export const Creators = {
+    fetch:() => {
+        SharedCreators.loading(true);
+        return (dispatch) => {
+            return getAllCategories()
+              .then((categories) => dispatch(Creators.fetchSuccess(categories)))
+              .then(() => dispatch(SharedCreators.loading(false)))
+              .catch(function(error) {
+                dispatch(SharedCreators.failure(error))
+              });
+          }
+    },
+    fetchSuccess:(categories) => {
+        return {
+            type: Types.FETCH_SUCCESS,
+            categories
+        }
+    }
+}
 
-export default createReducer(INITIAL_STATE,{
-    [Types.RECEIVE_CATEGORY] : receive
-});
 
-
-
+export default function reducer(state = INITIAL_STATE,action)
+{
+    switch(action.type){
+        case Types.FETCH_SUCCESS:
+            return action.categories
+        default:
+            return state
+    }
+}
 

@@ -55,7 +55,7 @@ export const upOrDownPostVote = (id,option) =>
         .then(res => res.json())
         .then(data => data.post)
 
-export const updatePost = (title,body) =>
+export const updatePost = (id,title,body) =>
     fetch(`${api}/posts/${id}`, {
         method: 'PUT',
         headers: {
@@ -111,7 +111,7 @@ export const upOrDownCommentVote = (id,option) =>
         .then(res => res.json())
         .then(data => data.comment)
 
-export const updateComment = (timestamp,body) =>
+export const updateComment = (id,timestamp,body) =>
     fetch(`${api}/comments/${id}`, {
         method: 'PUT',
         headers: {

@@ -1,43 +1,58 @@
-import { createActions, createReducer } from "reduxsauce"
+import { getCommentsByPostId } from '../../utilities/api'
+import { Creators as SharedCreators} from './shared'
+
+export const Types = {
+    FETCH           : "COMMENTS/FETCH",
+    FETCH_SUCCESS   : "COMMENTS/FETCH_SUCCESS"
+}
 
 const INITIAL_STATE = {}
 
-export const {Types, Creators} = createActions({
-        fetchPostSuccess:["response"],
-        fetchPostFailure:["comments"],
-        addPost:["response"]
-});
 
-const fetchSuccess = (state = {},action) => {
-    return {
-        ...state,
-        ...action.response.entities.comments,
+export const Creators = {
+    fetch:(postId) => {
+        return (dispatch) => {
+            return getCommentsByPostId(postId)
+              .then((comments) => dispatch(Creators.fetchSuccess(comments)))
+              .then(() => dispatch(SharedCreators.loading(false)))
+              .catch(function(error) {
+                dispatch(SharedCreators.failure(error))
+              });
+          }
+    },
+    fetchSuccess:(posts) => ({
+        type: Types.FETCH_SUCCESS,
+        posts
+    })
+    /*,
+    add:(post) => {
+        return (dispatch) => {
+            dispatch(fetchSuccess(post))
+            return addPost(post)
+              .then(() => dispatch(SharedCreators.loading(false)))
+              .catch(function(error) {
+                dispatch(SharedCreators.failure(error))
+              });
+          }
+    },
+    addSuccess:(post) => ({
+        type: Types.ADD_SUCCESS,
+        post
+    })*/
+}
+
+
+
+export default function reducer(state = INITIAL_STATE,action)
+{
+    switch(action.type){
+        case Types.FETCH_SUCCESS:
+            return {
+                ...state,
+                ...action.comments,
+            }
+        default:
+            return state
     }
-};
-
-
-/*const fetchFailure = (state = {},action) => {
-    return {
-        ...state,
-        ...action.response.entities.posts,
-    }
-};
-*/
-
-const add = (state = INITIAL_STATE,action) => {
-    return {
-        ...state,
-        ...action.response.entities.comments,
-    }
-};
-
-
-export default createReducer(INITIAL_STATE,{
-    [Types.FETCH_POST_SUCCESS] : fetchSuccess,
-    //[Types.FETCH_POST_FAILURE] : fetchFailure,
-    [Types.ADD_POST] : add
-});
-
-
-
+}
 

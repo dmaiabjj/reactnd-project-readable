@@ -1,18 +1,28 @@
-import { createActions, createReducer } from "reduxsauce"
+export const Types = {
+    FETCH           : "USER/FETCH"
+}
 
 const INITIAL_STATE = {name:"Udacity", avatar:"udacity"}
 
-export const {Types, Creators} = createActions({
-        getAuthedUser:[]
-});
 
-const get = (state = INITIAL_STATE,action) => [
-    action.user
-];
+export const Creators = {
+    fetch:() => ({
+        type: Types.FETCH,
+        user : INITIAL_STATE
+    })
+}
 
-export default createReducer(INITIAL_STATE,{
-    [Types.GET_AUTHED_USER] : get
-});
+
+export default function reducer(state = INITIAL_STATE,action)
+{
+    switch(action.type){
+        case Types.FETCH:
+            return action.user
+        default:
+            return state
+    }
+}
+
 
 
 
