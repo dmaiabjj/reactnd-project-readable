@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 
 const propTypes = {
-    description         : PropTypes.string.isRequired
+    project         : PropTypes.string.isRequired
 };
 
 /**
@@ -11,13 +11,13 @@ const propTypes = {
 * Componente o footer genérico da aplicação
 *
 * @constructor
-* @param {String} description   Breve descrição para o footer
+* @param {String} project   Nome do projeto
 */
-function Footer({description}) {
+function Footer({project}) {
     return (
-        <div class="sub-footer-copyright">
+        <div className="sub-footer-copyright">
         <span>
-            {description}
+            {project}
         </span>
     </div>
     )

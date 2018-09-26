@@ -17,15 +17,15 @@ const propTypes = {
 */
 function CategoryOption({categories,searchPostByCategory}) {
     return (
-        <ul class="cat-list-bg-style align-center sorting-menu">
-            <li key={all} class="cat-list__item active" data-filter="*">
-                <a href="#" class="" onClick={(event) => {searchPostByCategory(event,"all")}}>All Projects</a>
+        <ul className="cat-list-bg-style align-center sorting-menu">
+            <li key={"all"} className="cat-list__item active" data-filter="*">
+                <a href="" className="" onClick={(event) => {searchPostByCategory(event,"all")}}>All Projects</a>
             </li>
            {
                 categories.map(category => {
                     return (
-                        <li key={category.name} class="cat-list__item active" data-filter="*">
-                            <a href="#" class="" onClick={(event) => {searchPostByCategory(event,category.name)}}>{category.name}</a>
+                        <li key={category} className="cat-list__item active" data-filter="*">
+                            <a href="" className="" onClick={(event) => {searchPostByCategory(event,category)}}>{category}</a>
                         </li>
                     );
                 })
