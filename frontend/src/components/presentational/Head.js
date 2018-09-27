@@ -29,7 +29,7 @@ function Head({project,description}) {
                     </div>
                 </div>
             </div>
-            <img className="img-bottom" src="img/blog_bottom.png" alt="Blog"/>
+            <img className="img-bottom" src="/img/blog_bottom.png" alt="Blog"/>
         </div>
     )
 }

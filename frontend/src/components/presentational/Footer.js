@@ -8,7 +8,7 @@ const propTypes = {
 
 /**
 * @description 
-* Componente o footer genérico da aplicação
+* Componente que representa o footer genérico da aplicação
 *
 * @constructor
 * @param {String} project   Nome do projeto
