@@ -1,5 +1,6 @@
 import { getAllPosts } from '../../utilities/api'
 import { Creators as SharedCreators} from './shared'
+import { createSelector } from 'reselect'
 
 /* Action Types */
 export const Types = {
@@ -21,6 +22,7 @@ export const Creators = {
     */
     fetch:() => {
         return (dispatch) => {
+            SharedCreators.loading(true);
             return getAllPosts()
               .then((posts) => dispatch(Creators.fetchSuccess(posts)))
               .then(() => dispatch(SharedCreators.loading(false)))
@@ -53,3 +55,14 @@ export default function reducer(state = INITIAL_STATE,action)
     }
 }
 
+
+/* Selectors */
+
+const postsEntitiesSelector = state => state.posts.entities
+const postsIdsSelector      = state => state.posts.ids
+
+export const getPosts = createSelector(
+    postsEntitiesSelector,
+    postsIdsSelector,
+    (entities,ids) => ids.map(id => entities[id])
+  )

@@ -8,7 +8,8 @@ import AddPostButton from './presentational/AddPostButton'
 import Post from './presentational/Post'
 import CategoryOption from './presentational/CategoryOption'
 
-import {Creators} from '../store/features/category'
+import {Creators} from '../store/features/shared'
+import {getPosts} from '../store/features/post'
 
 /**
 * @description 
@@ -16,10 +17,11 @@ import {Creators} from '../store/features/category'
 */
 class Home extends Component {
     componentDidMount() {
-        this.props.dispatch(Creators.fetch())
+        this.props.getAllData()
     }
 
    render() {
+        console.log(this.props.posts)
         return (
             <Fragment>
                 <Head></Head>
@@ -29,7 +31,9 @@ class Home extends Component {
                             <div className="clients-grid">
                                 <CategoryOption currentCategory= {this.props.match.params.id} categories={this.props.categories}></CategoryOption>
                                 <div className="row sorting-container" id="clients-grid-1" data-layout="masonry">
-                                    <Post></Post>
+                                {this.props.posts.map(post => (
+                                    <Post post={post}></Post>
+                                ))} 
                                 </div>
                             </div>
                         </div>
@@ -42,11 +46,19 @@ class Home extends Component {
     }
 }
 
-function mapStateToProps ({ categories }) {
+function mapStateToProps (state) {
+    console.log(state)
     return {
-        categories
+        categories : state.categories,
+        posts : getPosts(state)
+    }
+}
+
+function mapDispatchToProps (dispatch) {
+    return {
+       getAllData: () =>  dispatch(Creators.handleInitialData())
     }
 }
 
 
-export default withRouter(connect(mapStateToProps)(Home))
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Home))

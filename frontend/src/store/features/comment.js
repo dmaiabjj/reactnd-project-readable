@@ -19,6 +19,7 @@ export const Creators = {
     */
     fetch:(postId) => {
         return (dispatch) => {
+            SharedCreators.loading(true);
             return getCommentsByPostId(postId)
               .then((comments) => dispatch(Creators.fetchSuccess(comments)))
               .then(() => dispatch(SharedCreators.loading(false)))

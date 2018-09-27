@@ -23,7 +23,7 @@ export const getPostsByCategory = (category) =>
 export const getAllPosts = () =>
     fetch(`${api}/posts/`, { headers })
         .then(res => res.json())
-        .then(data => data.posts)
+        .then(posts => posts)
 
 
 export const addPost = (post) =>
@@ -132,3 +132,14 @@ export const deleteComment = (id) =>
     })
         .then(res => res.json())
         .then(data => data.comment)
+
+
+export function getInitialData () {
+    return Promise.all([
+        getAllCategories(),
+        getAllPosts(),
+    ]).then(([categories, posts]) => ({
+        categories,
+        posts,
+    }))
+    }
