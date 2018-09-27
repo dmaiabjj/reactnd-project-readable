@@ -1,17 +1,24 @@
 import { getAllPosts } from '../../utilities/api'
 import { Creators as SharedCreators} from './shared'
 
+/* Action Types */
 export const Types = {
-    FETCH           : "POSTS/FETCH",
-    FETCH_SUCCESS   : "POSTS/FETCH_SUCCESS",
-    ADD             : "POSTS/ADD",
-    ADD_SUCCESS     : "POSTS/ADD_SUCCESS"
+    FETCH           : 'POSTS/FETCH',
+    FETCH_SUCCESS   : 'POSTS/FETCH_SUCCESS',
+    ADD             : 'POSTS/ADD',
+    ADD_SUCCESS     : 'POSTS/ADD_SUCCESS'
 }
 
 const INITIAL_STATE = {}
 
-
+/* Action Creators */
 export const Creators = {
+    /**
+    * @description Executa a api buscando todos os posts cadastrados.
+    * Step 1 - Sucesso - Dispacha a ação de FETCH_SUCCESS
+    * Step 2 - Falha   - Dispacha a ação de FAILURE
+    * Step Padrão      - Dispacha a ação negando o loading
+    */
     fetch:() => {
         return (dispatch) => {
             return getAllPosts()
@@ -22,29 +29,17 @@ export const Creators = {
               });
           }
     },
+    /**
+    * @description Retorna a ação de FETCH_SUCCESS
+    */
     fetchSuccess:(posts) => ({
         type: Types.FETCH_SUCCESS,
         posts
     })
-    /*,
-    add:(post) => {
-        return (dispatch) => {
-            dispatch(fetchSuccess(post))
-            return addPost(post)
-              .then(() => dispatch(SharedCreators.loading(false)))
-              .catch(function(error) {
-                dispatch(SharedCreators.failure(error))
-              });
-          }
-    },
-    addSuccess:(post) => ({
-        type: Types.ADD_SUCCESS,
-        post
-    })*/
 }
 
 
-
+/* Reducer */
 export default function reducer(state = INITIAL_STATE,action)
 {
     switch(action.type){

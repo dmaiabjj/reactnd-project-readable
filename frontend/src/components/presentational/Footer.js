@@ -1,9 +1,13 @@
-import React from "react"
+import React from 'react'
 import PropTypes from 'prop-types';
 
 
 const propTypes = {
-    project         : PropTypes.string.isRequired
+    project : PropTypes.string.isRequired
+};
+
+const defaultProps = {
+    project: 'Udacity - Leitura'
 };
 
 /**
@@ -23,6 +27,8 @@ function Footer({project}) {
     )
 }
 
-Footer.propTypes = propTypes;
+
+Footer.propTypes    = propTypes;
+Footer.defaultProps = defaultProps;
 
 export default Footer

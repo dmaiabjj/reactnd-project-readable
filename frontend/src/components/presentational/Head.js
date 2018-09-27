@@ -1,10 +1,15 @@
-import React from "react"
+import React from 'react'
 import PropTypes from 'prop-types';
 
 
 const propTypes = {
     project             : PropTypes.string.isRequired,
     description         : PropTypes.string.isRequired
+};
+
+const defaultProps = {
+    project: 'Udacity - Leitura',
+    description : 'Bem vindos ao Udacity Leitura, onde podemos discutir assuntos variados com uma gama enorme de pessoas'
 };
 
 /**
@@ -34,6 +39,7 @@ function Head({project,description}) {
     )
 }
 
-Head.propTypes = propTypes;
+Head.propTypes      = propTypes;
+Head.defaultProps   = defaultProps;
 
 export default Head

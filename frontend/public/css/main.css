@@ -7780,9 +7780,10 @@ ol ol li {
   border-radius: 3px;
   padding: 4px 9px;
   color: #fff;
-  font-size: 8px;
+  font-size: 10px;
   text-transform: uppercase;
-  margin-bottom: 20px; }
+  margin-bottom: 20px; 
+font-weight:bold;}
   .post-category.bg-transparent {
     background-color: transparent;
     color: #ff5e3a;

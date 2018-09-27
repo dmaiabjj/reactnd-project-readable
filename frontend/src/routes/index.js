@@ -1,18 +1,18 @@
-import { Home, AddPost, Post } from "../views/components";
+import { Home, AddPost, Post } from '../views/components';
 
 const routes = [
     {
-        path: "/",
+        path: '/',
         component: Home,
         exact: true,
     },
     {
-        path: "/post",
+        path: '/post',
         component: Post,
         exact: true,
     },
     {
-        path: "/post/add",
+        path: '/post/add',
         component: AddPost,
         exact: true,
     },
