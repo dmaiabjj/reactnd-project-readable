@@ -24,7 +24,7 @@ function CategoryOption({currentCategory, categories}) {
     return (
         <ul className="cat-list-bg-style align-center sorting-menu">
             <li key={"all"} className={`cat-list__item ${currentCategory === "all" ? 'active' : ''}`} data-filter="*">
-                <Link to="/">Todos</Link>
+                <Link to="/post/category/all">Todos</Link>
             </li>
                 {categories.map(category => (
                     <li key={category.name} className={`cat-list__item ${currentCategory === category.name ? 'active' : ''}`} data-filter="*">

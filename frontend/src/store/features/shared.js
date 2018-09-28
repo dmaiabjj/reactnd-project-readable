@@ -1,6 +1,6 @@
 import { getInitialData  } from '../../utilities/api'
-import { Creators as CategoryCreators} from './category'
-import { Creators as PostCreators} from './post'
+import { Creators as CategoryCreators, Types as CategoryTypes} from './category'
+import { Creators as PostCreators, Types as PostTypes} from './post'
 
 import { normalize } from 'normalizr';
 import PostSchema  from '../schemas/posts';
@@ -43,12 +43,9 @@ export const Creators = {
             dispatch(Creators.loading(true))
             return getInitialData()
                 .then(({ categories, posts }) => {
-                    
                     const normalized = normalize(posts,PostSchema);
-                    const entities   = {entities : normalized.entities.posts,ids:normalized.result}
                     dispatch(CategoryCreators.fetchSuccess(categories))
-                    dispatch(PostCreators.fetchSuccess(entities))
-                    dispatch(Creators.loading(false))
+                    dispatch(PostCreators.fetchSuccess(normalized.entities.posts))
                 }) 
                 .catch(function(error) {
                     dispatch(Creators.failure(error))
@@ -61,10 +58,14 @@ export const Creators = {
 export default function reducer(state = INITIAL_STATE,action)
 {
     switch(action.type){
+        case PostTypes.FETCH_SUCCESS:
+            return {...state,loading: false}
+        case CategoryTypes.FETCH_SUCCESS:
+            return {...state,loading: false}
         case Types.LOADING:
             return {...state,loading: action.loading}
         case Types.ACTION_FAILURE: 
-        return {...state,error: action.error}
+        return {...state,loading:false,error: action.error}
         default:
             return state
     }

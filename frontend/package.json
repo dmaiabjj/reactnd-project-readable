@@ -5,6 +5,7 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "install": "^0.12.1",
+    "lodash": "^4.17.11",
     "normalizr": "^3.2.4",
     "npm": "^6.4.1",
     "prop-types": "^15.6.2",

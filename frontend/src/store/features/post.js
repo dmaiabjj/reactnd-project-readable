@@ -1,7 +1,7 @@
 import { getAllPosts } from '../../utilities/api'
 import { Creators as SharedCreators} from './shared'
 import { createSelector } from 'reselect'
-
+import _ from 'lodash'
 /* Action Types */
 export const Types = {
     FETCH           : 'POSTS/FETCH',
@@ -25,7 +25,6 @@ export const Creators = {
             SharedCreators.loading(true);
             return getAllPosts()
               .then((posts) => dispatch(Creators.fetchSuccess(posts)))
-              .then(() => dispatch(SharedCreators.loading(false)))
               .catch(function(error) {
                 dispatch(SharedCreators.failure(error))
               });
@@ -58,13 +57,32 @@ export default function reducer(state = INITIAL_STATE,action)
 
 /* Selectors */
 
-const postsEntitiesSelector = state => state.posts.entities
-const postsIdsSelector      = state => state.posts.ids
+const postsEntitiesSelector = state => state.posts
 
-export const getPosts = createSelector(
-    postsEntitiesSelector,
-    postsIdsSelector,
-    (entities,ids) => {
-        return ids && ids.map(id => entities[id])
-    } 
-  )
+
+export const getPosts = (category = 'all',filter = 'timestamp',order = 'desc') => {
+    return createSelector(
+        postsEntitiesSelector,
+        (posts) => {
+            return posts &&  _.orderBy(Object.keys(posts)
+            .map(id => posts[id])
+            .filter(post => category === 'all' || post.category === category),[filter],[order])
+        } 
+    )
+}
+
+
+/* 
+export const getPosts = (filter = 'timestamp') => {
+    return createSelector(
+        postsEntitiesSelector,
+        (posts) => {
+            return posts &&  Object.keys(posts)
+            .sort((a,b) => posts[b][`${filter}`] - posts[a][`${filter}`])
+            .reduce((acc,curr) => ({
+                ...acc, [curr.id] : posts[curr.id]
+            }),{})
+        } 
+    )
+}
+ */

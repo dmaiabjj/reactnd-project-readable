@@ -22,7 +22,6 @@ export const Creators = {
         return (dispatch) => {
             return getAllCategories()
               .then((categories) => dispatch(Creators.fetchSuccess(categories)))
-              .then(() => dispatch(SharedCreators.loading(false)))
               .catch(function(error) {
                 dispatch(SharedCreators.failure(error))
               });

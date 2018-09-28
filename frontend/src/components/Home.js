@@ -46,11 +46,12 @@ class Home extends Component {
     }
 }
 
-function mapStateToProps (state) {
+function mapStateToProps (state,ownProps) {
     const {categories,app} = state;
+    const getPostsFiltered = getPosts(ownProps.match.params.id)
     return {
         categories,
-        posts : getPosts(state),
+        posts : getPostsFiltered(state),
         app 
     }
 }
