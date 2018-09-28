@@ -71,18 +71,3 @@ export const getPosts = (category = 'all',filter = 'timestamp',order = 'desc') =
     )
 }
 
-
-/* 
-export const getPosts = (filter = 'timestamp') => {
-    return createSelector(
-        postsEntitiesSelector,
-        (posts) => {
-            return posts &&  Object.keys(posts)
-            .sort((a,b) => posts[b][`${filter}`] - posts[a][`${filter}`])
-            .reduce((acc,curr) => ({
-                ...acc, [curr.id] : posts[curr.id]
-            }),{})
-        } 
-    )
-}
- */

@@ -7,6 +7,8 @@ import Footer from './presentational/Footer'
 import AddPostButton from './presentational/AddPostButton'
 import Post from './presentational/Post'
 import CategoryOption from './presentational/CategoryOption'
+import SearchNotFound from './presentational/SearchNotFound'
+import If from './conditionals/If'
 
 import {Creators} from '../store/features/shared'
 import {getPosts} from '../store/features/post'
@@ -20,6 +22,18 @@ class Home extends Component {
         this.props.getAllData()
     }
 
+    ShowComponent = () => {
+        if(this.props.app.fetched && this.props.posts.length <= 0)
+            return <SearchNotFound/>
+        else{
+            return (
+                this.props.posts.map(post => (
+                    <Post key={post.id} post={post}></Post>
+                ))
+            )
+        }
+    }
+
    render() {
        console.log(this.props)
         return (
@@ -30,13 +44,11 @@ class Home extends Component {
                         <div className="col col-lg-12 col-md-12 col-sm-12 col-12">
                             <div className="clients-grid">
                                 <CategoryOption currentCategory= {this.props.match.params.id} categories={this.props.categories}></CategoryOption>
-                                <div className="row sorting-container" id="clients-grid-1" data-layout="masonry">
-                                    {this.props.posts && this.props.posts.map(post => (
-                                            <Post key={post.id} post={post}></Post>
-                                    ))} 
-                                   </div>
                             </div>
                         </div>
+                        {
+                            this.ShowComponent()
+                        }
                     </div>
                 </div>
                 <AddPostButton></AddPostButton>

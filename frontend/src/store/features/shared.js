@@ -13,7 +13,8 @@ export const Types = {
 
 const INITIAL_STATE = {
     loading : false,
-    error   : null
+    error   : null,
+    fetched : false
 }
 
 /* Action Creators */
@@ -59,13 +60,13 @@ export default function reducer(state = INITIAL_STATE,action)
 {
     switch(action.type){
         case PostTypes.FETCH_SUCCESS:
-            return {...state,loading: false}
+            return {...state,loading: false,fetched:true}
         case CategoryTypes.FETCH_SUCCESS:
             return {...state,loading: false}
         case Types.LOADING:
-            return {...state,loading: action.loading}
+            return {...state,loading: action.loading,fetched:false}
         case Types.ACTION_FAILURE: 
-        return {...state,loading:false,error: action.error}
+        return {...state,loading:false,error: action.error,fetched:true}
         default:
             return state
     }

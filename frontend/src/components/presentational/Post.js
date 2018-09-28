@@ -33,7 +33,7 @@ function Post({post}) {
                     <Link className="post-category bg-primary" to={`/post/category/${post.category}`}>
                         {post.category}
                     </Link>
-                    <div className="post__author author vcard inline-items">
+                    <div className="post__author author vcard ">
                         <div className="author-date">
                             <span className="h6 post__author-name fn">{post.author}</span>
                             <div className="post__date">
@@ -70,7 +70,7 @@ function Post({post}) {
                                 <title>Votes</title>
                                 <use xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-heart-icon"></use>
                             </svg>
-                            <span>8</span>
+                            <span>{post.voteScore}</span>
                         </div>
                         <ul className="friends-harmonic off">
                             <li>
@@ -84,7 +84,7 @@ function Post({post}) {
                             </li>
                         </ul>
                         <div className="names-people-likes">
-                            {post.voteScore}
+                            0
                         </div>
                         <div className="comments-shared">
                             <div className="post-add-icon inline-items">

@@ -22,7 +22,6 @@ export const Creators = {
             SharedCreators.loading(true);
             return getCommentsByPostId(postId)
               .then((comments) => dispatch(Creators.fetchSuccess(comments)))
-              .then(() => dispatch(SharedCreators.loading(false)))
               .catch(function(error) {
                 dispatch(SharedCreators.failure(error))
               });
