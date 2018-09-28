@@ -6185,6 +6185,8 @@ ol ol li {
   border-bottom: 1px solid #e6ecf5; }
   .post p {
     margin: 25px 0; }
+    .post .more {
+      float:right; }
   .post .control-block-button {
     top: 20px;
     right: -17px; }
@@ -6326,6 +6328,15 @@ ol ol li {
   width: 34px;
   height: 34px;
   line-height: 36px; }
+  
+  .post-control-button .btn-control.active {
+    background-color :#ff5e3a;
+  }
+
+  .post-control-button .btn-control.inactive {
+    background-color : #9a9fbf;
+  }
+
   .post-control-button .btn-control.bg-facebook {
     background-color: #2f5b9d; }
     .post-control-button .btn-control.bg-facebook:hover {

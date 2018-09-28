@@ -37,7 +37,6 @@ export const Creators = {
     * @description Executa a api buscando os dados iniciais.
     * Step 1 - Sucesso - Dispacha a ação de FETCH_SUCCESS dos posts e categories
     * Step 2 - Falha   - Dispacha a ação de FAILURE
-    * Step Padrão      - Dispacha a ação negando o loading
     */
     handleInitialData () {
         return (dispatch) => {

@@ -1,13 +1,13 @@
-import { getAllPosts } from '../../utilities/api'
+import { getAllPosts,deletePost } from '../../utilities/api'
 import { Creators as SharedCreators} from './shared'
 import { createSelector } from 'reselect'
-import _ from 'lodash'
+import _ , {omit} from 'lodash'
 /* Action Types */
 export const Types = {
     FETCH           : 'POSTS/FETCH',
     FETCH_SUCCESS   : 'POSTS/FETCH_SUCCESS',
-    ADD             : 'POSTS/ADD',
-    ADD_SUCCESS     : 'POSTS/ADD_SUCCESS'
+    DELETE          : 'POSTS/DELETE',
+    DELETE_SUCCESS  : 'POSTS/DELETE_SUCCESS'
 }
 
 const INITIAL_STATE = {}
@@ -18,7 +18,6 @@ export const Creators = {
     * @description Executa a api buscando todos os posts cadastrados.
     * Step 1 - Sucesso - Dispacha a ação de FETCH_SUCCESS
     * Step 2 - Falha   - Dispacha a ação de FAILURE
-    * Step Padrão      - Dispacha a ação negando o loading
     */
     fetch:() => {
         return (dispatch) => {
@@ -36,7 +35,28 @@ export const Creators = {
     fetchSuccess:(posts) => ({
         type: Types.FETCH_SUCCESS,
         posts
-    })
+    }),
+     /**
+    * @description Executa a api deletando o post.
+    * Step 1 - Sucesso - Dispacha a ação de DELETE_SUCCESS
+    * Step 2 - Falha   - Dispacha a ação de FAILURE
+    */
+   delete:(id) => {
+    return (dispatch) => {
+         return deletePost(id)
+          .then((post) => dispatch(Creators.deleteSuccess(post.id)))
+          .catch(function(error) {
+            dispatch(SharedCreators.failure(error))
+          });
+      }
+},
+    /**
+    * @description Retorna a ação de DELETE_SUCCESS
+    */
+   deleteSuccess:(id) => ({
+    type: Types.DELETE_SUCCESS,
+    id
+})
 }
 
 
@@ -49,6 +69,8 @@ export default function reducer(state = INITIAL_STATE,action)
                 ...state,
                 ...action.posts,
             }
+        case Types.DELETE_SUCCESS:
+            return omit(state, action.id);
         default:
             return state
     }

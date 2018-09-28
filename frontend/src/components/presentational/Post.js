@@ -4,36 +4,39 @@ import {Link} from 'react-router-dom'
 import {formatDate} from '../../utilities/helpers'
 
 const propTypes = {
-    post : PropTypes.object.isRequired
+    post : PropTypes.object.isRequired,
+    delete : PropTypes.func.isRequired
 };
 
-const defaultProps  = {
-    post : {
-        id: '8xf0y6ziyjabvozdd253nd',
-        timestamp: 1467166872634,
-        title: 'Udacity is the best place to learn React',
-        body: 'Everyone says so after all.',
-        author: 'thingtwo',
-        category: 'react',
-        voteScore: 6,
-        deleted: false,
-        commentCount: 10
-    }
-};
 
 /**
 * @description 
 * Componente que representa um resumo do post dentro da lista de posts carregados
+* @param {Object} post       Post
+* @param {Function} deletePost   Método responsável por deletar o post
 */
-function Post({post}) {
+function Post({post, deletePost})  {
     return (
         <div className="col col-xl-6 col-lg-6 col-md-12 col-sm-12  sorting-item family animals natural politics">
             <div className="ui-block">
                 <article className="hentry post">
+                    <div className="more">
+                        <svg className="olymp-three-dots-icon">
+                            <use xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
+                        </svg>
+                        <ul className="more-dropdown">
+                            <li>
+                                <Link to={`/post/edit/${post.id}`}>Edit Post</Link>
+                            </li>
+                            <li>
+                                <a href="">Delete Post</a>
+                            </li>
+                        </ul>
+                    </div>
                     <Link className="post-category bg-primary" to={`/post/category/${post.category}`}>
                         {post.category}
                     </Link>
-                    <div className="post__author author vcard ">
+                    <div className="post__author author vcard inline-items">
                         <div className="author-date">
                             <span className="h6 post__author-name fn">{post.author}</span>
                             <div className="post__date">
@@ -41,19 +44,6 @@ function Post({post}) {
                                     {formatDate(post.timestamp)}
                                 </time>
                             </div>
-                        </div>
-                        <div className="more">
-                            <svg className="olymp-three-dots-icon">
-                                <use xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
-                            </svg>
-                            <ul className="more-dropdown">
-                                <li>
-                                    <Link to={`/post/edit/${post.id}`}>Edit Post</Link>
-                                </li>
-                                <li>
-                                    <a href="">Delete Post</a>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                     <h4>
@@ -70,7 +60,7 @@ function Post({post}) {
                                 <title>Votes</title>
                                 <use xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-heart-icon"></use>
                             </svg>
-                            <span>{post.voteScore}</span>
+                            <span>{post.votes.length}</span>
                         </div>
                         <ul className="friends-harmonic off">
                             <li>
@@ -96,20 +86,6 @@ function Post({post}) {
                             </div>
                         </div>
                     </div>
-                    <div className="control-block-button post-control-button">
-                        <a href="" className="btn btn-control">
-                            <svg className="olymp-like-post-icon" role="img">
-                                <title>Vote Up</title>
-                                <use xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-like-post-icon"></use>
-                            </svg>
-                        </a>
-                        <Link className="btn btn-control" to={`/post/${post.id}`}>
-                            <svg className="olymp-comments-post-icon">
-                                <title>Comentar</title>
-                                <use xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-comments-post-icon"></use>
-                            </svg>   
-                        </Link>
-                    </div>
                 </article>
             </div>
         </div>
@@ -118,6 +94,5 @@ function Post({post}) {
 }
 
 Post.propTypes    = propTypes;
-Post.defaultProps = defaultProps;
 
 export default Post

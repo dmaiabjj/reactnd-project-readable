@@ -15,7 +15,6 @@ export const Creators = {
     * @description Executa a api buscando todas as categorias de posts cadastradas.
     * Step 1 - Sucesso - Dispacha a ação de FETCH_SUCCESS
     * Step 2 - Falha   - Dispacha a ação de FAILURE
-    * Step Padrão      - Dispacha a ação negando o loading
     */
     fetch:() => {
         SharedCreators.loading(true);

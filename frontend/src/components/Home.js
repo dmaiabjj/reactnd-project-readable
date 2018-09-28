@@ -8,9 +8,9 @@ import AddPostButton from './presentational/AddPostButton'
 import Post from './presentational/Post'
 import CategoryOption from './presentational/CategoryOption'
 import SearchNotFound from './presentational/SearchNotFound'
-import If from './conditionals/If'
 
-import {Creators} from '../store/features/shared'
+import {Creators as SharedCreators} from '../store/features/shared'
+import {Creators as PostCreators} from '../store/features/post'
 import {getPosts} from '../store/features/post'
 
 /**
@@ -70,7 +70,8 @@ function mapStateToProps (state,ownProps) {
 
 function mapDispatchToProps (dispatch) {
     return {
-       getAllData: () =>  dispatch(Creators.handleInitialData())
+       getAllData: ()   =>  dispatch(SharedCreators.handleInitialData()),
+       deletePost: (id) =>  dispatch(PostCreators.deletePost(id))
     }
 }
 
