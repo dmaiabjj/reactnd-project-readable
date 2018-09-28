@@ -1,6 +1,6 @@
 import React from 'react'
-import Head from "./presentational/Head"
-import Footer from "./presentational/Footer"
+import Head from './presentational/Head'
+import Footer from './presentational/Footer'
 /**
 * @description 
 * Componente que representa a página Post

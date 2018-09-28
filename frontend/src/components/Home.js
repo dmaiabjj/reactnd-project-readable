@@ -21,7 +21,7 @@ class Home extends Component {
     }
 
    render() {
-        console.log(this.props.posts)
+       console.log(this.props)
         return (
             <Fragment>
                 <Head></Head>
@@ -31,10 +31,10 @@ class Home extends Component {
                             <div className="clients-grid">
                                 <CategoryOption currentCategory= {this.props.match.params.id} categories={this.props.categories}></CategoryOption>
                                 <div className="row sorting-container" id="clients-grid-1" data-layout="masonry">
-                                {this.props.posts.map(post => (
-                                    <Post post={post}></Post>
-                                ))} 
-                                </div>
+                                    {this.props.posts && this.props.posts.map(post => (
+                                            <Post key={post.id} post={post}></Post>
+                                    ))} 
+                                   </div>
                             </div>
                         </div>
                     </div>
@@ -47,10 +47,11 @@ class Home extends Component {
 }
 
 function mapStateToProps (state) {
-    console.log(state)
+    const {categories,app} = state;
     return {
-        categories : state.categories,
-        posts : getPosts(state)
+        categories,
+        posts : getPosts(state),
+        app 
     }
 }
 

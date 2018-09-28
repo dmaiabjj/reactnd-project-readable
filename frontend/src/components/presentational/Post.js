@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom'
+import {formatDate} from '../../utilities/helpers'
 
 const propTypes = {
     post : PropTypes.object.isRequired
@@ -37,7 +38,7 @@ function Post({post}) {
                             <span className="h6 post__author-name fn">{post.author}</span>
                             <div className="post__date">
                                 <time className="published" dateTime="2004-07-24T18:18">
-                                    {post.timestamp}
+                                    {formatDate(post.timestamp)}
                                 </time>
                             </div>
                         </div>

@@ -64,5 +64,7 @@ const postsIdsSelector      = state => state.posts.ids
 export const getPosts = createSelector(
     postsEntitiesSelector,
     postsIdsSelector,
-    (entities,ids) => ids.map(id => entities[id])
+    (entities,ids) => {
+        return ids && ids.map(id => entities[id])
+    } 
   )

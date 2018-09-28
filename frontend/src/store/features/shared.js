@@ -62,9 +62,9 @@ export default function reducer(state = INITIAL_STATE,action)
 {
     switch(action.type){
         case Types.LOADING:
-            return action.loading
+            return {...state,loading: action.loading}
         case Types.ACTION_FAILURE: 
-            return action.error
+        return {...state,error: action.error}
         default:
             return state
     }
