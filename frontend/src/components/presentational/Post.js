@@ -4,23 +4,34 @@ import {Link} from 'react-router-dom'
 import {formatDate} from '../../utilities/helpers'
 
 const propTypes = {
-    post : PropTypes.object.isRequired,
-    delete : PropTypes.func.isRequired
+    post : PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        category: PropTypes.string.isRequired,
+        author: PropTypes.string.isRequired,
+        timestamp: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        body: PropTypes.string.isRequired,
+        votes: PropTypes.arrayOf(PropTypes.string).isRequired,
+        commentCount : PropTypes.number.isRequired
+      }).isRequired,
+      isOwner : PropTypes.bool.isRequired,
+      onDeletePost : PropTypes.func.isRequired
 };
 
 
 /**
 * @description 
 * Componente que representa um resumo do post dentro da lista de posts carregados
-* @param {Object} post       Post
-* @param {Function} deletePost   Método responsável por deletar o post
+* @param {Object} post              Post
+* @param {Boolean} isOwner          Informa se o usuário logado é o dono do post
+* @param {Function} onDeletePost    Método responsável por deletar o post
 */
-function Post({post, deletePost})  {
+function Post({post,isOwner, onDeletePost,})  {
     return (
         <div className="col col-xl-6 col-lg-6 col-md-12 col-sm-12  sorting-item family animals natural politics">
             <div className="ui-block">
                 <article className="hentry post">
-                    <div className="more">
+                    {isOwner && <div className="more">
                         <svg className="olymp-three-dots-icon">
                             <use xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
                         </svg>
@@ -29,10 +40,11 @@ function Post({post, deletePost})  {
                                 <Link to={`/post/edit/${post.id}`}>Edit Post</Link>
                             </li>
                             <li>
-                                <a href="">Delete Post</a>
+                                <a href="" onClick={(event) => onDeletePost(post.id,event)}>Delete Post</a>
                             </li>
                         </ul>
                     </div>
+                    }
                     <Link className="post-category bg-primary" to={`/post/category/${post.category}`}>
                         {post.category}
                     </Link>

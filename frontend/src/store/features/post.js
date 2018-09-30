@@ -1,7 +1,7 @@
 import { getAllPosts,deletePost } from '../../utilities/api'
 import { Creators as SharedCreators} from './shared'
 import { createSelector } from 'reselect'
-import _ , {omit} from 'lodash'
+import _ from 'lodash'
 /* Action Types */
 export const Types = {
     FETCH           : 'POSTS/FETCH',
@@ -46,10 +46,11 @@ export const Creators = {
          return deletePost(id)
           .then((post) => dispatch(Creators.deleteSuccess(post.id)))
           .catch(function(error) {
+              console.log(error)
             dispatch(SharedCreators.failure(error))
           });
       }
-},
+    },
     /**
     * @description Retorna a ação de DELETE_SUCCESS
     */
@@ -70,7 +71,7 @@ export default function reducer(state = INITIAL_STATE,action)
                 ...action.posts,
             }
         case Types.DELETE_SUCCESS:
-            return omit(state, action.id);
+            return _.omit(state, action.id);
         default:
             return state
     }

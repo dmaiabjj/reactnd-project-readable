@@ -23,12 +23,14 @@ class Home extends Component {
     }
 
     ShowComponent = () => {
-        if(this.props.app.fetched && this.props.posts.length <= 0)
+        const {posts,authUser,app,deletePost} = this.props;
+
+        if(app.fetched && posts.length <= 0)
             return <SearchNotFound/>
         else{
             return (
-                this.props.posts.map(post => (
-                    <Post key={post.id} post={post}></Post>
+                posts.map(post => (
+                    <Post key={post.id} post={post} isOwner={post.author === authUser.name} onDeletePost={deletePost}></Post>
                 ))
             )
         }
@@ -59,11 +61,12 @@ class Home extends Component {
 }
 
 function mapStateToProps (state,ownProps) {
-    const {categories,app} = state;
+    const {categories,app,user} = state;
     const getPostsFiltered = getPosts(ownProps.match.params.id)
     return {
         categories,
         posts : getPostsFiltered(state),
+        authUser : user,
         app 
     }
 }
@@ -71,7 +74,10 @@ function mapStateToProps (state,ownProps) {
 function mapDispatchToProps (dispatch) {
     return {
        getAllData: ()   =>  dispatch(SharedCreators.handleInitialData()),
-       deletePost: (id) =>  dispatch(PostCreators.deletePost(id))
+       deletePost: (id,event) => {
+           event.preventDefault();
+           dispatch(PostCreators.delete(id))
+       }
     }
 }
 

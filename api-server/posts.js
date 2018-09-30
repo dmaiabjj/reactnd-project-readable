@@ -8,9 +8,10 @@ const defaultData = {
     timestamp: 1467166872634,
     title: 'Udacity is the best place to learn React',
     body: 'Everyone says so after all.',
-    author: 'thingtwo',
+    author: 'Udacity',
     category: 'react',
-    voteScore: 6,
+    votes: ['udacity','Jonh','Michael'],
+    voteScore: -5,
     deleted: false,
     commentCount: 2
   },
@@ -21,6 +22,7 @@ const defaultData = {
     body: 'Just kidding. It takes more than 10 minutes to learn technology.',
     author: 'thingone',
     category: 'redux',
+    votes: ['udacity','Jonh','Michael'],
     voteScore: -5,
     deleted: false,
     commentCount: 0
@@ -32,6 +34,7 @@ const defaultData = {
     body: 'Just kidding. It takes more than 10 minutes to learn technology.',
     author: 'thingone',
     category: 'redux',
+    votes: ['udacity','Jonh','Michael'],
     voteScore: -5,
     deleted: false,
     commentCount: 0
@@ -43,6 +46,7 @@ const defaultData = {
     body: 'Just kidding. It takes more than 10 minutes to learn technology.',
     author: 'thingone',
     category: 'redux',
+    votes: ['udacity','Jonh','Michael'],
     voteScore: -5,
     deleted: false,
     commentCount: 0

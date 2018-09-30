@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom'
 
 const propTypes = {
-    categories              : PropTypes.array.isRequired,
+    categories : PropTypes.arrayOf(PropTypes.shape({
+        name : PropTypes.string.isRequired,
+        path : PropTypes.string.isRequired,
+    })).isRequired,
     currentCategory         : PropTypes.string
 };
 
