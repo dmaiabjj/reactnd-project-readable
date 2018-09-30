@@ -1,9 +1,10 @@
-import React from 'react'
+import React,{PureComponent} from 'react'
+import Select from 'react-select';
 import PropTypes from 'prop-types';
 
+
 const propTypes = {
-    categoryID             : PropTypes.string.isRequired,
-    searchPostByCategory   : PropTypes.func.isRequired
+    search   : PropTypes.func.isRequired
 };
 
 /**
@@ -11,29 +12,63 @@ const propTypes = {
 * Componente que irá mostrar as opções de ordenação das categorias
 *
 * @constructor
-* @param {String} categoryID                Identificador da Categoria
-* @param {Function} searchPostByCategory    Função que irá fazer o filtro de uma categoria específica
+* @param {Function} search    Função que irá fazer o filtro de uma categoria específica
 */
-function FilterBy({categoryID,searchPostByCategory}) {
-    return (
-        <div className="ui-block responsive-flex1200">
-            <div className="ui-block-title">
-                <div className="w-select">
-                    <div className="title">Filtrar por:</div>
+class FilterBy extends PureComponent {
+    state = {
+        propertySelected: "timestamp",
+        ordinationSelected: "desc"
+      }
+
+      handlePropertyChange = (option) => {
+        this.setState({ propertySelected : option.value });
+        this.props.search(this.state.propertySelected,this.state.ordinationSelected)
+      }
+
+      handleOrdinationChange = (option) => {
+        this.setState({ ordinationSelected : option.value });
+        this.props.search(this.state.propertySelected,this.state.ordinationSelected)
+      }
+
+    properties = [
+        { value: 'timestamp', label: 'Data' },
+        { value: 'voteScore', label: 'Vote' }
+      ];
+
+    ordination = [
+        { value: 'asc', label: 'Crescente' },
+        { value: 'desc', label: 'Decrescente' }
+    ];
+    
+
+    render () {
+        return (
+            <div className="ui-block responsive-flex">
+                <div className="ui-block-title">
+                    <div className="h6 title">FilterBy: </div>
                     <div className="w-select">
-                        <fieldset className="form-group">
-                            <select className="selectpicker form-control" onChange={(event) => {searchPostByCategory(event,categoryID)}}>
-                                <option value="DD">Data &#8595;</option>
-                                <option value="DA">Date &#x02191;</option>
-                                <option value="VD">Vote &#8595;</option>
-                                <option value="VA">Vote &#x02191;</option>
-                            </select>
-                        </fieldset>
+                        <div className="form-group label-floating is-select">
+                            <Select
+                                defaultValue={this.properties[0]}
+                                options={this.properties}
+                                onChange={this.handlePropertyChange}
+                            />
+                        </div>
+                    </div>
+                    <div className="h6 title">Ordem: </div>
+                    <div className="w-select">
+                        <div className="form-group label-floating is-select">
+							<Select
+                                defaultValue={this.ordination[0]}
+                                options={this.ordination}
+                                onChange={this.handleOrdinationChange}
+                            />
+						</div>
                     </div>
                 </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
 FilterBy.propTypes = propTypes;

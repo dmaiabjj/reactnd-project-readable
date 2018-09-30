@@ -26,7 +26,7 @@ const propTypes = {
 * @param {Boolean} isOwner          Informa se o usuário logado é o dono do post
 * @param {Function} onDeletePost    Método responsável por deletar o post
 */
-function Post({post,isOwner, onDeletePost,})  {
+function Post({post,isOwner, onDeletePost})  {
     return (
         <div className="col col-xl-6 col-lg-6 col-md-12 col-sm-12  sorting-item family animals natural politics">
             <div className="ui-block">

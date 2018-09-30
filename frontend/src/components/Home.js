@@ -1,43 +1,38 @@
-import React,{Fragment, Component} from 'react'
+import React,{Fragment, PureComponent} from 'react'
 import {withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import Head from './presentational/Head'
 import Footer from './presentational/Footer'
 import AddPostButton from './presentational/AddPostButton'
-import Post from './presentational/Post'
 import CategoryOption from './presentational/CategoryOption'
-import SearchNotFound from './presentational/SearchNotFound'
+import FilterBy from './presentational/FilterBy'
+import PostList from './presentational/PostList'
 
 import {Creators as SharedCreators} from '../store/features/shared'
-import {Creators as PostCreators} from '../store/features/post'
-import {getPosts} from '../store/features/post'
 
 /**
 * @description 
 * Componente que representa a página Home
 */
-class Home extends Component {
+class Home extends PureComponent {
+
+    state = {
+        filter: "timestamp",
+        order:  "asc"
+    }
+
+    handleFilter = (filter,order) => {
+        console.log(order)
+        this.setState({filter,order})
+    }
+
     componentDidMount() {
         this.props.getAllData()
     }
 
-    ShowComponent = () => {
-        const {posts,authUser,app,deletePost} = this.props;
-
-        if(app.fetched && posts.length <= 0)
-            return <SearchNotFound/>
-        else{
-            return (
-                posts.map(post => (
-                    <Post key={post.id} post={post} isOwner={post.author === authUser.name} onDeletePost={deletePost}></Post>
-                ))
-            )
-        }
-    }
-
-   render() {
-       console.log(this.props)
+    render() {
+        console.log("Home: ",this.props)
         return (
             <Fragment>
                 <Head></Head>
@@ -46,11 +41,10 @@ class Home extends Component {
                         <div className="col col-lg-12 col-md-12 col-sm-12 col-12">
                             <div className="clients-grid">
                                 <CategoryOption currentCategory= {this.props.match.params.id} categories={this.props.categories}></CategoryOption>
+                                <FilterBy search={this.handleFilter}></FilterBy>
                             </div>
                         </div>
-                        {
-                            this.ShowComponent()
-                        }
+                        <PostList category={this.props.match.params.id} filter={this.state.filter} order={this.state.order}></PostList>
                     </div>
                 </div>
                 <AddPostButton></AddPostButton>
@@ -60,26 +54,17 @@ class Home extends Component {
     }
 }
 
-function mapStateToProps (state,ownProps) {
-    const {categories,app,user} = state;
-    const getPostsFiltered = getPosts(ownProps.match.params.id)
+function mapStateToProps (state) {
+    const {categories} = state;
     return {
-        categories,
-        posts : getPostsFiltered(state),
-        authUser : user,
-        app 
+        categories
     }
 }
 
 function mapDispatchToProps (dispatch) {
     return {
-       getAllData: ()   =>  dispatch(SharedCreators.handleInitialData()),
-       deletePost: (id,event) => {
-           event.preventDefault();
-           dispatch(PostCreators.delete(id))
-       }
+       getAllData: ()   =>  dispatch(SharedCreators.handleInitialData())
     }
 }
-
 
 export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Home))

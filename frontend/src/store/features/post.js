@@ -83,7 +83,7 @@ export default function reducer(state = INITIAL_STATE,action)
 const postsEntitiesSelector = state => state.posts
 
 
-export const getPosts = (category = 'all',filter = 'timestamp',order = 'desc') => {
+export const getPosts = (category = 'all',filter='timestamp',order='asc') => {
     return createSelector(
         postsEntitiesSelector,
         (posts) => {
@@ -93,4 +93,5 @@ export const getPosts = (category = 'all',filter = 'timestamp',order = 'desc') =
         } 
     )
 }
+
 
