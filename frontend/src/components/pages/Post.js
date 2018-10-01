@@ -8,12 +8,17 @@ import Footer from '../presentational/Footer'
 
 
 import {Creators as PostCreators,getPostById} from '../../store/features/post'
+import {Creators as SharedCreators} from '../../store/features/shared'
 
 /**
 * @description 
 * Componente que representa a página Post
 */
 class Post extends PureComponent {
+
+    componentDidMount() {
+        this.props.getAllData()
+    }
 
     render() {
         const {post,authUser,deletePost} = this.props
@@ -22,7 +27,9 @@ class Post extends PureComponent {
                 <Head></Head>
                 <div className="container negative-margin-top150">
                     <div className="col col-xl-8 m-auto col-lg-12 col-md-12 col-sm-12 col-12">
-                        <PostDetail post={post} isOwner={post.author === authUser.name} onDeletePost={deletePost}></PostDetail>
+                    {post
+                        && <PostDetail post={post} isOwner={post.author === authUser.name} onDeletePost={deletePost}></PostDetail>
+                    }
                     </div>
                 </div>
                 <Footer></Footer>
@@ -33,6 +40,7 @@ class Post extends PureComponent {
 
 
 function mapStateToProps (state,ownProps) {
+    console.log(state)
     const {user} = state;
     const {match} = ownProps;
     return {
@@ -46,7 +54,8 @@ function mapDispatchToProps (dispatch) {
         deletePost: (id,event) => {
             event.preventDefault();
             dispatch(PostCreators.delete(id))
-        }
+        },
+        getAllData: ()   =>  dispatch(SharedCreators.handleInitialData())
     }
 }
 
