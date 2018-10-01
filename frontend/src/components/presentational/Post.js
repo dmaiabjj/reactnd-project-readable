@@ -72,7 +72,7 @@ function Post({post,isOwner, onDeletePost})  {
                                 <title>Votes</title>
                                 <use xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-heart-icon"></use>
                             </svg>
-                            <span>{post.votes.length}</span>
+                            <span>{post.voteScore}</span>
                         </div>
                         <ul className="friends-harmonic off">
                             <li>
