@@ -37,10 +37,10 @@ function Post({post,isOwner, onDeletePost})  {
                         </svg>
                         <ul className="more-dropdown">
                             <li>
-                                <Link to={`/post/edit/${post.id}`}>Edit Post</Link>
+                                <Link to={`/post/edit/${post.id}`}>Editar Post</Link>
                             </li>
                             <li>
-                                <a href="" onClick={(event) => onDeletePost(post.id,event)}>Delete Post</a>
+                                <a href="" onClick={(event) => onDeletePost(post.id,event)}>Apagar Post</a>
                             </li>
                         </ul>
                     </div>
@@ -52,7 +52,7 @@ function Post({post,isOwner, onDeletePost})  {
                         <div className="author-date">
                             <span className="h6 post__author-name fn">{post.author}</span>
                             <div className="post__date">
-                                <time className="published" dateTime="2004-07-24T18:18">
+                                <time className="published" dateTime={formatDate(post.timestamp)}>
                                     {formatDate(post.timestamp)}
                                 </time>
                             </div>

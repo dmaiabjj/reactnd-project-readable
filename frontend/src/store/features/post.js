@@ -83,13 +83,23 @@ export default function reducer(state = INITIAL_STATE,action)
 const postsEntitiesSelector = state => state.posts
 
 
-export const getPosts = (category = 'all',filter='timestamp',order='asc') => {
+export const getPostByFilter = (category = 'all',filter='timestamp',order='asc') => {
     return createSelector(
         postsEntitiesSelector,
         (posts) => {
             return posts &&  _.orderBy(Object.keys(posts)
             .map(id => posts[id])
             .filter(post => category === 'all' || post.category === category),[filter],[order])
+        } 
+    )
+}
+
+export const getPostById = (id) => {
+    return createSelector(
+        postsEntitiesSelector,
+        (posts) => {
+            console.log(posts)
+            return posts && posts[id]
         } 
     )
 }

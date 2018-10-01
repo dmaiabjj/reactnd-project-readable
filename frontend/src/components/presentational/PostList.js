@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import SearchNotFound from './SearchNotFound'
 import Post from './Post'
 
-import {Creators as PostCreators,getPosts} from '../../store/features/post'
+import {Creators as PostCreators,getPostByFilter} from '../../store/features/post'
 
 
 const propTypes = {
@@ -55,7 +55,7 @@ function mapStateToProps (state,ownProps) {
     const {user,app} = state;
     const {category,filter,order} = ownProps;
     return {
-        posts : getPosts(category,filter,order)(state),
+        posts : getPostByFilter(category,filter,order)(state),
         authUser : user,
         app
     }

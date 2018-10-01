@@ -2,14 +2,14 @@ import React,{Fragment, PureComponent} from 'react'
 import {withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import Head from './presentational/Head'
-import Footer from './presentational/Footer'
-import AddPostButton from './presentational/AddPostButton'
-import CategoryOption from './presentational/CategoryOption'
-import FilterBy from './presentational/FilterBy'
-import PostList from './presentational/PostList'
+import Head from '../presentational/Head'
+import Footer from '../presentational/Footer'
+import AddPostButton from '../presentational/AddPostButton'
+import CategoryOption from '../presentational/CategoryOption'
+import FilterBy from '../presentational/FilterBy'
+import PostList from '../presentational/PostList'
 
-import {Creators as SharedCreators} from '../store/features/shared'
+import {Creators as SharedCreators} from '../../store/features/shared'
 
 /**
 * @description 
