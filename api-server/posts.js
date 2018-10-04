@@ -10,7 +10,7 @@ const defaultData = {
     body: 'Everyone says so after all.',
     author: 'Udacity',
     category: 'react',
-    votes:[],
+    votes:[{name: 'thingtwo',option: 'upVote',value: 1},{name: 'carlos',option: 'downVote',value: -1}],
     deleted: false,
     commentCount: 2
   },
@@ -106,14 +106,13 @@ function add (token, post) {
   })
 }
 
-function vote (token, id, option) {
+function vote (token, id,user, option) {
   return new Promise((res) => {
     let posts = getData(token)
     post = posts[id]
 
     function checkVote(votes,vote) {
-      const previous = votes.filter((v) => v.user === vote.user)
-      
+      const previous = votes.find((v) => v.user === vote.user)
       if(previous === undefined)
         return votes.concat([vote])
       if(previous.option === vote.option)
@@ -125,14 +124,15 @@ function vote (token, id, option) {
 
     switch(option) {
       case "upVote":
-          post.votes = checkVote(comment.votes,{user,option,value: 1})
+          post.votes = checkVote(post.votes,{user,option,value: 1})
           break
       case "downVote":
-          post.votes = checkVote(comment.votes,{user,option,value: -1})
+          post.votes = checkVote(post.votes,{user,option,value: -1})
           break
       default:
           console.log(`comments.vote received incorrect parameter: ${option}`)
     }
+    console.log(post)
     res(post)
   })
 }

@@ -78,7 +78,7 @@ export const Creators = {
     update:(comment) => {
         return (dispatch) => {
             return updateComment(comment.id,comment.timestamp,comment.body)
-            .then((result) => dispatch(Creators.addSuccess(result)))
+            .then((result) => dispatch(Creators.updateSuccess(result)))
             .catch(function(error) {
             dispatch(SharedCreators.failure(error))
             });

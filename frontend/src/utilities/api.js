@@ -53,7 +53,7 @@ export const upOrDownPostVote = (id,user,option) =>
         body: JSON.stringify({ option,user })
     })
         .then(res => res.json())
-        .then(data => data.post)
+        .then(post => post)
 
 export const updatePost = (id,title,body) =>
     fetch(`${api}/posts/${id}`, {

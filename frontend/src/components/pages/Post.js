@@ -24,8 +24,10 @@ class Post extends PureComponent {
             getAllData()
         
     }
+    
     render() {
-        const {post,authUser,deletePost} = this.props
+        
+        const {post,authUser,deletePost,voteComment} = this.props
         return (
             <div>
                 <Head></Head>
@@ -36,11 +38,12 @@ class Post extends PureComponent {
                         <Fragment>
                             <PostDetail 
                                 post={post} 
-                                isOwner={post.author === authUser.name} 
+                                authUser={authUser} 
                                 onDeletePost={deletePost}
+                                onVotePost={voteComment}
                             />
                             <CommentContainer 
-                                post={post} 
+                                postId={post.id} 
                                 user={authUser}
                             />
                         </Fragment>
@@ -72,6 +75,10 @@ function mapDispatchToProps (dispatch) {
         },
         getAllData: ()              =>  {
             dispatch(PostCreators.fetch())
+        },
+        voteComment: (id,user,option,event) => {
+            event.preventDefault();
+            dispatch(PostCreators.vote(id,user,option))
         }
     }
 }

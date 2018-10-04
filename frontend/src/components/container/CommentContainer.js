@@ -8,8 +8,10 @@ import CommentForm from '../presentational/CommentForm';
 import {Creators as CommentCreators} from '../../store/features/comment'
 
 /**
-* @description 
-* Componente que representa a Sessão referente a comentários
+*@description 
+*Componente que representa a Sessão referente a comentários
+* @param {String} postId                    Id do Post referente aos comentários
+* @param {Object} user                      Usuário logado
 */
 class CommentContainer extends PureComponent {
 
@@ -33,7 +35,6 @@ class CommentContainer extends PureComponent {
     */
    onHandleComment = (comment) =>{
         const {addComment,updateComment} = this.props 
-        console.log(comment)
         if(comment.is_new)
             addComment(comment);
         else
@@ -43,18 +44,18 @@ class CommentContainer extends PureComponent {
     render() {
        
         const {comment} = this.state
-        const {post,user} = this.props
+        const {postId,user} = this.props
         return (
                 <Fragment>
-                    {post
+                    {postId
                         && 
                         <Fragment>
                             <CommentList 
-                                postId={post.id} 
+                                postId={postId} 
                                 onHandleSetComment={this.onHandleSetComment} 
                             />
                             <CommentForm 
-                                postId={post.id}
+                                postId={postId}
                                 comment={comment} 
                                 user={user} 
                                 onHandleComment={this.onHandleComment} 
