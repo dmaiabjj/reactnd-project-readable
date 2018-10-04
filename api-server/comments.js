@@ -10,7 +10,7 @@ const defaultData = {
     timestamp: 1468166872634,
     body: 'Hi there! I am a COMMENT.',
     author: 'thingtwo',
-    voteScore: 6,
+    votes:[],
     deleted: false,
     parentDeleted: false
   },
@@ -19,8 +19,8 @@ const defaultData = {
     parentId: "8xf0y6ziyjabvozdd253nd",
     timestamp: 1469479767190,
     body: 'Comments. Are. Cool.',
-    author: 'thingone',
-    voteScore: -5,
+    author: 'Udacity',
+    votes:[],
     deleted: false,
     parentDeleted: false
   }
@@ -64,7 +64,7 @@ function add (token, comment) {
       body: comment.body,
       author: comment.author,
       parentId: comment.parentId,
-      voteScore: 1,
+      votes: [],
       deleted: false,
       parentDeleted: false
     }
@@ -74,16 +74,30 @@ function add (token, comment) {
   })
 }
 
-function vote (token, id, option) {
+function vote (token, id,user, option) {
   return new Promise((res) => {
     let comments = getData(token)
     comment = comments[id]
+
+    function checkVote(votes,vote) {
+      const previous = votes.find((v) => v.user === vote.user)
+      
+      if(previous === undefined)
+        return votes.concat([vote])
+      if(previous.option === vote.option)
+        return votes.filter((v) => v.user !== vote.user)
+      else
+        return votes.filter((v) => v.user !== vote.user).concat([vote])
+
+    }
+
+
     switch(option) {
         case "upVote":
-            comment.voteScore = comment.voteScore + 1
+            comment.votes = checkVote(comment.votes,{user,option,value: 1})
             break
         case "downVote":
-            comment.voteScore = comment.voteScore - 1
+            comment.votes = checkVote(comment.votes,{user,option,value: -1})
             break
         default:
             console.log(`comments.vote received incorrect parameter: ${option}`)

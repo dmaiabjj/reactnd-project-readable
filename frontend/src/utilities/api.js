@@ -43,14 +43,14 @@ export const getPostById = (id) =>
         .then(res => res.json())
         .then(data => data.post)
 
-export const upOrDownPostVote = (id,option) =>
+export const upOrDownPostVote = (id,user,option) =>
     fetch(`${api}/posts/${id}`, {
         method: 'POST',
         headers: {
         ...headers,
         'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ option })
+        body: JSON.stringify({ option,user })
     })
         .then(res => res.json())
         .then(data => data.post)
@@ -80,9 +80,9 @@ export const deletePost = (id) =>
 export const getCommentsByPostId = (id) =>
     fetch(`${api}/posts/${id}/comments`, { headers })
         .then(res => res.json())
-        .then(data => data.comments)
+        .then(comments => comments)
 
-export const addCommentPost = (comment) =>
+export const addComment = (comment) =>
     fetch(`${api}/comment`, {
         method: 'POST',
         headers: {
@@ -99,17 +99,18 @@ export const getCommentById = (id) =>
         .then(res => res.json())
         .then(comment => comment)
 
-export const upOrDownCommentVote = (id,option) =>
+export const upOrDownCommentVote = (id,user,option) =>
     fetch(`${api}/comments/${id}`, {
         method: 'POST',
         headers: {
         ...headers,
         'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ option })
+        body: JSON.stringify({ user,option })
     })
         .then(res => res.json())
         .then(comment => comment)
+        
 
 export const updateComment = (id,timestamp,body) =>
     fetch(`${api}/comments/${id}`, {

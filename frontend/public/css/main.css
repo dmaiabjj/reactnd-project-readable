@@ -2494,7 +2494,8 @@ p {
   font-size: .875rem; }
 
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  color: #515365; }
+  color: #515365; 
+margin: 0px,5px,0,5px;}
 
 .nav-tabs .nav-item {
   position: relative; }
@@ -6415,7 +6416,7 @@ ol ol li {
     .comments-list .comment-item.has-children {
       padding-bottom: 0; }
   .comments-list .post-add-icon {
-    margin-right: 20px; }
+    margin-right: 2px; }
   .comments-list .post__author img {
     width: 26px;
     height: 26px; }

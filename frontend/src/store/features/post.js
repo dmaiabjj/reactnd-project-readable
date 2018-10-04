@@ -83,6 +83,15 @@ export default function reducer(state = INITIAL_STATE,action)
 const postsEntitiesSelector = state => state.posts
 
 
+/**
+* @description          
+* Filtras os posts através dos filtros passados
+*
+* @param   {String} category    Categoria
+* @param   {String} filter      Filtro
+* @param   {String} order       Ordenação
+* @returns {Function}           Retorna uma função que recebe o state e faz o filtro dos posts pelo category, filter e order
+*/
 export const getPostByFilter = (category = 'all',filter='timestamp',order='asc') => {
     return createSelector(
         postsEntitiesSelector,
@@ -94,11 +103,17 @@ export const getPostByFilter = (category = 'all',filter='timestamp',order='asc')
     )
 }
 
+/**
+* @description          
+* Busca um post especifico
+*
+* @param   {Number} id      Id do post
+* @returns {Function}       Retorna uma função que recebe o state e faz o filtro dos comments pelo postID
+*/
 export const getPostById = (id) => {
     return createSelector(
         postsEntitiesSelector,
         (posts) => {
-            console.log(posts)
             return posts && posts[id]
         } 
     )

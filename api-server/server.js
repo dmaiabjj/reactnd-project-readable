@@ -208,9 +208,9 @@ app.delete('/posts/:id', (req, res) => {
 })
 
 app.post('/posts/:id', bodyParser.json(), (req, res) => {
-    const { option } = req.body
+    const { option,user } = req.body
     const id = req.params.id
-    posts.vote(req.token, id, option)
+    posts.vote(req.token, id,user, option)
       .then(
           (data) => res.send(data),
           (error) => {
@@ -288,8 +288,8 @@ app.post('/comments', bodyParser.json(), (req, res) => {
 })
 
 app.post('/comments/:id', bodyParser.json(), (req, res) => {
-    const { option } = req.body
-    comments.vote(req.token, req.params.id, option)
+    const { option,user } = req.body
+    comments.vote(req.token, req.params.id,user, option)
       .then(
           (data) => res.send(data),
           (error) => {

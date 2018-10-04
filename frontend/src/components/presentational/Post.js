@@ -11,7 +11,11 @@ const propTypes = {
         timestamp: PropTypes.number.isRequired,
         title: PropTypes.string.isRequired,
         body: PropTypes.string.isRequired,
-        votes: PropTypes.arrayOf(PropTypes.string).isRequired,
+        votes: PropTypes.arrayOf(PropTypes.shape({
+            user : PropTypes.string.isRequired,
+            option : PropTypes.string.isRequired,
+            value : PropTypes.number.isRequired
+        })).isRequired,
         commentCount : PropTypes.number.isRequired
       }).isRequired,
       isOwner : PropTypes.bool.isRequired,
@@ -50,7 +54,7 @@ function Post({post,isOwner, onDeletePost})  {
                     </Link>
                     <div className="post__author author vcard inline-items">
                         <div className="author-date">
-                            <span className="h6 post__author-name fn">{post.author}</span>
+                            <span className="h6 post__author-name fn"> {post.author} </span>
                             <div className="post__date">
                                 <time className="published" dateTime={formatDate(post.timestamp)}>
                                     {formatDate(post.timestamp)}
@@ -72,7 +76,12 @@ function Post({post,isOwner, onDeletePost})  {
                                 <title>Votes</title>
                                 <use xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-heart-icon"></use>
                             </svg>
-                            <span>{post.voteScore}</span>
+                            <span>
+                                {post.votes.reduce((acc,vote) => {
+                                        return acc + vote.value
+                                    },0)
+                                }
+                            </span>
                         </div>
                         <ul className="friends-harmonic off">
                             <li>

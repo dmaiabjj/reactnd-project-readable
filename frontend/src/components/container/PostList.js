@@ -2,8 +2,8 @@ import React,{Fragment,PureComponent} from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types';
 
-import SearchNotFound from './SearchNotFound'
-import Post from './Post'
+import SearchNotFound from '../presentational/SearchNotFound'
+import Post from '../presentational/Post'
 
 import {Creators as PostCreators,getPostByFilter} from '../../store/features/post'
 
@@ -25,23 +25,33 @@ const propTypes = {
 */
 class PostList extends PureComponent {
 
-    
+
+    /**
+    * @description          
+    * Verifica se foi feito o fetch e se o resultado contém posts e mostra a pagina de acordo com o retorno
+    * @returns {React.Component}     Retorna um componente React de acordo com o resultado
+    */
     ShowComponent = () => {
         const {app,posts,authUser,deletePost} = this.props;
 
         if(app.fetched && posts.length <= 0)
             return <SearchNotFound/>
         else{
+            
             return (
                 posts.map(post => (
-                    <Post key={post.id} post={post} isOwner={post.author === authUser.name} onDeletePost={deletePost}></Post>
+                    <Post 
+                        key={post.id} 
+                        post={post} 
+                        isOwner={post.author === authUser.name} 
+                        onDeletePost={deletePost}
+                    />
                 ))
             )
         }
     }
 
     render() {
-        console.log("PostList: ",this.props)
         return (
             <Fragment>
                  {this.ShowComponent()}

@@ -10,8 +10,7 @@ const defaultData = {
     body: 'Everyone says so after all.',
     author: 'Udacity',
     category: 'react',
-    votes: ['udacity','Jonh','Michael'],
-    voteScore: -1,
+    votes:[],
     deleted: false,
     commentCount: 2
   },
@@ -22,8 +21,7 @@ const defaultData = {
     body: 'Just kidding. It takes more than 10 minutes to learn technology.',
     author: 'thingone',
     category: 'redux',
-    votes: ['udacity','Jonh','Michael'],
-    voteScore: 0,
+    votes:[],
     deleted: false,
     commentCount: 0
   },
@@ -34,8 +32,7 @@ const defaultData = {
     body: 'Just kidding. It takes more than 10 minutes to learn technology.',
     author: 'thingone',
     category: 'redux',
-    votes: ['udacity','Jonh','Michael'],
-    voteScore: 1,
+    votes:[],
     deleted: false,
     commentCount: 0
   },
@@ -46,8 +43,7 @@ const defaultData = {
     body: 'Just kidding. It takes more than 10 minutes to learn technology.',
     author: 'thingone',
     category: 'redux',
-    votes: ['udacity','Jonh','Michael'],
-    voteScore: 2,
+    votes:[],
     deleted: false,
     commentCount: 0
   }
@@ -101,7 +97,7 @@ function add (token, post) {
       body: post.body,
       author: post.author,
       category: post.category,
-      voteScore: 1,
+      votes: [],
       deleted: false,
       commentCount: 0
     }
@@ -114,15 +110,28 @@ function vote (token, id, option) {
   return new Promise((res) => {
     let posts = getData(token)
     post = posts[id]
+
+    function checkVote(votes,vote) {
+      const previous = votes.filter((v) => v.user === vote.user)
+      
+      if(previous === undefined)
+        return votes.concat([vote])
+      if(previous.option === vote.option)
+        return votes.filter((v) => v.user !== vote.user)
+      else
+        return votes.filter((v) => v.user !== vote.user).concat([vote])
+
+    }
+
     switch(option) {
-        case "upVote":
-            post.voteScore = post.voteScore + 1
-            break
-        case "downVote":
-            post.voteScore = post.voteScore - 1
-            break
-        default:
-            console.log(`posts.vote received incorrect parameter: ${option}`)
+      case "upVote":
+          post.votes = checkVote(comment.votes,{user,option,value: 1})
+          break
+      case "downVote":
+          post.votes = checkVote(comment.votes,{user,option,value: -1})
+          break
+      default:
+          console.log(`comments.vote received incorrect parameter: ${option}`)
     }
     res(post)
   })

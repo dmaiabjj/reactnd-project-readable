@@ -7,7 +7,7 @@ import Footer from '../presentational/Footer'
 import AddPostButton from '../presentational/AddPostButton'
 import CategoryOption from '../presentational/CategoryOption'
 import FilterBy from '../presentational/FilterBy'
-import PostList from '../presentational/PostList'
+import PostList from '../container/PostList'
 
 import {Creators as SharedCreators} from '../../store/features/shared'
 
@@ -22,8 +22,12 @@ class Home extends PureComponent {
         order:  "asc"
     }
 
+    /**
+    * @description Seta os filtros a serem passados pro Component PostList pra ser usado na busca dos posts
+    * @param   {String} filter    Campo a ser usado como filtro dos posts
+    * @param   {String} order     Ordenação da busca
+    */
     handleFilter = (filter,order) => {
-        console.log(order)
         this.setState({filter,order})
     }
 
@@ -32,7 +36,6 @@ class Home extends PureComponent {
     }
 
     render() {
-        console.log("Home: ",this.props)
         return (
             <Fragment>
                 <Head></Head>
@@ -40,11 +43,20 @@ class Home extends PureComponent {
                     <div className="row">
                         <div className="col col-lg-12 col-md-12 col-sm-12 col-12">
                             <div className="clients-grid">
-                                <CategoryOption currentCategory= {this.props.match.params.id} categories={this.props.categories}></CategoryOption>
-                                <FilterBy search={this.handleFilter}></FilterBy>
+                                <CategoryOption 
+                                    currentCategory= {this.props.match.params.id} 
+                                    categories={this.props.categories}
+                                />
+                                <FilterBy 
+                                    search={this.handleFilter} 
+                                />
                             </div>
                         </div>
-                        <PostList category={this.props.match.params.id} filter={this.state.filter} order={this.state.order}></PostList>
+                        <PostList 
+                            category={this.props.match.params.id} 
+                            filter={this.state.filter} 
+                            order={this.state.order}
+                        />
                     </div>
                 </div>
                 <AddPostButton></AddPostButton>

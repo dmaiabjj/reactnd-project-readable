@@ -11,7 +11,11 @@ const propTypes = {
         timestamp: PropTypes.number.isRequired,
         title: PropTypes.string.isRequired,
         body: PropTypes.string.isRequired,
-        votes: PropTypes.arrayOf(PropTypes.string).isRequired,
+        votes: PropTypes.arrayOf(PropTypes.shape({
+            user : PropTypes.string.isRequired,
+            option : PropTypes.string.isRequired,
+            value : PropTypes.number.isRequired
+        })).isRequired,
         commentCount : PropTypes.number.isRequired
       }).isRequired,
       isOwner : PropTypes.bool.isRequired,
@@ -39,12 +43,12 @@ function PostDetail({post,isOwner,onDeletePost})  {
                             </a>
                             <ul className="more-dropdown">
                                 <li>
-                                <Link className="post-category bg-primary" to={`/post/edit/${post.id}`}>
+                                <Link to={`/post/edit/${post.id}`}>
                                     Editar Post
                                 </Link>
                                 </li>
                                 <li>
-                                    <a href="">Apagar Post</a>
+                                    <a href="" onClick={(event) => onDeletePost(post.id,event)}>Apagar Post</a>
                                 </li>
                             </ul>
                         </div>
@@ -55,8 +59,8 @@ function PostDetail({post,isOwner,onDeletePost})  {
                 </Link>
                 <h1 className="post-title">{post.title}</h1>
                 <div className="author-date">
-                    by 
-                    <span className="h6 post__author-name fn">{ post.author }</span>
+                    by
+                    <span className="h6 post__author-name fn"> { post.author } </span>
                     <div className="post__date">
                         <time className="published" dateTime={formatDate(post.timestamp)}>
                             {formatDate(post.timestamp)}
@@ -69,7 +73,12 @@ function PostDetail({post,isOwner,onDeletePost})  {
                             <div className="post-add-icon inline-items">
                                 <svg className="olymp-heart-icon">
                                     <use xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-heart-icon"></use></svg>
-                                <span>{post.voteScore}</span>
+                                    <span>
+                                        {post.votes.reduce((acc,vote) => {
+                                                return acc + vote.value
+                                            },0)
+                                        }
+                                    </span>
                             </div>
                         </li>
                         <li>

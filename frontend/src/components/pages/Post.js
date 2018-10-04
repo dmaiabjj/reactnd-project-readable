@@ -1,14 +1,17 @@
-import React,{PureComponent} from 'react'
+import React,{PureComponent,Fragment} from 'react'
 import {withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import Head from '../presentational/Head'
-import PostDetail from '../presentational/PostDetail'
 import Footer from '../presentational/Footer'
+import PostDetail from '../presentational/PostDetail'
 
 
 import {Creators as PostCreators,getPostById} from '../../store/features/post'
 import {Creators as SharedCreators} from '../../store/features/shared'
+import CommentContainer from '../container/CommentContainer';
+
+
 
 /**
 * @description 
@@ -17,9 +20,11 @@ import {Creators as SharedCreators} from '../../store/features/shared'
 class Post extends PureComponent {
 
     componentDidMount() {
-        this.props.getAllData()
+        const { post,getAllData} = this.props;
+        if(post === undefined)
+            getAllData()
+        
     }
-
     render() {
         const {post,authUser,deletePost} = this.props
         return (
@@ -28,8 +33,20 @@ class Post extends PureComponent {
                 <div className="container negative-margin-top150">
                     <div className="col col-xl-8 m-auto col-lg-12 col-md-12 col-sm-12 col-12">
                     {post
-                        && <PostDetail post={post} isOwner={post.author === authUser.name} onDeletePost={deletePost}></PostDetail>
+                        && 
+                        <Fragment>
+                            <PostDetail 
+                                post={post} 
+                                isOwner={post.author === authUser.name} 
+                                onDeletePost={deletePost}
+                            />
+                            <CommentContainer 
+                                post={post} 
+                                user={authUser}
+                            />
+                        </Fragment>
                     }
+                    
                     </div>
                 </div>
                 <Footer></Footer>
@@ -40,7 +57,6 @@ class Post extends PureComponent {
 
 
 function mapStateToProps (state,ownProps) {
-    console.log(state)
     const {user} = state;
     const {match} = ownProps;
     return {
@@ -55,7 +71,9 @@ function mapDispatchToProps (dispatch) {
             event.preventDefault();
             dispatch(PostCreators.delete(id))
         },
-        getAllData: ()   =>  dispatch(SharedCreators.handleInitialData())
+        getAllData: ()              =>  {
+            dispatch(SharedCreators.handleInitialData())
+        }
     }
 }
 
