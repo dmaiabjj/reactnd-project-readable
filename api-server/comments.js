@@ -10,7 +10,7 @@ const defaultData = {
     timestamp: 1468166872634,
     body: 'Hi there! I am a COMMENT.',
     author: 'thingtwo',
-    votes:[],
+    votes:[{name: 'thingtwo',option: 'upVote',value: 1}],
     deleted: false,
     parentDeleted: false
   },
@@ -57,7 +57,6 @@ function get (token, id) {
 function add (token, comment) {
   return new Promise((res) => {
     let comments = getData(token)
-
     comments[comment.id] = {
       id: comment.id,
       timestamp: comment.timestamp,
@@ -68,7 +67,8 @@ function add (token, comment) {
       deleted: false,
       parentDeleted: false
     }
-
+    console.log(comment.id)
+    console.log(comments)
     posts.incrementCommentCounter(token, comment.parentId, 1)
     res(comments[comment.id])
   })
@@ -81,7 +81,6 @@ function vote (token, id,user, option) {
 
     function checkVote(votes,vote) {
       const previous = votes.find((v) => v.user === vote.user)
-      
       if(previous === undefined)
         return votes.concat([vote])
       if(previous.option === vote.option)
@@ -126,6 +125,8 @@ function disable (token, id) {
 }
 
 function edit (token, id, comment) {
+  console.log(id)
+   console.log(comment)
     return new Promise((res) => {
         let comments = getData(token)
         for (prop in comment) {

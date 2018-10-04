@@ -9,7 +9,7 @@ import {Creators as CommentCreators,getCommentsByPost} from '../../store/feature
 
 const propTypes = {
     postId : PropTypes.string.isRequired,
-    onHandleComment : PropTypes.func.isRequired
+    onHandleSetComment : PropTypes.func.isRequired
 };
 
 
@@ -17,8 +17,8 @@ const propTypes = {
 /**
 * @description 
 * Componente que representa a lista de comentários do post carregado
-* @param {String} postId                Id do post atual
-* @param {Function} onHandleComment     Função que atualiza ou adiciona um novo comentário ao post
+* @param {String} postId                    Id do post atual
+* @param {Function} onHandleSetComment      Função que atualiza ou adiciona um novo comentário ao post
 */
 class CommentList extends PureComponent {
 
@@ -35,8 +35,8 @@ class CommentList extends PureComponent {
     */
     onBindComment = (comment,event) => {
         event.preventDefault()
-        const { postId,onHandleComment} = this.props;
-        onHandleComment({
+        const { postId,onHandleSetComment} = this.props;
+        onHandleSetComment({
             ...comment,parentId : postId
         }); 
     }
@@ -49,13 +49,13 @@ class CommentList extends PureComponent {
                     <h5 className="heading-title">Comments ({comments.length})</h5>
                 </div>
                 <ul className="comments-list">
-                    {comments 
+                    {comments && authUser
                         && 
                         comments.map(comment => (
                             <CommentDetail 
                                 key={comment.id} 
                                 comment={comment} 
-                                isOwner={comment.author === authUser.name} 
+                                authUser={authUser} 
                                 onDeleteComment={deleteComment} 
                                 onBindComment={this.onBindComment} 
                                 onVoteComment={voteComment}

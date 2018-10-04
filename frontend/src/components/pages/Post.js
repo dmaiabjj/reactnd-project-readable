@@ -8,7 +8,6 @@ import PostDetail from '../presentational/PostDetail'
 
 
 import {Creators as PostCreators,getPostById} from '../../store/features/post'
-import {Creators as SharedCreators} from '../../store/features/shared'
 import CommentContainer from '../container/CommentContainer';
 
 
@@ -72,7 +71,7 @@ function mapDispatchToProps (dispatch) {
             dispatch(PostCreators.delete(id))
         },
         getAllData: ()              =>  {
-            dispatch(SharedCreators.handleInitialData())
+            dispatch(PostCreators.fetch())
         }
     }
 }

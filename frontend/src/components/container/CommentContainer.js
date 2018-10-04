@@ -21,14 +21,29 @@ class CommentContainer extends PureComponent {
     * @description Seta o comment a ser atualizado e enviado ao form.
     * @param   {Object} comment  Comentário
     */
-    onHandleComment = (comment) => {
+    onHandleSetComment = (comment) => {
         this.setState({comment})
+    }
+
+
+    /**
+    * @description 
+    * Faz o bind do objeto comentário para realizar a inserção ou atualização
+    * @param {Event} event  Evento do click do botão
+    */
+   onHandleComment = (comment) =>{
+        const {addComment,updateComment} = this.props 
+        console.log(comment)
+        if(comment.is_new)
+            addComment(comment);
+        else
+            updateComment(comment);
     }
 
     render() {
        
         const {comment} = this.state
-        const {post,user,addComment,updateComment} = this.props
+        const {post,user} = this.props
         return (
                 <Fragment>
                     {post
@@ -36,13 +51,13 @@ class CommentContainer extends PureComponent {
                         <Fragment>
                             <CommentList 
                                 postId={post.id} 
-                                onHandleComment={this.onHandleComment} 
+                                onHandleSetComment={this.onHandleSetComment} 
                             />
                             <CommentForm 
+                                postId={post.id}
                                 comment={comment} 
                                 user={user} 
-                                onAddComment={addComment} 
-                                onUpdateComment={updateComment}
+                                onHandleComment={this.onHandleComment} 
                             />
                         </Fragment>
                     }
@@ -53,12 +68,10 @@ class CommentContainer extends PureComponent {
 
 function mapDispatchToProps (dispatch) {
     return {
-        addComment: (comment,event) => {
-            event.preventDefault();
+        addComment: (comment) => {
             dispatch(CommentCreators.add(comment))
         },
-        updateComment: (comment,event) => {
-            event.preventDefault();
+        updateComment: (comment) => {
             dispatch(CommentCreators.update(comment))
         }
     }

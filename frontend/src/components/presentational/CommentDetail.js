@@ -11,7 +11,10 @@ const propTypes = {
         author: PropTypes.string.isRequired,
         votes: PropTypes.array.isRequired
       }).isRequired,
-      isOwner : PropTypes.bool.isRequired,
+      authUser : PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        avatar : PropTypes.string.isRequired
+      }).isRequired,
       onDeleteComment   : PropTypes.func.isRequired,
       onBindComment     : PropTypes.func.isRequired,
       onVoteComment     : PropTypes.func.isRequired
@@ -22,13 +25,18 @@ const propTypes = {
 * @description 
 * Componente que representa um resumo do post dentro da lista de posts carregados
 * @param {Object} comment              Comment
-* @param {Boolean} isOwner             Informa se o usuário logado é o dono do comment
+* @param {Object} authUser             Informa se o usuário logado é o dono do comment
 * @param {Function} onDeleteComment    Método responsável por deletar o comment
 * @param {Function} onBindComment      Método responsável por criar um comentário para adição ou atualização
 * @param {Function} onVoteComment      Método responsável pelo votescore do comentário
 
 */
-function CommentDetail({comment,isOwner,onDeleteComment,onBindComment,onVoteComment})  {
+function CommentDetail({comment,authUser,onDeleteComment,onBindComment,onVoteComment})  {
+
+    const setClassName = (comment,authUser,option) =>{
+        const vote = comment.votes.find((v) => v.user === authUser.name && v.option === option)
+        return (vote) ? "active" : ""
+    }
     return (
         <li className="comment-item">
             <div className="post__author author vcard inline-items">
@@ -40,7 +48,7 @@ function CommentDetail({comment,isOwner,onDeleteComment,onBindComment,onVoteComm
                         </time>
                     </div>
                 </div>
-                {isOwner && 
+                {comment.author === authUser.name && 
                     <div className="more">
                         <svg className="olymp-three-dots-icon">
                             <use xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
@@ -57,13 +65,13 @@ function CommentDetail({comment,isOwner,onDeleteComment,onBindComment,onVoteComm
                 }
             </div>
             <p>{comment.body}</p>
-                <a href="" onClick={(event) => onVoteComment(comment.id,comment.author,"upVote",event)} className="post-add-icon inline-items">
+                <a href="" onClick={(event) => onVoteComment(comment.id,authUser.name,"upVote",event)} className={`post-add-icon inline-items ${setClassName(comment,authUser,"upVote")}`}>
                     <svg className="olymp-heart-icon">
                         <title>Up</title>
                         <use xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-heart-icon"></use>
                     </svg>
                 </a>
-                <a href="" className="post-add-icon inline-items" onClick={(event) => onVoteComment(comment.id,comment.author,"downVote",event)}>
+                <a href="" onClick={(event) => onVoteComment(comment.id,authUser.name,"downVote",event) }className={`post-add-icon inline-items ${setClassName(comment,authUser,"downVote")}`}>
                     <svg id="olymp-heart-icon" viewBox="0 0 36 32" width="100%" height="100%">
                         <title>Down</title>
                         <g transform="translate(35,30) rotate(180)">

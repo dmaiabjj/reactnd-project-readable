@@ -2,6 +2,11 @@ import { getAllPosts,deletePost } from '../../utilities/api'
 import { Creators as SharedCreators} from './shared'
 import { createSelector } from 'reselect'
 import _ from 'lodash'
+
+import { normalize } from 'normalizr';
+import PostSchema  from '../schemas/posts';
+
+
 /* Action Types */
 export const Types = {
     FETCH           : 'POSTS/FETCH',
@@ -23,7 +28,10 @@ export const Creators = {
         return (dispatch) => {
             SharedCreators.loading(true);
             return getAllPosts()
-              .then((posts) => dispatch(Creators.fetchSuccess(posts)))
+              .then((posts) => {
+                const normalized = normalize(posts,PostSchema);
+                dispatch(Creators.fetchSuccess(normalized.entities.posts))
+              })
               .catch(function(error) {
                 dispatch(SharedCreators.failure(error))
               });

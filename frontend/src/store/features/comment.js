@@ -57,7 +57,7 @@ export const Creators = {
    add:(comment) => {
     return (dispatch) => {
          return addComment(comment)
-          .then((post) => dispatch(Creators.addSuccess(comment)))
+          .then((result) => dispatch(Creators.addSuccess(result)))
           .catch(function(error) {
             dispatch(SharedCreators.failure(error))
           });
@@ -75,14 +75,14 @@ export const Creators = {
     * Step 1 - Sucesso - Dispacha a ação de UPDATE_SUCCESS
     * Step 2 - Falha   - Dispacha a ação de FAILURE
     */
-   update:(comment) => {
-    return (dispatch) => {
-         return updateComment(comment.id,comment.timestamp,comment.body)
-          .then((post) => dispatch(Creators.updateSuccess(comment)))
-          .catch(function(error) {
+    update:(comment) => {
+        return (dispatch) => {
+            return updateComment(comment.id,comment.timestamp,comment.body)
+            .then((result) => dispatch(Creators.addSuccess(result)))
+            .catch(function(error) {
             dispatch(SharedCreators.failure(error))
-          });
-      }
+            });
+        }
     },
     /**
     * @description Retorna a ação de UPDATE_SUCCESS
@@ -99,7 +99,7 @@ export const Creators = {
    vote:(id,user,option) => {
     return (dispatch) => {
          return upOrDownCommentVote(id,user,option)
-          .then((comment) => dispatch(Creators.voteSuccess(comment)))
+          .then((comment) => dispatch(Creators.voteSuccess(comment.id,comment.votes)))
           .catch(function(error) {
             dispatch(SharedCreators.failure(error))
           });
@@ -108,9 +108,10 @@ export const Creators = {
     /**
     * @description Retorna a ação de VOTE_SUCCESS
     */
-   voteSuccess:(comment) => ({
+   voteSuccess:(id,votes) => ({
         type: Types.VOTE_SUCCESS,
-        comment
+        id,
+        votes
     }),
     /**
     * @description Executa a api deletando o comment.
@@ -141,14 +142,22 @@ export const Creators = {
 /* Reducer */
 export default function reducer(state = INITIAL_STATE,action)
 {
-    console.log(state)
-    console.log(action)
-    console.log(_.omit(state, action.id))
     switch(action.type){
+        case Types.ADD_SUCCESS:
+        case Types.UPDATE_SUCCESS:
+            return {
+                ...state,
+                [action.comment.id] : action.comment,
+            }
         case Types.FETCH_SUCCESS:
             return {
                 ...state,
                 ...action.comments,
+            }
+        case Types.VOTE_SUCCESS:
+            return {
+                ...state,
+                ...state[action.id].votes = [...action.votes]
             }
         case Types.DELETE_SUCCESS:
             return _.omit(state, action.id);
@@ -179,7 +188,7 @@ export const getCommentsByPost = (postId) => {
         (comments) => {
             return comments &&  _.orderBy(Object.keys(comments)
             .map(id => comments[id])
-            .filter(comment => comment.parentId === postId),['timestamp'],['asc'])
+            .filter(comment => comment.parentId === postId),['timestamp'],['desc'])
         } 
     )
 }

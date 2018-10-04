@@ -1,3 +1,5 @@
+import uuid from 'uuid/v4'
+
 /**
 * @description Recebe o timestamp e tranforma em um formato legivel para ser mostrado
 * @param {number} timestamp
@@ -8,3 +10,13 @@ export function formatDate (timestamp) {
     const time = d.toLocaleTimeString('en-US')
     return time.substr(0, 5) + time.slice(-2) + ' | ' + d.toLocaleDateString()
   }
+
+
+
+  /**
+* @description Gera um UUID 
+* @returns {string} UUID gerado
+*/
+export function genUUID () {
+    return uuid();
+}

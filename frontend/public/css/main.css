@@ -6293,6 +6293,12 @@ ol ol li {
 .post-add-icon {
   fill: #c2c5d9;
   color: #c2c5d9; }
+
+  .post-add-icon.active {
+    fill: #ff5e3a;
+    color: #ff5e3a; 
+  }
+
   .post-add-icon > * {
     vertical-align: middle;
     transition: all .15s ease; }
@@ -6311,9 +6317,6 @@ ol ol li {
     color: #ff5e3a; }
     .post-add-icon:hover span {
       color: #ff5e3a; }
-  .post-add-icon:active, .post-add-icon:focus {
-    fill: #c2c5d9;
-    color: #c2c5d9; }
 
 .names-people-likes {
   font-size: 12px; }
