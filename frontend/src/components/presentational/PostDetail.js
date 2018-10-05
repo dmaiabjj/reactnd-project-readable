@@ -92,6 +92,14 @@ class PostDetail extends Component {
                                             <use xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-heart-icon"></use>
                                         </svg>
                                     </a>
+                                    <a href="" onClick={(event) => onVotePost(post.id,authUser.name,"downVote",event) } className={`post-add-icon inline-items ${this.setClassName("downVote")}`}>
+                                        <svg id="olymp-heart-icon" viewBox="0 0 36 32" width="100%" height="100%">
+                                            <title>Down</title>
+                                            <g transform="translate(35,30) rotate(180)">
+                                                <use xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-heart-icon"></use>
+                                            </g>
+                                        </svg>
+                                    </a>
                                     <span>
                                         {post.votes.reduce((acc,vote) => {
                                                 return acc + vote.value

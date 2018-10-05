@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom'
 import {formatDate} from '../../utilities/helpers'
+import _ from 'lodash'
 
 const propTypes = {
     post : PropTypes.shape({
@@ -12,9 +13,9 @@ const propTypes = {
         title: PropTypes.string.isRequired,
         body: PropTypes.string.isRequired,
         votes: PropTypes.arrayOf(PropTypes.shape({
-            user : PropTypes.string.isRequired,
-            option : PropTypes.string.isRequired,
-            value : PropTypes.number.isRequired
+            user : PropTypes.string,
+            option : PropTypes.string,
+            value : PropTypes.number
         })).isRequired,
         commentCount : PropTypes.number.isRequired
       }).isRequired,
@@ -68,7 +69,10 @@ function Post({post,isOwner, onDeletePost})  {
                         </Link>
                     </h4>
                     <p>
-                       {post.body}
+                       { _.truncate(post.body, {
+                            'length': 500
+                          })
+                       }
                     </p>
                     <div className="post-additional-info inline-items">
                         <div className="post-add-icon inline-items">
