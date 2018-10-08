@@ -40,7 +40,7 @@ const defaultData = {
     timestamp: 1533082201,
     title: 'Learn Redux in 10 minutes!',
     body: 'Just kidding. It takes more than 10 minutes to learn technology.',
-    author: 'thingone',
+    author: 'Udacity',
     category: 'redux',
     votes:[],
     deleted: false,

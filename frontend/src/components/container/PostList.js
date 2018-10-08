@@ -6,7 +6,7 @@ import SearchNotFound from '../presentational/SearchNotFound'
 import Post from '../presentational/Post'
 
 import {Creators as PostCreators,getPostByFilter} from '../../store/features/post'
-
+import {Creators as SharedCreators} from '../../store/features/shared'
 
 const propTypes = {
     category : PropTypes.string,
@@ -33,7 +33,7 @@ class PostList extends PureComponent {
     */
     ShowComponent = () => {
         const {app,posts,authUser,deletePost} = this.props;
-
+        
         if(app.fetched && posts.length <= 0)
             return <SearchNotFound/>
         else{
@@ -52,6 +52,7 @@ class PostList extends PureComponent {
     }
 
     render() {
+        console.log(this.props)
         return (
             <Fragment>
                  {this.ShowComponent()}

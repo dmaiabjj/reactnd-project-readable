@@ -4809,7 +4809,7 @@ fieldset[disabled] .checkbox, fieldset[disabled] .checkbox input[type=checkbox],
 /*------------- #MAIN-HEADER --------------*/
 .main-header {
   padding: 200px 0 0px 0;
-  margin: 0 auto 30px;
+  margin: 0 auto 0px;
   position: relative;
   background-position: 50% 50%; }
   .main-header.main-header-has-header-standard {
@@ -7889,7 +7889,7 @@ font-weight:bold;}
     padding: 0 40px 0 60px;
     overflow: hidden; }
   .single-post-v1 .filter-icons {
-    float: left; }
+    float: left; width: 70px}
     .single-post-v1 .filter-icons li {
       display: block; }
       .single-post-v1 .filter-icons li + li {

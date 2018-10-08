@@ -79,8 +79,11 @@ export const Creators = {
    delete:(id) => {
     return (dispatch) => {
          return deletePost(id)
-          .then((post) => dispatch(Creators.deleteSuccess(post.id)))
-          .catch(function(error) {
+            .then((post) =>{
+                dispatch(SharedCreators.loading(false))
+                dispatch(Creators.deleteSuccess(post.id))
+            }
+            ).catch(function(error) {
               console.log(error)
             dispatch(SharedCreators.failure(error))
           });

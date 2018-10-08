@@ -8,8 +8,8 @@ import Footer from '../presentational/Footer'
 function AddPost() {
     return (
         <div>
-            <Head></Head>
-            <Footer></Footer>
+          <Head></Head>
+          <Footer></Footer>
         </div>
     )
 }

@@ -18,9 +18,9 @@ const App = () => (
     <BrowserRouter>
       <Fragment>
         <Route path="/" exact component={Home} />
+        <Route path="/post/:id" exact component={Post} />
         <Route path="/post/add" component={AddPost} />
         <Route path="/post/category/:id" component={Home} />
-        <Route path="/post/:id" component={Post} />
         </Fragment>
     </BrowserRouter>
   </Provider>

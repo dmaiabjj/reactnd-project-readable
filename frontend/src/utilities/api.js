@@ -17,11 +17,21 @@ export const getAllCategories = () =>
 
 export const getPostsByCategory = (category) =>
     fetch(`${api}/${category}/posts`, { headers })
+    .then(value => new Promise(resolve => {
+        setTimeout(() => {
+            resolve(value);
+        }, 1000);
+    }))
         .then(res => res.json())
         .then(data => data.posts)
 
 export const getAllPosts = () =>
     fetch(`${api}/posts/`, { headers })
+    .then(value => new Promise(resolve => {
+        setTimeout(() => {
+            resolve(value);
+        }, 1000);
+    }))
         .then(res => res.json())
         .then(posts => posts)
 
@@ -51,7 +61,11 @@ export const upOrDownPostVote = (id,user,option) =>
         'Content-Type': 'application/json'
         },
         body: JSON.stringify({ option,user })
-    })
+    }) .then(value => new Promise(resolve => {
+        setTimeout(() => {
+            resolve(value);
+        }, 1000);
+    }))
         .then(res => res.json())
         .then(post => post)
 
@@ -63,7 +77,11 @@ export const updatePost = (id,title,body) =>
         'Content-Type': 'application/json'
         },
         body: JSON.stringify({ title , body })
-    })
+    }) .then(value => new Promise(resolve => {
+        setTimeout(() => {
+            resolve(value);
+        }, 1000);
+    }))
         .then(res => res.json())
         .then(data => data.post)
 
@@ -73,7 +91,11 @@ export const deletePost = (id) =>
         headers: {
         ...headers,
         },
-    })
+    }) .then(value => new Promise(resolve => {
+        setTimeout(() => {
+            resolve(value);
+        }, 1000);
+    }))
         .then(res => res.json())
         .then(post => post)
 

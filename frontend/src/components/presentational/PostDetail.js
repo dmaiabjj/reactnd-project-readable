@@ -44,7 +44,6 @@ class PostDetail extends Component {
 
     render() {
         const {post,authUser,onVotePost,onDeletePost} = this.props
-        console.log(post)
         return (
             <div className="ui-block">
                 <article className="hentry blog-post single-post single-post-v1">
@@ -137,7 +136,7 @@ class PostDetail extends Component {
                         </ul>
                         <div className="post-content">
                             <p>
-                                {post.body}
+                                {post.body.trim()}
                             </p>
                         </div>
                     </div>
