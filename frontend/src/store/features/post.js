@@ -29,7 +29,7 @@ export const Creators = {
     */
     fetch:() => {
         return (dispatch) => {
-            SharedCreators.loading(true);
+            dispatch(SharedCreators.loading(true));
             return getAllPosts()
               .then((posts) => {
                 const normalized = normalize(posts,PostSchema);
@@ -78,9 +78,9 @@ export const Creators = {
     */
    delete:(id) => {
     return (dispatch) => {
+        dispatch(SharedCreators.loading(true));
          return deletePost(id)
             .then((post) =>{
-                dispatch(SharedCreators.loading(false))
                 dispatch(Creators.deleteSuccess(post.id))
             }
             ).catch(function(error) {

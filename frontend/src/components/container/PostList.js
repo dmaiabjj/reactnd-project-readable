@@ -6,7 +6,6 @@ import SearchNotFound from '../presentational/SearchNotFound'
 import Post from '../presentational/Post'
 
 import {Creators as PostCreators,getPostByFilter} from '../../store/features/post'
-import {Creators as SharedCreators} from '../../store/features/shared'
 
 const propTypes = {
     category : PropTypes.string,

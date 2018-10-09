@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import Head from '../presentational/Head'
 import Footer from '../presentational/Footer'
 import PostDetail from '../presentational/PostDetail'
-
+import LoadingLinear from '../presentational/LoadingLinear'
 
 import {Creators as PostCreators,getPostById} from '../../store/features/post'
 import CommentContainer from '../container/CommentContainer';
@@ -27,10 +27,11 @@ class Post extends PureComponent {
     
     render() {
         
-        const {post,authUser,deletePost,voteComment} = this.props
+        const {app,post,authUser,deletePost,voteComment} = this.props
         return (
             <div>
                 <Head></Head>
+                {app.loading && <LoadingLinear col></LoadingLinear>}
                 <div className="container negative-margin-top150">
                     <div className="col col-xl-8 m-auto col-lg-12 col-md-12 col-sm-12 col-12">
                     {post
@@ -59,11 +60,12 @@ class Post extends PureComponent {
 
 
 function mapStateToProps (state,ownProps) {
-    const {user} = state;
+    const {user,app} = state;
     const {match} = ownProps;
     return {
         post : getPostById(match.params.id)(state),
-        authUser : user
+        authUser : user,
+        app
     }
 }
 

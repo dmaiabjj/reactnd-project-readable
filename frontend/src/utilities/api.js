@@ -91,7 +91,11 @@ export const deletePost = (id) =>
         headers: {
         ...headers,
         },
-    }) .then(value => new Promise(resolve => {
+    }).then(value => new Promise(resolve => {
+        setTimeout(() => {
+            resolve(value);
+        }, 1000);
+    })) .then(value => new Promise(resolve => {
         setTimeout(() => {
             resolve(value);
         }, 1000);
@@ -112,7 +116,11 @@ export const addComment = (comment) =>
         'Content-Type': 'application/json'
         },
         body: JSON.stringify(comment)
-    })
+    }).then(value => new Promise(resolve => {
+        setTimeout(() => {
+            resolve(value);
+        }, 1000);
+    }))
         .then(res => res.json())
         .then(comment => comment)
 
@@ -142,7 +150,11 @@ export const updateComment = (id,timestamp,body) =>
         'Content-Type': 'application/json'
         },
         body: JSON.stringify({ timestamp , body })
-    })
+    }).then(value => new Promise(resolve => {
+        setTimeout(() => {
+            resolve(value);
+        }, 1000);
+    }))
         .then(res => res.json())
         .then(comment => comment)
         

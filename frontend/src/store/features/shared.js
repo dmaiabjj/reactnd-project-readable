@@ -1,5 +1,6 @@
 import { getInitialData  } from '../../utilities/api'
 import { Creators as CategoryCreators, Types as CategoryTypes} from './category'
+import { Types as CommentTypes} from './comment'
 import { Creators as PostCreators, Types as PostTypes} from './post'
 
 import { normalize } from 'normalizr';
@@ -61,6 +62,11 @@ export default function reducer(state = INITIAL_STATE,action)
         case PostTypes.FETCH_SUCCESS:
             return {...state,loading: false,fetched:true}
         case CategoryTypes.FETCH_SUCCESS:
+        case CommentTypes.FETCH_SUCCESS:
+        case CommentTypes.ADD_SUCCESS:
+        case CommentTypes.UPDATE_SUCCESS:
+        case PostTypes.ADD_SUCCESS:
+        case PostTypes.UPDATE_SUCCESS:
             return {...state,loading: false}
         case Types.LOADING:
             return {...state,loading: action.loading,fetched:false}

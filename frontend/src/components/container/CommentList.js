@@ -82,7 +82,6 @@ function mapDispatchToProps (dispatch) {
     return {
         deleteComment: (id,event) => {
             event.preventDefault();
-            console.log(id)
             dispatch(CommentCreators.delete(id))
         },
         voteComment: (id,user,option,event) => {

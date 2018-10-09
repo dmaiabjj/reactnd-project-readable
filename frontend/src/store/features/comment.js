@@ -31,7 +31,7 @@ export const Creators = {
     */
     fetch:(postId) => {
         return (dispatch) => {
-            SharedCreators.loading(true);
+            dispatch(SharedCreators.loading(true));
             return getCommentsByPostId(postId)
               .then((comments) => {
                   const normalized = normalize(comments,CommentSchema);
@@ -56,8 +56,11 @@ export const Creators = {
     */
    add:(comment) => {
     return (dispatch) => {
+        dispatch(SharedCreators.loading(true));
          return addComment(comment)
-          .then((result) => dispatch(Creators.addSuccess(result)))
+          .then((result) => {
+              dispatch(Creators.addSuccess(result))
+            })
           .catch(function(error) {
             dispatch(SharedCreators.failure(error))
           });
@@ -77,10 +80,13 @@ export const Creators = {
     */
     update:(comment) => {
         return (dispatch) => {
+            dispatch(SharedCreators.loading(true));
             return updateComment(comment.id,comment.timestamp,comment.body)
-            .then((result) => dispatch(Creators.updateSuccess(result)))
+            .then((result) => { 
+                dispatch(Creators.updateSuccess(result))
+            })
             .catch(function(error) {
-            dispatch(SharedCreators.failure(error))
+                dispatch(SharedCreators.failure(error))
             });
         }
     },
@@ -120,9 +126,11 @@ export const Creators = {
     */
    delete:(id) => {
     return (dispatch) => {
+        dispatch(SharedCreators.loading(true));
          return deleteComment(id)
           .then((comment) => {
               dispatch(Creators.deleteSuccess(comment.id))
+              dispatch(SharedCreators.loading(false))
             })
           .catch(function(error) {
             dispatch(SharedCreators.failure(error))

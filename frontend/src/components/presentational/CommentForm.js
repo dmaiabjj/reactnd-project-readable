@@ -1,6 +1,32 @@
-import React,{Component} from 'react'
+import React,{PureComponent} from 'react'
 import PropTypes from 'prop-types';
 import {genUUID} from '../../utilities/helpers'
+import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
+import green from '@material-ui/core/colors/green';
+import classNames from 'classnames';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
+const styles = {
+   buttonSuccess: {
+      backgroundColor: green[500],
+      '&:hover': {
+        backgroundColor: '#38a9ff',
+      },
+      width: '100%',
+      height: '50px'
+    },
+    buttonNormal: {
+        backgroundColor: '#38a9ff',
+        '&:hover': {
+          backgroundColor: '#38a9ff',
+        },
+        width: '100%',
+        height: '50px'
+    },
+  };
+
+  
 
 const propTypes = {
     comment : PropTypes.shape({
@@ -15,7 +41,8 @@ const propTypes = {
         name: PropTypes.string.isRequired
       }).isRequired,
       postId               : PropTypes.string.isRequired,
-      onHandleComment      : PropTypes.func.isRequired
+      onHandleComment      : PropTypes.func.isRequired,
+      classes: PropTypes.object.isRequired,
 };
 
 const defaultProps  = {
@@ -32,16 +59,17 @@ const defaultProps  = {
 * Componente que representa o form de cadastrou ou atualização de um comment
 * @param {String} comment                   Comment a ser atualizado
 * @param {String} postId                    Id do post a ser inserido o comentário
+* @param {Boolean} loading                  Se é necessário mostrar o loading
 * @param {Function} onHandleComment         Método responsável por adicionar/atualizar um comentário
 */
-class CommentForm extends Component {
+class CommentForm extends PureComponent {
 
     state = {
         comment : this.props.comment
     }
 
     componentWillReceiveProps(props) {
-        this.setState({comment : props.comment}) ;
+         this.setState({comment : props.comment}) ;
     }
     
     /**
@@ -51,6 +79,7 @@ class CommentForm extends Component {
     */
     bindComment(event){
         event.preventDefault();
+        
         const {onHandleComment,user,postId} = this.props
         const {comment}                     = this.state
         const is_new                        = comment.id ?(false) :(true)
@@ -77,12 +106,24 @@ class CommentForm extends Component {
     onInputSearchChange = (event) => {
         event.preventDefault();
         const {comment} = this.state
-        this.setState({comment : Object.assign(comment,{body : event.target.value})}) ;
+        const body =  event.target.value
+        console.log(body)
+        this.setState({comment : {
+            ...comment,
+            ...{body:event.target.value}
+        }}) ;
     };
 
     render() {
-        const {user}    = this.props
-        const {comment} = this.state
+        
+        const {user,classes,loading}            = this.props
+        const {comment}                         = this.state
+        const enabled                           = comment.body.length <= 0 || loading
+        const buttonClassname                   = classNames({
+            [classes.buttonSuccess]: loading,
+            [classes.buttonNormal]: !loading,
+          });
+
         return (
             <div className="ui-block">
                 <div className="crumina-module crumina-heading with-title-decoration">
@@ -102,7 +143,15 @@ class CommentForm extends Component {
                                
                             </textarea>
                         </div>
-                        <a href="" className="btn btn-blue btn-lg full-width" onClick={(event) => this.bindComment(event)}>Post your Comment</a>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            className={buttonClassname}
+                            onClick={(event) => this.bindComment(event)}
+                            disabled={enabled}>
+                            Post your Comment
+                        </Button>
+                        {loading && <CircularProgress size={24} className={classes.buttonProgress} />}
                     </div>
                 </div>
             
@@ -116,4 +165,4 @@ class CommentForm extends Component {
 CommentForm.propTypes    = propTypes;
 CommentForm.defaultProps = defaultProps;
 
-export default CommentForm
+export default withStyles(styles)(CommentForm)

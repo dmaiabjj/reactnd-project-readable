@@ -39,12 +39,15 @@ class CommentContainer extends PureComponent {
             addComment(comment);
         else
             updateComment(comment);
+
+            this.setState({comment : {body: ""}})
+       
     }
 
     render() {
        
         const {comment} = this.state
-        const {postId,user} = this.props
+        const {postId,user,app} = this.props
         return (
                 <Fragment>
                     {postId
@@ -53,11 +56,13 @@ class CommentContainer extends PureComponent {
                             <CommentList 
                                 postId={postId} 
                                 onHandleSetComment={this.onHandleSetComment} 
+                                loading={app.loading}
                             />
                             <CommentForm 
                                 postId={postId}
                                 comment={comment} 
                                 user={user} 
+                                loading={app.loading}
                                 onHandleComment={this.onHandleComment} 
                             />
                         </Fragment>
@@ -66,6 +71,14 @@ class CommentContainer extends PureComponent {
         )
     }
 }
+
+function mapStateToProps (state) {
+    const {app} = state
+    return {
+        app
+    }
+}
+
 
 function mapDispatchToProps (dispatch) {
     return {
@@ -78,5 +91,5 @@ function mapDispatchToProps (dispatch) {
     }
 }
 
-export default withRouter(connect(null,mapDispatchToProps)(CommentContainer))
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(CommentContainer))
 
