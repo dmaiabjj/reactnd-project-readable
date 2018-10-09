@@ -14985,3 +14985,9 @@ input[type=checkbox] {
 .swiper-container.auto-height .swiper-slide {
   height: auto !important; }
 
+
+  .disabled-content {
+    pointer-events: none;
+    opacity: 0.8;
+}
+

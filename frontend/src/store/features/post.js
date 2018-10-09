@@ -76,12 +76,13 @@ export const Creators = {
     * Step 1 - Sucesso - Dispacha a ação de DELETE_SUCCESS
     * Step 2 - Falha   - Dispacha a ação de FAILURE
     */
-   delete:(id) => {
+   delete:(id,history) => {
     return (dispatch) => {
         dispatch(SharedCreators.loading(true));
          return deletePost(id)
             .then((post) =>{
                 dispatch(Creators.deleteSuccess(post.id))
+                history && history.push('/')
             }
             ).catch(function(error) {
               console.log(error)

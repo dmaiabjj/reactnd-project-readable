@@ -7,8 +7,10 @@ import Footer from '../presentational/Footer'
 import PostDetail from '../presentational/PostDetail'
 import LoadingLinear from '../presentational/LoadingLinear'
 
-import {Creators as PostCreators,getPostById} from '../../store/features/post'
 import CommentContainer from '../container/CommentContainer';
+
+import {Creators as PostCreators,getPostById} from '../../store/features/post'
+
 
 
 
@@ -32,7 +34,7 @@ class Post extends PureComponent {
             <div>
                 <Head></Head>
                 {app.loading && <LoadingLinear col></LoadingLinear>}
-                <div className="container negative-margin-top150">
+                <div className={`container negative-margin-top50${app.loading ? ' disabled-content' : ''}`}>
                     <div className="col col-xl-8 m-auto col-lg-12 col-md-12 col-sm-12 col-12">
                     {post
                         && 
@@ -69,11 +71,12 @@ function mapStateToProps (state,ownProps) {
     }
 }
 
-function mapDispatchToProps (dispatch) {
+function mapDispatchToProps (dispatch,ownProps) {
+    const {history} = ownProps
     return {
         deletePost: (id,event) => {
             event.preventDefault();
-            dispatch(PostCreators.delete(id))
+            dispatch(PostCreators.delete(id,history))
         },
         getAllData: ()              =>  {
             dispatch(PostCreators.fetch())

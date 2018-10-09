@@ -94,7 +94,7 @@ export const deletePost = (id) =>
     }).then(value => new Promise(resolve => {
         setTimeout(() => {
             resolve(value);
-        }, 1000);
+        }, 3000);
     })) .then(value => new Promise(resolve => {
         setTimeout(() => {
             resolve(value);
