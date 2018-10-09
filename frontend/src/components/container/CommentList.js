@@ -9,7 +9,8 @@ import {Creators as CommentCreators,getCommentsByPost} from '../../store/feature
 
 const propTypes = {
     postId : PropTypes.string.isRequired,
-    onHandleSetComment : PropTypes.func.isRequired
+    onHandleSetComment : PropTypes.func.isRequired,
+    loading: PropTypes.bool.isRequired
 };
 
 
@@ -18,6 +19,7 @@ const propTypes = {
 * @description 
 * Componente que representa a lista de comentários do post carregado
 * @param {String} postId                    Id do post atual
+* @param {Boolean} loading                  Se é necessário mostrar o loading
 * @param {Function} onHandleSetComment      Função que atualiza ou adiciona um novo comentário ao post
 */
 class CommentList extends PureComponent {
@@ -42,7 +44,7 @@ class CommentList extends PureComponent {
     }
 
     render() {
-        const { comments,authUser,deleteComment,voteComment} = this.props
+        const { comments,authUser,deleteComment,voteComment,loading} = this.props
         return (
             <div className="ui-block">
                 <div className="crumina-module crumina-heading with-title-decoration">
@@ -59,6 +61,7 @@ class CommentList extends PureComponent {
                                 onDeleteComment={deleteComment} 
                                 onBindComment={this.onBindComment} 
                                 onVoteComment={voteComment}
+                                loading={loading}
                             />
                         ))
                     }

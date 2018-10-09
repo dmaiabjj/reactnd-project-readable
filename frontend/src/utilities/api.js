@@ -164,7 +164,11 @@ export const deleteComment = (id) =>
         headers: {
         ...headers,
         },
-    })
+    }).then(value => new Promise(resolve => {
+        setTimeout(() => {
+            resolve(value);
+        }, 1000);
+    }))
         .then(res => res.json())
         .then(comment => comment)
 

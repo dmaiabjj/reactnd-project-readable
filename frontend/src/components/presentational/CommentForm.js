@@ -4,19 +4,10 @@ import {genUUID} from '../../utilities/helpers'
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import green from '@material-ui/core/colors/green';
-import classNames from 'classnames';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 const styles = {
-   buttonSuccess: {
-      backgroundColor: green[500],
-      '&:hover': {
-        backgroundColor: '#38a9ff',
-      },
-      width: '100%',
-      height: '50px'
-    },
-    buttonNormal: {
+  buttonNormal: {
         backgroundColor: '#38a9ff',
         '&:hover': {
           backgroundColor: '#38a9ff',
@@ -24,6 +15,12 @@ const styles = {
         width: '100%',
         height: '50px'
     },
+    buttonProgress: {
+        color: green[500],
+        position: 'absolute',
+        top: '80%',
+        left: '47%'
+      },
   };
 
   
@@ -43,6 +40,7 @@ const propTypes = {
       postId               : PropTypes.string.isRequired,
       onHandleComment      : PropTypes.func.isRequired,
       classes: PropTypes.object.isRequired,
+      loading: PropTypes.bool.isRequired
 };
 
 const defaultProps  = {
@@ -119,11 +117,7 @@ class CommentForm extends PureComponent {
         const {user,classes,loading}            = this.props
         const {comment}                         = this.state
         const enabled                           = comment.body.length <= 0 || loading
-        const buttonClassname                   = classNames({
-            [classes.buttonSuccess]: loading,
-            [classes.buttonNormal]: !loading,
-          });
-
+       
         return (
             <div className="ui-block">
                 <div className="crumina-module crumina-heading with-title-decoration">
@@ -146,7 +140,7 @@ class CommentForm extends PureComponent {
                         <Button
                             variant="contained"
                             color="primary"
-                            className={buttonClassname}
+                            className={classes.buttonNormal}
                             onClick={(event) => this.bindComment(event)}
                             disabled={enabled}>
                             Post your Comment
