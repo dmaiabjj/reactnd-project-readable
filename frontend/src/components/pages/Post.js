@@ -32,7 +32,7 @@ class Post extends PureComponent {
         const {app,post,authUser,deletePost,voteComment} = this.props
         return (
             <div>
-                <Head></Head>
+                <Head img={'/img/blog_bottom.png'}></Head>
                 {app.loading && <LoadingLinear col></LoadingLinear>}
                 <div className={`container negative-margin-top50${app.loading ? ' disabled-content' : ''}`}>
                     <div className="col col-xl-8 m-auto col-lg-12 col-md-12 col-sm-12 col-12">

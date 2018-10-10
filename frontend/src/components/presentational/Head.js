@@ -19,8 +19,9 @@ const defaultProps = {
 * @constructor
 * @param {String} project       Nome do projeto
 * @param {String} description   Breve descrição da página
+* @param {String} img           Path da imagem a ser mostrada no header
 */
-function Head({project,description}) {
+function Head({project,description,img}) {
     return (
         <div className="main-header">
             <div className="content-bg-wrap bg-group"></div>
@@ -34,7 +35,7 @@ function Head({project,description}) {
                     </div>
                 </div>
             </div>
-            <img className="img-bottom" src="/img/blog_bottom.png" alt="Blog"/>
+            <img className="img-bottom" src={img} alt="Blog"/>
         </div>
     )
 }

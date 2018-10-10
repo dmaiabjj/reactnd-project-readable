@@ -89,7 +89,7 @@ class Post extends Component  {
                                     </div>
                                 </div>
                                 <h4>
-                                    <Link to={`/post/${post.id}`}>
+                                    <Link to={`/post/detail/${post.id}`}>
                                             {post.title}
                                     </Link>
                                 </h4>

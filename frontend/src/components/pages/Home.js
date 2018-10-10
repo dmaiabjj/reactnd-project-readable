@@ -41,7 +41,7 @@ class Home extends PureComponent {
         const {app} = this.props;
         return (
             <Fragment>
-                <Head></Head>
+                <Head img={'/img/blog_bottom.png'}></Head>
                 {app.loading && <LoadingLinear col></LoadingLinear>}
                 <div className="container">
                     <div className="row">
