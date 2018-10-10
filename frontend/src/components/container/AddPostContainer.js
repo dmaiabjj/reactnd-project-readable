@@ -1,33 +1,38 @@
 import React,{Fragment, PureComponent} from 'react'
 import Select from 'react-select';
+import {withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-
+import {Creators as SharedCreators} from '../../store/features/shared'
+import {Creators as CategoryCreators} from '../../store/features/category'
+import {Creators as PostCreators} from '../../store/features/post'
 /**
 * @description 
 * Componente que representa o formulário para inserção do Post
 */
 class AddPostContainer extends PureComponent {
 
-    properties = [
-        { value: 'timestamp', label: 'Data' },
-        { value: 'voteScore', label: 'Vote' }
-      ];
+    componentDidMount() {
+        this.props.getAllCategories()
+    }
 
-      customStyles = {
+    customStyles = {
+        placeholder : (base) => ({
+            ...base,
+            padding: '0 0 0 10px'
+        }),
         option: (base) => ({
           ...base,
           padding: 20
         }),
-        control: (base,state) => {
+        control: (base) => {
             return {
                 ...base,
-                height : '60px',
                 backgroundColor: 'transparent',
                 height : '60px',
                 fontSize:'.812rem',
                 lineHeight:'1.5',
                 color:'#495057',
-                backgroundColor:'#fff',
                 border:'1px solid #e6ecf5',
                 borderRadius:'.25rem',
                 transition:'border-color .15s ease-in-out,box-shadow .15s ease-in-out',
@@ -49,6 +54,9 @@ class AddPostContainer extends PureComponent {
 
 
     render() {
+        const {categories} = this.props
+        const defaultValue = categories[0]
+        console.log(defaultValue)
          return (
             <Fragment>
                 <div className="container">
@@ -81,8 +89,8 @@ class AddPostContainer extends PureComponent {
                                             <div className="form-group label-floating is-select">
                                                 <label className="control-label">Select Category</label>
                                                 <Select
-                                                    defaultValue={this.properties[0]}
-                                                    options={this.properties}
+                                                    value={defaultValue}
+                                                    options={categories}
                                                     styles={this.customStyles}
                                                 />
                                             </div>
@@ -94,10 +102,10 @@ class AddPostContainer extends PureComponent {
                                             </div>
                                         </div>
                                         <div className="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                                            <a href="#" className="btn btn-secondary btn-lg full-width">Cancel</a>
+                                            <a href="" className="btn btn-secondary btn-lg full-width">Cancel</a>
                                         </div>
                                         <div className="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                                            <a href="#" className="btn btn-blue btn-lg full-width">Post Topic</a>
+                                            <a href="" className="btn btn-blue btn-lg full-width">Post Topic</a>
                                         </div>
                                     </div>
                                 </div>
@@ -110,5 +118,22 @@ class AddPostContainer extends PureComponent {
    }
 }
 
+function mapStateToProps (state) {
+    const {categories} = state;
+    console.log(categories)
+    return {
+        categories : categories.map((cat) => ({
+            'value' : cat.name,
+            'label' : cat.name.toUpperCase()
+        }))
+    }
+}
 
-export default AddPostContainer
+function mapDispatchToProps (dispatch) {
+    return {
+       getAllCategories: ()   =>  dispatch(CategoryCreators.fetch())
+    }
+}
+
+
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(AddPostContainer))
