@@ -52,10 +52,10 @@ export const addPost = (post) =>
         .then(res => res.json())
         .then(post => post)
 
-export const getPostById = (id) =>
+export const getPostByPostId = (id) =>
     fetch(`${api}/posts/${id}`, { headers })
         .then(res => res.json())
-        .then(data => data.post)
+        .then(post => post)
 
 export const upOrDownPostVote = (id,user,option) =>
     fetch(`${api}/posts/${id}`, {
@@ -80,7 +80,7 @@ export const updatePost = (post) =>
         ...headers,
         'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ post })
+        body: JSON.stringify( post )
     }) .then(value => new Promise(resolve => {
         setTimeout(() => {
             resolve(value);

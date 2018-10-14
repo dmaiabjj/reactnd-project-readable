@@ -159,9 +159,9 @@ function edit (token,post) {
     return new Promise((res) => {
         let posts = getData(token)
         for (prop in post) {
-            posts[id][prop] = post[prop]
+            posts[post.id][prop] = post[prop]
         }
-        res(posts[id])
+        res(posts[post.id])
     })
 }
 

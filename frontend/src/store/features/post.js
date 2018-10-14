@@ -1,4 +1,4 @@
-import {addPost,updatePost, getAllPosts,deletePost,upOrDownPostVote } from '../../utilities/api'
+import {addPost,updatePost, getAllPosts,getPostByPostId,deletePost,upOrDownPostVote } from '../../utilities/api'
 import { Creators as SharedCreators} from './shared'
 import { Types as CommentTypes} from './comment'
 import { createSelector } from 'reselect'
@@ -12,6 +12,7 @@ import PostSchema  from '../schemas/posts';
 export const Types = {
     FETCH           : 'POSTS/FETCH',
     FETCH_SUCCESS   : 'POSTS/FETCH_SUCCESS',
+    FETCH_BY_ID     : 'POSTS/FETCH_BY_ID',
     VOTE            : 'POSTS/VOTE',
     VOTE_SUCCESS    : 'POSTS/VOTE_SUCCESS',
     ADD             : 'POSTS/ADD',
@@ -44,6 +45,24 @@ export const Creators = {
               });
           }
     },
+     /**
+    * @description Executa a api buscando buscando o post do id passado.
+    * Step 1 - Sucesso - Dispacha a ação de FETCH_SUCCESS
+    * Step 2 - Falha   - Dispacha a ação de FAILURE
+    */
+   fetchById:(id) => {
+    return (dispatch) => {
+        dispatch(SharedCreators.loading(true));
+        return getPostByPostId(id)
+          .then((post) => {
+            const normalized = normalize([post],PostSchema);
+            dispatch(Creators.fetchSuccess(normalized.entities.posts))
+          })
+          .catch(function(error) {
+            dispatch(SharedCreators.failure(error))
+          });
+      }
+},
     /**
     * @description Retorna a ação de FETCH_SUCCESS
     */

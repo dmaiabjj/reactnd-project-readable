@@ -59,8 +59,8 @@ function AddPost({post,categories,onHandlePost,user,loading})  {
     * Faz o bind do objeto post para realizar a inserção ou atualização
     * @param {Event} event  Evento do click do botão
     */
-    const bindHandlerPost = (onHandlePost,user,post) => {
-        return (values) => {
+    const bindHandlerPost = (onHandlePost,user,post,categories) => {
+        return (values,{resetForm}) => {
             const is_new                    = post.id ?(false) :(true)
             const id                        = is_new ?(genUUID()) :(post.id)
             const update                    = Object.assign(post,
@@ -74,11 +74,12 @@ function AddPost({post,categories,onHandlePost,user,loading})  {
                     category: values.category.value
                 }
             );
+            resetForm({title:'',body: '',category:categories[0]})
             onHandlePost(update)
         }
     }
 
-    const handlerPost = bindHandlerPost(onHandlePost,user,post)
+    const handlerPost = bindHandlerPost(onHandlePost,user,post,categories)
   
     const customStyles = {
         placeholder : (base) => ({
@@ -129,7 +130,7 @@ function AddPost({post,categories,onHandlePost,user,loading})  {
     return (
         defaultValue ? 
             <Formik
-                initialValues={{title: post.title,body : post.body,category:defaultValue }}
+                initialValues={{title: post.title || '',body : post.body || '',category:defaultValue || '' }}
                 validationSchema={validationSchema}
                 onSubmit={handlerPost}
             >
@@ -208,7 +209,7 @@ function AddPost({post,categories,onHandlePost,user,loading})  {
                                                     </div>
                                                     <div className="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                                                         <button 
-                                                            type="submit"
+                                                            type="button"
                                                             className="btn btn-blue btn-lg full-width"
                                                             onClick={handleSubmit}>
                                                                 Post Topic

@@ -224,7 +224,7 @@ app.post('/posts/:id', bodyParser.json(), (req, res) => {
 })
 
 app.put('/posts/:id', bodyParser.json(), (req, res) => {
-    posts.edit(req.token, req.params.id, req.body)
+    posts.edit(req.token,req.body)
       .then(
         (data) => res.send(data),
           (error) => {

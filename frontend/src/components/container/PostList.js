@@ -51,7 +51,6 @@ class PostList extends PureComponent {
     }
 
     render() {
-        console.log(this.props)
         return (
             <Fragment>
                  {this.ShowComponent()}

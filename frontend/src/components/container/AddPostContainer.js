@@ -1,11 +1,12 @@
 import React,{PureComponent} from 'react'
 import {withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
+import _ from 'lodash'
 
 import  AddPost  from '../presentational/AddPost'
 
-import {Creators as CategoryCreators} from '../../store/features/category'
-import {Creators as PostCreators} from '../../store/features/post'
+import {Creators as CategoryCreators,} from '../../store/features/category'
+import {Creators as PostCreators,getPostById} from '../../store/features/post'
 
 /**
 * @description 
@@ -14,7 +15,13 @@ import {Creators as PostCreators} from '../../store/features/post'
 class AddPostContainer extends PureComponent {
 
     componentDidMount() {
-        this.props.getAllCategories()
+        const {match:{params:{id}},fetchPost,getAllCategories} = this.props;
+        id && fetchPost(id);
+        getAllCategories()
+    }
+
+    componentWillUnmount(){
+        this.setState({post : {}})
     }
 
      /**
@@ -23,37 +30,44 @@ class AddPostContainer extends PureComponent {
     * @param {Event} post  Post
     */
     onHandlePost = (post) =>{
-        const {addPost,updatePost} = this.props 
-        console.log(post)
+        const {addPost,updatePost,history} = this.props 
+        const path = `/post/detail/${post.id}`
         if(post.is_new)
             addPost(post);
         else
-            updatePost(post);
+            updatePost(_.omit(post,'is_new'));
+        
 
         this.setState({post : {}})
+        history.push(path)
+
     
     }
 
     render() {
-        const {categories,user} = this.props
+        const {categories,user,post} = this.props
+        console.log(this.props)
         return (
             <AddPost
                 categories={categories}
                 user={user}
                 onHandlePost={this.onHandlePost}
+                post={post}
             />
         )
    }
 }
 
-function mapStateToProps (state) {
+function mapStateToProps (state,ownProps) {
     const {categories,user} = state;
+    const {match:{params:{id}}} = ownProps;
     return {
         categories : categories.map((cat) => ({
             'value' : cat.name,
             'label' : cat.name.toUpperCase()
         })),
-        user
+        user,
+        post : getPostById(id)(state),
     }
 }
 
@@ -65,6 +79,9 @@ function mapDispatchToProps (dispatch) {
         },
         updatePost: (post) => {
             dispatch(PostCreators.update(post))
+        },
+        fetchPost: (id) => {
+            dispatch(PostCreators.fetchById(id))
         }
     }
 }
