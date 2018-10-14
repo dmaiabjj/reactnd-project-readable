@@ -6183,7 +6183,7 @@ ol ol li {
   padding: 25px;
   border-bottom: 1px solid #e6ecf5; }
   .post p {
-    margin: 25px 0; }
+    margin: 25px 0; height: 60px;}
     .post .more {
       float:right; }
   .post .control-block-button {

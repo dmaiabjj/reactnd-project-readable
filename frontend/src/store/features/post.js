@@ -1,4 +1,4 @@
-import { getAllPosts,deletePost,upOrDownPostVote } from '../../utilities/api'
+import {addPost,updatePost, getAllPosts,deletePost,upOrDownPostVote } from '../../utilities/api'
 import { Creators as SharedCreators} from './shared'
 import { Types as CommentTypes} from './comment'
 import { createSelector } from 'reselect'
@@ -14,6 +14,10 @@ export const Types = {
     FETCH_SUCCESS   : 'POSTS/FETCH_SUCCESS',
     VOTE            : 'POSTS/VOTE',
     VOTE_SUCCESS    : 'POSTS/VOTE_SUCCESS',
+    ADD             : 'POSTS/ADD',
+    ADD_SUCCESS     : 'POSTS/ADD_SUCCESS',
+    UPDATE          : 'POSTS/UPDATE',
+    UPDATE_SUCCESS  : 'POSTS/UPDATE_SUCCESS',
     DELETE          : 'POSTS/DELETE',
     DELETE_SUCCESS  : 'POSTS/DELETE_SUCCESS'
 }
@@ -70,6 +74,54 @@ export const Creators = {
         type: Types.VOTE_SUCCESS,
         id,
         votes
+    }),
+     /**
+    * @description Executa a api adicionando o post.
+    * Step 1 - Sucesso - Dispacha a ação de ADD_SUCCESS
+    * Step 2 - Falha   - Dispacha a ação de FAILURE
+    */
+   add:(post) => {
+    return (dispatch) => {
+        dispatch(SharedCreators.loading(true));
+         return addPost(post)
+          .then((result) => {
+              dispatch(Creators.addSuccess(result))
+            })
+          .catch(function(error) {
+            dispatch(SharedCreators.failure(error))
+          });
+      }
+    },
+    /**
+    * @description Retorna a ação de ADD_SUCCESS
+    */
+   addSuccess:(post) => ({
+        type: Types.ADD_SUCCESS,
+        post
+    }),
+    /**
+    * @description Executa a api atualizando o post.
+    * Step 1 - Sucesso - Dispacha a ação de UPDATE_SUCCESS
+    * Step 2 - Falha   - Dispacha a ação de FAILURE
+    */
+    update:(post) => {
+        return (dispatch) => {
+            dispatch(SharedCreators.loading(true));
+            return updatePost(post)
+            .then((result) => { 
+                dispatch(Creators.updateSuccess(result))
+            })
+            .catch(function(error) {
+                dispatch(SharedCreators.failure(error))
+            });
+        }
+    },
+    /**
+    * @description Retorna a ação de UPDATE_SUCCESS
+    */
+    updateSuccess:(post) => ({
+        type: Types.UPDATE_SUCCESS,
+        post
     }),
      /**
     * @description Executa a api deletando o post.

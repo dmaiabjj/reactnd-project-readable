@@ -31,7 +31,7 @@ class CommentContainer extends PureComponent {
     /**
     * @description 
     * Faz o bind do objeto comentário para realizar a inserção ou atualização
-    * @param {Event} event  Evento do click do botão
+    * @param {Event} comment  Comentário
     */
    onHandleComment = (comment) =>{
         const {addComment,updateComment} = this.props 

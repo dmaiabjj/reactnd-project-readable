@@ -93,9 +93,9 @@ class Post extends Component  {
                                             {post.title}
                                     </Link>
                                 </h4>
-                                <p>
+                                <p className="description">
                                 { _.truncate(post.body, {
-                                        'length': 500
+                                        'length': 300
                                     })
                                 }
                                 </p>

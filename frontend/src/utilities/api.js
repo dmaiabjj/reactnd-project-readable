@@ -43,10 +43,14 @@ export const addPost = (post) =>
         ...headers,
         'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ post })
-    })
+        body: JSON.stringify(post)
+    }).then(value => new Promise(resolve => {
+        setTimeout(() => {
+            resolve(value);
+        }, 1000);
+    }))
         .then(res => res.json())
-        .then(data => data.post)
+        .then(post => post)
 
 export const getPostById = (id) =>
     fetch(`${api}/posts/${id}`, { headers })
@@ -69,14 +73,14 @@ export const upOrDownPostVote = (id,user,option) =>
         .then(res => res.json())
         .then(post => post)
 
-export const updatePost = (id,title,body) =>
-    fetch(`${api}/posts/${id}`, {
+export const updatePost = (post) =>
+    fetch(`${api}/posts/${post.id}`, {
         method: 'PUT',
         headers: {
         ...headers,
         'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ title , body })
+        body: JSON.stringify({ post })
     }) .then(value => new Promise(resolve => {
         setTimeout(() => {
             resolve(value);

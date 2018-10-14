@@ -29,7 +29,7 @@ const propTypes = {
         name: PropTypes.string.isRequired,
         avatar : PropTypes.string.isRequired
       }).isRequired,
-      onHandlerPost : PropTypes.func.isRequired,
+      onHandlePost : PropTypes.func.isRequired,
       loading: PropTypes.bool.isRequired
 
 };
@@ -48,35 +48,38 @@ const defaultProps  = {
 * @param {Object} post              Post a ser atualizado
 * @param {Array} categories         Categorias que podem ser adicionadas no novo post
 * @param {Boolean} loading          Se é necessário mostrar o loading
-* @param {Object} user          Usuário logado
-* @param {Function} onHandlerPost   Método responsável por adicionar/atualizar um post
+* @param {Object} user              Usuário logado
+* @param {Function} onHandlePost    Método responsável por adicionar/atualizar um post
 */
 
-function AddPost({post : {title,body,category},categories,onHandlePost,user,loading})  {
+function AddPost({post,categories,onHandlePost,user,loading})  {
 
     /**
     * @description 
     * Faz o bind do objeto post para realizar a inserção ou atualização
     * @param {Event} event  Evento do click do botão
     */
-    const bindPost  = (values, { setSubmitting }) => {
-        const {onHandlePost,user,post}  = this.props
-        const is_new                    = post.id ?(false) :(true)
-        const id                        = is_new ?(genUUID()) :(post.id)
-        const update                    = Object.assign(post,
-            {
-                timestamp : + new Date(),
-                author : user.name,
-                id,
-                title : values.title,
-                body : values.body,
-                is_new,
-                category: values.category
-            }
-        );
-        onHandlePost(update)
-      }
+    const bindHandlerPost = (onHandlePost,user,post) => {
+        return (values) => {
+            const is_new                    = post.id ?(false) :(true)
+            const id                        = is_new ?(genUUID()) :(post.id)
+            const update                    = Object.assign(post,
+                {
+                    timestamp : + new Date(),
+                    author : user.name,
+                    id,
+                    title : values.title,
+                    body : values.body,
+                    is_new,
+                    category: values.category.value
+                }
+            );
+            onHandlePost(update)
+        }
+    }
 
+    const handlerPost = bindHandlerPost(onHandlePost,user,post)
+  
     const customStyles = {
         placeholder : (base) => ({
             ...base,
@@ -122,14 +125,13 @@ function AddPost({post : {title,body,category},categories,onHandlePost,user,load
             .required('Categoria é obrigatório')
     })
     
-    const defaultValue   = categories.find((c) => c.value === (category)) || categories[0]
-
+    const defaultValue   = categories.find((c) => c.value === (post.category)) || categories[0]
     return (
         defaultValue ? 
             <Formik
-                initialValues={{title,body,category:defaultValue }}
+                initialValues={{title: post.title,body : post.body,category:defaultValue }}
                 validationSchema={validationSchema}
-                onSubmit={bindPost}
+                onSubmit={handlerPost}
             >
                 {props => {
                     const {values,errors,touched,handleSubmit,handleChange,handleBlur,handleReset,setFieldValue} = props

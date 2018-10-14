@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom'
 
 
 const propTypes = {
@@ -23,20 +24,22 @@ const defaultProps = {
 */
 function Head({project,description,img}) {
     return (
-        <div className="main-header">
-            <div className="content-bg-wrap bg-group"></div>
-            <div className="container">
-                <div className="row">
-                    <div className="col col-lg-8 m-auto col-md-8 col-sm-12 col-12">
-                        <div className="main-header-content">
-                            <h1>{project}</h1>
-                            <p>{description}</p>
+        <Link to="/">
+            <div className="main-header">
+                <div className="content-bg-wrap bg-group"></div>
+                <div className="container">
+                    <div className="row">
+                        <div className="col col-lg-8 m-auto col-md-8 col-sm-12 col-12">
+                            <div className="main-header-content">
+                                <h1>{project}</h1>
+                                <p>{description}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <img className="img-bottom" src={img} alt="Blog"/>
             </div>
-            <img className="img-bottom" src={img} alt="Blog"/>
-        </div>
+        </Link>
     )
 }
 
