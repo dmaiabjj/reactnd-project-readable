@@ -113,18 +113,26 @@ class Post extends Component  {
                                         </span>
                                     </div>
                                     <ul className="friends-harmonic off">
-                                        <li>
-                                            <img src="/img/icon-chat4.png" alt="icon"/>
-                                        </li>
-                                        <li>
-                                            <img src="/img/icon-chat26.png" alt="icon"/>
-                                        </li>
-                                        <li>
-                                            <img src="/img/icon-chat16.png" alt="icon"/>
-                                        </li>
+                                            
+                                        {
+                                            _.chain(post.reactions).groupBy("option").map(function(v, i) {
+                                                return {
+                                                  option: i,
+                                                  users: _.map(v, 'name')
+                                                }
+                                              }).value().map((r) => {
+                                                return <li key={r.option}>
+                                                        <img src={`/img/icon-${r.option}.png`} alt={r.option}/>
+                                                    </li>
+                                              })
+                                            
+                                        }
                                     </ul>
                                     <div className="names-people-likes">
-                                        0
+                                        {post.reactions.reduce((acc,vote) => {
+                                                    return acc + 1
+                                                },0)
+                                        }
                                     </div>
                                     <div className="comments-shared">
                                         <div className="post-add-icon inline-items">

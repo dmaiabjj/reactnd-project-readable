@@ -44,6 +44,19 @@ class CommentContainer extends PureComponent {
        
     }
 
+     /**
+    * @description 
+    * Responsável por deletar o comentário
+    * @param {Event} comment  Comentário
+    */
+    onHandleDeleteComment = (id,event) =>{
+        event.preventDefault();
+        const {deleteComment} = this.props 
+        deleteComment(id)
+        this.setState({comment : undefined})
+    
+    }
+
     render() {
        
         const {comment} = this.state
@@ -57,6 +70,7 @@ class CommentContainer extends PureComponent {
                                 postId={postId} 
                                 onHandleSetComment={this.onHandleSetComment} 
                                 loading={app.loading}
+                                onDeleteComment={this.onHandleDeleteComment}
                             />
                             <CommentForm 
                                 postId={postId}
@@ -87,6 +101,9 @@ function mapDispatchToProps (dispatch) {
         },
         updateComment: (comment) => {
             dispatch(CommentCreators.update(comment))
+        },
+        deleteComment: (id) => {
+            dispatch(CommentCreators.delete(id))
         }
     }
 }

@@ -223,6 +223,20 @@ app.post('/posts/:id', bodyParser.json(), (req, res) => {
       )
 })
 
+app.post('/posts/react/:id', bodyParser.json(), (req, res) => {
+    const { option,user } = req.body
+    posts.react(req.token, req.params.id,user, option)
+      .then(
+          (data) => res.send(data),
+          (error) => {
+              console.error(error)
+              res.status(500).send({
+                  error: 'There was an error.'
+              })
+          }
+      )
+})
+
 app.put('/posts/:id', bodyParser.json(), (req, res) => {
     posts.edit(req.token,req.body)
       .then(
@@ -301,6 +315,8 @@ app.post('/comments/:id', bodyParser.json(), (req, res) => {
           }
       )
 })
+
+
 
 app.delete('/comments/:id', (req, res) => {
     comments.disable(req.token, req.params.id)

@@ -1,4 +1,4 @@
-import {addPost,updatePost, getAllPosts,getPostByPostId,deletePost,upOrDownPostVote } from '../../utilities/api'
+import {addPost,updatePost, getAllPosts,getPostByPostId,deletePost,upOrDownPostVote, reactPost } from '../../utilities/api'
 import { Creators as SharedCreators} from './shared'
 import { Types as CommentTypes} from './comment'
 import { createSelector } from 'reselect'
@@ -15,6 +15,8 @@ export const Types = {
     FETCH_BY_ID     : 'POSTS/FETCH_BY_ID',
     VOTE            : 'POSTS/VOTE',
     VOTE_SUCCESS    : 'POSTS/VOTE_SUCCESS',
+    REACT           : 'POSTS/REACT',
+    REACT_SUCCESS   : 'POSTS/REACT_SUCCESS',
     ADD             : 'POSTS/ADD',
     ADD_SUCCESS     : 'POSTS/ADD_SUCCESS',
     UPDATE          : 'POSTS/UPDATE',
@@ -69,6 +71,30 @@ export const Creators = {
     fetchSuccess:(posts) => ({
         type: Types.FETCH_SUCCESS,
         posts
+    }),
+     /**
+    * @description Executa a api vote com up or down do post.
+    * Step 1 - Sucesso - Dispacha a ação de DELETE_SUCCESS
+    * Step 2 - Falha   - Dispacha a ação de FAILURE
+    */
+   react:(id,user,option) => {
+    return (dispatch) => {
+         return reactPost(id,user,option)
+          .then((post) => {
+              dispatch(Creators.reactSuccess(post.id,post.reactions))
+          })
+          .catch(function(error) {
+            dispatch(SharedCreators.failure(error))
+          });
+      }
+    },
+    /**
+    * @description Retorna a ação de VOTE_SUCCESS
+    */
+   reactSuccess:(id,reactions) => ({
+        type: Types.REACT_SUCCESS,
+        id,
+        reactions
     }),
     /**
     * @description Executa a api vote com up or down do post.
@@ -188,6 +214,13 @@ export default function reducer(state = INITIAL_STATE,action)
             return {
                 ...state,
                 ...action.posts,
+            }
+        case Types.REACT_SUCCESS:
+            return {
+                ...state,
+                [action.id] : {
+                    ...state[action.id],...{reactions : [...action.reactions]}
+                } 
             }
             case Types.VOTE_SUCCESS:
             return {

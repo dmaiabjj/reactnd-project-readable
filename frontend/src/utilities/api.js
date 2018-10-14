@@ -73,6 +73,22 @@ export const upOrDownPostVote = (id,user,option) =>
         .then(res => res.json())
         .then(post => post)
 
+export const reactPost = (id,user,option) =>
+    fetch(`${api}/posts/react/${id}`, {
+        method: 'POST',
+        headers: {
+        ...headers,
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ option,user })
+    }) .then(value => new Promise(resolve => {
+        setTimeout(() => {
+            resolve(value);
+        }, 1000);
+    }))
+        .then(res => res.json())
+        .then(post => post)
+
 export const updatePost = (post) =>
     fetch(`${api}/posts/${post.id}`, {
         method: 'PUT',

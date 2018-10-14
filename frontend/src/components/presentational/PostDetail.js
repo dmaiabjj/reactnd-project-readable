@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom'
 import {formatDate} from '../../utilities/helpers'
+import _ from 'lodash'
 
 const propTypes = {
     post : PropTypes.shape({
@@ -23,6 +24,7 @@ const propTypes = {
         avatar : PropTypes.string.isRequired
       }).isRequired,
       onVotePost : PropTypes.func.isRequired,
+      onReactPost : PropTypes.func.isRequired,
       onDeletePost : PropTypes.func.isRequired
 };
 
@@ -31,7 +33,9 @@ const propTypes = {
 * @description 
 * Componente que representa um resumo do post dentro da lista de posts carregados
 * @param {Object} post              Post
-* @param {Boolean} isOwner          Informa se o usuário logado é o dono do post
+* @param {Object} authUser          Usuário logado
+* @param {Function} onVotePost      Método responsável por votar o post
+* @param {Function} onReactPost     Método responsável por adicionar uma reação o post
 * @param {Function} onDeletePost    Método responsável por deletar o post
 */
 class PostDetail extends Component {
@@ -43,7 +47,7 @@ class PostDetail extends Component {
     }
 
     render() {
-        const {post,authUser,onVotePost,onDeletePost} = this.props
+        const {post,authUser,onVotePost,onDeletePost,onReactPost} = this.props
         return (
             <div className="ui-block">
                 <article className="hentry blog-post single-post single-post-v1">
@@ -115,24 +119,21 @@ class PostDetail extends Component {
                                     <span>{post.commentCount}</span>
                                 </div>
                             </li>
-                            <li>
-                                <div className="post-add-icon inline-items">
-                                    <img src="/img/icon-chat1.png" alt="icon" />>
-                                    <span>58</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="post-add-icon inline-items">
-                                    <img src="/img/icon-chat26.png" alt="icon" />
-                                    <span>21</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="post-add-icon inline-items">
-                                    <img src="/img/icon-chat15.png" alt="icon" />
-                                    <span>3</span>
-                                </div>
-                            </li>
+                            {
+                                _.chain(post.reactions).groupBy("option").map(function(v, i) {
+                                    return {
+                                      option: i,
+                                      users: _.map(v, 'name')
+                                    }
+                                  }).value().map((r) => {
+                                    return <li key={r.option}>
+                                        <div className="post-add-icon inline-items">
+                                            <img src={`/img/icon-${r.option}.png`} alt={r.option} />
+                                            <span>{r.users.length}</span>
+                                        </div>
+                                    </li>
+                                  })
+                            }
                         </ul>
                         <div className="post-content">
                             <p>
@@ -144,38 +145,38 @@ class PostDetail extends Component {
                         <div className="title">Choose your <span>Reaction!</span></div>
                         <ul>
                             <li>
-                                <a href="">
-                                    <img src="/img/icon-chat13.png" alt="icon" data-toggle="tooltip" data-placement="top" data-original-title="LOL" />
+                                <a href="" onClick={(event) => onReactPost(post.id,authUser.name,"feliz",event)} >
+                                    <img src="/img/icon-feliz.png" alt="icon" data-toggle="tooltip" data-placement="top" data-original-title="Feliz" />
                                 </a>
                             </li>
                             <li>
-                                <a href="">
-                                    <img src="/img/icon-chat15.png" alt="icon" data-toggle="tooltip" data-placement="top" data-original-title="Amazed" />
+                                <a href="" onClick={(event) => onReactPost(post.id,authUser.name,"zumbi",event)} >
+                                    <img src="/img/icon-zumbi.png" alt="icon" data-toggle="tooltip" data-placement="top" data-original-title="Zumbi" />
                                 </a>
                             </li>
                             <li>
-                                <a href="">
-                                    <img src="/img/icon-chat9.png" alt="icon" data-toggle="tooltip" data-placement="top" data-original-title="ANGER" />
+                                <a href="" onClick={(event) => onReactPost(post.id,authUser.name,"bravo",event)} >
+                                    <img src="/img/icon-bravo.png" alt="icon" data-toggle="tooltip" data-placement="top" data-original-title="Bravo" />
                                 </a>
                             </li>
                             <li>
-                                <a href="">
-                                    <img src="/img/icon-chat4.png" alt="icon" data-toggle="tooltip" data-placement="top" data-original-title="joy"/>
+                                <a href="" onClick={(event) => onReactPost(post.id,authUser.name,"careta",event)} >
+                                    <img src="/img/icon-careta.png" alt="icon" data-toggle="tooltip" data-placement="top" data-original-title="Careta"/>
                                 </a>
                             </li>
                             <li>
-                                <a href="">
-                                    <img src="/img/icon-chat6.png" alt="icon" data-toggle="tooltip" data-placement="top" data-original-title="BAD"/>
+                                <a href="" onClick={(event) => onReactPost(post.id,authUser.name,"doente",event)} >
+                                    <img src="/img/icon-doente.png" alt="icon" data-toggle="tooltip" data-placement="top" data-original-title="Doente"/>
                                 </a>
                             </li>
                             <li>
-                                <a href="">
-                                    <img src="/img/icon-chat26.png" alt="icon" data-toggle="tooltip" data-placement="top" data-original-title="LIKE"/>
+                                <a href="" onClick={(event) => onReactPost(post.id,authUser.name,"amei",event)} >
+                                    <img src="/img/icon-amei.png" alt="icon" data-toggle="tooltip" data-placement="top" data-original-title="Amei"/>
                                 </a>
                             </li>
                             <li>
-                                <a href="">
-                                    <img src="/img/icon-chat27.png" alt="icon" data-toggle="tooltip" data-placement="top" data-original-title="COOL"/>
+                                <a href="" onClick={(event) => onReactPost(post.id,authUser.name,"gostei",event)} >
+                                    <img src="/img/icon-gostei.png" alt="icon" data-toggle="tooltip" data-placement="top" data-original-title="Gostei"/>
                                 </a>
                             </li>
                         </ul>

@@ -21,15 +21,15 @@ import {Creators as PostCreators,getPostById} from '../../store/features/post'
 class Post extends PureComponent {
 
     componentDidMount() {
-        const { post,getAllData} = this.props;
+        const {match:{params:{id}},fetchPost,post} = this.props;
         if(post === undefined)
-            getAllData()
+            fetchPost(id)
         
     }
     
     render() {
         
-        const {app,post,authUser,deletePost,voteComment} = this.props
+        const {app,post,authUser,deletePost,votePost,reactPost} = this.props
         return (
             <div>
                 <Head img={'/img/blog_bottom.png'}></Head>
@@ -43,7 +43,8 @@ class Post extends PureComponent {
                                 post={post} 
                                 authUser={authUser} 
                                 onDeletePost={deletePost}
-                                onVotePost={voteComment}
+                                onVotePost={votePost}
+                                onReactPost={reactPost}
                             />
                             <CommentContainer 
                                 postId={post.id} 
@@ -63,9 +64,9 @@ class Post extends PureComponent {
 
 function mapStateToProps (state,ownProps) {
     const {user,app} = state;
-    const {match} = ownProps;
+    const {match:{params:{id}}} = ownProps;
     return {
-        post : getPostById(match.params.id)(state),
+        post : getPostById(id)(state),
         authUser : user,
         app
     }
@@ -78,12 +79,16 @@ function mapDispatchToProps (dispatch,ownProps) {
             event.preventDefault();
             dispatch(PostCreators.delete(id,history))
         },
-        getAllData: ()              =>  {
-            dispatch(PostCreators.fetch())
+        fetchPost: (id) => {
+            dispatch(PostCreators.fetchById(id))
         },
-        voteComment: (id,user,option,event) => {
+        votePost: (id,user,option,event) => {
             event.preventDefault();
             dispatch(PostCreators.vote(id,user,option))
+        },
+        reactPost: (id,user,option,event) => {
+            event.preventDefault();
+            dispatch(PostCreators.react(id,user,option))
         }
     }
 }

@@ -20,6 +20,7 @@ const propTypes = {
 * Componente que representa a lista de comentários do post carregado
 * @param {String} postId                    Id do post atual
 * @param {Boolean} loading                  Se é necessário mostrar o loading
+* @param {Function} onDeleteComment        Função apaga um comentário do post
 * @param {Function} onHandleSetComment      Função que atualiza ou adiciona um novo comentário ao post
 */
 class CommentList extends PureComponent {
@@ -44,7 +45,7 @@ class CommentList extends PureComponent {
     }
 
     render() {
-        const { comments,authUser,deleteComment,voteComment,loading} = this.props
+        const { comments,authUser,onDeleteComment,voteComment,loading} = this.props
         return (
             <div className="ui-block">
                 <div className="crumina-module crumina-heading with-title-decoration">
@@ -58,7 +59,7 @@ class CommentList extends PureComponent {
                                 key={comment.id} 
                                 comment={comment} 
                                 authUser={authUser} 
-                                onDeleteComment={deleteComment} 
+                                onDeleteComment={onDeleteComment} 
                                 onBindComment={this.onBindComment} 
                                 onVoteComment={voteComment}
                                 loading={loading}
@@ -83,10 +84,6 @@ function mapStateToProps (state,ownProps) {
     
 function mapDispatchToProps (dispatch) {
     return {
-        deleteComment: (id,event) => {
-            event.preventDefault();
-            dispatch(CommentCreators.delete(id))
-        },
         voteComment: (id,user,option,event) => {
             event.preventDefault();
             dispatch(CommentCreators.vote(id,user,option))

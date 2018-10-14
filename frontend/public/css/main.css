@@ -6412,7 +6412,6 @@ ol ol li {
   .comments-list .comment-item {
     padding: 25px;
     border-bottom: 1px solid #e6ecf5;
-    background-color: #fafbfd;
     position: relative; }
     .comments-list .comment-item.has-children {
       padding-bottom: 0; }

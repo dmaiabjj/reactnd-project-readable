@@ -104,8 +104,6 @@ class CommentForm extends PureComponent {
     onInputSearchChange = (event) => {
         event.preventDefault();
         const {comment} = this.state
-        const body =  event.target.value
-        console.log(body)
         this.setState({comment : {
             ...comment,
             ...{body:event.target.value}

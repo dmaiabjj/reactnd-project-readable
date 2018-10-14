@@ -21,6 +21,7 @@ const defaultData = {
     author: 'Udacity',
     category: 'react',
     votes:[{name: 'thingtwo',option: 'upVote',value: 1},{name: 'carlos',option: 'downVote',value: -1}],
+    reactions:[{name: 'thingtwo',option: 'zumbi'},{name: 'jorge',option: 'zumbi'},{name: 'carlos',option: 'bravo'},{name: 'joao',option: 'careta'}],
     deleted: false,
     commentCount: 2
   },
@@ -32,31 +33,11 @@ const defaultData = {
     author: 'thingone',
     category: 'redux',
     votes:[],
-    deleted: false,
-    commentCount: 0
-  },
-  "61636364": {
-    id: '61636364',
-    timestamp: 1533082201,
-    title: 'Learn Redux in 10 minutes!',
-    body: 'Just kidding. It takes more than 10 minutes to learn technology.',
-    author: 'Udacity',
-    category: 'redux',
-    votes:[],
-    deleted: false,
-    commentCount: 0
-  },
-  "6163636": {
-    id: '6163636',
-    timestamp: 1530403801,
-    title: 'Learn Redux in 10 minutes!',
-    body: 'Just kidding. It takes more than 10 minutes to learn technology.',
-    author: 'thingone',
-    category: 'redux',
-    votes:[],
+    reactions:[{name: 'thingtwo',option: 'gostei'},{name: 'carlos',option: 'amei'}],
     deleted: false,
     commentCount: 0
   }
+  
 }
 
 function getData (token) {
@@ -108,6 +89,7 @@ function add (token, post) {
       author: post.author,
       category: post.category,
       votes: [],
+      reactions: [],
       deleted: false,
       commentCount: 0
     }
@@ -142,7 +124,28 @@ function vote (token, id,user, option) {
       default:
           console.log(`comments.vote received incorrect parameter: ${option}`)
     }
-    console.log(post)
+    res(post)
+  })
+}
+
+function react (token, id,user, option) {
+  return new Promise((res) => {
+    let posts = getData(token)
+    post = posts[id]
+
+    function checkReact(reactions,reaction) {
+      const previous = reactions.find((r) => r.user === reaction.user)
+      if(previous === undefined)
+        return reactions.concat([reaction])
+      if(previous.option === reaction.option)
+        return reactions.filter((r) => r.user !== reaction.user)
+      else
+        return reactions.filter((r) => r.user !== reaction.user).concat([reaction])
+
+    }
+
+    post.reactions = checkReact(post.reactions,{user,option})
+    
     res(post)
   })
 }
@@ -178,6 +181,7 @@ module.exports = {
   getByCategory,
   add,
   vote,
+  react,
   disable,
   edit,
   getAll,
