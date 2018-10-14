@@ -24,6 +24,7 @@ function Footer({project}) {
             {project}
         </span>
     </div>
+    
     )
 }
 

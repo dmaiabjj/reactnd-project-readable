@@ -1,6 +1,9 @@
-import React,{Fragment, PureComponent} from 'react'
+import React,{Fragment} from 'react'
 import Select from 'react-select'
 import PropTypes from 'prop-types';
+import {Formik} from 'formik'
+import * as Yup from 'yup';
+
 import {genUUID} from '../../utilities/helpers'
 
 const propTypes = {
@@ -35,7 +38,7 @@ const defaultProps  = {
     loading: false,
     user: {name: '',avatar: ''},
     categories: [],
-    post : {}
+    post : {title: '', body : '', category : ''}
 };
 
 /**
@@ -49,93 +52,32 @@ const defaultProps  = {
 * @param {Function} onHandlerPost   Método responsável por adicionar/atualizar um post
 */
 
-class AddPost extends PureComponent {
-
-    state = {
-        post: {}
-    }
-
-    componentWillReceiveProps(props) {
-      const {categories,post}   = props
-      let category              = categories.find((c) => c.value === (post.category)) || categories[0]
-      this.setState({post : {
-            ...props.post,
-            ...{category:category.value
-        }}}) ;
-    }
+function AddPost({post : {title,body,category},categories,onHandlePost,user,loading})  {
 
     /**
     * @description 
     * Faz o bind do objeto post para realizar a inserção ou atualização
     * @param {Event} event  Evento do click do botão
     */
-    bindPost(event){
-        event.preventDefault();
-        
-        const {onHandlePost,user} = this.props
-        const {post}              = this.state
-        const is_new              = post.id ?(false) :(true)
-        const id                  = is_new ?(genUUID()) :(post.id)
-        const update              = Object.assign(post,
+    const bindPost  = (values, { setSubmitting }) => {
+        const {onHandlePost,user,post}  = this.props
+        const is_new                    = post.id ?(false) :(true)
+        const id                        = is_new ?(genUUID()) :(post.id)
+        const update                    = Object.assign(post,
             {
                 timestamp : + new Date(),
                 author : user.name,
                 id,
+                title : values.title,
+                body : values.body,
                 is_new,
-                category: post.category.value
+                category: values.category
             }
         );
-        this.setState({post: {title: '',category: '', body: ''}})
         onHandlePost(update)
-    }
-
-
-    /**
-    * @description 
-    * Recebe o evento que representa a digitação do title do post
-    * @param   {Event} event Evento 
-    */
-    onInputTitleChange = (event) => {
-        event.preventDefault();
-        const {post} = this.state
-        this.setState({post : {
-            ...post,
-            ...{title:event.target.value}
-        }}) ;
-    };
-
-    
-     /**
-    * @description 
-    * Recebe o valor que representa a categoria escolhida
-    * @param   {Object} option Categoria selecionada 
-    */
-
-    onInputCategoryChange = (option) => {
-        const {post} = this.state
-        this.setState({post : {
-            ...post,
-            ...{category:option.value
-        }}}) ;
       }
 
-    /**
-    * @description 
-    * Recebe o evento que representa a digitação do body do post
-    * @param   {Event} event Evento 
-    */
-    onInputBodyChange = (event) => {
-        event.preventDefault();
-        const {post} = this.state
-        this.setState({post : {
-            ...post,
-            ...{body:event.target.value}
-        }}) ;
-    };
-   
-    
-
-    customStyles = {
+    const customStyles = {
         placeholder : (base) => ({
             ...base,
             padding: '0 0 0 10px'
@@ -171,71 +113,117 @@ class AddPost extends PureComponent {
         }),
       }
 
-    render() {
-        const {post}        = this.state
-        const {categories}  = this.props
-        const defaultValue  = categories.find((c) => c.value === post.category)
-        console.log(post)
-        return (
-            <Fragment>
-                <div className="container">
-                    <div className="row">
-                        <div className="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div className="ui-block responsive-flex1200">
-                                <div className="ui-block-title">
-                                    <div className="h6 title">Posts</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="container">
-                    <div className="row row sorting-container">
-                        <div className="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div className="ui-block">
-                                <div className="ui-block-title bg-blue">
-                                    <h6 className="title c-white">Create a New Topic</h6>
-                                </div>
-                                <div className="ui-block-content">
-                                    <div className="row">
-                                        <div className="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                                            <div className="form-group label-floating">
-                                                <label className="control-label">Título do Post</label>
-                                                <input className="form-control" type="text" placeholder="Título" value={post.title} onChange={this.onInputTitleChange} />
+    const validationSchema = Yup.object().shape({
+        title: Yup.string()
+            .required('Título é obrigatório'),
+        body: Yup.string()
+            .required('Body é obrigatório'),
+        category: Yup.string()
+            .required('Categoria é obrigatório')
+    })
+    
+    const defaultValue   = categories.find((c) => c.value === (category)) || categories[0]
+
+    return (
+        defaultValue ? 
+            <Formik
+                initialValues={{title,body,category:defaultValue }}
+                validationSchema={validationSchema}
+                onSubmit={bindPost}
+            >
+                {props => {
+                    const {values,errors,touched,handleSubmit,handleChange,handleBlur,handleReset,setFieldValue} = props
+                    return(
+                        <Fragment>
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <div className="ui-block responsive-flex1200">
+                                            <div className="ui-block-title">
+                                                <div className="h6 title">Posts</div>
                                             </div>
-                                        </div>
-                                        <div className="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                            <div className="form-group label-floating is-select">
-                                                <label className="control-label">Select Category</label>
-                                                <Select
-                                                    value={defaultValue}
-                                                    options={categories}
-                                                    styles={this.customStyles}
-                                                    onChange={this.onInputCategoryChange}
-                                                />
-                                            </div>
-                                        </div>
-                                        <div className="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                            <div className="form-group label-floating">
-                                                <label className="control-label">Body do Post</label>
-                                                <textarea className="form-control" placeholder="Body" value={post.body} onChange={this.onInputBodyChange}></textarea>
-                                            </div>
-                                        </div>
-                                        <div className="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                                            <a href="" className="btn btn-secondary btn-lg full-width">Cancel</a>
-                                        </div>
-                                        <div className="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                                            <a href="" className="btn btn-blue btn-lg full-width">Post Topic</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </Fragment>
-        )
-    }
+                            <div className="container">
+                                <div className="row row sorting-container">
+                                    <div className="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <div className="ui-block">
+                                            <div className="ui-block-title bg-blue">
+                                                <h6 className="title c-white">Create a New Topic</h6>
+                                            </div>
+                                            <div className="ui-block-content">
+                                                <div className="row">
+                                                    <div className="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                                                        <div className={`form-group label-floating ${touched.title ? (errors.title) ? ('has-error') :('has-success'):''}`}>
+                                                            <label className="control-label">Título do Post</label>
+                                                            <input 
+                                                                name="title"
+                                                                className="form-control" 
+                                                                type="text" 
+                                                                placeholder="Título" 
+                                                                value={values.title} 
+                                                                onChange={handleChange} 
+                                                                onBlur={handleBlur}
+                                                                />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                        <div className="form-group label-floating is-select">
+                                                            <label className="control-label">Select Category</label>
+                                                            <Select
+                                                                name="category"
+                                                                value={values.category}
+                                                                options={categories}
+                                                                styles={customStyles}
+                                                                onChange={(option) => setFieldValue('category', option)}
+                                                                onBlur={handleBlur}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                        <div className={`form-group label-floating ${touched.body ? (errors.body) ? ('has-error') :('has-success'):''}`}>
+                                                            <label className="control-label">Body do Post</label>
+                                                            <textarea 
+                                                                name="body"
+                                                                className="form-control" 
+                                                                placeholder="Body" 
+                                                                value={values.body} 
+                                                                onChange={handleChange}
+                                                                onBlur={handleBlur}
+                                                            >
+                                                            </textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                                                        <button 
+                                                            className="btn btn-secondary btn-lg full-width" 
+                                                            onClick={handleReset}
+                                                        >
+                                                            Cancel
+                                                        </button>
+                                                    </div>
+                                                    <div className="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                                                        <button 
+                                                            type="submit"
+                                                            className="btn btn-blue btn-lg full-width"
+                                                            onClick={handleSubmit}>
+                                                                Post Topic
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </Fragment>
+                    )
+                }}  
+            </Formik> : 
+                <Fragment></Fragment>
+    )
 }
 
 AddPost.propTypes    = propTypes;
