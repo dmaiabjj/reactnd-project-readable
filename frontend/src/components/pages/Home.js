@@ -21,7 +21,7 @@ class Home extends PureComponent {
 
     filters = {
         "votes" :  function (obj) {
-            return obj.votes.reduce((acc,vote) => {
+            return obj.votes && obj.votes.reduce((acc,vote) => {
                 return acc + vote.value
             },0)
           },

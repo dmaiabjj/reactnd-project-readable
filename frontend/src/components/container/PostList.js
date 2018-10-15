@@ -32,7 +32,6 @@ class PostList extends PureComponent {
     */
     ShowComponent = () => {
         const {app,posts,authUser,deletePost} = this.props;
-        
         if(app.fetched && posts.length <= 0)
             return <SearchNotFound/>
         else{

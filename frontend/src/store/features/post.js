@@ -57,8 +57,9 @@ export const Creators = {
         dispatch(SharedCreators.loading(true));
         return getPostByPostId(id)
           .then((post) => {
-            const normalized = normalize([post],PostSchema);
-            dispatch(Creators.fetchSuccess(normalized.entities.posts))
+            const normalized    = normalize([post],PostSchema);
+            const result        = (normalized.result.lenght > 0) ? (normalized.entities.posts) :([])
+            dispatch(Creators.fetchSuccess(result))
           })
           .catch(function(error) {
             dispatch(SharedCreators.failure(error))

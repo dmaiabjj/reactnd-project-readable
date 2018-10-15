@@ -53,6 +53,7 @@ class CommentContainer extends PureComponent {
         event.preventDefault();
         const {deleteComment} = this.props 
         deleteComment(id)
+        
         this.setState({comment : undefined})
     
     }

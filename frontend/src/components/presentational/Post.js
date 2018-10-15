@@ -52,7 +52,7 @@ class Post extends Component  {
     render(){
         const {post,isOwner}    = this.props
         const {showLoading}     = this.state
-
+        
         return (
             <div className="col col-xl-6 col-lg-6 col-md-12 col-sm-12  sorting-item family animals natural politics">
                 <div className="ui-block">

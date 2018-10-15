@@ -7,6 +7,7 @@ import Footer from '../presentational/Footer'
 import PostDetail from '../presentational/PostDetail'
 import LoadingLinear from '../presentational/LoadingLinear'
 import AddPostButton from '../presentational/AddPostButton'
+import SearchNotFound from '../presentational/SearchNotFound'
 
 import CommentContainer from '../container/CommentContainer';
 
@@ -28,6 +29,7 @@ class Post extends PureComponent {
         
     }
     
+    
     render() {
         
         const {app,post,authUser,deletePost,votePost,reactPost} = this.props
@@ -37,6 +39,7 @@ class Post extends PureComponent {
                 {app.loading && <LoadingLinear col></LoadingLinear>}
                 <div className={`container negative-margin-top50${app.loading ? ' disabled-content' : ''}`}>
                     <div className="col col-xl-8 m-auto col-lg-12 col-md-12 col-sm-12 col-12">
+                    {!app.loading && app.fetched && !post &&  <SearchNotFound/>}
                     {post
                         && 
                         <Fragment>
