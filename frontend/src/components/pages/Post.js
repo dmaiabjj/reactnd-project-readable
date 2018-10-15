@@ -6,6 +6,7 @@ import Head from '../presentational/Head'
 import Footer from '../presentational/Footer'
 import PostDetail from '../presentational/PostDetail'
 import LoadingLinear from '../presentational/LoadingLinear'
+import AddPostButton from '../presentational/AddPostButton'
 
 import CommentContainer from '../container/CommentContainer';
 
@@ -55,6 +56,7 @@ class Post extends PureComponent {
                     
                     </div>
                 </div>
+                <AddPostButton></AddPostButton>
                 <Footer></Footer>
             </div>
         )

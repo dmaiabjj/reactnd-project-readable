@@ -25,7 +25,11 @@ class Home extends PureComponent {
                 return acc + vote.value
             },0)
           },
-        "timestamp" : "timestamp" 
+          "reactions" :  function (obj) {
+            return obj.reactions.length
+          },
+        "timestamp" : "timestamp" ,
+        "commentCount" : "commentCount" 
     }
 
     state = {
@@ -39,8 +43,6 @@ class Home extends PureComponent {
     * @param   {String} order     Ordenação da busca
     */
     handleFilter = (filter,order) => {
-        console.log(filter)
-        console.log(order)
         this.setState({filter,order})
     }
 

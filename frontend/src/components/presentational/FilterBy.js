@@ -32,7 +32,9 @@ class FilterBy extends PureComponent {
 
     properties = [
         { value: 'votes', label: 'Vote' },
-        { value: 'timestamp', label: 'Data' }
+        { value: 'timestamp', label: 'Data' },
+        { value: 'reactions', label: 'Reações' },
+        { value: 'commentCount', label: 'Comentários' }
       ];
 
     ordination = [

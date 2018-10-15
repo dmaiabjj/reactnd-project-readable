@@ -195,7 +195,10 @@ export const getCommentsByPost = (postId) => {
         (comments) => {
             return comments &&  _.orderBy(Object.keys(comments)
             .map(id => comments[id])
-            .filter(comment => comment.parentId === postId),['timestamp'],['desc'])
+            .filter(comment => comment.parentId === postId),function (obj) {
+                return obj.votes.reduce((acc,vote) => {
+                    return acc + vote.value
+                },0)},['desc'])
         } 
     )
 }
