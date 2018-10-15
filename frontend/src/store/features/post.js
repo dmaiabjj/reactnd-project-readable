@@ -200,8 +200,6 @@ export const Creators = {
 /* Reducer */
 export default function reducer(state = INITIAL_STATE,action)
 {
-   console.log(state)
-   console.log(action)
     switch(action.type){
         case CommentTypes.ADD_SUCCESS:{
             return {

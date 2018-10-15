@@ -16,28 +16,29 @@ const propTypes = {
 */
 class FilterBy extends PureComponent {
     state = {
-        propertySelected: "timestamp",
+        propertySelected: "votes",
         ordinationSelected: "desc"
       }
 
       handlePropertyChange = (option) => {
         this.setState({ propertySelected : option.value });
-        this.props.search(this.state.propertySelected,this.state.ordinationSelected)
+        this.props.search(option.value,this.state.ordinationSelected)
       }
 
       handleOrdinationChange = (option) => {
         this.setState({ ordinationSelected : option.value });
-        this.props.search(this.state.propertySelected,this.state.ordinationSelected)
+        this.props.search(this.state.propertySelected, option.value)
       }
 
     properties = [
-        { value: 'timestamp', label: 'Data' },
-        { value: 'voteScore', label: 'Vote' }
+        { value: 'votes', label: 'Vote' },
+        { value: 'timestamp', label: 'Data' }
       ];
 
     ordination = [
-        { value: 'asc', label: 'Crescente' },
-        { value: 'desc', label: 'Decrescente' }
+        { value: 'desc', label: 'Decrescente' },
+        { value: 'asc', label: 'Crescente' }
+        
     ];
     
 

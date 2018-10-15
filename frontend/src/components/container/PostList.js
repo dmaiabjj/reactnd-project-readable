@@ -9,7 +9,7 @@ import {Creators as PostCreators,getPostByFilter} from '../../store/features/pos
 
 const propTypes = {
     category : PropTypes.string,
-    filter : PropTypes.string.isRequired,
+    filter : PropTypes.any.isRequired,
     order : PropTypes.string.isRequired
 };
 

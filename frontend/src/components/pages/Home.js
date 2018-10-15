@@ -19,9 +19,18 @@ import {Creators as SharedCreators} from '../../store/features/shared'
 */
 class Home extends PureComponent {
 
+    filters = {
+        "votes" :  function (obj) {
+            return obj.votes.reduce((acc,vote) => {
+                return acc + vote.value
+            },0)
+          },
+        "timestamp" : "timestamp" 
+    }
+
     state = {
-        filter: "timestamp",
-        order:  "asc"
+        filter: "votes",
+        order:  "desc"
     }
 
     /**
@@ -30,6 +39,8 @@ class Home extends PureComponent {
     * @param   {String} order     Ordenação da busca
     */
     handleFilter = (filter,order) => {
+        console.log(filter)
+        console.log(order)
         this.setState({filter,order})
     }
 
@@ -60,7 +71,7 @@ class Home extends PureComponent {
                         </div>
                         <PostList 
                                 category={this.props.match.params.id} 
-                                filter={this.state.filter} 
+                                filter={this.filters[this.state.filter]} 
                                 order={this.state.order} />
                     </div>
                 </div>
