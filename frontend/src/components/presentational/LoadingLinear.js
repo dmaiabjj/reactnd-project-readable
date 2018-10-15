@@ -10,7 +10,7 @@ const styles = {
   barColorPrimary: {
     backgroundColor: '#FF5E3A',
   },
-};
+}
 
 /**
 * @description 
@@ -23,11 +23,11 @@ function LoadingLinear(props) {
     <Fragment>
       <LinearProgress classes={{ colorPrimary: classes.colorPrimary, barColorPrimary: classes.barColorPrimary }} />
     </Fragment>
-  );
+  )
 }
 
 LoadingLinear.propTypes = {
   classes: PropTypes.object.isRequired,
-};
+}
 
 export default withStyles(styles)(LoadingLinear);

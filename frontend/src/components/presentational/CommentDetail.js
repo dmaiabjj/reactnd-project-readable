@@ -24,7 +24,7 @@ const propTypes = {
       onBindComment     : PropTypes.func.isRequired,
       onVoteComment     : PropTypes.func.isRequired,
       loading           : PropTypes.bool.isRequired
-};
+}
 
 
 const defaultProps  = {
@@ -34,7 +34,7 @@ const defaultProps  = {
     onDeleteComment : (id,event) => {},
     onBindComment : (comment,event) => {},
     onVoteComment : (id,user,option,event) => {}
-};
+}
 
 
 
@@ -52,8 +52,8 @@ const defaultProps  = {
 class CommentDetail extends Component  {
 
     state = {
-        showLoading: false,
-    };
+        showLoading: false
+    }
     
     componentWillUnmount() {
         this.setState({showLoading : false});
@@ -67,9 +67,9 @@ class CommentDetail extends Component  {
     * @param {Event} event  Evento referente ao ato de deletar o comentário
     */
     onDelete = (id,event) => {
-        this.setState({showLoading : true})
-        const {onDeleteComment} = this.props
-        onDeleteComment(id,event)
+        this.setState({showLoading : true});
+        const {onDeleteComment} = this.props;
+        onDeleteComment(id,event);
     }
 
     /**
@@ -79,14 +79,14 @@ class CommentDetail extends Component  {
     * @returns {string} A classe active ou string.Empty
     */
     setClassName = (option) =>{
-        const {comment,authUser}    = this.props
-        const vote                  = comment.votes.find((v) => v.user === authUser.name && v.option === option)
-        return (vote) ? "active" : ""
+        const {comment,authUser}    = this.props;
+        const vote                  = comment.votes.find((v) => v.user === authUser.name && v.option === option);
+        return (vote) ? "active" : "";
     }
 
     render() {
-        const {comment,authUser,onBindComment,onVoteComment} = this.props
-        const {showLoading}     = this.state
+        const {comment,authUser,onBindComment,onVoteComment} = this.props;
+        const {showLoading}     = this.state;
         return (
             <li className="comment-item">
                 {showLoading && <LoadingCircular></LoadingCircular>}

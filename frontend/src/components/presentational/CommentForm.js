@@ -22,7 +22,7 @@ const styles = {
         top: '80%',
         left: '47%'
       },
-  };
+  }
 
   
 
@@ -41,7 +41,7 @@ const propTypes = {
       postId               : PropTypes.string.isRequired,
       onHandleComment      : PropTypes.func.isRequired,
       loading: PropTypes.bool.isRequired
-};
+}
 
 const defaultProps  = {
     comment : {
@@ -54,7 +54,7 @@ const defaultProps  = {
     onHandleComment : (comment) => {},
     loading: false
 
-};
+}
 
 /**
 * @description 
@@ -82,10 +82,10 @@ class CommentForm extends PureComponent {
     bindComment(event){
         event.preventDefault();
         
-        const {onHandleComment,user,postId} = this.props
-        const {comment}                     = this.state
-        const is_new                        = comment.id ?(false) :(true)
-        const id                            = is_new ?(genUUID()) :(comment.id)
+        const {onHandleComment,user,postId} = this.props;
+        const {comment}                     = this.state;
+        const is_new                        = comment.id ?(false) :(true);
+        const id                            = is_new ?(genUUID()) :(comment.id);
         const update                        = Object.assign(comment,
             {
                 timestamp : + new Date(),
@@ -95,8 +95,8 @@ class CommentForm extends PureComponent {
                 is_new
             }
         );
-        this.setState({comment : {body: ""}})
-        onHandleComment(update)
+        this.setState({comment : {body: ""}});
+        onHandleComment(update);
     }
 
     /**
@@ -107,18 +107,18 @@ class CommentForm extends PureComponent {
     */
     onInputSearchChange = (event) => {
         event.preventDefault();
-        const {comment} = this.state
+        const {comment} = this.state;
         this.setState({comment : {
             ...comment,
             ...{body:event.target.value}
         }}) ;
-    };
+    }
 
     render() {
         
-        const {user,classes,loading}            = this.props
-        const {comment}                         = this.state
-        const enabled                           = comment.body.length <= 0 || loading
+        const {user,classes,loading}            = this.props;
+        const {comment}                         = this.state;
+        const enabled                           = comment.body.length <= 0 || loading;
        
         return (
             <div className="ui-block">

@@ -20,7 +20,7 @@ export const Types = {
     DELETE_SUCCESS  : 'COMMENTS/DELETE_SUCCESS'
 }
 
-const INITIAL_STATE = {}
+const INITIAL_STATE = {};
 
 /* Action Creators */
 export const Creators = {
@@ -35,10 +35,10 @@ export const Creators = {
             return getCommentsByPostId(postId)
               .then((comments) => {
                   const normalized = normalize(comments,CommentSchema);
-                  dispatch(Creators.fetchSuccess(normalized.entities.comments))
+                  dispatch(Creators.fetchSuccess(normalized.entities.comments));
               })
               .catch(function(error) {
-                dispatch(SharedCreators.failure(error))
+                dispatch(SharedCreators.failure(error));
               });
           }
     },
@@ -59,10 +59,10 @@ export const Creators = {
         dispatch(SharedCreators.loading(true));
          return addComment(comment)
           .then((result) => {
-              dispatch(Creators.addSuccess(result))
+              dispatch(Creators.addSuccess(result));
             })
           .catch(function(error) {
-            dispatch(SharedCreators.failure(error))
+            dispatch(SharedCreators.failure(error));
           });
       }
     },
@@ -83,10 +83,10 @@ export const Creators = {
             dispatch(SharedCreators.loading(true));
             return updateComment(comment.id,comment.timestamp,comment.body)
             .then((result) => { 
-                dispatch(Creators.updateSuccess(result))
+                dispatch(Creators.updateSuccess(result));
             })
             .catch(function(error) {
-                dispatch(SharedCreators.failure(error))
+                dispatch(SharedCreators.failure(error));
             });
         }
     },
@@ -107,7 +107,7 @@ export const Creators = {
          return upOrDownCommentVote(id,user,option)
           .then((comment) => dispatch(Creators.voteSuccess(comment.id,comment.votes)))
           .catch(function(error) {
-            dispatch(SharedCreators.failure(error))
+            dispatch(SharedCreators.failure(error));
           });
       }
     },
@@ -129,10 +129,10 @@ export const Creators = {
         dispatch(SharedCreators.loading(true));
          return deleteComment(id)
           .then((comment) => {
-              dispatch(Creators.deleteSuccess(comment))
+              dispatch(Creators.deleteSuccess(comment));
             })
           .catch(function(error) {
-            dispatch(SharedCreators.failure(error))
+            dispatch(SharedCreators.failure(error));
           });
       }
     },
@@ -169,7 +169,7 @@ export default function reducer(state = INITIAL_STATE,action)
         case Types.DELETE_SUCCESS:
             return _.omit(state, action.comment.id);
         default:
-            return state
+            return state;
     }
 }
 

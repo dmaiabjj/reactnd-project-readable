@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 
 const propTypes = {
     project : PropTypes.string.isRequired
-};
+}
 
 const defaultProps = {
     project: 'Udacity - Leitura'
-};
+}
 
 /**
 * @description 

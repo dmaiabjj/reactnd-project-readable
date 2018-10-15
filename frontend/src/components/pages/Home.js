@@ -44,11 +44,11 @@ class Home extends PureComponent {
     * @param   {String} order     Ordenação da busca
     */
     handleFilter = (filter,order) => {
-        this.setState({filter,order})
+        this.setState({filter,order});
     }
 
     componentDidMount() {
-        this.props.getAllData()
+        this.props.getAllData();
     }
 
     render() {

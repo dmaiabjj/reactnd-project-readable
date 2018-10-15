@@ -45,11 +45,11 @@ export const Creators = {
             return getInitialData()
                 .then(({ categories, posts }) => {
                     const normalized = normalize(posts,PostSchema);
-                    dispatch(CategoryCreators.fetchSuccess(categories))
-                    dispatch(PostCreators.fetchSuccess(normalized.entities.posts))
+                    dispatch(CategoryCreators.fetchSuccess(categories));
+                    dispatch(PostCreators.fetchSuccess(normalized.entities.posts));
                 }) 
                 .catch(function(error) {
-                    dispatch(Creators.failure(error))
+                    dispatch(Creators.failure(error));
                 });
         }
     }
@@ -74,7 +74,7 @@ export default function reducer(state = INITIAL_STATE,action)
         case Types.ACTION_FAILURE: 
         return {...state,loading:false,error: action.error,fetched:true}
         default:
-            return state
+            return state;
     }
 }
 

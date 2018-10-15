@@ -8,12 +8,12 @@ const propTypes = {
         path : PropTypes.string.isRequired,
     })).isRequired,
     currentCategory         : PropTypes.string
-};
+}
 
 const defaultProps  = {
     currentCategory: 'all',
     categories: [],
-};
+}
 
 /**
 * @description 

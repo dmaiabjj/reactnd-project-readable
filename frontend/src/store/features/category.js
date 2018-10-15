@@ -7,7 +7,7 @@ export const Types = {
     FETCH_SUCCESS   : 'CATEGORIES/FETCH_SUCCESS'
 }
 
-const INITIAL_STATE = []
+const INITIAL_STATE = [];
 
 /* Action Creators */
 export const Creators = {
@@ -42,9 +42,9 @@ export default function reducer(state = INITIAL_STATE,action)
 {
     switch(action.type){
         case Types.FETCH_SUCCESS:
-            return action.categories
+            return action.categories;
         default:
-            return state
+            return state;
     }
 }
 

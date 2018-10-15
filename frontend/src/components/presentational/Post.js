@@ -23,14 +23,14 @@ const propTypes = {
       }).isRequired,
       isOwner : PropTypes.bool.isRequired,
       onDeletePost : PropTypes.func.isRequired
-};
+}
 
 const defaultProps  = {
     post: {id: "",timestamp: 0,body: "",author: "",votes:[],category:""},
     isOwner : false,
     loading:false,
     onDeletePost : (id,event) => {}
-};
+}
 
 
 /**
@@ -42,8 +42,8 @@ const defaultProps  = {
 */
 class Post extends Component  {
     state = {
-        showLoading: false,
-    };
+        showLoading: false
+    }
     
     componentWillUnmount() {
         this.setState({showLoading : false});
@@ -56,15 +56,15 @@ class Post extends Component  {
     * @param {Event} event  Evento referente ao ato de deletar o post
     */
     onDelete = (id,event) => {
-        this.setState({showLoading : true})
-        const {onDeletePost} = this.props
-        onDeletePost(id,event)
+        this.setState({showLoading : true});
+        const {onDeletePost} = this.props;
+        onDeletePost(id,event);
     }
 
 
     render(){
-        const {post,isOwner}    = this.props
-        const {showLoading}     = this.state
+        const {post,isOwner}    = this.props;
+        const {showLoading}     = this.state;
         
         return (
             <div className="col col-xl-6 col-lg-6 col-md-12 col-sm-12  sorting-item family animals natural politics">

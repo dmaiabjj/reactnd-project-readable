@@ -31,14 +31,14 @@ const propTypes = {
       }).isRequired,
       onHandlePost : PropTypes.func.isRequired
 
-};
+}
 
 const defaultProps  = {
     user: {name: '',avatar: ''},
     categories: [],
     post : {title: '', body : '', category : ''},
     onHandlePost : (post) => {}
-};
+}
 
 /**
 * @description 
@@ -63,8 +63,8 @@ function AddPost({post,categories,onHandlePost,user})  {
     */
     const bindHandlerPost = (onHandlePost,user,post,categories) => {
         return (values,{resetForm}) => {
-            const is_new                    = post.id ?(false) :(true)
-            const id                        = is_new ?(genUUID()) :(post.id)
+            const is_new                    = post.id ?(false) :(true);
+            const id                        = is_new ?(genUUID()) :(post.id);
             const update                    = Object.assign(post,
                 {
                     timestamp : + new Date(),
@@ -76,12 +76,12 @@ function AddPost({post,categories,onHandlePost,user})  {
                     category: values.category.value
                 }
             );
-            resetForm({title:'',body: '',category:categories[0]})
-            onHandlePost(update)
+            resetForm({title:'',body: '',category:categories[0]});
+            onHandlePost(update);
         }
     }
 
-    const handlerPost = bindHandlerPost(onHandlePost,user,post,categories)
+    const handlerPost = bindHandlerPost(onHandlePost,user,post,categories);
   
     /* Style do Select importado da biblioteca ReacSelect */
     const customStyles = {
@@ -130,7 +130,7 @@ function AddPost({post,categories,onHandlePost,user})  {
             .required('Categoria é obrigatório')
     })
     
-    const defaultValue   = categories.find((c) => c.value === (post.category)) || categories[0]
+    const defaultValue   = categories.find((c) => c.value === (post.category)) || categories[0];
     return (
         defaultValue ? 
             <Formik
@@ -139,7 +139,7 @@ function AddPost({post,categories,onHandlePost,user})  {
                 onSubmit={handlerPost}
             >
                 {props => {
-                    const {values,errors,touched,handleSubmit,handleChange,handleBlur,handleReset,setFieldValue} = props
+                    const {values,errors,touched,handleSubmit,handleChange,handleBlur,handleReset,setFieldValue} = props;
                     return(
                         <Fragment>
                             <div className="container">

@@ -16,7 +16,7 @@ const styles = theme =>  ({
   progress: {
     color: '#FF5E3A'
   }
-});
+})
 
 
 /**
@@ -26,8 +26,8 @@ const styles = theme =>  ({
 */
 class LoadingCircular extends React.Component {
   state = {
-    completed: 0,
-  };
+    completed: 0
+  }
 
   componentDidMount() {
     this.timer = setInterval(this.progress, 20);
@@ -40,7 +40,7 @@ class LoadingCircular extends React.Component {
   progress = () => {
     const { completed } = this.state;
     this.setState({ completed: completed >= 100 ? 0 : completed + 1 });
-  };
+  }
 
   render() {
     const { classes } = this.props;
@@ -53,12 +53,12 @@ class LoadingCircular extends React.Component {
             />
         </div>
       </div>
-    );
+    )
   }
 }
 
 LoadingCircular.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+  classes: PropTypes.object.isRequired
+}
 
 export default withStyles(styles)(LoadingCircular);

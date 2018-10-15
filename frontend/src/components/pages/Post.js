@@ -25,14 +25,14 @@ class Post extends PureComponent {
     componentDidMount() {
         const {match:{params:{id}},fetchPost,post} = this.props;
         if(post === undefined)
-            fetchPost(id)
+            fetchPost(id);
         
     }
     
     
     render() {
         
-        const {app,post,authUser,deletePost,votePost,reactPost} = this.props
+        const {app,post,authUser,deletePost,votePost,reactPost} = this.props;
         return (
             <div>
                 <Head img={'/img/blog_bottom.png'}></Head>

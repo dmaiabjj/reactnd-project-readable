@@ -12,14 +12,14 @@ const propTypes = {
     loading: PropTypes.bool.isRequired,
     onDeleteComment : PropTypes.func.isRequired,
     onHandleSetComment : PropTypes.func.isRequired,
-};
+}
 
 const defaultProps  = {
     postId: "",
     loading: false,
     onDeleteComment : (id,event) => {},
     onHandleSetComment : (comment) => {},
-};
+}
 
 
 
@@ -35,7 +35,7 @@ class CommentList extends PureComponent {
 
     componentDidMount() {
         const { postId,getComments} = this.props;
-        getComments(postId)
+        getComments(postId);
     }
 
     /**
@@ -45,7 +45,7 @@ class CommentList extends PureComponent {
     * @param   {Event} event     Evento
     */
     onBindComment = (comment,event) => {
-        event.preventDefault()
+        event.preventDefault();
         const { postId,onHandleSetComment} = this.props;
         onHandleSetComment({
             ...comment,parentId : postId
@@ -53,7 +53,7 @@ class CommentList extends PureComponent {
     }
 
     render() {
-        const { comments,authUser,onDeleteComment,voteComment,loading} = this.props
+        const { comments,authUser,onDeleteComment,voteComment,loading} = this.props;
         return (
             <div className="ui-block">
                 <div className="crumina-module crumina-heading with-title-decoration">

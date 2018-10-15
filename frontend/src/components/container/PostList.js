@@ -11,7 +11,7 @@ const propTypes = {
     category : PropTypes.string,
     filter : PropTypes.any.isRequired,
     order : PropTypes.string.isRequired
-};
+}
 
 const defaultProps  = {
     category: "all",
@@ -21,7 +21,7 @@ const defaultProps  = {
         },0)
       },
     order:  "desc"
-};
+}
 
 
 
@@ -43,7 +43,7 @@ class PostList extends PureComponent {
     ShowComponent = () => {
         const {app,posts,authUser,deletePost} = this.props;
         if(app.fetched && posts.length <= 0)
-            return <SearchNotFound/>
+            return <SearchNotFound/>;
         else{
             
             return (
@@ -55,7 +55,7 @@ class PostList extends PureComponent {
                         onDeletePost={deletePost}
                     />
                 ))
-            )
+            );
         }
     }
 

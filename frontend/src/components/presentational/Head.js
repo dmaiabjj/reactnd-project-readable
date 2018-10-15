@@ -6,12 +6,12 @@ import {Link} from 'react-router-dom'
 const propTypes = {
     project             : PropTypes.string.isRequired,
     description         : PropTypes.string.isRequired
-};
+}
 
 const defaultProps = {
     project: 'Udacity - Leitura',
     description : 'Bem vindos ao Udacity Leitura, onde podemos discutir assuntos variados com uma gama enorme de pessoas'
-};
+}
 
 /**
 * @description 

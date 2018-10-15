@@ -6,9 +6,9 @@ import uuid from 'uuid/v4'
 * @returns {string} Data formatada
 */
 export function formatDate (timestamp) {
-    const d = new Date(timestamp)
-    const time = d.toLocaleTimeString('en-US')
-    return time.substr(0, 5) + time.slice(-2) + ' | ' + d.toLocaleDateString()
+    const d = new Date(timestamp);
+    const time = d.toLocaleTimeString('en-US');
+    return time.substr(0, 5) + time.slice(-2) + ' | ' + d.toLocaleDateString();
   }
 
 

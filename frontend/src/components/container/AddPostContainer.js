@@ -16,11 +16,11 @@ class AddPostContainer extends PureComponent {
     componentDidMount() {
         const {match:{params:{id}},fetchPost,getAllCategories} = this.props;
         id && fetchPost(id);
-        getAllCategories()
+        getAllCategories();
     }
 
     componentWillUnmount(){
-        this.setState({post : {}})
+        this.setState({post : {}});
     }
 
      /**
@@ -29,22 +29,22 @@ class AddPostContainer extends PureComponent {
     * @param {Object} post  Post
     */
     onHandlePost = (post) =>{
-        const {addPost,updatePost,history} = this.props 
-        const path = `/post/detail/${post.id}`
+        const {addPost,updatePost,history} = this.props ;
+        const path = `/post/detail/${post.id}`;
         if(post.is_new)
             addPost(post);
         else
             updatePost(post);
         
 
-        this.setState({post : {}})
-        history.push(path)
+        this.setState({post : {}});
+        history.push(path);
 
     
     }
 
     render() {
-        const {categories,user,post} = this.props
+        const {categories,user,post} = this.props;
         return (
             <AddPost
                 categories={categories}

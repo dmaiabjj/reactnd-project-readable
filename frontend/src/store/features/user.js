@@ -3,7 +3,7 @@ export const Types = {
     FETCH : 'USER/FETCH'
 }
 
-const INITIAL_STATE = {name:'Udacity', avatar:'udacity'}
+const INITIAL_STATE = {name:'Udacity', avatar:'udacity'};
 
 /* Action Creators */
 export const Creators = {

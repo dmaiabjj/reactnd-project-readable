@@ -15,12 +15,12 @@ const propTypes = {
         name: PropTypes.string.isRequired,
         avatar : PropTypes.string.isRequired
       }).isRequired,
-};
+}
 
 const defaultProps  = {
     postId: "",
     user: {name: '',avatar: ''}
-};
+}
 
 
 
@@ -41,7 +41,7 @@ class CommentContainer extends PureComponent {
     * @param   {Object} comment  Comentário
     */
     onHandleSetComment = (comment) => {
-        this.setState({comment})
+        this.setState({comment});
     }
 
 
@@ -51,13 +51,13 @@ class CommentContainer extends PureComponent {
     * @param {Event} comment  Comentário
     */
    onHandleComment = (comment) =>{
-        const {addComment,updateComment} = this.props 
+        const {addComment,updateComment} = this.props ;
         if(comment.is_new)
             addComment(comment);
         else
             updateComment(comment);
 
-            this.setState({comment : {body: ""}})
+            this.setState({comment : {body: ""}});
        
     }
 
@@ -68,17 +68,17 @@ class CommentContainer extends PureComponent {
     */
     onHandleDeleteComment = (id,event) =>{
         event.preventDefault();
-        const {deleteComment} = this.props 
-        deleteComment(id)
+        const {deleteComment} = this.props ;
+        deleteComment(id);
         
-        this.setState({comment : undefined})
+        this.setState({comment : undefined});
     
     }
 
     render() {
        
-        const {comment} = this.state
-        const {postId,user,app} = this.props
+        const {comment} = this.state;
+        const {postId,user,app} = this.props;
         return (
                 <Fragment>
                     {postId
@@ -105,7 +105,7 @@ class CommentContainer extends PureComponent {
 }
 
 function mapStateToProps (state) {
-    const {app} = state
+    const {app} = state;
     return {
         app
     }

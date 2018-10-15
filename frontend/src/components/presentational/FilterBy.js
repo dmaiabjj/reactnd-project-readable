@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 
 const propTypes = {
     search   : PropTypes.func.isRequired
-};
+}
 
 const defaultProps  = {
     search : (filter,order) => {}
-};
+}
 
 /**
 * @description 
@@ -31,7 +31,7 @@ class FilterBy extends PureComponent {
     */
     handlePropertyChange = (option) => {
         this.setState({ propertySelected : option.value });
-        this.props.search(option.value,this.state.ordinationSelected)
+        this.props.search(option.value,this.state.ordinationSelected);
     }
 
     /**
@@ -41,7 +41,7 @@ class FilterBy extends PureComponent {
     */
     handleOrdinationChange = (option) => {
         this.setState({ ordinationSelected : option.value });
-        this.props.search(this.state.propertySelected, option.value)
+        this.props.search(this.state.propertySelected, option.value);
     }
 
     properties = [
@@ -49,13 +49,13 @@ class FilterBy extends PureComponent {
         { value: 'timestamp', label: 'Data' },
         { value: 'reactions', label: 'Reações' },
         { value: 'commentCount', label: 'Comentários' }
-      ];
+      ]
 
     ordination = [
         { value: 'desc', label: 'Decrescente' },
         { value: 'asc', label: 'Crescente' }
         
-    ];
+    ]
     
 
     render () {

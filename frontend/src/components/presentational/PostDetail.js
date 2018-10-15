@@ -26,7 +26,7 @@ const propTypes = {
       onVotePost : PropTypes.func.isRequired,
       onReactPost : PropTypes.func.isRequired,
       onDeletePost : PropTypes.func.isRequired
-};
+}
 
 const defaultProps  = {
     post: {id: "",timestamp: 0,body: "",author: "",votes:[],category:""},
@@ -34,7 +34,7 @@ const defaultProps  = {
     onDeletePost : (id,event) => {},
     onReactPost : (id,user,option,event)=> {},
     onVoteComment : (id,user,option,event) => {}
-};
+}
 
 
 /**
@@ -55,13 +55,13 @@ class PostDetail extends Component {
     * @returns {string}         A classe active ou string.Empty
     */
     setClassName = (option) =>{
-        const {post,authUser}       = this.props
-        const vote                  = post.votes.find((p) => p.user === authUser.name && p.option === option)
-        return (vote) ? "active" : ""
+        const {post,authUser}       = this.props;
+        const vote                  = post.votes.find((p) => p.user === authUser.name && p.option === option);
+        return (vote) ? "active" : "";
     }
 
     render() {
-        const {post,authUser,onVotePost,onDeletePost,onReactPost} = this.props
+        const {post,authUser,onVotePost,onDeletePost,onReactPost} = this.props;
         return (
             <div className="ui-block">
                 <article className="hentry blog-post single-post single-post-v1">

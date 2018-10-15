@@ -25,7 +25,7 @@ export const Types = {
     DELETE_SUCCESS  : 'POSTS/DELETE_SUCCESS'
 }
 
-const INITIAL_STATE = {}
+const INITIAL_STATE = {};
 
 /* Action Creators */
 export const Creators = {
@@ -40,10 +40,10 @@ export const Creators = {
             return getAllPosts()
               .then((posts) => {
                 const normalized = normalize(posts,PostSchema);
-                dispatch(Creators.fetchSuccess(normalized.entities.posts))
+                dispatch(Creators.fetchSuccess(normalized.entities.posts));
               })
               .catch(function(error) {
-                dispatch(SharedCreators.failure(error))
+                dispatch(SharedCreators.failure(error));
               });
           }
     },
@@ -58,11 +58,11 @@ export const Creators = {
         return getPostByPostId(id)
           .then((post) => {
             const normalized    = normalize([post],PostSchema);
-            const result        = (normalized.result.lenght > 0) ? (normalized.entities.posts) :([])
-            dispatch(Creators.fetchSuccess(result))
+            const result        = (normalized.result.lenght > 0) ? (normalized.entities.posts) :([]);
+            dispatch(Creators.fetchSuccess(result));
           })
           .catch(function(error) {
-            dispatch(SharedCreators.failure(error))
+            dispatch(SharedCreators.failure(error));
           });
       }
 },
@@ -82,10 +82,10 @@ export const Creators = {
     return (dispatch) => {
          return reactPost(id,user,option)
           .then((post) => {
-              dispatch(Creators.reactSuccess(post.id,post.reactions))
+              dispatch(Creators.reactSuccess(post.id,post.reactions));
           })
           .catch(function(error) {
-            dispatch(SharedCreators.failure(error))
+            dispatch(SharedCreators.failure(error));
           });
       }
     },
@@ -106,10 +106,10 @@ export const Creators = {
     return (dispatch) => {
          return upOrDownPostVote(id,user,option)
           .then((post) => {
-              dispatch(Creators.voteSuccess(post.id,post.votes))
+              dispatch(Creators.voteSuccess(post.id,post.votes));
           })
           .catch(function(error) {
-            dispatch(SharedCreators.failure(error))
+            dispatch(SharedCreators.failure(error));
           });
       }
     },
@@ -131,10 +131,10 @@ export const Creators = {
         dispatch(SharedCreators.loading(true));
          return addPost(post)
           .then((result) => {
-              dispatch(Creators.addSuccess(result))
+              dispatch(Creators.addSuccess(result));
             })
           .catch(function(error) {
-            dispatch(SharedCreators.failure(error))
+            dispatch(SharedCreators.failure(error));
           });
       }
     },
@@ -155,10 +155,10 @@ export const Creators = {
             dispatch(SharedCreators.loading(true));
             return updatePost(post)
             .then((result) => { 
-                dispatch(Creators.updateSuccess(result))
+                dispatch(Creators.updateSuccess(result));
             })
             .catch(function(error) {
-                dispatch(SharedCreators.failure(error))
+                dispatch(SharedCreators.failure(error));
             });
         }
     },
@@ -179,12 +179,12 @@ export const Creators = {
         dispatch(SharedCreators.loading(true));
          return deletePost(id)
             .then((post) =>{
-                dispatch(Creators.deleteSuccess(post.id))
-                history && history.push('/')
+                dispatch(Creators.deleteSuccess(post.id));
+                history && history.push('/');
             }
             ).catch(function(error) {
               console.log(error)
-            dispatch(SharedCreators.failure(error))
+            dispatch(SharedCreators.failure(error));
           });
       }
     },
@@ -240,7 +240,7 @@ export default function reducer(state = INITIAL_STATE,action)
         case Types.DELETE_SUCCESS:
             return _.omit(state, action.id);
         default:
-            return state
+            return state;
     }
 }
 
