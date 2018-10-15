@@ -65,6 +65,7 @@ export default function reducer(state = INITIAL_STATE,action)
         case CommentTypes.FETCH_SUCCESS:
         case CommentTypes.ADD_SUCCESS:
         case CommentTypes.UPDATE_SUCCESS:
+        case CommentTypes.DELETE_SUCCESS:
         case PostTypes.ADD_SUCCESS:
         case PostTypes.UPDATE_SUCCESS:
             return {...state,loading: false}

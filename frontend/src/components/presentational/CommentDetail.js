@@ -94,7 +94,7 @@ class CommentDetail extends Component  {
                             }
                         </div>
                         <p>{comment.body}</p>
-                            <a href="" onClick={(event) => onVoteComment(comment.id,authUser.name,"upVote",event)} className={`post-add-icon inline-items ${this.setClassName("downVote")}`}>
+                            <a href="" onClick={(event) => onVoteComment(comment.id,authUser.name,"upVote",event)} className={`post-add-icon inline-items ${this.setClassName("upVote")}`}>
                                 <svg className="olymp-heart-icon">
                                     <title>Up</title>
                                     <use xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-heart-icon"></use>

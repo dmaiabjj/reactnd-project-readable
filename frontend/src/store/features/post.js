@@ -200,13 +200,22 @@ export const Creators = {
 /* Reducer */
 export default function reducer(state = INITIAL_STATE,action)
 {
-   
+   console.log(state)
+   console.log(action)
     switch(action.type){
         case CommentTypes.ADD_SUCCESS:{
             return {
                 ...state,
                 [action.comment.parentId] :{
                     ...state[action.comment.parentId],...{commentCount:state[action.comment.parentId].commentCount + 1}
+                }
+            }
+        }
+        case CommentTypes.DELETE_SUCCESS:{
+            return {
+                ...state,
+                [action.comment.parentId] :{
+                    ...state[action.comment.parentId],...{commentCount:state[action.comment.parentId].commentCount - 1}
                 }
             }
         }

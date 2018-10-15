@@ -129,8 +129,7 @@ export const Creators = {
         dispatch(SharedCreators.loading(true));
          return deleteComment(id)
           .then((comment) => {
-              dispatch(Creators.deleteSuccess(comment.id))
-              dispatch(SharedCreators.loading(false))
+              dispatch(Creators.deleteSuccess(comment))
             })
           .catch(function(error) {
             dispatch(SharedCreators.failure(error))
@@ -140,9 +139,9 @@ export const Creators = {
     /**
     * @description Retorna a ação de DELETE_SUCCESS
     */
-   deleteSuccess:(id) => ({
+   deleteSuccess:(comment) => ({
         type: Types.DELETE_SUCCESS,
-        id
+        comment
     })
 }
 
@@ -168,7 +167,7 @@ export default function reducer(state = INITIAL_STATE,action)
                 ...state[action.id].votes = [...action.votes]
             }
         case Types.DELETE_SUCCESS:
-            return _.omit(state, action.id);
+            return _.omit(state, action.comment.id);
         default:
             return state
     }

@@ -17,22 +17,12 @@ export const getAllCategories = () =>
 
 export const getPostsByCategory = (category) =>
     fetch(`${api}/${category}/posts`, { headers })
-    .then(value => new Promise(resolve => {
-        setTimeout(() => {
-            resolve(value);
-        }, 1000);
-    }))
-        .then(res => res.json())
+    .then(res => res.json())
         .then(data => data.posts)
 
 export const getAllPosts = () =>
     fetch(`${api}/posts/`, { headers })
-    .then(value => new Promise(resolve => {
-        setTimeout(() => {
-            resolve(value);
-        }, 1000);
-    }))
-        .then(res => res.json())
+    .then(res => res.json())
         .then(posts => posts)
 
 
@@ -44,12 +34,7 @@ export const addPost = (post) =>
         'Content-Type': 'application/json'
         },
         body: JSON.stringify(post)
-    }).then(value => new Promise(resolve => {
-        setTimeout(() => {
-            resolve(value);
-        }, 1000);
-    }))
-        .then(res => res.json())
+    }).then(res => res.json())
         .then(post => post)
 
 export const getPostByPostId = (id) =>
@@ -65,12 +50,7 @@ export const upOrDownPostVote = (id,user,option) =>
         'Content-Type': 'application/json'
         },
         body: JSON.stringify({ option,user })
-    }) .then(value => new Promise(resolve => {
-        setTimeout(() => {
-            resolve(value);
-        }, 1000);
-    }))
-        .then(res => res.json())
+    }).then(res => res.json())
         .then(post => post)
 
 export const reactPost = (id,user,option) =>
@@ -81,12 +61,7 @@ export const reactPost = (id,user,option) =>
         'Content-Type': 'application/json'
         },
         body: JSON.stringify({ option,user })
-    }) .then(value => new Promise(resolve => {
-        setTimeout(() => {
-            resolve(value);
-        }, 1000);
-    }))
-        .then(res => res.json())
+    }).then(res => res.json())
         .then(post => post)
 
 export const updatePost = (post) =>
@@ -97,12 +72,7 @@ export const updatePost = (post) =>
         'Content-Type': 'application/json'
         },
         body: JSON.stringify( post )
-    }) .then(value => new Promise(resolve => {
-        setTimeout(() => {
-            resolve(value);
-        }, 1000);
-    }))
-        .then(res => res.json())
+    }).then(res => res.json())
         .then(data => data.post)
 
 export const deletePost = (id) =>
@@ -111,16 +81,7 @@ export const deletePost = (id) =>
         headers: {
         ...headers,
         },
-    }).then(value => new Promise(resolve => {
-        setTimeout(() => {
-            resolve(value);
-        }, 3000);
-    })) .then(value => new Promise(resolve => {
-        setTimeout(() => {
-            resolve(value);
-        }, 1000);
-    }))
-        .then(res => res.json())
+    }).then(res => res.json())
         .then(post => post)
 
 export const getCommentsByPostId = (id) =>
@@ -136,12 +97,7 @@ export const addComment = (comment) =>
         'Content-Type': 'application/json'
         },
         body: JSON.stringify(comment)
-    }).then(value => new Promise(resolve => {
-        setTimeout(() => {
-            resolve(value);
-        }, 1000);
-    }))
-        .then(res => res.json())
+    }).then(res => res.json())
         .then(comment => comment)
 
 export const getCommentById = (id) =>
@@ -170,12 +126,7 @@ export const updateComment = (id,timestamp,body) =>
         'Content-Type': 'application/json'
         },
         body: JSON.stringify({ timestamp , body })
-    }).then(value => new Promise(resolve => {
-        setTimeout(() => {
-            resolve(value);
-        }, 1000);
-    }))
-        .then(res => res.json())
+    }).then(res => res.json())
         .then(comment => comment)
         
 export const deleteComment = (id) =>
@@ -184,12 +135,7 @@ export const deleteComment = (id) =>
         headers: {
         ...headers,
         },
-    }).then(value => new Promise(resolve => {
-        setTimeout(() => {
-            resolve(value);
-        }, 1000);
-    }))
-        .then(res => res.json())
+    }).then(res => res.json())
         .then(comment => comment)
 
 
