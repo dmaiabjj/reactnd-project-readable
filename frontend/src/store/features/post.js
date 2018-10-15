@@ -74,8 +74,8 @@ export const Creators = {
         posts
     }),
      /**
-    * @description Executa a api vote com up or down do post.
-    * Step 1 - Sucesso - Dispacha a ação de DELETE_SUCCESS
+    * @description Executa a api passando a reação.
+    * Step 1 - Sucesso - Dispacha a ação de REACT_SUCCESS
     * Step 2 - Falha   - Dispacha a ação de FAILURE
     */
    react:(id,user,option) => {
@@ -90,7 +90,7 @@ export const Creators = {
       }
     },
     /**
-    * @description Retorna a ação de VOTE_SUCCESS
+    * @description Retorna a ação de REACT_SUCCESS
     */
    reactSuccess:(id,reactions) => ({
         type: Types.REACT_SUCCESS,
@@ -99,7 +99,7 @@ export const Creators = {
     }),
     /**
     * @description Executa a api vote com up or down do post.
-    * Step 1 - Sucesso - Dispacha a ação de DELETE_SUCCESS
+    * Step 1 - Sucesso - Dispacha a ação de VOTE_SUCCESS
     * Step 2 - Falha   - Dispacha a ação de FAILURE
     */
    vote:(id,user,option) => {
@@ -254,10 +254,10 @@ const postsEntitiesSelector = state => state.posts
 * @description          
 * Filtras os posts através dos filtros passados
 *
-* @param   {String} category    Categoria
-* @param   {String} filter      Filtro
-* @param   {String} order       Ordenação
-* @returns {Function}           Retorna uma função que recebe o state e faz o filtro dos posts pelo category, filter e order
+* @param   {String} category            Categoria
+* @param   {Function || String} filter  Filtro
+* @param   {String} order               Ordenação
+* @returns {Function}                   Retorna uma função que recebe o state e faz o filtro dos posts pelo category, filter e order
 */
 export const getPostByFilter = (category = 'all',filter='timestamp',order='asc') => {
     return createSelector(

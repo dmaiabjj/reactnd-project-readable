@@ -6,6 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import green from '@material-ui/core/colors/green';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
+
 const styles = {
   buttonNormal: {
         backgroundColor: '#38a9ff',
@@ -39,7 +40,6 @@ const propTypes = {
       }).isRequired,
       postId               : PropTypes.string.isRequired,
       onHandleComment      : PropTypes.func.isRequired,
-      classes: PropTypes.object.isRequired,
       loading: PropTypes.bool.isRequired
 };
 
@@ -49,12 +49,16 @@ const defaultProps  = {
     },
     user : {
         name: ""
-    }
+    },
+    postId: "",
+    onHandleComment : (comment) => {},
+    loading: false
+
 };
 
 /**
 * @description 
-* Componente que representa o form de cadastrou ou atualização de um comment
+* Componente que representa o form de cadastro ou atualização de um comment
 * @param {String} comment                   Comment a ser atualizado
 * @param {String} postId                    Id do post a ser inserido o comentário
 * @param {Boolean} loading                  Se é necessário mostrar o loading

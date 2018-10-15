@@ -13,14 +13,24 @@ const propTypes = {
     order : PropTypes.string.isRequired
 };
 
+const defaultProps  = {
+    category: "all",
+    filter: function (obj) {
+        return obj.votes && obj.votes.reduce((acc,vote) => {
+            return acc + vote.value
+        },0)
+      },
+    order:  "desc"
+};
+
 
 
 /**
 * @description 
 * Componente que representa a lista de posts carregados
-* @param {string} category          Categoria atual
-* @param {string} filter            Campo a ser usado como filtro na busca dos posts
-* @param {string} order             Campo que representa a ordenação do filtro de posts
+* @param {String} category              Categoria atual
+* @param {String || Function} filter    Campo a ser usado como filtro na busca dos posts
+* @param {String} order                 Campo que representa a ordenação do filtro de posts
 */
 class PostList extends PureComponent {
 
@@ -78,7 +88,7 @@ function mapDispatchToProps (dispatch) {
     }
 }
 
-
 PostList.propTypes    = propTypes;
+PostList.defaultProps = defaultProps;
 
 export default connect(mapStateToProps,mapDispatchToProps)(PostList)

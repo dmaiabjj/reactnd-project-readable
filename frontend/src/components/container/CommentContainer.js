@@ -1,11 +1,28 @@
 import React,{PureComponent,Fragment} from 'react'
 import {withRouter } from 'react-router-dom'
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 
 import CommentList from '../container/CommentList';
 import CommentForm from '../presentational/CommentForm';
 
 import {Creators as CommentCreators} from '../../store/features/comment'
+
+
+const propTypes = {
+    postId              : PropTypes.string.isRequired,
+    user                : PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        avatar : PropTypes.string.isRequired
+      }).isRequired,
+};
+
+const defaultProps  = {
+    postId: "",
+    user: {name: '',avatar: ''}
+};
+
+
 
 /**
 *@description 
@@ -108,6 +125,10 @@ function mapDispatchToProps (dispatch) {
         }
     }
 }
+
+
+CommentContainer.propTypes    = propTypes;
+CommentContainer.defaultProps = defaultProps;
 
 export default withRouter(connect(mapStateToProps,mapDispatchToProps)(CommentContainer))
 

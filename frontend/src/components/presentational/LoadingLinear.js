@@ -14,9 +14,9 @@ const styles = {
 
 /**
 * @description 
-* Componente que representa o Loading para indicar que o fetch esstá em andamento
+* Componente que representa o loading linear genérico usado para mostrar o usuário
+* que o fetch dos dados está acontecendo
 */
-
 function LoadingLinear(props) {
   const { classes } = props;
   return (

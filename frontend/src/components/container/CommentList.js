@@ -9,8 +9,16 @@ import {Creators as CommentCreators,getCommentsByPost} from '../../store/feature
 
 const propTypes = {
     postId : PropTypes.string.isRequired,
+    loading: PropTypes.bool.isRequired,
+    onDeleteComment : PropTypes.func.isRequired,
     onHandleSetComment : PropTypes.func.isRequired,
-    loading: PropTypes.bool.isRequired
+};
+
+const defaultProps  = {
+    postId: "",
+    loading: false,
+    onDeleteComment : (id,event) => {},
+    onHandleSetComment : (comment) => {},
 };
 
 
@@ -20,8 +28,8 @@ const propTypes = {
 * Componente que representa a lista de comentários do post carregado
 * @param {String} postId                    Id do post atual
 * @param {Boolean} loading                  Se é necessário mostrar o loading
-* @param {Function} onDeleteComment        Função apaga um comentário do post
-* @param {Function} onHandleSetComment      Função que atualiza ou adiciona um novo comentário ao post
+* @param {Function} onDeleteComment         Função apaga um comentário do post
+* @param {Function} onHandleSetComment      Função que seta o comentário a ser atualizado
 */
 class CommentList extends PureComponent {
 
@@ -96,5 +104,6 @@ function mapDispatchToProps (dispatch) {
 
 
 CommentList.propTypes    = propTypes;
+CommentList.defaultProps = defaultProps;
 
 export default connect(mapStateToProps,mapDispatchToProps)(CommentList)

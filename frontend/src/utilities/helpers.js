@@ -1,7 +1,7 @@
 import uuid from 'uuid/v4'
 
 /**
-* @description Recebe o timestamp e tranforma em um formato legivel para ser mostrado
+* @description Recebe o timestamp e tranforma em uma data com formato legivel
 * @param {number} timestamp
 * @returns {string} Data formatada
 */

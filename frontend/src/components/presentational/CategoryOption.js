@@ -21,7 +21,7 @@ const defaultProps  = {
 *
 * @constructor
 * @param {Array} categories              Coleção de Categorias
-* @param {Array} currentCategory         Categoria atual
+* @param {String} currentCategory         Categoria atual
 */
 function CategoryOption({currentCategory, categories}) {
     return (

@@ -29,16 +29,15 @@ const propTypes = {
         name: PropTypes.string.isRequired,
         avatar : PropTypes.string.isRequired
       }).isRequired,
-      onHandlePost : PropTypes.func.isRequired,
-      loading: PropTypes.bool.isRequired
+      onHandlePost : PropTypes.func.isRequired
 
 };
 
 const defaultProps  = {
-    loading: false,
     user: {name: '',avatar: ''},
     categories: [],
-    post : {title: '', body : '', category : ''}
+    post : {title: '', body : '', category : ''},
+    onHandlePost : (post) => {}
 };
 
 /**
@@ -47,17 +46,20 @@ const defaultProps  = {
 * @constructor
 * @param {Object} post              Post a ser atualizado
 * @param {Array} categories         Categorias que podem ser adicionadas no novo post
-* @param {Boolean} loading          Se é necessário mostrar o loading
 * @param {Object} user              Usuário logado
 * @param {Function} onHandlePost    Método responsável por adicionar/atualizar um post
 */
 
-function AddPost({post,categories,onHandlePost,user,loading})  {
+function AddPost({post,categories,onHandlePost,user})  {
 
     /**
     * @description 
     * Faz o bind do objeto post para realizar a inserção ou atualização
-    * @param {Event} event  Evento do click do botão
+    * @param {Function} onHandlePost    Método responsável por adicionar/atualizar um post
+    * @param {Object} user              Usuário logado
+    * @param {Object} post              Post a ser atualizado
+    * @param {Array} categories         Categorias que podem ser adicionadas no novo post
+    * @returns {Function}  Retorna uma função que irá receber os valores do formik, dar um bind no objecto e chamar o método local de inserção/update
     */
     const bindHandlerPost = (onHandlePost,user,post,categories) => {
         return (values,{resetForm}) => {
@@ -81,6 +83,7 @@ function AddPost({post,categories,onHandlePost,user,loading})  {
 
     const handlerPost = bindHandlerPost(onHandlePost,user,post,categories)
   
+    /* Style do Select importado da biblioteca ReacSelect */
     const customStyles = {
         placeholder : (base) => ({
             ...base,
@@ -117,6 +120,7 @@ function AddPost({post,categories,onHandlePost,user,loading})  {
         }),
       }
 
+    /* Schema de validaçào do formulário de inserção do cadastro */
     const validationSchema = Yup.object().shape({
         title: Yup.string()
             .required('Título é obrigatório'),

@@ -1,7 +1,6 @@
 import React,{PureComponent} from 'react'
 import {withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import _ from 'lodash'
 
 import  AddPost  from '../presentational/AddPost'
 
@@ -26,8 +25,8 @@ class AddPostContainer extends PureComponent {
 
      /**
     * @description 
-    * Faz o bind do objeto comentário para realizar a inserção ou atualização
-    * @param {Event} post  Post
+    * Faz o bind do objeto post para realizar a inserção ou atualização
+    * @param {Object} post  Post
     */
     onHandlePost = (post) =>{
         const {addPost,updatePost,history} = this.props 
@@ -35,7 +34,7 @@ class AddPostContainer extends PureComponent {
         if(post.is_new)
             addPost(post);
         else
-            updatePost(_.omit(post,'is_new'));
+            updatePost(post);
         
 
         this.setState({post : {}})
@@ -46,7 +45,6 @@ class AddPostContainer extends PureComponent {
 
     render() {
         const {categories,user,post} = this.props
-        console.log(this.props)
         return (
             <AddPost
                 categories={categories}

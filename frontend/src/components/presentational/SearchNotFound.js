@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 /**
 * @description 
-* Componente o header genérico da aplicação
+* Componente de 404 genérico da aplicação
 *
 * @constructor
 */

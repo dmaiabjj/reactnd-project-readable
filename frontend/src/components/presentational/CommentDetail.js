@@ -27,9 +27,20 @@ const propTypes = {
 };
 
 
+const defaultProps  = {
+    comment: {id: "",parentId: "",timestamp: 0,body: "",author: "",votes:[]},
+    authUser : {name:"",avatar:""},
+    loading:false,
+    onDeleteComment : (id,event) => {},
+    onBindComment : (comment,event) => {},
+    onVoteComment : (id,user,option,event) => {}
+};
+
+
+
 /**
 * @description 
-* Componente que representa um resumo do post dentro da lista de posts carregados
+* Componente que representa um comentário na lista de comentários do post
 * @param {Object} comment              Comment
 * @param {Object} authUser             Usuário Logado
 * @param {Function} onDeleteComment    Método responsável por deletar o comment
@@ -48,12 +59,25 @@ class CommentDetail extends Component  {
         this.setState({showLoading : false});
     }
 
+
+    /**
+    * @description 
+    * Reponsável por deletar o comentário
+    * @param {String} id  Id do comentário
+    * @param {Event} event  Evento referente ao ato de deletar o comentário
+    */
     onDelete = (id,event) => {
         this.setState({showLoading : true})
         const {onDeleteComment} = this.props
         onDeleteComment(id,event)
     }
 
+    /**
+    * @description 
+    * Verifica se o usuário logado já votou e adiciona uma classe ao botão de vote na opção já escolhida
+    * @param {Event} option  Opção do voto
+    * @returns {string} A classe active ou string.Empty
+    */
     setClassName = (option) =>{
         const {comment,authUser}    = this.props
         const vote                  = comment.votes.find((v) => v.user === authUser.name && v.option === option)
@@ -123,5 +147,6 @@ class CommentDetail extends Component  {
 }
 
 CommentDetail.propTypes    = propTypes;
+CommentDetail.defaultProps = defaultProps;
 
 export default CommentDetail

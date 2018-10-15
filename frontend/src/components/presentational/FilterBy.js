@@ -7,6 +7,10 @@ const propTypes = {
     search   : PropTypes.func.isRequired
 };
 
+const defaultProps  = {
+    search : (filter,order) => {}
+};
+
 /**
 * @description 
 * Componente que irá mostrar as opções de ordenação das categorias
@@ -20,15 +24,25 @@ class FilterBy extends PureComponent {
         ordinationSelected: "desc"
       }
 
-      handlePropertyChange = (option) => {
+    /**
+    * @description 
+    * Seta a opção do filtro a ser usado na busca dos posts e realiza a busca
+    * @param {String} option  opção selecionada do dropdown
+    */
+    handlePropertyChange = (option) => {
         this.setState({ propertySelected : option.value });
         this.props.search(option.value,this.state.ordinationSelected)
-      }
+    }
 
-      handleOrdinationChange = (option) => {
+    /**
+    * @description 
+    * Seta a opção da ordenação a ser usado na busca dos posts e realiza a busca
+    * @param {String} option  opção selecionada do dropdown
+    */
+    handleOrdinationChange = (option) => {
         this.setState({ ordinationSelected : option.value });
         this.props.search(this.state.propertySelected, option.value)
-      }
+    }
 
     properties = [
         { value: 'votes', label: 'Vote' },
@@ -74,6 +88,7 @@ class FilterBy extends PureComponent {
     }
 }
 
-FilterBy.propTypes = propTypes;
+FilterBy.propTypes    = propTypes;
+FilterBy.defaultProps = defaultProps;
 
 export default FilterBy

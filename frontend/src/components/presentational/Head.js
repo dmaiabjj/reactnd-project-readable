@@ -15,7 +15,7 @@ const defaultProps = {
 
 /**
 * @description 
-* Componente o header genérico da aplicação
+* Componente que representa o header genérico da aplicação
 *
 * @constructor
 * @param {String} project       Nome do projeto

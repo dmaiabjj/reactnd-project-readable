@@ -99,7 +99,7 @@ export const Creators = {
     }),
     /**
     * @description Executa a api vote com up or down o comment.
-    * Step 1 - Sucesso - Dispacha a ação de DELETE_SUCCESS
+    * Step 1 - Sucesso - Dispacha a ação de VOTE_SUCCESS
     * Step 2 - Falha   - Dispacha a ação de FAILURE
     */
    vote:(id,user,option) => {

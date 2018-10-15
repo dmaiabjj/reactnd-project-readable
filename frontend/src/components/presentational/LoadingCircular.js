@@ -19,6 +19,11 @@ const styles = theme =>  ({
 });
 
 
+/**
+* @description 
+* Componente que representa o loading circular genérico usado para mostrar o usuário
+* que o fetch dos dados está acontecendo
+*/
 class LoadingCircular extends React.Component {
   state = {
     completed: 0,

@@ -28,6 +28,14 @@ const propTypes = {
       onDeletePost : PropTypes.func.isRequired
 };
 
+const defaultProps  = {
+    post: {id: "",timestamp: 0,body: "",author: "",votes:[],category:""},
+    authUser : {name: "",avatar: ""},
+    onDeletePost : (id,event) => {},
+    onReactPost : (id,user,option,event)=> {},
+    onVoteComment : (id,user,option,event) => {}
+};
+
 
 /**
 * @description 
@@ -40,6 +48,12 @@ const propTypes = {
 */
 class PostDetail extends Component {
 
+    /**
+    * @description 
+    * Verifica se o usuário logado já votou e adiciona uma classe ao botão de vote na opção já escolhida
+    * @param {Event} option     Opção do voto
+    * @returns {string}         A classe active ou string.Empty
+    */
     setClassName = (option) =>{
         const {post,authUser}       = this.props
         const vote                  = post.votes.find((p) => p.user === authUser.name && p.option === option)
@@ -189,5 +203,6 @@ class PostDetail extends Component {
 }
 
 PostDetail.propTypes    = propTypes;
+PostDetail.defaultProps = defaultProps;
 
 export default PostDetail

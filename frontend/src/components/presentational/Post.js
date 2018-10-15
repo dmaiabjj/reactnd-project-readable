@@ -25,6 +25,13 @@ const propTypes = {
       onDeletePost : PropTypes.func.isRequired
 };
 
+const defaultProps  = {
+    post: {id: "",timestamp: 0,body: "",author: "",votes:[],category:""},
+    isOwner : false,
+    loading:false,
+    onDeletePost : (id,event) => {}
+};
+
 
 /**
 * @description 
@@ -42,6 +49,12 @@ class Post extends Component  {
         this.setState({showLoading : false});
     }
 
+    /**
+    * @description 
+    * Reponsável por deletar o post
+    * @param {String} id  Id do post
+    * @param {Event} event  Evento referente ao ato de deletar o post
+    */
     onDelete = (id,event) => {
         this.setState({showLoading : true})
         const {onDeletePost} = this.props
@@ -155,5 +168,6 @@ class Post extends Component  {
 }
 
 Post.propTypes    = propTypes;
+Post.defaultProps = defaultProps;
 
 export default Post
