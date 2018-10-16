@@ -60,7 +60,7 @@ export const Creators = {
             
             const normalized    = normalize([post],PostSchema);
             const result        = (normalized.result.length > 0) ? (normalized.entities.posts) :([]);
-             dispatch(Creators.fetchSuccess(result));
+            dispatch(Creators.fetchSuccess(result));
           })
           .catch(function(error) {
             dispatch(SharedCreators.failure(error));

@@ -17,8 +17,8 @@ export const Creators = {
     * Step 2 - Falha   - Dispacha a ação de FAILURE
     */
     fetch:() => {
-        SharedCreators.loading(true);
         return (dispatch) => {
+            dispatch(SharedCreators.loading(true));
             return getAllCategories()
               .then((categories) => dispatch(Creators.fetchSuccess(categories)))
               .catch(function(error) {
