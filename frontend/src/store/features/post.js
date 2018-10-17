@@ -59,7 +59,7 @@ export const Creators = {
           .then((post) => {
             
             const normalized    = normalize([post],PostSchema);
-            const result        = (normalized.result.length > 0) ? (normalized.entities.posts) :([]);
+            const result        = (normalized.result.length > 0) ? (normalized.entities.posts) :({});
             dispatch(Creators.fetchSuccess(result));
           })
           .catch(function(error) {
@@ -81,6 +81,7 @@ export const Creators = {
     */
    react:(id,user,option) => {
     return (dispatch) => {
+        dispatch(SharedCreators.loading(true));
          return reactPost(id,user,option)
           .then((post) => {
               dispatch(Creators.reactSuccess(post.id,post.reactions));
@@ -105,6 +106,7 @@ export const Creators = {
     */
    vote:(id,user,option) => {
     return (dispatch) => {
+        dispatch(SharedCreators.loading(true));
          return upOrDownPostVote(id,user,option)
           .then((post) => {
               dispatch(Creators.voteSuccess(post.id,post.votes));
@@ -184,7 +186,6 @@ export const Creators = {
                 history && history.push('/');
             }
             ).catch(function(error) {
-              console.log(error)
             dispatch(SharedCreators.failure(error));
           });
       }

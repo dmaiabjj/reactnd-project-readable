@@ -14,7 +14,7 @@ const store = mockStore({
 });
 
 
-describe('Comment reducer', () => {
+describe('Comment', () => {
 
     beforeEach(() => {
         store.clearActions();
@@ -194,7 +194,7 @@ describe('Comment reducer', () => {
                 .toEqual({comment,type: CommentType.UPDATE_SUCCESS});
     });
 
-    it('[Action Creator ADD] should dispatch a LOADING -> ACTION_FAILURE  action ', 
+    it('[Action Creator UPDATE] should dispatch a LOADING -> ACTION_FAILURE  action ', 
         () => {
 
             const comment = 

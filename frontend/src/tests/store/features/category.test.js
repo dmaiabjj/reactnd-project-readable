@@ -13,7 +13,7 @@ const store = mockStore({
     categories : INITIAL_STATE
 });
 
-describe('Category reducer', () => {
+describe('Category', () => {
 
     beforeEach(() => {
         store.clearActions();
