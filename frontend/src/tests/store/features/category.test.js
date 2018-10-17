@@ -13,11 +13,10 @@ const store = mockStore({
     categories : INITIAL_STATE
 });
 
-
 describe('Category reducer', () => {
 
     beforeEach(() => {
-        fetch.resetMocks()
+        store.clearActions();
     })
 
     it('[Reducer] should handle initial state', () => {
@@ -49,11 +48,25 @@ describe('Category reducer', () => {
         
     });
 
-
     it('[Action Creator] should dispatch a FETCH_SUCCESS action ', 
         () => {
             expect(Creators.fetchSuccess(categories))
                 .toEqual({categories,type: CategoryType.FETCH_SUCCESS});
+    });
+
+    it('[Action Creator] should dispatch a LOADING -> ACTION_FAILURE  action ', 
+        () => {
+            const expected = JSON.stringify({error})
+            fetch.mockReject(expected);
+
+            const expectedActions = [
+                {type: SharedType.LOADING,loading:true},
+                {type: SharedType.ACTION_FAILURE,error : expected}
+            ];
+
+            return store.dispatch(Creators.fetch())
+                .then(() => expect(store.getActions()).toEqual(expectedActions))
+        
     });
 
 

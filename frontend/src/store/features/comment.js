@@ -104,6 +104,7 @@ export const Creators = {
     */
    vote:(id,user,option) => {
     return (dispatch) => {
+        dispatch(SharedCreators.loading(true));
          return upOrDownCommentVote(id,user,option)
           .then((comment) => dispatch(Creators.voteSuccess(comment.id,comment.votes)))
           .catch(function(error) {

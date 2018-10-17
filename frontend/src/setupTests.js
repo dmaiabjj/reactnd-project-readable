@@ -10,4 +10,5 @@ global.mount            = mount;
 global.render           = render;
 global.shallow          = shallow;
 global.fetch            = fetch;
+global.error            = new Error('Ops, Something Went Wrong')
 
