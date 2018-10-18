@@ -1,18 +1,18 @@
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
+import _ from 'lodash'
 
-import comments                             from '../../mocks/comments'
-import {Types as CommentType,Creators}      from '../../../store/features/comment'
-import {Types as SharedType}                from '../../../store/features/shared'
-import reducer                              from '../../../store/features/comment'
+import comments                                             from '../../mocks/comments'
+import {Types as CommentType,Creators,getCommentsByPost}    from '../../../store/features/comment'
+import {Types as SharedType}                                from '../../../store/features/shared'
+import reducer                                              from '../../../store/features/comment'
 
-const INITIAL_STATE = {};
+const INITIAL_STATE = comments;
 
 const mockStore = configureMockStore([thunk]);
 const store = mockStore({
     comments : INITIAL_STATE
 });
-
 
 describe('Comment', () => {
 
@@ -20,20 +20,87 @@ describe('Comment', () => {
         store.clearActions();
     })
 
+    /*  REDUCERS  */
     it('[Reducer] should handle initial state', () => {
             expect(reducer(undefined,{}))
                 .toEqual({});
     });
 
-    it('[Reducer] should handle FETCH action', () => {
-        expect(reducer({},{type:CommentType.FETCH}))
-        .toEqual({});
+    it('[Reducer] should handle ADD_SUCCESS action', () => {
+
+        const comment = 
+            {
+                id: '1',
+                parentId: "2",
+                timestamp: 1468166872634,
+                body: 'Hi there! I am a COMMENT.',
+                author: 'thingtwo',
+                votes:[]
+            }
+
+        const expected = {
+            ...{},
+            [comment.id] : comment
+        }
+
+        expect(reducer({},{type:CommentType.ADD_SUCCESS,comment}))
+        .toEqual(expected);
+    });
+
+    it('[Reducer] should handle UPDATE_SUCCESS action', () => {
+
+        const comment = 
+            {
+                id: '1',
+                parentId: "2",
+                timestamp: 1468166872634,
+                body: 'Hi there! I am a COMMENT.',
+                author: 'thingtwo',
+                votes:[]
+            }
+
+        const expected = {
+            ...comments,
+            [comment.id] : comment
+        }
+
+        expect(reducer(comments,{type:CommentType.UPDATE_SUCCESS,comment}))
+        .toEqual(expected);
     });
 
     it('[Reducer] should handle FETCH_SUCCESS action', () => {
         expect(reducer({},{type:CommentType.FETCH_SUCCESS,comments}))
         .toEqual(comments);
     });
+
+    it('[Reducer] should handle VOTE_SUCCESS action', () => {
+
+        const id    = "894tuq4ut84ut8v4t8wun89g"
+        const votes = [{name : "diego",option : "upVote",value: 1}];
+
+        const expected = {
+            ...comments,
+            ...comments[id].votes = [...votes]
+        }
+
+        expect(reducer(comments,{type:CommentType.VOTE_SUCCESS,id,votes}))
+        .toEqual(expected);
+    });
+
+
+    it('[Reducer] should handle VOTE_SUCCESS action', () => {
+
+        const comment = {id :"894tuq4ut84ut8v4t8wun89g"};
+
+        const expected = _.omit(comments,comment.id);
+
+        expect(reducer(comments,{type:CommentType.DELETE_SUCCESS,comment}))
+        .toEqual(expected);
+    });
+
+    /*  REDUCERS  */
+
+    /*  ACTION CREATORS  */
 
     it('[Action Creator FETCH] should dispatch a LOADING -> FETCH_SUCCESS  action ', 
         () => {
@@ -354,6 +421,20 @@ describe('Comment', () => {
         
     });
    
+    /*  ACTION CREATORS  */
 
+
+     /*  SELECTORS  */
+
+     it('[SELECTORS] should handle getCommentsByPost', () => {
+
+        const postId        = "8xf0y6ziyjabvozdd253nd"
+        const id            = "8tu4bsun805n8un48ve89"
+        const expected      = [comments[id]]
+        expect(getCommentsByPost(postId)({comments}))
+        .toEqual(expected);
+    });
+
+      /*  SELECTORS  */
 
 })

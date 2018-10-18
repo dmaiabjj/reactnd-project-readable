@@ -1,10 +1,12 @@
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
+import _ from 'lodash'
 
-import posts                                from '../../mocks/posts'
-import {Types as PostType,Creators}         from '../../../store/features/post'
-import {Types as SharedType}                from '../../../store/features/shared'
-import reducer                              from '../../../store/features/post'
+import posts                                                        from '../../mocks/posts'
+import {Types as PostType,Creators,getPostByFilter,getPostById}     from '../../../store/features/post'
+import {Types as CommentType}                                       from '../../../store/features/comment'
+import {Types as SharedType}                                        from '../../../store/features/shared'
+import reducer                                                      from '../../../store/features/post'
 
 const INITIAL_STATE = {};
 
@@ -20,20 +22,123 @@ describe('Post', () => {
         store.clearActions();
     })
 
+    /*  REDUCERS  */
+
     it('[Reducer] should handle initial state', () => {
             expect(reducer(undefined,{}))
                 .toEqual({});
-    });
-
-    it('[Reducer] should handle FETCH action', () => {
-        expect(reducer({},{type:PostType.FETCH}))
-        .toEqual({});
     });
 
     it('[Reducer] should handle FETCH_SUCCESS action', () => {
         expect(reducer({},{type:PostType.FETCH_SUCCESS,posts}))
         .toEqual(posts);
     });
+
+    it('[Reducer] should handle COMMENT/ADD_SUCCESS action', () => {
+
+        const comment = {
+            author: 'thingtwo',
+            body: 'Hi there! I am a COMMENT.',
+            deleted: false,
+            id: '894tuq4ut84ut8v4t8wun89g',
+            parentDeleted: false,
+            parentId: "8xf0y6ziyjabvozdd253nd",
+            timestamp: 1468166872634,
+            votes:[],
+            deleted: false,
+            
+        }
+
+        const expected =  {
+            ...posts,
+            [comment.parentId] :{
+                ...posts[comment.parentId],...{commentCount:posts[comment.parentId].commentCount + 1}
+            }
+        }
+        
+        expect(reducer(posts,{type:CommentType.ADD_SUCCESS,comment}))
+        .toEqual(expected);
+    });
+
+    it('[Reducer] should handle COMMENT/DELETE_SUCCESS action', () => {
+
+        const comment = {
+            author: 'thingtwo',
+            body: 'Hi there! I am a COMMENT.',
+            deleted: false,
+            id: '894tuq4ut84ut8v4t8wun89g',
+            parentDeleted: false,
+            parentId: "8xf0y6ziyjabvozdd253nd",
+            timestamp: 1468166872634,
+            votes:[],
+            deleted: false,
+            
+        }
+
+        const expected =  {
+            ...posts,
+            [comment.parentId] :{
+                ...posts[comment.parentId],...{commentCount:posts[comment.parentId].commentCount - 1}
+            }
+        }
+
+        
+        expect(reducer(posts,{type:CommentType.DELETE_SUCCESS,comment}))
+        .toEqual(expected);
+    });
+
+    it('[Reducer] should handle FETCH_SUCCESS action', () => {
+
+        expect(reducer({},{type:PostType.FETCH_SUCCESS,posts}))
+        .toEqual(posts);
+    });
+
+
+    it('[Reducer] should handle REACT_SUCCESS action', () => {
+
+        const id        = "8xf0y6ziyjabvozdd253nd"
+        const reactions = [{name : "diego",option : "zombie"}];
+
+        const expected = {
+            ...posts,
+            [id] : {
+                ...posts[id],...{reactions : [...reactions]}
+            } 
+        }
+
+        expect(reducer(posts,{type:PostType.REACT_SUCCESS,id,reactions}))
+        .toEqual(expected);
+    });
+
+    it('[Reducer] should handle VOTE_SUCCESS action', () => {
+
+        const id    = "8xf0y6ziyjabvozdd253nd"
+        const votes = [{name : "diego",option : "upVote",value: 1}];
+
+        const expected = {
+            ...posts,
+            [id] : {
+                ...posts[id],...{votes : [...votes]}
+            } 
+        }
+
+        expect(reducer(posts,{type:PostType.VOTE_SUCCESS,id,votes}))
+        .toEqual(expected);
+    });
+
+    it('[Reducer] should handle DELETE_SUCCESS action', () => {
+
+        const id        = "8xf0y6ziyjabvozdd253nd"
+        const expected  = _.omit(posts, id);
+
+        expect(reducer(posts,{type:PostType.DELETE_SUCCESS,id}))
+        .toEqual(expected);
+    });
+
+
+    /*  REDUCERS  */
+
+    /*  ACTION CREATORS  */
 
     it('[Action Creator FETCH] should dispatch a LOADING -> FETCH_SUCCESS  action ', 
         () => {
@@ -75,13 +180,27 @@ describe('Post', () => {
     it('[Action Creator FETCH_BY_ID] should dispatch a LOADING -> FETCH_SUCCESS  action ', 
         () => {
 
-            const id    = '8xf0y6ziyjabvozdd253nd'
-            const post  = posts[id]
-            fetch.mockResponse(JSON.stringify(post));
+            const id    = '6ni6ok3ym7mf1p33lnez'
+            const post  = {"6ni6ok3ym7mf1p33lnez": {
+                id: '6ni6ok3ym7mf1p33lnez',
+                timestamp: 1535760601,
+                title: 'Learn Redux in 10 minutes!',
+                body: 'Just kidding. It takes more than 10 minutes to learn technology.',
+                author: 'thingone',
+                category: 'redux',
+                votes:[{name: 'thingtwo',option: 'gostei'},{name: 'carlos',option: 'amei'}],
+                reactions:[],
+                deleted: false,
+                commentCount: 0
+              }
+            }
+
+           
+            fetch.mockResponse(JSON.stringify(posts[id]));
 
             const expectedActions = [
                 {type: SharedType.LOADING,loading:true},
-                {type: PostType.FETCH_SUCCESS,posts}
+                {type: PostType.FETCH_SUCCESS,posts : post}
             ];
 
             return store.dispatch(Creators.fetchById(id))
@@ -89,21 +208,6 @@ describe('Post', () => {
         
     });
 
-    it('[Action Creator FETCH_BY_ID] should dispatch a LOADING -> FETCH_SUCCESS  action ', 
-        () => {
-
-            const id    = ''
-            fetch.mockResponse(JSON.stringify({}));
-
-            const expectedActions = [
-                {type: SharedType.LOADING,loading:true},
-                {type: PostType.FETCH_SUCCESS,posts : {}}
-            ];
-
-            return store.dispatch(Creators.fetchById(id))
-                .then(() => expect(store.getActions()).toEqual(expectedActions))
-        
-    });
 
     it('[Action Creator FETCH_BY_ID] should fetch dispatch a LOADING -> ACTION_FAILURE  action ', 
         () => {
@@ -430,5 +534,62 @@ describe('Post', () => {
         
     });
 
+     /*  ACTION CREATORS  */
+
+    /*  SELECTORS  */
+
+    it('[SELECTORS] should handle getPostById', () => {
+
+        const id        = "8xf0y6ziyjabvozdd253nd"
+        const expected  = posts[id]
+
+        expect(getPostById(id)({posts}))
+        .toEqual(expected);
+    });
+
+
+    it('[SELECTORS] should handle getPostById by react category', () => {
+
+        const id        = '8xf0y6ziyjabvozdd253nd'
+        const category  = 'react'
+        const filter    = 'timestamp'
+        const order     = 'asc'
+
+        const expected  = [posts[id]]
+
+        expect(getPostByFilter(category,filter,order)({posts}))
+        .toEqual(expected);
+    });
+
+
+    it('[SELECTORS] should handle getPostById by redux category', () => {
+
+        const id        = '6ni6ok3ym7mf1p33lnez'
+        const category  = 'redux'
+        const filter    = 'timestamp'
+        const order     = 'asc'
+
+        const expected  = [posts[id]]
+
+        expect(getPostByFilter(category,filter,order)({posts}))
+        .toEqual(expected);
+    });
+
+    it('[SELECTORS] should handle getPostById by votes', () => {
+
+        const category  = 'all'
+        const filter    = 'votes'
+        const order     = 'desc'
+
+        const expected  = _.orderBy(Object.keys(posts)
+                            .map(id => posts[id])
+                            .filter(post => category === 'all' || post.category === category),[filter],[order])
+
+        expect(getPostByFilter(category,filter,order)({posts}))
+        .toEqual(expected);
+    });
+  
+
+    /*  SELECTORS  */
 
 })

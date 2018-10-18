@@ -19,20 +19,22 @@ describe('Category', () => {
         store.clearActions();
     })
 
+    /*  REDUCERS  */
+
     it('[Reducer] should handle initial state', () => {
             expect(reducer(undefined,{}))
                 .toEqual([]);
     });
 
-    it('[Reducer] should handle FETCH action', () => {
-        expect(reducer([],{type:CategoryType.FETCH}))
-        .toEqual([]);
-    });
 
     it('[Reducer] should handle FETCH_SUCCESS action', () => {
         expect(reducer([],{type:CategoryType.FETCH_SUCCESS,categories}))
         .toEqual(categories);
     });
+
+    /*  REDUCERS  */
+
+     /*  ACTION CREATORS  */
 
     it('[Action Creator] should dispatch a LOADING -> FETCH_SUCCESS  action ', 
         () => {
@@ -69,5 +71,6 @@ describe('Category', () => {
         
     });
 
+     /*  ACTION CREATORS  */
 
 })
