@@ -1,4 +1,3 @@
 export default {
-    name: "Udacity",
-    avatar : "udacity"
+    name : "Udacity", avatar: "udacity"
 }

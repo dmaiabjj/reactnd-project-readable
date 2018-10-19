@@ -16,6 +16,7 @@ export default {
         É importante questionar o quanto a competitividade nas transações comerciais é uma das consequências de alternativas às soluções ortodoxas. Podemos já vislumbrar o modo pelo qual o surgimento do comércio virtual causa impacto indireto na reavaliação das formas de ação. O cuidado em identificar pontos críticos na necessidade de renovação processual não pode mais se dissociar dos procedimentos normalmente adotados. Desta maneira, a revolução dos costumes possibilita uma melhor visão global do sistema de formação de quadros que corresponde às necessidades. 
     `,
         votes:[],
+        author: 'thingone',
         category: 'react',
         reactions:[{name: 'thingtwo',option: 'zumbi'},{name: 'jorge',option: 'zumbi'},{name: 'carlos',option: 'bravo'},{name: 'joao',option: 'careta'}],
         deleted: false,
