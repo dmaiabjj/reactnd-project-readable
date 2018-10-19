@@ -44,6 +44,7 @@ export const Creators = {
             dispatch(Creators.loading(true))
             return getInitialData()
                 .then(({ categories, posts }) => {
+
                     const normalized = normalize(posts,PostSchema);
                     dispatch(CategoryCreators.fetchSuccess(categories));
                     dispatch(PostCreators.fetchSuccess(normalized.entities.posts));
