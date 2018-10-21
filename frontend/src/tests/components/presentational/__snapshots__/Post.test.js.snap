@@ -1,0 +1,2712 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Presentation Component] Post Renders correctly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Post
+    isOwner={true}
+    loading={false}
+    onDeletePost={[Function]}
+    post={
+        Object {
+            "author": "thingone",
+            "body": "Não obstante, a crescente influência da mídia garante a contribuição de um grupo importante na determinação das condições financeiras e administrativas exigidas. Por outro lado, o comprometimento entre as equipes pode nos levar a considerar a reestruturação das diretrizes de desenvolvimento para o futuro. Assim mesmo, o entendimento das metas propostas agrega valor ao estabelecimento do sistema de participação geral. No mundo atual, a constante divulgação das informações promove a alavancagem dos modos de operação convencionais. 
+                Percebemos, cada vez mais, que o acompanhamento das preferências de consumo obstaculiza a apreciação da importância da gestão inovadora da qual fazemos parte. Todavia, o desenvolvimento contínuo de distintas formas de atuação assume importantes posições no estabelecimento das direções preferenciais no sentido do progresso. Nunca é demais lembrar o peso e o significado destes problemas, uma vez que a execução dos pontos do programa facilita a criação do remanejamento dos quadros funcionais. Gostaria de enfatizar que a percepção das dificuldades nos obriga à análise dos índices pretendidos. 
+            
+                No entanto, não podemos esquecer que a adoção de políticas descentralizadoras oferece uma interessante oportunidade para verificação dos paradigmas corporativos. O empenho em analisar o julgamento imparcial das eventualidades acarreta um processo de reformulação e modernização do impacto na agilidade decisória. A nível organizacional, o desafiador cenário globalizado representa uma abertura para a melhoria de todos os recursos funcionais envolvidos. Por conseguinte, o início da atividade geral de formação de atitudes prepara-nos para enfrentar situações atípicas decorrentes dos relacionamentos verticais entre as hierarquias. 
+            
+                Pensando mais a longo prazo, o fenômeno da Internet estende o alcance e a importância das condições inegavelmente apropriadas. Evidentemente, a hegemonia do ambiente político maximiza as possibilidades por conta do processo de comunicação como um todo. Ainda assim, existem dúvidas a respeito de como a expansão dos mercados mundiais talvez venha a ressaltar a relatividade do orçamento setorial. 
+            
+                Do mesmo modo, a consulta aos diversos militantes aponta para a melhoria dos níveis de motivação departamental. Acima de tudo, é fundamental ressaltar que a estrutura atual da organização afeta positivamente a correta previsão do retorno esperado a longo prazo. Neste sentido, o novo modelo estrutural aqui preconizado cumpre um papel essencial na formulação das posturas dos órgãos dirigentes com relação às suas atribuições. 
+            
+                É importante questionar o quanto a competitividade nas transações comerciais é uma das consequências de alternativas às soluções ortodoxas. Podemos já vislumbrar o modo pelo qual o surgimento do comércio virtual causa impacto indireto na reavaliação das formas de ação. O cuidado em identificar pontos críticos na necessidade de renovação processual não pode mais se dissociar dos procedimentos normalmente adotados. Desta maneira, a revolução dos costumes possibilita uma melhor visão global do sistema de formação de quadros que corresponde às necessidades. 
+            ",
+            "category": "react",
+            "commentCount": 2,
+            "deleted": false,
+            "id": "8xf0y6ziyjabvozdd253nd",
+            "reactions": Array [
+              Object {
+                "name": "thingtwo",
+                "option": "zumbi",
+              },
+              Object {
+                "name": "jorge",
+                "option": "zumbi",
+              },
+              Object {
+                "name": "carlos",
+                "option": "bravo",
+              },
+              Object {
+                "name": "joao",
+                "option": "careta",
+              },
+            ],
+            "timestamp": 1538352601,
+            "title": "Udacity is the best place to learn React",
+            "votes": Array [],
+          }
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        className="ui-block"
+>
+        <article
+                className="hentry post"
+        >
+                <Unknown>
+                        <div
+                                className="more"
+                        >
+                                <svg
+                                        className="olymp-three-dots-icon"
+                                >
+                                        <use
+                                                xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+                                        />
+                                </svg>
+                                <ul
+                                        className="more-dropdown"
+                                >
+                                        <li>
+                                                <Link
+                                                        replace={false}
+                                                        to="/post/edit/8xf0y6ziyjabvozdd253nd"
+                                                >
+                                                        Editar Post
+                                                </Link>
+                                        </li>
+                                        <li>
+                                                <button
+                                                        onClick={[Function]}
+                                                        type="submit"
+                                                >
+                                                        Apagar Post
+                                                </button>
+                                        </li>
+                                </ul>
+                        </div>
+                        <Link
+                                className="post-category bg-primary"
+                                replace={false}
+                                to="/post/category/react"
+                        >
+                                react
+                        </Link>
+                        <div
+                                className="post__author author vcard inline-items"
+                        >
+                                <div
+                                        className="author-date"
+                                >
+                                        <span
+                                                className="h6 post__author-name fn"
+                                        >
+                                                thingone
+                                        </span>
+                                        <div
+                                                className="post__date"
+                                        >
+                                                <time
+                                                        className="published"
+                                                        dateTime="4:19:PM | 1970-1-18"
+                                                >
+                                                        4:19:PM | 1970-1-18
+                                                </time>
+                                        </div>
+                                </div>
+                        </div>
+                        <h4>
+                                <Link
+                                        replace={false}
+                                        to="/post/detail/8xf0y6ziyjabvozdd253nd"
+                                >
+                                        Udacity is the best place to learn React
+                                </Link>
+                        </h4>
+                        <p
+                                className="description"
+                        >
+                                Não obstante, a crescente influência da mídia garante a contribuição de um grupo importante na determinação das condições financeiras e administrativas exigidas. Por outro lado, o comprometimento entre as equipes pode nos levar a considerar a reestruturação das diretrizes de desenvolvimento para ...
+                        </p>
+                        <div
+                                className="post-additional-info inline-items"
+                        >
+                                <div
+                                        className="post-add-icon inline-items"
+                                >
+                                        <svg
+                                                id="olymp-heart-icon"
+                                        >
+                                                <title>
+                                                        Votes
+                                                </title>
+                                                <use
+                                                        xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-heart-icon"
+                                                />
+                                        </svg>
+                                        <span />
+                                </div>
+                                <ul
+                                        className="friends-harmonic off"
+                                >
+                                        <li>
+                                                <img
+                                                        alt="zumbi"
+                                                        src="/img/icon-zumbi.png"
+                                                />
+                                        </li>
+                                        <li>
+                                                <img
+                                                        alt="bravo"
+                                                        src="/img/icon-bravo.png"
+                                                />
+                                        </li>
+                                        <li>
+                                                <img
+                                                        alt="careta"
+                                                        src="/img/icon-careta.png"
+                                                />
+                                        </li>
+                                </ul>
+                                <div
+                                        className="names-people-likes"
+                                >
+                                        4
+                                </div>
+                                <div
+                                        className="comments-shared"
+                                >
+                                        <div
+                                                className="post-add-icon inline-items"
+                                        >
+                                                <svg
+                                                        className="olymp-speech-balloon-icon"
+                                                >
+                                                        <title>
+                                                                Comentários
+                                                        </title>
+                                                        <use
+                                                                xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-speech-balloon-icon"
+                                                        />
+                                                </svg>
+                                                <span>
+                                                        2
+                                                </span>
+                                        </div>
+                                </div>
+                        </div>
+                </Unknown>
+        </article>
+</div>,
+      "className": "col col-xl-6 col-lg-6 col-md-12 col-sm-12  sorting-item family animals natural politics",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <article
+          className="hentry post"
+>
+          <Unknown>
+                    <div
+                              className="more"
+                    >
+                              <svg
+                                        className="olymp-three-dots-icon"
+                              >
+                                        <use
+                                                  xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+                                        />
+                              </svg>
+                              <ul
+                                        className="more-dropdown"
+                              >
+                                        <li>
+                                                  <Link
+                                                            replace={false}
+                                                            to="/post/edit/8xf0y6ziyjabvozdd253nd"
+                                                  >
+                                                            Editar Post
+                                                  </Link>
+                                        </li>
+                                        <li>
+                                                  <button
+                                                            onClick={[Function]}
+                                                            type="submit"
+                                                  >
+                                                            Apagar Post
+                                                  </button>
+                                        </li>
+                              </ul>
+                    </div>
+                    <Link
+                              className="post-category bg-primary"
+                              replace={false}
+                              to="/post/category/react"
+                    >
+                              react
+                    </Link>
+                    <div
+                              className="post__author author vcard inline-items"
+                    >
+                              <div
+                                        className="author-date"
+                              >
+                                        <span
+                                                  className="h6 post__author-name fn"
+                                        >
+                                                  thingone
+                                        </span>
+                                        <div
+                                                  className="post__date"
+                                        >
+                                                  <time
+                                                            className="published"
+                                                            dateTime="4:19:PM | 1970-1-18"
+                                                  >
+                                                            4:19:PM | 1970-1-18
+                                                  </time>
+                                        </div>
+                              </div>
+                    </div>
+                    <h4>
+                              <Link
+                                        replace={false}
+                                        to="/post/detail/8xf0y6ziyjabvozdd253nd"
+                              >
+                                        Udacity is the best place to learn React
+                              </Link>
+                    </h4>
+                    <p
+                              className="description"
+                    >
+                              Não obstante, a crescente influência da mídia garante a contribuição de um grupo importante na determinação das condições financeiras e administrativas exigidas. Por outro lado, o comprometimento entre as equipes pode nos levar a considerar a reestruturação das diretrizes de desenvolvimento para ...
+                    </p>
+                    <div
+                              className="post-additional-info inline-items"
+                    >
+                              <div
+                                        className="post-add-icon inline-items"
+                              >
+                                        <svg
+                                                  id="olymp-heart-icon"
+                                        >
+                                                  <title>
+                                                            Votes
+                                                  </title>
+                                                  <use
+                                                            xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-heart-icon"
+                                                  />
+                                        </svg>
+                                        <span />
+                              </div>
+                              <ul
+                                        className="friends-harmonic off"
+                              >
+                                        <li>
+                                                  <img
+                                                            alt="zumbi"
+                                                            src="/img/icon-zumbi.png"
+                                                  />
+                                        </li>
+                                        <li>
+                                                  <img
+                                                            alt="bravo"
+                                                            src="/img/icon-bravo.png"
+                                                  />
+                                        </li>
+                                        <li>
+                                                  <img
+                                                            alt="careta"
+                                                            src="/img/icon-careta.png"
+                                                  />
+                                        </li>
+                              </ul>
+                              <div
+                                        className="names-people-likes"
+                              >
+                                        4
+                              </div>
+                              <div
+                                        className="comments-shared"
+                              >
+                                        <div
+                                                  className="post-add-icon inline-items"
+                                        >
+                                                  <svg
+                                                            className="olymp-speech-balloon-icon"
+                                                  >
+                                                            <title>
+                                                                      Comentários
+                                                            </title>
+                                                            <use
+                                                                      xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-speech-balloon-icon"
+                                                            />
+                                                  </svg>
+                                                  <span>
+                                                            2
+                                                  </span>
+                                        </div>
+                              </div>
+                    </div>
+          </Unknown>
+</article>,
+        "className": "ui-block",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            false,
+            <Unknown>
+              <div
+                            className="more"
+              >
+                            <svg
+                                          className="olymp-three-dots-icon"
+                            >
+                                          <use
+                                                        xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+                                          />
+                            </svg>
+                            <ul
+                                          className="more-dropdown"
+                            >
+                                          <li>
+                                                        <Link
+                                                                      replace={false}
+                                                                      to="/post/edit/8xf0y6ziyjabvozdd253nd"
+                                                        >
+                                                                      Editar Post
+                                                        </Link>
+                                          </li>
+                                          <li>
+                                                        <button
+                                                                      onClick={[Function]}
+                                                                      type="submit"
+                                                        >
+                                                                      Apagar Post
+                                                        </button>
+                                          </li>
+                            </ul>
+              </div>
+              <Link
+                            className="post-category bg-primary"
+                            replace={false}
+                            to="/post/category/react"
+              >
+                            react
+              </Link>
+              <div
+                            className="post__author author vcard inline-items"
+              >
+                            <div
+                                          className="author-date"
+                            >
+                                          <span
+                                                        className="h6 post__author-name fn"
+                                          >
+                                                        thingone
+                                          </span>
+                                          <div
+                                                        className="post__date"
+                                          >
+                                                        <time
+                                                                      className="published"
+                                                                      dateTime="4:19:PM | 1970-1-18"
+                                                        >
+                                                                      4:19:PM | 1970-1-18
+                                                        </time>
+                                          </div>
+                            </div>
+              </div>
+              <h4>
+                            <Link
+                                          replace={false}
+                                          to="/post/detail/8xf0y6ziyjabvozdd253nd"
+                            >
+                                          Udacity is the best place to learn React
+                            </Link>
+              </h4>
+              <p
+                            className="description"
+              >
+                            Não obstante, a crescente influência da mídia garante a contribuição de um grupo importante na determinação das condições financeiras e administrativas exigidas. Por outro lado, o comprometimento entre as equipes pode nos levar a considerar a reestruturação das diretrizes de desenvolvimento para ...
+              </p>
+              <div
+                            className="post-additional-info inline-items"
+              >
+                            <div
+                                          className="post-add-icon inline-items"
+                            >
+                                          <svg
+                                                        id="olymp-heart-icon"
+                                          >
+                                                        <title>
+                                                                      Votes
+                                                        </title>
+                                                        <use
+                                                                      xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-heart-icon"
+                                                        />
+                                          </svg>
+                                          <span />
+                            </div>
+                            <ul
+                                          className="friends-harmonic off"
+                            >
+                                          <li>
+                                                        <img
+                                                                      alt="zumbi"
+                                                                      src="/img/icon-zumbi.png"
+                                                        />
+                                          </li>
+                                          <li>
+                                                        <img
+                                                                      alt="bravo"
+                                                                      src="/img/icon-bravo.png"
+                                                        />
+                                          </li>
+                                          <li>
+                                                        <img
+                                                                      alt="careta"
+                                                                      src="/img/icon-careta.png"
+                                                        />
+                                          </li>
+                            </ul>
+                            <div
+                                          className="names-people-likes"
+                            >
+                                          4
+                            </div>
+                            <div
+                                          className="comments-shared"
+                            >
+                                          <div
+                                                        className="post-add-icon inline-items"
+                                          >
+                                                        <svg
+                                                                      className="olymp-speech-balloon-icon"
+                                                        >
+                                                                      <title>
+                                                                                    Comentários
+                                                                      </title>
+                                                                      <use
+                                                                                    xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-speech-balloon-icon"
+                                                                      />
+                                                        </svg>
+                                                        <span>
+                                                                      2
+                                                        </span>
+                                          </div>
+                            </div>
+              </div>
+</Unknown>,
+          ],
+          "className": "hentry post",
+        },
+        "ref": null,
+        "rendered": Array [
+          false,
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": Array [
+                <div
+                  className="more"
+>
+                  <svg
+                                    className="olymp-three-dots-icon"
+                  >
+                                    <use
+                                                      xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+                                    />
+                  </svg>
+                  <ul
+                                    className="more-dropdown"
+                  >
+                                    <li>
+                                                      <Link
+                                                                        replace={false}
+                                                                        to="/post/edit/8xf0y6ziyjabvozdd253nd"
+                                                      >
+                                                                        Editar Post
+                                                      </Link>
+                                    </li>
+                                    <li>
+                                                      <button
+                                                                        onClick={[Function]}
+                                                                        type="submit"
+                                                      >
+                                                                        Apagar Post
+                                                      </button>
+                                    </li>
+                  </ul>
+</div>,
+                <Link
+                  className="post-category bg-primary"
+                  replace={false}
+                  to="/post/category/react"
+>
+                  react
+</Link>,
+                <div
+                  className="post__author author vcard inline-items"
+>
+                  <div
+                                    className="author-date"
+                  >
+                                    <span
+                                                      className="h6 post__author-name fn"
+                                    >
+                                                      thingone
+                                    </span>
+                                    <div
+                                                      className="post__date"
+                                    >
+                                                      <time
+                                                                        className="published"
+                                                                        dateTime="4:19:PM | 1970-1-18"
+                                                      >
+                                                                        4:19:PM | 1970-1-18
+                                                      </time>
+                                    </div>
+                  </div>
+</div>,
+                <h4>
+                  <Link
+                                    replace={false}
+                                    to="/post/detail/8xf0y6ziyjabvozdd253nd"
+                  >
+                                    Udacity is the best place to learn React
+                  </Link>
+</h4>,
+                <p
+                  className="description"
+>
+                  Não obstante, a crescente influência da mídia garante a contribuição de um grupo importante na determinação das condições financeiras e administrativas exigidas. Por outro lado, o comprometimento entre as equipes pode nos levar a considerar a reestruturação das diretrizes de desenvolvimento para ...
+</p>,
+                <div
+                  className="post-additional-info inline-items"
+>
+                  <div
+                                    className="post-add-icon inline-items"
+                  >
+                                    <svg
+                                                      id="olymp-heart-icon"
+                                    >
+                                                      <title>
+                                                                        Votes
+                                                      </title>
+                                                      <use
+                                                                        xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-heart-icon"
+                                                      />
+                                    </svg>
+                                    <span />
+                  </div>
+                  <ul
+                                    className="friends-harmonic off"
+                  >
+                                    <li>
+                                                      <img
+                                                                        alt="zumbi"
+                                                                        src="/img/icon-zumbi.png"
+                                                      />
+                                    </li>
+                                    <li>
+                                                      <img
+                                                                        alt="bravo"
+                                                                        src="/img/icon-bravo.png"
+                                                      />
+                                    </li>
+                                    <li>
+                                                      <img
+                                                                        alt="careta"
+                                                                        src="/img/icon-careta.png"
+                                                      />
+                                    </li>
+                  </ul>
+                  <div
+                                    className="names-people-likes"
+                  >
+                                    4
+                  </div>
+                  <div
+                                    className="comments-shared"
+                  >
+                                    <div
+                                                      className="post-add-icon inline-items"
+                                    >
+                                                      <svg
+                                                                        className="olymp-speech-balloon-icon"
+                                                      >
+                                                                        <title>
+                                                                                          Comentários
+                                                                        </title>
+                                                                        <use
+                                                                                          xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-speech-balloon-icon"
+                                                                        />
+                                                      </svg>
+                                                      <span>
+                                                                        2
+                                                      </span>
+                                    </div>
+                  </div>
+</div>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <svg
+                      className="olymp-three-dots-icon"
+>
+                      <use
+                                            xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+                      />
+</svg>,
+                    <ul
+                      className="more-dropdown"
+>
+                      <li>
+                                            <Link
+                                                                  replace={false}
+                                                                  to="/post/edit/8xf0y6ziyjabvozdd253nd"
+                                            >
+                                                                  Editar Post
+                                            </Link>
+                      </li>
+                      <li>
+                                            <button
+                                                                  onClick={[Function]}
+                                                                  type="submit"
+                                            >
+                                                                  Apagar Post
+                                            </button>
+                      </li>
+</ul>,
+                  ],
+                  "className": "more",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <use
+                        xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+/>,
+                      "className": "olymp-three-dots-icon",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "xlinkHref": "/img/svg-icons/sprites/icons.svg#olymp-three-dots-icon",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "use",
+                    },
+                    "type": "svg",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <li>
+                          <Link
+                                                    replace={false}
+                                                    to="/post/edit/8xf0y6ziyjabvozdd253nd"
+                          >
+                                                    Editar Post
+                          </Link>
+</li>,
+                        <li>
+                          <button
+                                                    onClick={[Function]}
+                                                    type="submit"
+                          >
+                                                    Apagar Post
+                          </button>
+</li>,
+                      ],
+                      "className": "more-dropdown",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <Link
+                            replace={false}
+                            to="/post/edit/8xf0y6ziyjabvozdd253nd"
+>
+                            Editar Post
+</Link>,
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "children": "Editar Post",
+                            "replace": false,
+                            "to": "/post/edit/8xf0y6ziyjabvozdd253nd",
+                          },
+                          "ref": null,
+                          "rendered": "Editar Post",
+                          "type": [Function],
+                        },
+                        "type": "li",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <button
+                            onClick={[Function]}
+                            type="submit"
+>
+                            Apagar Post
+</button>,
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Apagar Post",
+                            "onClick": [Function],
+                            "type": "submit",
+                          },
+                          "ref": null,
+                          "rendered": "Apagar Post",
+                          "type": "button",
+                        },
+                        "type": "li",
+                      },
+                    ],
+                    "type": "ul",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "react",
+                  "className": "post-category bg-primary",
+                  "replace": false,
+                  "to": "/post/category/react",
+                },
+                "ref": null,
+                "rendered": "react",
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <div
+                    className="author-date"
+>
+                    <span
+                                        className="h6 post__author-name fn"
+                    >
+                                        thingone
+                    </span>
+                    <div
+                                        className="post__date"
+                    >
+                                        <time
+                                                            className="published"
+                                                            dateTime="4:19:PM | 1970-1-18"
+                                        >
+                                                            4:19:PM | 1970-1-18
+                                        </time>
+                    </div>
+</div>,
+                  "className": "post__author author vcard inline-items",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <span
+                        className="h6 post__author-name fn"
+>
+                        thingone
+</span>,
+                      <div
+                        className="post__date"
+>
+                        <time
+                                                className="published"
+                                                dateTime="4:19:PM | 1970-1-18"
+                        >
+                                                4:19:PM | 1970-1-18
+                        </time>
+</div>,
+                    ],
+                    "className": "author-date",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "thingone",
+                        "className": "h6 post__author-name fn",
+                      },
+                      "ref": null,
+                      "rendered": "thingone",
+                      "type": "span",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <time
+                          className="published"
+                          dateTime="4:19:PM | 1970-1-18"
+>
+                          4:19:PM | 1970-1-18
+</time>,
+                        "className": "post__date",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "4:19:PM | 1970-1-18",
+                          "className": "published",
+                          "dateTime": "4:19:PM | 1970-1-18",
+                        },
+                        "ref": null,
+                        "rendered": "4:19:PM | 1970-1-18",
+                        "type": "time",
+                      },
+                      "type": "div",
+                    },
+                  ],
+                  "type": "div",
+                },
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <Link
+                    replace={false}
+                    to="/post/detail/8xf0y6ziyjabvozdd253nd"
+>
+                    Udacity is the best place to learn React
+</Link>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "Udacity is the best place to learn React",
+                    "replace": false,
+                    "to": "/post/detail/8xf0y6ziyjabvozdd253nd",
+                  },
+                  "ref": null,
+                  "rendered": "Udacity is the best place to learn React",
+                  "type": [Function],
+                },
+                "type": "h4",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Não obstante, a crescente influência da mídia garante a contribuição de um grupo importante na determinação das condições financeiras e administrativas exigidas. Por outro lado, o comprometimento entre as equipes pode nos levar a considerar a reestruturação das diretrizes de desenvolvimento para ...",
+                  "className": "description",
+                },
+                "ref": null,
+                "rendered": "Não obstante, a crescente influência da mídia garante a contribuição de um grupo importante na determinação das condições financeiras e administrativas exigidas. Por outro lado, o comprometimento entre as equipes pode nos levar a considerar a reestruturação das diretrizes de desenvolvimento para ...",
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <div
+                      className="post-add-icon inline-items"
+>
+                      <svg
+                                            id="olymp-heart-icon"
+                      >
+                                            <title>
+                                                                  Votes
+                                            </title>
+                                            <use
+                                                                  xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-heart-icon"
+                                            />
+                      </svg>
+                      <span />
+</div>,
+                    <ul
+                      className="friends-harmonic off"
+>
+                      <li>
+                                            <img
+                                                                  alt="zumbi"
+                                                                  src="/img/icon-zumbi.png"
+                                            />
+                      </li>
+                      <li>
+                                            <img
+                                                                  alt="bravo"
+                                                                  src="/img/icon-bravo.png"
+                                            />
+                      </li>
+                      <li>
+                                            <img
+                                                                  alt="careta"
+                                                                  src="/img/icon-careta.png"
+                                            />
+                      </li>
+</ul>,
+                    <div
+                      className="names-people-likes"
+>
+                      4
+</div>,
+                    <div
+                      className="comments-shared"
+>
+                      <div
+                                            className="post-add-icon inline-items"
+                      >
+                                            <svg
+                                                                  className="olymp-speech-balloon-icon"
+                                            >
+                                                                  <title>
+                                                                                        Comentários
+                                                                  </title>
+                                                                  <use
+                                                                                        xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-speech-balloon-icon"
+                                                                  />
+                                            </svg>
+                                            <span>
+                                                                  2
+                                            </span>
+                      </div>
+</div>,
+                  ],
+                  "className": "post-additional-info inline-items",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <svg
+                          id="olymp-heart-icon"
+>
+                          <title>
+                                                    Votes
+                          </title>
+                          <use
+                                                    xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-heart-icon"
+                          />
+</svg>,
+                        <span />,
+                      ],
+                      "className": "post-add-icon inline-items",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": Array [
+                            <title>
+                              Votes
+</title>,
+                            <use
+                              xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-heart-icon"
+/>,
+                          ],
+                          "id": "olymp-heart-icon",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": "Votes",
+                            },
+                            "ref": null,
+                            "rendered": "Votes",
+                            "type": "title",
+                          },
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "xlinkHref": "/img/svg-icons/sprites/icons.svg#olymp-heart-icon",
+                            },
+                            "ref": null,
+                            "rendered": null,
+                            "type": "use",
+                          },
+                        ],
+                        "type": "svg",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": 0,
+                        },
+                        "ref": null,
+                        "rendered": 0,
+                        "type": "span",
+                      },
+                    ],
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <li>
+                          <img
+                                                    alt="zumbi"
+                                                    src="/img/icon-zumbi.png"
+                          />
+</li>,
+                        <li>
+                          <img
+                                                    alt="bravo"
+                                                    src="/img/icon-bravo.png"
+                          />
+</li>,
+                        <li>
+                          <img
+                                                    alt="careta"
+                                                    src="/img/icon-careta.png"
+                          />
+</li>,
+                      ],
+                      "className": "friends-harmonic off",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": "zumbi",
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <img
+                            alt="zumbi"
+                            src="/img/icon-zumbi.png"
+/>,
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "alt": "zumbi",
+                            "src": "/img/icon-zumbi.png",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": "img",
+                        },
+                        "type": "li",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": "bravo",
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <img
+                            alt="bravo"
+                            src="/img/icon-bravo.png"
+/>,
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "alt": "bravo",
+                            "src": "/img/icon-bravo.png",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": "img",
+                        },
+                        "type": "li",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": "careta",
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <img
+                            alt="careta"
+                            src="/img/icon-careta.png"
+/>,
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "alt": "careta",
+                            "src": "/img/icon-careta.png",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": "img",
+                        },
+                        "type": "li",
+                      },
+                    ],
+                    "type": "ul",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": 4,
+                      "className": "names-people-likes",
+                    },
+                    "ref": null,
+                    "rendered": 4,
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <div
+                        className="post-add-icon inline-items"
+>
+                        <svg
+                                                className="olymp-speech-balloon-icon"
+                        >
+                                                <title>
+                                                                        Comentários
+                                                </title>
+                                                <use
+                                                                        xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-speech-balloon-icon"
+                                                />
+                        </svg>
+                        <span>
+                                                2
+                        </span>
+</div>,
+                      "className": "comments-shared",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <svg
+                            className="olymp-speech-balloon-icon"
+>
+                            <title>
+                                                        Comentários
+                            </title>
+                            <use
+                                                        xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-speech-balloon-icon"
+                            />
+</svg>,
+                          <span>
+                            2
+</span>,
+                        ],
+                        "className": "post-add-icon inline-items",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": Array [
+                              <title>
+                                Comentários
+</title>,
+                              <use
+                                xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-speech-balloon-icon"
+/>,
+                            ],
+                            "className": "olymp-speech-balloon-icon",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "children": "Comentários",
+                              },
+                              "ref": null,
+                              "rendered": "Comentários",
+                              "type": "title",
+                            },
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "xlinkHref": "/img/svg-icons/sprites/icons.svg#olymp-speech-balloon-icon",
+                              },
+                              "ref": null,
+                              "rendered": null,
+                              "type": "use",
+                            },
+                          ],
+                          "type": "svg",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": 2,
+                          },
+                          "ref": null,
+                          "rendered": 2,
+                          "type": "span",
+                        },
+                      ],
+                      "type": "div",
+                    },
+                    "type": "div",
+                  },
+                ],
+                "type": "div",
+              },
+            ],
+            "type": Symbol(react.fragment),
+          },
+        ],
+        "type": "article",
+      },
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="ui-block"
+>
+          <article
+                    className="hentry post"
+          >
+                    <Unknown>
+                              <div
+                                        className="more"
+                              >
+                                        <svg
+                                                  className="olymp-three-dots-icon"
+                                        >
+                                                  <use
+                                                            xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+                                                  />
+                                        </svg>
+                                        <ul
+                                                  className="more-dropdown"
+                                        >
+                                                  <li>
+                                                            <Link
+                                                                      replace={false}
+                                                                      to="/post/edit/8xf0y6ziyjabvozdd253nd"
+                                                            >
+                                                                      Editar Post
+                                                            </Link>
+                                                  </li>
+                                                  <li>
+                                                            <button
+                                                                      onClick={[Function]}
+                                                                      type="submit"
+                                                            >
+                                                                      Apagar Post
+                                                            </button>
+                                                  </li>
+                                        </ul>
+                              </div>
+                              <Link
+                                        className="post-category bg-primary"
+                                        replace={false}
+                                        to="/post/category/react"
+                              >
+                                        react
+                              </Link>
+                              <div
+                                        className="post__author author vcard inline-items"
+                              >
+                                        <div
+                                                  className="author-date"
+                                        >
+                                                  <span
+                                                            className="h6 post__author-name fn"
+                                                  >
+                                                            thingone
+                                                  </span>
+                                                  <div
+                                                            className="post__date"
+                                                  >
+                                                            <time
+                                                                      className="published"
+                                                                      dateTime="4:19:PM | 1970-1-18"
+                                                            >
+                                                                      4:19:PM | 1970-1-18
+                                                            </time>
+                                                  </div>
+                                        </div>
+                              </div>
+                              <h4>
+                                        <Link
+                                                  replace={false}
+                                                  to="/post/detail/8xf0y6ziyjabvozdd253nd"
+                                        >
+                                                  Udacity is the best place to learn React
+                                        </Link>
+                              </h4>
+                              <p
+                                        className="description"
+                              >
+                                        Não obstante, a crescente influência da mídia garante a contribuição de um grupo importante na determinação das condições financeiras e administrativas exigidas. Por outro lado, o comprometimento entre as equipes pode nos levar a considerar a reestruturação das diretrizes de desenvolvimento para ...
+                              </p>
+                              <div
+                                        className="post-additional-info inline-items"
+                              >
+                                        <div
+                                                  className="post-add-icon inline-items"
+                                        >
+                                                  <svg
+                                                            id="olymp-heart-icon"
+                                                  >
+                                                            <title>
+                                                                      Votes
+                                                            </title>
+                                                            <use
+                                                                      xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-heart-icon"
+                                                            />
+                                                  </svg>
+                                                  <span />
+                                        </div>
+                                        <ul
+                                                  className="friends-harmonic off"
+                                        >
+                                                  <li>
+                                                            <img
+                                                                      alt="zumbi"
+                                                                      src="/img/icon-zumbi.png"
+                                                            />
+                                                  </li>
+                                                  <li>
+                                                            <img
+                                                                      alt="bravo"
+                                                                      src="/img/icon-bravo.png"
+                                                            />
+                                                  </li>
+                                                  <li>
+                                                            <img
+                                                                      alt="careta"
+                                                                      src="/img/icon-careta.png"
+                                                            />
+                                                  </li>
+                                        </ul>
+                                        <div
+                                                  className="names-people-likes"
+                                        >
+                                                  4
+                                        </div>
+                                        <div
+                                                  className="comments-shared"
+                                        >
+                                                  <div
+                                                            className="post-add-icon inline-items"
+                                                  >
+                                                            <svg
+                                                                      className="olymp-speech-balloon-icon"
+                                                            >
+                                                                      <title>
+                                                                                Comentários
+                                                                      </title>
+                                                                      <use
+                                                                                xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-speech-balloon-icon"
+                                                                      />
+                                                            </svg>
+                                                            <span>
+                                                                      2
+                                                            </span>
+                                                  </div>
+                                        </div>
+                              </div>
+                    </Unknown>
+          </article>
+</div>,
+        "className": "col col-xl-6 col-lg-6 col-md-12 col-sm-12  sorting-item family animals natural politics",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <article
+            className="hentry post"
+>
+            <Unknown>
+                        <div
+                                    className="more"
+                        >
+                                    <svg
+                                                className="olymp-three-dots-icon"
+                                    >
+                                                <use
+                                                            xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+                                                />
+                                    </svg>
+                                    <ul
+                                                className="more-dropdown"
+                                    >
+                                                <li>
+                                                            <Link
+                                                                        replace={false}
+                                                                        to="/post/edit/8xf0y6ziyjabvozdd253nd"
+                                                            >
+                                                                        Editar Post
+                                                            </Link>
+                                                </li>
+                                                <li>
+                                                            <button
+                                                                        onClick={[Function]}
+                                                                        type="submit"
+                                                            >
+                                                                        Apagar Post
+                                                            </button>
+                                                </li>
+                                    </ul>
+                        </div>
+                        <Link
+                                    className="post-category bg-primary"
+                                    replace={false}
+                                    to="/post/category/react"
+                        >
+                                    react
+                        </Link>
+                        <div
+                                    className="post__author author vcard inline-items"
+                        >
+                                    <div
+                                                className="author-date"
+                                    >
+                                                <span
+                                                            className="h6 post__author-name fn"
+                                                >
+                                                            thingone
+                                                </span>
+                                                <div
+                                                            className="post__date"
+                                                >
+                                                            <time
+                                                                        className="published"
+                                                                        dateTime="4:19:PM | 1970-1-18"
+                                                            >
+                                                                        4:19:PM | 1970-1-18
+                                                            </time>
+                                                </div>
+                                    </div>
+                        </div>
+                        <h4>
+                                    <Link
+                                                replace={false}
+                                                to="/post/detail/8xf0y6ziyjabvozdd253nd"
+                                    >
+                                                Udacity is the best place to learn React
+                                    </Link>
+                        </h4>
+                        <p
+                                    className="description"
+                        >
+                                    Não obstante, a crescente influência da mídia garante a contribuição de um grupo importante na determinação das condições financeiras e administrativas exigidas. Por outro lado, o comprometimento entre as equipes pode nos levar a considerar a reestruturação das diretrizes de desenvolvimento para ...
+                        </p>
+                        <div
+                                    className="post-additional-info inline-items"
+                        >
+                                    <div
+                                                className="post-add-icon inline-items"
+                                    >
+                                                <svg
+                                                            id="olymp-heart-icon"
+                                                >
+                                                            <title>
+                                                                        Votes
+                                                            </title>
+                                                            <use
+                                                                        xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-heart-icon"
+                                                            />
+                                                </svg>
+                                                <span />
+                                    </div>
+                                    <ul
+                                                className="friends-harmonic off"
+                                    >
+                                                <li>
+                                                            <img
+                                                                        alt="zumbi"
+                                                                        src="/img/icon-zumbi.png"
+                                                            />
+                                                </li>
+                                                <li>
+                                                            <img
+                                                                        alt="bravo"
+                                                                        src="/img/icon-bravo.png"
+                                                            />
+                                                </li>
+                                                <li>
+                                                            <img
+                                                                        alt="careta"
+                                                                        src="/img/icon-careta.png"
+                                                            />
+                                                </li>
+                                    </ul>
+                                    <div
+                                                className="names-people-likes"
+                                    >
+                                                4
+                                    </div>
+                                    <div
+                                                className="comments-shared"
+                                    >
+                                                <div
+                                                            className="post-add-icon inline-items"
+                                                >
+                                                            <svg
+                                                                        className="olymp-speech-balloon-icon"
+                                                            >
+                                                                        <title>
+                                                                                    Comentários
+                                                                        </title>
+                                                                        <use
+                                                                                    xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-speech-balloon-icon"
+                                                                        />
+                                                            </svg>
+                                                            <span>
+                                                                        2
+                                                            </span>
+                                                </div>
+                                    </div>
+                        </div>
+            </Unknown>
+</article>,
+          "className": "ui-block",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              false,
+              <Unknown>
+                <div
+                                className="more"
+                >
+                                <svg
+                                                className="olymp-three-dots-icon"
+                                >
+                                                <use
+                                                                xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+                                                />
+                                </svg>
+                                <ul
+                                                className="more-dropdown"
+                                >
+                                                <li>
+                                                                <Link
+                                                                                replace={false}
+                                                                                to="/post/edit/8xf0y6ziyjabvozdd253nd"
+                                                                >
+                                                                                Editar Post
+                                                                </Link>
+                                                </li>
+                                                <li>
+                                                                <button
+                                                                                onClick={[Function]}
+                                                                                type="submit"
+                                                                >
+                                                                                Apagar Post
+                                                                </button>
+                                                </li>
+                                </ul>
+                </div>
+                <Link
+                                className="post-category bg-primary"
+                                replace={false}
+                                to="/post/category/react"
+                >
+                                react
+                </Link>
+                <div
+                                className="post__author author vcard inline-items"
+                >
+                                <div
+                                                className="author-date"
+                                >
+                                                <span
+                                                                className="h6 post__author-name fn"
+                                                >
+                                                                thingone
+                                                </span>
+                                                <div
+                                                                className="post__date"
+                                                >
+                                                                <time
+                                                                                className="published"
+                                                                                dateTime="4:19:PM | 1970-1-18"
+                                                                >
+                                                                                4:19:PM | 1970-1-18
+                                                                </time>
+                                                </div>
+                                </div>
+                </div>
+                <h4>
+                                <Link
+                                                replace={false}
+                                                to="/post/detail/8xf0y6ziyjabvozdd253nd"
+                                >
+                                                Udacity is the best place to learn React
+                                </Link>
+                </h4>
+                <p
+                                className="description"
+                >
+                                Não obstante, a crescente influência da mídia garante a contribuição de um grupo importante na determinação das condições financeiras e administrativas exigidas. Por outro lado, o comprometimento entre as equipes pode nos levar a considerar a reestruturação das diretrizes de desenvolvimento para ...
+                </p>
+                <div
+                                className="post-additional-info inline-items"
+                >
+                                <div
+                                                className="post-add-icon inline-items"
+                                >
+                                                <svg
+                                                                id="olymp-heart-icon"
+                                                >
+                                                                <title>
+                                                                                Votes
+                                                                </title>
+                                                                <use
+                                                                                xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-heart-icon"
+                                                                />
+                                                </svg>
+                                                <span />
+                                </div>
+                                <ul
+                                                className="friends-harmonic off"
+                                >
+                                                <li>
+                                                                <img
+                                                                                alt="zumbi"
+                                                                                src="/img/icon-zumbi.png"
+                                                                />
+                                                </li>
+                                                <li>
+                                                                <img
+                                                                                alt="bravo"
+                                                                                src="/img/icon-bravo.png"
+                                                                />
+                                                </li>
+                                                <li>
+                                                                <img
+                                                                                alt="careta"
+                                                                                src="/img/icon-careta.png"
+                                                                />
+                                                </li>
+                                </ul>
+                                <div
+                                                className="names-people-likes"
+                                >
+                                                4
+                                </div>
+                                <div
+                                                className="comments-shared"
+                                >
+                                                <div
+                                                                className="post-add-icon inline-items"
+                                                >
+                                                                <svg
+                                                                                className="olymp-speech-balloon-icon"
+                                                                >
+                                                                                <title>
+                                                                                                Comentários
+                                                                                </title>
+                                                                                <use
+                                                                                                xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-speech-balloon-icon"
+                                                                                />
+                                                                </svg>
+                                                                <span>
+                                                                                2
+                                                                </span>
+                                                </div>
+                                </div>
+                </div>
+</Unknown>,
+            ],
+            "className": "hentry post",
+          },
+          "ref": null,
+          "rendered": Array [
+            false,
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": Array [
+                  <div
+                    className="more"
+>
+                    <svg
+                                        className="olymp-three-dots-icon"
+                    >
+                                        <use
+                                                            xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+                                        />
+                    </svg>
+                    <ul
+                                        className="more-dropdown"
+                    >
+                                        <li>
+                                                            <Link
+                                                                                replace={false}
+                                                                                to="/post/edit/8xf0y6ziyjabvozdd253nd"
+                                                            >
+                                                                                Editar Post
+                                                            </Link>
+                                        </li>
+                                        <li>
+                                                            <button
+                                                                                onClick={[Function]}
+                                                                                type="submit"
+                                                            >
+                                                                                Apagar Post
+                                                            </button>
+                                        </li>
+                    </ul>
+</div>,
+                  <Link
+                    className="post-category bg-primary"
+                    replace={false}
+                    to="/post/category/react"
+>
+                    react
+</Link>,
+                  <div
+                    className="post__author author vcard inline-items"
+>
+                    <div
+                                        className="author-date"
+                    >
+                                        <span
+                                                            className="h6 post__author-name fn"
+                                        >
+                                                            thingone
+                                        </span>
+                                        <div
+                                                            className="post__date"
+                                        >
+                                                            <time
+                                                                                className="published"
+                                                                                dateTime="4:19:PM | 1970-1-18"
+                                                            >
+                                                                                4:19:PM | 1970-1-18
+                                                            </time>
+                                        </div>
+                    </div>
+</div>,
+                  <h4>
+                    <Link
+                                        replace={false}
+                                        to="/post/detail/8xf0y6ziyjabvozdd253nd"
+                    >
+                                        Udacity is the best place to learn React
+                    </Link>
+</h4>,
+                  <p
+                    className="description"
+>
+                    Não obstante, a crescente influência da mídia garante a contribuição de um grupo importante na determinação das condições financeiras e administrativas exigidas. Por outro lado, o comprometimento entre as equipes pode nos levar a considerar a reestruturação das diretrizes de desenvolvimento para ...
+</p>,
+                  <div
+                    className="post-additional-info inline-items"
+>
+                    <div
+                                        className="post-add-icon inline-items"
+                    >
+                                        <svg
+                                                            id="olymp-heart-icon"
+                                        >
+                                                            <title>
+                                                                                Votes
+                                                            </title>
+                                                            <use
+                                                                                xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-heart-icon"
+                                                            />
+                                        </svg>
+                                        <span />
+                    </div>
+                    <ul
+                                        className="friends-harmonic off"
+                    >
+                                        <li>
+                                                            <img
+                                                                                alt="zumbi"
+                                                                                src="/img/icon-zumbi.png"
+                                                            />
+                                        </li>
+                                        <li>
+                                                            <img
+                                                                                alt="bravo"
+                                                                                src="/img/icon-bravo.png"
+                                                            />
+                                        </li>
+                                        <li>
+                                                            <img
+                                                                                alt="careta"
+                                                                                src="/img/icon-careta.png"
+                                                            />
+                                        </li>
+                    </ul>
+                    <div
+                                        className="names-people-likes"
+                    >
+                                        4
+                    </div>
+                    <div
+                                        className="comments-shared"
+                    >
+                                        <div
+                                                            className="post-add-icon inline-items"
+                                        >
+                                                            <svg
+                                                                                className="olymp-speech-balloon-icon"
+                                                            >
+                                                                                <title>
+                                                                                                    Comentários
+                                                                                </title>
+                                                                                <use
+                                                                                                    xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-speech-balloon-icon"
+                                                                                />
+                                                            </svg>
+                                                            <span>
+                                                                                2
+                                                            </span>
+                                        </div>
+                    </div>
+</div>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <svg
+                        className="olymp-three-dots-icon"
+>
+                        <use
+                                                xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+                        />
+</svg>,
+                      <ul
+                        className="more-dropdown"
+>
+                        <li>
+                                                <Link
+                                                                        replace={false}
+                                                                        to="/post/edit/8xf0y6ziyjabvozdd253nd"
+                                                >
+                                                                        Editar Post
+                                                </Link>
+                        </li>
+                        <li>
+                                                <button
+                                                                        onClick={[Function]}
+                                                                        type="submit"
+                                                >
+                                                                        Apagar Post
+                                                </button>
+                        </li>
+</ul>,
+                    ],
+                    "className": "more",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <use
+                          xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-three-dots-icon"
+/>,
+                        "className": "olymp-three-dots-icon",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "xlinkHref": "/img/svg-icons/sprites/icons.svg#olymp-three-dots-icon",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "use",
+                      },
+                      "type": "svg",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <li>
+                            <Link
+                                                        replace={false}
+                                                        to="/post/edit/8xf0y6ziyjabvozdd253nd"
+                            >
+                                                        Editar Post
+                            </Link>
+</li>,
+                          <li>
+                            <button
+                                                        onClick={[Function]}
+                                                        type="submit"
+                            >
+                                                        Apagar Post
+                            </button>
+</li>,
+                        ],
+                        "className": "more-dropdown",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": <Link
+                              replace={false}
+                              to="/post/edit/8xf0y6ziyjabvozdd253nd"
+>
+                              Editar Post
+</Link>,
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "class",
+                            "props": Object {
+                              "children": "Editar Post",
+                              "replace": false,
+                              "to": "/post/edit/8xf0y6ziyjabvozdd253nd",
+                            },
+                            "ref": null,
+                            "rendered": "Editar Post",
+                            "type": [Function],
+                          },
+                          "type": "li",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": <button
+                              onClick={[Function]}
+                              type="submit"
+>
+                              Apagar Post
+</button>,
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": "Apagar Post",
+                              "onClick": [Function],
+                              "type": "submit",
+                            },
+                            "ref": null,
+                            "rendered": "Apagar Post",
+                            "type": "button",
+                          },
+                          "type": "li",
+                        },
+                      ],
+                      "type": "ul",
+                    },
+                  ],
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "react",
+                    "className": "post-category bg-primary",
+                    "replace": false,
+                    "to": "/post/category/react",
+                  },
+                  "ref": null,
+                  "rendered": "react",
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <div
+                      className="author-date"
+>
+                      <span
+                                            className="h6 post__author-name fn"
+                      >
+                                            thingone
+                      </span>
+                      <div
+                                            className="post__date"
+                      >
+                                            <time
+                                                                  className="published"
+                                                                  dateTime="4:19:PM | 1970-1-18"
+                                            >
+                                                                  4:19:PM | 1970-1-18
+                                            </time>
+                      </div>
+</div>,
+                    "className": "post__author author vcard inline-items",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <span
+                          className="h6 post__author-name fn"
+>
+                          thingone
+</span>,
+                        <div
+                          className="post__date"
+>
+                          <time
+                                                    className="published"
+                                                    dateTime="4:19:PM | 1970-1-18"
+                          >
+                                                    4:19:PM | 1970-1-18
+                          </time>
+</div>,
+                      ],
+                      "className": "author-date",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "thingone",
+                          "className": "h6 post__author-name fn",
+                        },
+                        "ref": null,
+                        "rendered": "thingone",
+                        "type": "span",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <time
+                            className="published"
+                            dateTime="4:19:PM | 1970-1-18"
+>
+                            4:19:PM | 1970-1-18
+</time>,
+                          "className": "post__date",
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "4:19:PM | 1970-1-18",
+                            "className": "published",
+                            "dateTime": "4:19:PM | 1970-1-18",
+                          },
+                          "ref": null,
+                          "rendered": "4:19:PM | 1970-1-18",
+                          "type": "time",
+                        },
+                        "type": "div",
+                      },
+                    ],
+                    "type": "div",
+                  },
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <Link
+                      replace={false}
+                      to="/post/detail/8xf0y6ziyjabvozdd253nd"
+>
+                      Udacity is the best place to learn React
+</Link>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": "Udacity is the best place to learn React",
+                      "replace": false,
+                      "to": "/post/detail/8xf0y6ziyjabvozdd253nd",
+                    },
+                    "ref": null,
+                    "rendered": "Udacity is the best place to learn React",
+                    "type": [Function],
+                  },
+                  "type": "h4",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Não obstante, a crescente influência da mídia garante a contribuição de um grupo importante na determinação das condições financeiras e administrativas exigidas. Por outro lado, o comprometimento entre as equipes pode nos levar a considerar a reestruturação das diretrizes de desenvolvimento para ...",
+                    "className": "description",
+                  },
+                  "ref": null,
+                  "rendered": "Não obstante, a crescente influência da mídia garante a contribuição de um grupo importante na determinação das condições financeiras e administrativas exigidas. Por outro lado, o comprometimento entre as equipes pode nos levar a considerar a reestruturação das diretrizes de desenvolvimento para ...",
+                  "type": "p",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <div
+                        className="post-add-icon inline-items"
+>
+                        <svg
+                                                id="olymp-heart-icon"
+                        >
+                                                <title>
+                                                                        Votes
+                                                </title>
+                                                <use
+                                                                        xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-heart-icon"
+                                                />
+                        </svg>
+                        <span />
+</div>,
+                      <ul
+                        className="friends-harmonic off"
+>
+                        <li>
+                                                <img
+                                                                        alt="zumbi"
+                                                                        src="/img/icon-zumbi.png"
+                                                />
+                        </li>
+                        <li>
+                                                <img
+                                                                        alt="bravo"
+                                                                        src="/img/icon-bravo.png"
+                                                />
+                        </li>
+                        <li>
+                                                <img
+                                                                        alt="careta"
+                                                                        src="/img/icon-careta.png"
+                                                />
+                        </li>
+</ul>,
+                      <div
+                        className="names-people-likes"
+>
+                        4
+</div>,
+                      <div
+                        className="comments-shared"
+>
+                        <div
+                                                className="post-add-icon inline-items"
+                        >
+                                                <svg
+                                                                        className="olymp-speech-balloon-icon"
+                                                >
+                                                                        <title>
+                                                                                                Comentários
+                                                                        </title>
+                                                                        <use
+                                                                                                xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-speech-balloon-icon"
+                                                                        />
+                                                </svg>
+                                                <span>
+                                                                        2
+                                                </span>
+                        </div>
+</div>,
+                    ],
+                    "className": "post-additional-info inline-items",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <svg
+                            id="olymp-heart-icon"
+>
+                            <title>
+                                                        Votes
+                            </title>
+                            <use
+                                                        xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-heart-icon"
+                            />
+</svg>,
+                          <span />,
+                        ],
+                        "className": "post-add-icon inline-items",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": Array [
+                              <title>
+                                Votes
+</title>,
+                              <use
+                                xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-heart-icon"
+/>,
+                            ],
+                            "id": "olymp-heart-icon",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "children": "Votes",
+                              },
+                              "ref": null,
+                              "rendered": "Votes",
+                              "type": "title",
+                            },
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "xlinkHref": "/img/svg-icons/sprites/icons.svg#olymp-heart-icon",
+                              },
+                              "ref": null,
+                              "rendered": null,
+                              "type": "use",
+                            },
+                          ],
+                          "type": "svg",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": 0,
+                          },
+                          "ref": null,
+                          "rendered": 0,
+                          "type": "span",
+                        },
+                      ],
+                      "type": "div",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <li>
+                            <img
+                                                        alt="zumbi"
+                                                        src="/img/icon-zumbi.png"
+                            />
+</li>,
+                          <li>
+                            <img
+                                                        alt="bravo"
+                                                        src="/img/icon-bravo.png"
+                            />
+</li>,
+                          <li>
+                            <img
+                                                        alt="careta"
+                                                        src="/img/icon-careta.png"
+                            />
+</li>,
+                        ],
+                        "className": "friends-harmonic off",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": "zumbi",
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": <img
+                              alt="zumbi"
+                              src="/img/icon-zumbi.png"
+/>,
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "alt": "zumbi",
+                              "src": "/img/icon-zumbi.png",
+                            },
+                            "ref": null,
+                            "rendered": null,
+                            "type": "img",
+                          },
+                          "type": "li",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": "bravo",
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": <img
+                              alt="bravo"
+                              src="/img/icon-bravo.png"
+/>,
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "alt": "bravo",
+                              "src": "/img/icon-bravo.png",
+                            },
+                            "ref": null,
+                            "rendered": null,
+                            "type": "img",
+                          },
+                          "type": "li",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": "careta",
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": <img
+                              alt="careta"
+                              src="/img/icon-careta.png"
+/>,
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "alt": "careta",
+                              "src": "/img/icon-careta.png",
+                            },
+                            "ref": null,
+                            "rendered": null,
+                            "type": "img",
+                          },
+                          "type": "li",
+                        },
+                      ],
+                      "type": "ul",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": 4,
+                        "className": "names-people-likes",
+                      },
+                      "ref": null,
+                      "rendered": 4,
+                      "type": "div",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <div
+                          className="post-add-icon inline-items"
+>
+                          <svg
+                                                    className="olymp-speech-balloon-icon"
+                          >
+                                                    <title>
+                                                                              Comentários
+                                                    </title>
+                                                    <use
+                                                                              xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-speech-balloon-icon"
+                                                    />
+                          </svg>
+                          <span>
+                                                    2
+                          </span>
+</div>,
+                        "className": "comments-shared",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": Array [
+                            <svg
+                              className="olymp-speech-balloon-icon"
+>
+                              <title>
+                                                            Comentários
+                              </title>
+                              <use
+                                                            xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-speech-balloon-icon"
+                              />
+</svg>,
+                            <span>
+                              2
+</span>,
+                          ],
+                          "className": "post-add-icon inline-items",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": Array [
+                                <title>
+                                  Comentários
+</title>,
+                                <use
+                                  xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-speech-balloon-icon"
+/>,
+                              ],
+                              "className": "olymp-speech-balloon-icon",
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              Object {
+                                "instance": null,
+                                "key": undefined,
+                                "nodeType": "host",
+                                "props": Object {
+                                  "children": "Comentários",
+                                },
+                                "ref": null,
+                                "rendered": "Comentários",
+                                "type": "title",
+                              },
+                              Object {
+                                "instance": null,
+                                "key": undefined,
+                                "nodeType": "host",
+                                "props": Object {
+                                  "xlinkHref": "/img/svg-icons/sprites/icons.svg#olymp-speech-balloon-icon",
+                                },
+                                "ref": null,
+                                "rendered": null,
+                                "type": "use",
+                              },
+                            ],
+                            "type": "svg",
+                          },
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": 2,
+                            },
+                            "ref": null,
+                            "rendered": 2,
+                            "type": "span",
+                          },
+                        ],
+                        "type": "div",
+                      },
+                      "type": "div",
+                    },
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": Symbol(react.fragment),
+            },
+          ],
+          "type": "article",
+        },
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
