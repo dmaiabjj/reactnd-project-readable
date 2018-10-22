@@ -46,7 +46,7 @@ describe('Post', () => {
             timestamp: 1468166872634,
             votes:[],
             deleted: false,
-            
+
         }
 
         const expected =  {
@@ -55,7 +55,7 @@ describe('Post', () => {
                 ...posts[comment.parentId],...{commentCount:posts[comment.parentId].commentCount + 1}
             }
         }
-        
+
         expect(reducer(posts,{type:CommentType.ADD_SUCCESS,comment}))
         .toEqual(expected);
     });
@@ -72,7 +72,7 @@ describe('Post', () => {
             timestamp: 1468166872634,
             votes:[],
             deleted: false,
-            
+
         }
 
         const expected =  {
@@ -82,7 +82,7 @@ describe('Post', () => {
             }
         }
 
-        
+
         expect(reducer(posts,{type:CommentType.DELETE_SUCCESS,comment}))
         .toEqual(expected);
     });
@@ -103,7 +103,7 @@ describe('Post', () => {
             ...posts,
             [id] : {
                 ...posts[id],...{reactions : [...reactions]}
-            } 
+            }
         }
 
         expect(reducer(posts,{type:PostType.REACT_SUCCESS,id,reactions}))
@@ -119,7 +119,7 @@ describe('Post', () => {
             ...posts,
             [id] : {
                 ...posts[id],...{votes : [...votes]}
-            } 
+            }
         }
 
         expect(reducer(posts,{type:PostType.VOTE_SUCCESS,id,votes}))
@@ -140,7 +140,7 @@ describe('Post', () => {
 
     /*  ACTION CREATORS  */
 
-    it('[Action Creator FETCH] should dispatch a LOADING -> FETCH_SUCCESS  action ', 
+    it('[Action Creator FETCH] should dispatch a LOADING -> FETCH_SUCCESS  action ',
         () => {
 
             fetch.mockResponse(JSON.stringify(posts));
@@ -152,17 +152,17 @@ describe('Post', () => {
 
             return store.dispatch(Creators.fetch())
                 .then(() => expect(store.getActions()).toEqual(expectedActions))
-        
+
     });
 
-    
-    it('[Action Creator FETCH] should dispatch a FETCH_SUCCESS action ', 
+
+    it('[Action Creator FETCH] should dispatch a FETCH_SUCCESS action ',
         () => {
             expect(Creators.fetchSuccess(posts))
                 .toEqual({posts,type: PostType.FETCH_SUCCESS});
     });
 
-    it('[Action Creator FETCH] should fetch dispatch a LOADING -> ACTION_FAILURE  action ', 
+    it('[Action Creator FETCH] should fetch dispatch a LOADING -> ACTION_FAILURE  action ',
         () => {
             const expected = JSON.stringify({error});
             fetch.mockReject(expected);
@@ -174,10 +174,10 @@ describe('Post', () => {
 
             return store.dispatch(Creators.fetch())
                 .then(() => expect(store.getActions()).toEqual(expectedActions))
-        
+
     });
 
-    it('[Action Creator FETCH_BY_ID] should dispatch a LOADING -> FETCH_SUCCESS  action ', 
+    it('[Action Creator FETCH_BY_ID] should dispatch a LOADING -> FETCH_SUCCESS  action ',
         () => {
 
             const id    = '6ni6ok3ym7mf1p33lnez'
@@ -188,14 +188,14 @@ describe('Post', () => {
                 body: 'Just kidding. It takes more than 10 minutes to learn technology.',
                 author: 'thingone',
                 category: 'redux',
-                votes:[{name: 'thingtwo',option: 'gostei'},{name: 'carlos',option: 'amei'}],
+								votes:[{name: 'carlos',option: 'upVote',value : 1}],
                 reactions:[],
                 deleted: false,
                 commentCount: 0
               }
             }
 
-           
+
             fetch.mockResponse(JSON.stringify(posts[id]));
 
             const expectedActions = [
@@ -205,11 +205,11 @@ describe('Post', () => {
 
             return store.dispatch(Creators.fetchById(id))
                 .then(() => expect(store.getActions()).toEqual(expectedActions))
-        
+
     });
 
 
-    it('[Action Creator FETCH_BY_ID] should fetch dispatch a LOADING -> ACTION_FAILURE  action ', 
+    it('[Action Creator FETCH_BY_ID] should fetch dispatch a LOADING -> ACTION_FAILURE  action ',
         () => {
             const expected = JSON.stringify({error});
             fetch.mockReject(expected);
@@ -223,17 +223,17 @@ describe('Post', () => {
 
            return store.dispatch(Creators.fetchById(id))
                 .then(() => expect(store.getActions()).toEqual(expectedActions))
-        
+
     });
 
-    it('[Action Creator VOTE] should dispatch a LOADING -> VOTE_SUCCESS  action ', 
+    it('[Action Creator VOTE] should dispatch a LOADING -> VOTE_SUCCESS  action ',
         () => {
-           
+
             const id    = "894tuq4ut84ut8v4t8wun89g"
             const votes = [{name : "diego",option : "upVote",value: 1}];
 
             fetch.mockResponse(JSON.stringify({id,votes}));
-            
+
 
             const expectedActions = [
                 {type: SharedType.LOADING,loading:true},
@@ -242,10 +242,10 @@ describe('Post', () => {
 
             return store.dispatch(Creators.vote(id,votes[0].name,votes[0].option))
                 .then(() => expect(store.getActions()).toEqual(expectedActions))
-        
+
     });
 
-    it('[Action Creator VOTE] should dispatch a VOTE_SUCCESS action ', 
+    it('[Action Creator VOTE] should dispatch a VOTE_SUCCESS action ',
         () => {
 
             const id    = "894tuq4ut84ut8v4t8wun89g"
@@ -256,12 +256,12 @@ describe('Post', () => {
     });
 
 
-    it('[Action Creator VOTE] should dispatch a LOADING -> ACTION_FAILURE  action ', 
+    it('[Action Creator VOTE] should dispatch a LOADING -> ACTION_FAILURE  action ',
         () => {
 
             const id    = "894tuq4ut84ut8v4t8wun89g"
             const votes = [{name : "diego",option : "upVote",value: 1}];
-            
+
             fetch.mockReject(JSON.stringify({error}));
 
             const expectedActions = [
@@ -271,18 +271,18 @@ describe('Post', () => {
 
             return store.dispatch(Creators.vote(id,votes[0].name,votes[0].option))
                 .then(() => expect(store.getActions()).toEqual(expectedActions))
-        
+
     });
 
 
-    it('[Action Creator REACT] should dispatch a LOADING -> REACT_SUCCESS  action ', 
+    it('[Action Creator REACT] should dispatch a LOADING -> REACT_SUCCESS  action ',
         () => {
-           
+
             const id        = "894tuq4ut84ut8v4t8wun89g"
             const reactions = [{name : "diego",option : "zombie"}];
 
             fetch.mockResponse(JSON.stringify({id,reactions}));
-            
+
 
             const expectedActions = [
                 {type: SharedType.LOADING,loading:true},
@@ -291,10 +291,10 @@ describe('Post', () => {
 
             return store.dispatch(Creators.react(id,reactions[0].name,reactions[0].option))
                 .then(() => expect(store.getActions()).toEqual(expectedActions))
-        
+
     });
 
-    it('[Action Creator REACT] should dispatch a REACT_SUCCESS action ', 
+    it('[Action Creator REACT] should dispatch a REACT_SUCCESS action ',
         () => {
 
             const id        = "894tuq4ut84ut8v4t8wun89g"
@@ -305,12 +305,12 @@ describe('Post', () => {
     });
 
 
-    it('[Action Creator REACT] should dispatch a LOADING -> ACTION_FAILURE  action ', 
+    it('[Action Creator REACT] should dispatch a LOADING -> ACTION_FAILURE  action ',
         () => {
 
             const id        = "894tuq4ut84ut8v4t8wun89g"
             const reactions = [{name : "diego",option : "zombie"}];
-            
+
             fetch.mockReject(JSON.stringify({error}));
 
             const expectedActions = [
@@ -320,13 +320,13 @@ describe('Post', () => {
 
             return store.dispatch(Creators.react(id,reactions[0].name,reactions[0].option))
                 .then(() => expect(store.getActions()).toEqual(expectedActions))
-        
+
     });
 
 
-    it('[Action Creator ADD] should dispatch a LOADING -> ADD_SUCCESS  action ', 
+    it('[Action Creator ADD] should dispatch a LOADING -> ADD_SUCCESS  action ',
         () => {
-            const post = 
+            const post =
             {
                 id: '6ni6ok3ym7mf1p33lnez',
                 timestamp: 1535760601,
@@ -346,7 +346,7 @@ describe('Post', () => {
             }
 
             fetch.mockResponse(JSON.stringify(expected));
-            
+
 
             const expectedActions = [
                 {type: SharedType.LOADING,loading:true},
@@ -355,14 +355,14 @@ describe('Post', () => {
 
             return store.dispatch(Creators.add(post))
                 .then(() => expect(store.getActions()).toEqual(expectedActions))
-        
+
     });
 
-   
-    it('[Action Creator ADD] should dispatch a ADD_SUCCESS action ', 
+
+    it('[Action Creator ADD] should dispatch a ADD_SUCCESS action ',
         () => {
 
-            const post = 
+            const post =
             {
                 id: '6ni6ok3ym7mf1p33lnez',
                 timestamp: 1535760601,
@@ -381,10 +381,10 @@ describe('Post', () => {
                 .toEqual({post,type: PostType.ADD_SUCCESS});
     });
 
-    it('[Action Creator ADD] should dispatch a LOADING -> ACTION_FAILURE  action ', 
+    it('[Action Creator ADD] should dispatch a LOADING -> ACTION_FAILURE  action ',
         () => {
 
-            const post = 
+            const post =
             {
                 id: '6ni6ok3ym7mf1p33lnez',
                 timestamp: 1535760601,
@@ -397,7 +397,7 @@ describe('Post', () => {
                 deleted: false,
                 commentCount: 0
             }
-            
+
             fetch.mockReject(JSON.stringify({error}));
 
             const expectedActions = [
@@ -407,12 +407,12 @@ describe('Post', () => {
 
             return store.dispatch(Creators.add(post))
                 .then(() => expect(store.getActions()).toEqual(expectedActions))
-        
+
     });
 
-    it('[Action Creator UPDATE] should dispatch a LOADING -> UPDATE_SUCCESS  action ', 
+    it('[Action Creator UPDATE] should dispatch a LOADING -> UPDATE_SUCCESS  action ',
         () => {
-            const post = 
+            const post =
             {
                 id: '6ni6ok3ym7mf1p33lnez',
                 timestamp: 1535760601,
@@ -428,7 +428,7 @@ describe('Post', () => {
 
 
             fetch.mockResponse(JSON.stringify({post}));
-            
+
 
             const expectedActions = [
                 {type: SharedType.LOADING,loading:true},
@@ -437,13 +437,13 @@ describe('Post', () => {
 
             return store.dispatch(Creators.update(post))
                 .then(() => expect(store.getActions()).toEqual(expectedActions))
-        
+
     });
 
-    it('[Action Creator UPDATE] should dispatch a UPDATE_SUCCESS action ', 
+    it('[Action Creator UPDATE] should dispatch a UPDATE_SUCCESS action ',
         () => {
 
-            const post = 
+            const post =
             {
                 id: '6ni6ok3ym7mf1p33lnez',
                 timestamp: 1535760601,
@@ -461,10 +461,10 @@ describe('Post', () => {
                 .toEqual({post,type: PostType.UPDATE_SUCCESS});
     });
 
-    it('[Action Creator UPDATE] should dispatch a LOADING -> ACTION_FAILURE  action ', 
+    it('[Action Creator UPDATE] should dispatch a LOADING -> ACTION_FAILURE  action ',
         () => {
 
-            const post = 
+            const post =
             {
                 id: '6ni6ok3ym7mf1p33lnez',
                 timestamp: 1535760601,
@@ -477,7 +477,7 @@ describe('Post', () => {
                 deleted: false,
                 commentCount: 0
             }
-            
+
             fetch.mockReject(JSON.stringify({error}));
 
             const expectedActions = [
@@ -487,16 +487,16 @@ describe('Post', () => {
 
             return store.dispatch(Creators.update(post))
                 .then(() => expect(store.getActions()).toEqual(expectedActions))
-        
+
     });
 
-    it('[Action Creator DELETE] should dispatch a LOADING -> DELETE_SUCCESS  action ', 
+    it('[Action Creator DELETE] should dispatch a LOADING -> DELETE_SUCCESS  action ',
         () => {
-        
+
             const id = '6ni6ok3ym7mf1p33lnez'
 
             fetch.mockResponse(JSON.stringify({id}));
-            
+
 
             const expectedActions = [
                 {type: SharedType.LOADING,loading:true},
@@ -505,10 +505,10 @@ describe('Post', () => {
 
             return store.dispatch(Creators.delete(id))
                 .then(() => expect(store.getActions()).toEqual(expectedActions))
-    
+
     });
 
-    it('[Action Creator DELETE] should dispatch a DELETE_SUCCESS action ', 
+    it('[Action Creator DELETE] should dispatch a DELETE_SUCCESS action ',
         () => {
 
             const id = '6ni6ok3ym7mf1p33lnez'
@@ -516,13 +516,13 @@ describe('Post', () => {
                 .toEqual({id,type: PostType.DELETE_SUCCESS});
     });
 
-    it('[Action Creator DELETE] should dispatch a LOADING -> ACTION_FAILURE  action ', 
+    it('[Action Creator DELETE] should dispatch a LOADING -> ACTION_FAILURE  action ',
     () => {
 
         const id = '6ni6ok3ym7mf1p33lnez'
 
         fetch.mockReject(JSON.stringify({error}));
-        
+
 
         const expectedActions = [
             {type: SharedType.LOADING,loading:true},
@@ -531,7 +531,7 @@ describe('Post', () => {
 
         return store.dispatch(Creators.delete(id))
             .then(() => expect(store.getActions()).toEqual(expectedActions))
-        
+
     });
 
      /*  ACTION CREATORS  */
@@ -588,7 +588,7 @@ describe('Post', () => {
         expect(getPostByFilter(category,filter,order)({posts}))
         .toEqual(expected);
     });
-  
+
 
     /*  SELECTORS  */
 

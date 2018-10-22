@@ -57,7 +57,7 @@ describe('[Presentation Component] Post', () => {
     expect(props.onDeletePost).toHaveBeenCalledTimes(1);
   });
 
-  it('Expect to find a project name, description and an image inside', () => {
+  it('Expect to find all post data', () => {
     const wrapper = global.mount(<Post {...props} />, context.get());
     expect(wrapper.find('.post-category.bg-primary > a').text()).toBeDefined();
     expect(wrapper.find('.post-category.bg-primary > a').text()).not.toBeNull();

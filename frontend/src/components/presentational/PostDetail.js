@@ -38,7 +38,7 @@ const defaultProps  = {
 
 
 /**
-* @description 
+* @description
 * Componente que representa um resumo do post dentro da lista de posts carregados
 * @param {Object} post              Post
 * @param {Object} authUser          Usuário logado
@@ -49,7 +49,7 @@ const defaultProps  = {
 class PostDetail extends Component {
 
     /**
-    * @description 
+    * @description
     * Verifica se o usuário logado já votou e adiciona uma classe ao botão de vote na opção já escolhida
     * @param {Event} option     Opção do voto
     * @returns {string}         A classe active ou string.Empty
@@ -66,7 +66,7 @@ class PostDetail extends Component {
             <div className="ui-block">
                 <article className="hentry blog-post single-post single-post-v1">
                     <div className="control-block-button post-control-button">
-                        {post.author === authUser.name &&  
+                        {post.author === authUser.name &&
                             <div className="more">
                                 <a href="" className="btn btn-control">
                                     <svg className="olymp-three-dots-icon">
@@ -92,7 +92,7 @@ class PostDetail extends Component {
                     <h1 className="post-title">{post.title}</h1>
                     <div className="author-date">
                         by
-                        <span className="h6 post__author-name fn"> { post.author } </span>
+                        <span className="h6 post__author-name fn">{post.author}</span>
                         <div className="post__date">
                             <time className="published" dateTime={formatDate(post.timestamp)}>
                                 {formatDate(post.timestamp)}
@@ -151,7 +151,7 @@ class PostDetail extends Component {
                         </ul>
                         <div className="post-content">
                             <p>
-                                {post.body.trim()}
+                                {post.body}
                             </p>
                         </div>
                     </div>
@@ -194,7 +194,7 @@ class PostDetail extends Component {
                                 </a>
                             </li>
                         </ul>
-                
+
                     </div>
                 </article>
             </div>
