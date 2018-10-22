@@ -51,7 +51,7 @@ describe('[Container Component] PostList', () => {
 	});
 
 	it('Expect to find same number os Post Component equals to posts', () => {
-    const wrapper = global.shallow(<PostList {...props}/>, context.get());
+    const wrapper = global.shallow(<PostList {...props}/>);
     expect(wrapper.find(Post)).toHaveLength(posts.length);
 	});
 
@@ -61,7 +61,7 @@ describe('[Container Component] PostList', () => {
 			...props,posts :[]
 		}
 
-    const wrapper = global.shallow(<PostList {...props} />, context.get());
+    const wrapper = global.shallow(<PostList {...props} />);
 		expect(wrapper.find(Post)).toHaveLength(props.posts.length);
 		expect(wrapper.find(SearchNotFound)).toHaveLength(1);
 	});
@@ -85,7 +85,7 @@ describe('[Container Component] PostList', () => {
 			...props,posts :[]
 		}
 
-    const wrapper = global.shallow(<ConnectedPost store={store} {...props} />, context.get());
+    const wrapper = global.shallow(<ConnectedPost store={store} {...props} />);
 		expect(wrapper.find(Post)).toHaveLength(props.posts.length);
 	});
 

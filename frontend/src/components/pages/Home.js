@@ -15,10 +15,10 @@ import PostList from '../container/PostList'
 import {Creators as SharedCreators} from '../../store/features/shared'
 
 /**
-* @description 
+* @description
 * Componente que representa a página Home
 */
-class Home extends PureComponent {
+export class Home extends PureComponent {
 
     filters = {
         "votes" :  function (obj) {
@@ -30,7 +30,7 @@ class Home extends PureComponent {
             return obj.reactions.length
           },
         "timestamp" : "timestamp" ,
-        "commentCount" : "commentCount" 
+        "commentCount" : "commentCount"
     }
 
     state = {
@@ -52,7 +52,7 @@ class Home extends PureComponent {
     }
 
     render() {
-        const {app} = this.props;
+				const {app} = this.props;
         return (
             <Fragment>
                 <Head img={'/img/blog_bottom.png'}></Head>
@@ -62,19 +62,19 @@ class Home extends PureComponent {
                         <div className="col col-lg-12 col-md-12 col-sm-12 col-12">
                             <div className="clients-grid">
                             <Fragment>
-                                <CategoryOption 
-                                    currentCategory= {this.props.match.params.id} 
+                                <CategoryOption
+                                    currentCategory= {this.props.match.params.id}
                                     categories={this.props.categories}
                                 />
-                                <FilterBy 
-                                    search={this.handleFilter} 
+                                <FilterBy
+                                    search={this.handleFilter}
                                 />
                             </Fragment>
                             </div>
                         </div>
-                        <PostList 
-                                category={this.props.match.params.id} 
-                                filter={this.filters[this.state.filter]} 
+                        <PostList
+                                category={this.props.match.params.id}
+                                filter={this.filters[this.state.filter]}
                                 order={this.state.order} />
                     </div>
                 </div>
