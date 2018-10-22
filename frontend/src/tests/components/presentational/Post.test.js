@@ -53,7 +53,7 @@ describe('[Presentation Component] Post', () => {
 
   it('Check if the onDeletePost is been called', () => {
     const wrapper = global.mount(<Post {...props} />, context.get());
-    wrapper.find('.more-dropdown button:last-child').simulate('click');
+    wrapper.find('.more-dropdown li:last-child a').simulate('click');
     expect(props.onDeletePost).toHaveBeenCalledTimes(1);
   });
 
@@ -77,11 +77,21 @@ describe('[Presentation Component] Post', () => {
       _.truncate(props.post.body, {
         length: 300,
       }),
-    );
-    expect(wrapper.find('.post-add-icon + span').text()).toBeDefined();
-    expect(wrapper.find('.post-add-icon + span').text()).not.toBeNull();
-    expect(wrapper.find('.post-add-icon + span').text()).toEqual(
-      props.post.votes.reduce((acc, vote) => acc + vote.value, 0),
+		);
+	  expect(wrapper.find('#olymp-heart-icon ~ span').text()).toBeDefined();
+    expect(wrapper.find('#olymp-heart-icon ~ span').text()).not.toBeNull();
+    expect(wrapper.find('#olymp-heart-icon ~ span').text()).toEqual(
+      String(props.post.votes.reduce((acc, vote) => acc + vote.value, 0)),
+		);
+		expect(wrapper.find('.names-people-likes').text()).toBeDefined();
+    expect(wrapper.find('.names-people-likes').text()).not.toBeNull();
+    expect(wrapper.find('.names-people-likes').text()).toEqual(
+      String(props.post.reactions.reduce((acc, vote) => acc + 1, 0)),
+		);
+		expect(wrapper.find('.olymp-speech-balloon-icon ~ span').text()).toBeDefined();
+    expect(wrapper.find('.olymp-speech-balloon-icon ~ span').text()).not.toBeNull();
+    expect(wrapper.find('.olymp-speech-balloon-icon ~ span').text()).toEqual(
+      String(props.post.commentCount),
     );
   });
 });

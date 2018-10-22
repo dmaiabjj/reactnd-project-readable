@@ -91,12 +91,11 @@ ShallowWrapper {
                                                 </Link>
                                         </li>
                                         <li>
-                                                <button
+                                                <a
                                                         onClick={[Function]}
-                                                        type="submit"
                                                 >
                                                         Apagar Post
-                                                </button>
+                                                </a>
                                         </li>
                                 </ul>
                         </div>
@@ -247,12 +246,11 @@ ShallowWrapper {
                                                   </Link>
                                         </li>
                                         <li>
-                                                  <button
+                                                  <a
                                                             onClick={[Function]}
-                                                            type="submit"
                                                   >
                                                             Apagar Post
-                                                  </button>
+                                                  </a>
                                         </li>
                               </ul>
                     </div>
@@ -401,12 +399,11 @@ ShallowWrapper {
                                                         </Link>
                                           </li>
                                           <li>
-                                                        <button
+                                                        <a
                                                                       onClick={[Function]}
-                                                                      type="submit"
                                                         >
                                                                       Apagar Post
-                                                        </button>
+                                                        </a>
                                           </li>
                             </ul>
               </div>
@@ -555,12 +552,11 @@ ShallowWrapper {
                                                       </Link>
                                     </li>
                                     <li>
-                                                      <button
+                                                      <a
                                                                         onClick={[Function]}
-                                                                        type="submit"
                                                       >
                                                                         Apagar Post
-                                                      </button>
+                                                      </a>
                                     </li>
                   </ul>
 </div>,
@@ -703,12 +699,11 @@ ShallowWrapper {
                                             </Link>
                       </li>
                       <li>
-                                            <button
+                                            <a
                                                                   onClick={[Function]}
-                                                                  type="submit"
                                             >
                                                                   Apagar Post
-                                            </button>
+                                            </a>
                       </li>
 </ul>,
                   ],
@@ -755,12 +750,11 @@ ShallowWrapper {
                           </Link>
 </li>,
                         <li>
-                          <button
+                          <a
                                                     onClick={[Function]}
-                                                    type="submit"
                           >
                                                     Apagar Post
-                          </button>
+                          </a>
 </li>,
                       ],
                       "className": "more-dropdown",
@@ -800,12 +794,11 @@ ShallowWrapper {
                         "key": undefined,
                         "nodeType": "host",
                         "props": Object {
-                          "children": <button
+                          "children": <a
                             onClick={[Function]}
-                            type="submit"
 >
                             Apagar Post
-</button>,
+</a>,
                         },
                         "ref": null,
                         "rendered": Object {
@@ -815,11 +808,10 @@ ShallowWrapper {
                           "props": Object {
                             "children": "Apagar Post",
                             "onClick": [Function],
-                            "type": "submit",
                           },
                           "ref": null,
                           "rendered": "Apagar Post",
-                          "type": "button",
+                          "type": "a",
                         },
                         "type": "li",
                       },
@@ -1408,12 +1400,11 @@ ShallowWrapper {
                                                             </Link>
                                                   </li>
                                                   <li>
-                                                            <button
+                                                            <a
                                                                       onClick={[Function]}
-                                                                      type="submit"
                                                             >
                                                                       Apagar Post
-                                                            </button>
+                                                            </a>
                                                   </li>
                                         </ul>
                               </div>
@@ -1564,12 +1555,11 @@ ShallowWrapper {
                                                             </Link>
                                                 </li>
                                                 <li>
-                                                            <button
+                                                            <a
                                                                         onClick={[Function]}
-                                                                        type="submit"
                                                             >
                                                                         Apagar Post
-                                                            </button>
+                                                            </a>
                                                 </li>
                                     </ul>
                         </div>
@@ -1718,12 +1708,11 @@ ShallowWrapper {
                                                                 </Link>
                                                 </li>
                                                 <li>
-                                                                <button
+                                                                <a
                                                                                 onClick={[Function]}
-                                                                                type="submit"
                                                                 >
                                                                                 Apagar Post
-                                                                </button>
+                                                                </a>
                                                 </li>
                                 </ul>
                 </div>
@@ -1872,12 +1861,11 @@ ShallowWrapper {
                                                             </Link>
                                         </li>
                                         <li>
-                                                            <button
+                                                            <a
                                                                                 onClick={[Function]}
-                                                                                type="submit"
                                                             >
                                                                                 Apagar Post
-                                                            </button>
+                                                            </a>
                                         </li>
                     </ul>
 </div>,
@@ -2020,12 +2008,11 @@ ShallowWrapper {
                                                 </Link>
                         </li>
                         <li>
-                                                <button
+                                                <a
                                                                         onClick={[Function]}
-                                                                        type="submit"
                                                 >
                                                                         Apagar Post
-                                                </button>
+                                                </a>
                         </li>
 </ul>,
                     ],
@@ -2072,12 +2059,11 @@ ShallowWrapper {
                             </Link>
 </li>,
                           <li>
-                            <button
+                            <a
                                                         onClick={[Function]}
-                                                        type="submit"
                             >
                                                         Apagar Post
-                            </button>
+                            </a>
 </li>,
                         ],
                         "className": "more-dropdown",
@@ -2117,12 +2103,11 @@ ShallowWrapper {
                           "key": undefined,
                           "nodeType": "host",
                           "props": Object {
-                            "children": <button
+                            "children": <a
                               onClick={[Function]}
-                              type="submit"
 >
                               Apagar Post
-</button>,
+</a>,
                           },
                           "ref": null,
                           "rendered": Object {
@@ -2132,11 +2117,10 @@ ShallowWrapper {
                             "props": Object {
                               "children": "Apagar Post",
                               "onClick": [Function],
-                              "type": "submit",
                             },
                             "ref": null,
                             "rendered": "Apagar Post",
-                            "type": "button",
+                            "type": "a",
                           },
                           "type": "li",
                         },

@@ -34,7 +34,7 @@ const defaultProps  = {
 
 
 /**
-* @description 
+* @description
 * Componente que representa um resumo do post dentro da lista de posts carregados
 * @param {Object} post              Post
 * @param {Boolean} isOwner          Informa se o usuário logado é o dono do post
@@ -44,13 +44,13 @@ class Post extends Component  {
     state = {
         showLoading: false
     }
-    
+
     componentWillUnmount() {
         this.setState({showLoading : false});
     }
 
     /**
-    * @description 
+    * @description
     * Reponsável por deletar o post
     * @param {String} id  Id do post
     * @param {Event} event  Evento referente ao ato de deletar o post
@@ -65,7 +65,7 @@ class Post extends Component  {
     render(){
         const {post,isOwner}    = this.props;
         const {showLoading}     = this.state;
-        
+
         return (
             <div className="col col-xl-6 col-lg-6 col-md-12 col-sm-12  sorting-item family animals natural politics">
                 <div className="ui-block">
@@ -83,7 +83,7 @@ class Post extends Component  {
                                             <Link to={`/post/edit/${post.id}`}>Editar Post</Link>
                                         </li>
                                         <li>
-                                            <a href="" onClick={(event) => this.onDelete(post.id,event)}>Apagar Post</a>
+                                            <a onClick={(event) => this.onDelete(post.id,event)}>Apagar Post</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -93,7 +93,7 @@ class Post extends Component  {
                                 </Link>
                                 <div className="post__author author vcard inline-items">
                                     <div className="author-date">
-                                        <span className="h6 post__author-name fn"> {post.author} </span>
+                                        <span className="h6 post__author-name fn">{post.author}</span>
                                         <div className="post__date">
                                             <time className="published" dateTime={formatDate(post.timestamp)}>
                                                 {formatDate(post.timestamp)}
@@ -126,7 +126,7 @@ class Post extends Component  {
                                         </span>
                                     </div>
                                     <ul className="friends-harmonic off">
-                                            
+
                                         {
                                             _.chain(post.reactions).groupBy("option").map(function(v, i) {
                                                 return {
@@ -138,7 +138,7 @@ class Post extends Component  {
                                                         <img src={`/img/icon-${r.option}.png`} alt={r.option}/>
                                                     </li>
                                               })
-                                            
+
                                         }
                                     </ul>
                                     <div className="names-people-likes">
@@ -159,7 +159,7 @@ class Post extends Component  {
                                 </div>
                             </Fragment>
                         }
-                        
+
                     </article>
                 </div>
             </div>
