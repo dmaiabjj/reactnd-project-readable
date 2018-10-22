@@ -26,32 +26,32 @@ const defaultProps  = {
 
 
 /**
-* @description 
+* @description
 * Componente que representa a lista de posts carregados
 * @param {String} category              Categoria atual
 * @param {String || Function} filter    Campo a ser usado como filtro na busca dos posts
 * @param {String} order                 Campo que representa a ordenação do filtro de posts
 */
-class PostList extends PureComponent {
+export class PostList extends PureComponent {
 
 
     /**
-    * @description          
+    * @description
     * Verifica se foi feito o fetch e se o resultado contém posts e mostra a pagina de acordo com o retorno
     * @returns {React.Component}     Retorna um componente React de acordo com o resultado
     */
     ShowComponent = () => {
-        const {app,posts,authUser,deletePost} = this.props;
+				const {app,posts,authUser,deletePost} = this.props;
         if(app.fetched && posts.length <= 0)
             return <SearchNotFound/>;
         else{
-            
+
             return (
                 posts.map(post => (
-                    <Post 
-                        key={post.id} 
-                        post={post} 
-                        isOwner={post.author === authUser.name} 
+                    <Post
+                        key={post.id}
+                        post={post}
+                        isOwner={post.author === authUser.name}
                         onDeletePost={deletePost}
                     />
                 ))
@@ -71,14 +71,14 @@ class PostList extends PureComponent {
 
 function mapStateToProps (state,ownProps) {
     const {user,app} = state;
-    const {category,filter,order} = ownProps;
+		const {category,filter,order} = ownProps;
     return {
         posts : getPostByFilter(category,filter,order)(state),
         authUser : user,
         app
     }
 }
-    
+
 function mapDispatchToProps (dispatch) {
     return {
         deletePost: (id,event) => {
