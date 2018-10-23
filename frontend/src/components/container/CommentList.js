@@ -24,14 +24,14 @@ const defaultProps  = {
 
 
 /**
-* @description 
+* @description
 * Componente que representa a lista de comentários do post carregado
 * @param {String} postId                    Id do post atual
 * @param {Boolean} loading                  Se é necessário mostrar o loading
 * @param {Function} onDeleteComment         Função apaga um comentário do post
 * @param {Function} onHandleSetComment      Função que seta o comentário a ser atualizado
 */
-class CommentList extends PureComponent {
+export class CommentList extends PureComponent {
 
     componentDidMount() {
         const { postId,getComments} = this.props;
@@ -49,11 +49,12 @@ class CommentList extends PureComponent {
         const { postId,onHandleSetComment} = this.props;
         onHandleSetComment({
             ...comment,parentId : postId
-        }); 
+        });
     }
 
     render() {
-        const { comments,authUser,onDeleteComment,voteComment,loading} = this.props;
+				const { comments,authUser,onDeleteComment,voteComment,loading} = this.props;
+				console.log(comments.length)
         return (
             <div className="ui-block">
                 <div className="crumina-module crumina-heading with-title-decoration">
@@ -61,14 +62,14 @@ class CommentList extends PureComponent {
                 </div>
                 <ul className="comments-list">
                     {comments && authUser
-                        && 
+                        &&
                         comments.map(comment => (
-                            <CommentDetail 
-                                key={comment.id} 
-                                comment={comment} 
-                                authUser={authUser} 
-                                onDeleteComment={onDeleteComment} 
-                                onBindComment={this.onBindComment} 
+                            <CommentDetail
+                                key={comment.id}
+                                comment={comment}
+                                authUser={authUser}
+                                onDeleteComment={onDeleteComment}
+                                onBindComment={this.onBindComment}
                                 onVoteComment={voteComment}
                                 loading={loading}
                             />
@@ -83,13 +84,14 @@ class CommentList extends PureComponent {
 
 function mapStateToProps (state,ownProps) {
     const {user}    = state;
-    const {postId}  = ownProps;
+		const {postId}  = ownProps;
+		console.log(user)
     return {
         comments : getCommentsByPost(postId)(state),
         authUser : user
     }
 }
-    
+
 function mapDispatchToProps (dispatch) {
     return {
         voteComment: (id,user,option,event) => {
