@@ -1,7 +1,7 @@
 export default {
-        "894tuq4ut84ut8v4t8wun89g": 
+        "894tuq4ut84ut8v4t8wun89g":
         {
-                author: 'thingtwo',
+                author: 'Udacity',
                 body: 'Hi there! I am a COMMENT.',
                 deleted: false,
                 id: '894tuq4ut84ut8v4t8wun89g',
@@ -10,7 +10,7 @@ export default {
                 timestamp: 1468166872634,
                 votes:[],
                 deleted: false,
-                
+
         },
         "8tu4bsun805n8un48ve89": {
             id: '8tu4bsun805n8un48ve89',

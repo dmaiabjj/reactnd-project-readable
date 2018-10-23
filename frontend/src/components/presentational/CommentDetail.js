@@ -39,7 +39,7 @@ const defaultProps  = {
 
 
 /**
-* @description 
+* @description
 * Componente que representa um comentário na lista de comentários do post
 * @param {Object} comment              Comment
 * @param {Object} authUser             Usuário Logado
@@ -54,14 +54,14 @@ class CommentDetail extends Component  {
     state = {
         showLoading: false
     }
-    
+
     componentWillUnmount() {
         this.setState({showLoading : false});
     }
 
 
     /**
-    * @description 
+    * @description
     * Reponsável por deletar o comentário
     * @param {String} id  Id do comentário
     * @param {Event} event  Evento referente ao ato de deletar o comentário
@@ -73,7 +73,7 @@ class CommentDetail extends Component  {
     }
 
     /**
-    * @description 
+    * @description
     * Verifica se o usuário logado já votou e adiciona uma classe ao botão de vote na opção já escolhida
     * @param {Event} option  Opção do voto
     * @returns {string} A classe active ou string.Empty
@@ -86,7 +86,7 @@ class CommentDetail extends Component  {
 
     render() {
         const {comment,authUser,onBindComment,onVoteComment} = this.props;
-        const {showLoading}     = this.state;
+				const {showLoading}     = this.state;
         return (
             <li className="comment-item">
                 {showLoading && <LoadingCircular></LoadingCircular>}
@@ -101,7 +101,7 @@ class CommentDetail extends Component  {
                                     </time>
                                 </div>
                             </div>
-                            {comment.author === authUser.name && 
+                            {comment.author === authUser.name &&
                                 <div className="more">
                                     <svg className="olymp-three-dots-icon">
                                         <use xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
@@ -118,28 +118,28 @@ class CommentDetail extends Component  {
                             }
                         </div>
                         <p>{comment.body}</p>
-                            <a href="" onClick={(event) => onVoteComment(comment.id,authUser.name,"upVote",event)} className={`post-add-icon inline-items ${this.setClassName("upVote")}`}>
-                                <svg className="olymp-heart-icon">
-                                    <title>Up</title>
-                                    <use xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-heart-icon"></use>
-                                </svg>
-                            </a>
-                            <a href="" onClick={(event) => onVoteComment(comment.id,authUser.name,"downVote",event) } className={`post-add-icon inline-items ${this.setClassName("downVote")}`}>
-                                <svg id="olymp-heart-icon" viewBox="0 0 36 32" width="100%" height="100%">
-                                    <title>Down</title>
-                                    <g transform="translate(35,30) rotate(180)">
-                                        <use xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-heart-icon"></use>
-                                    </g>
-                                </svg>
-                            </a>
-                            <span>
-                                {comment.votes.reduce((acc,vote) => {
-                                        return acc + vote.value
-                                    },0)
-                                }
-                            </span>
+												<a href="" onClick={(event) => onVoteComment(comment.id,authUser.name,"upVote",event)} className={`post-add-icon inline-items ${this.setClassName("upVote")}`}>
+														<svg className="olymp-heart-icon">
+																<title>Up</title>
+																<use xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-heart-icon"></use>
+														</svg>
+												</a>
+												<a href="" onClick={(event) => onVoteComment(comment.id,authUser.name,"downVote",event) } className={`post-add-icon inline-items ${this.setClassName("downVote")}`}>
+														<svg id="olymp-heart-icon" viewBox="0 0 36 32" width="100%" height="100%">
+																<title>Down</title>
+																<g transform="translate(35,30) rotate(180)">
+																		<use xlinkHref="/img/svg-icons/sprites/icons.svg#olymp-heart-icon"></use>
+																</g>
+														</svg>
+												</a>
+												<span>
+														{comment.votes.reduce((acc,vote) => {
+																		return acc + vote.value
+																},0)
+														}
+												</span>
                     </Fragment>
-                    
+
                 }
            </li>
         )

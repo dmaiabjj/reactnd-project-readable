@@ -119,7 +119,6 @@ class CommentForm extends PureComponent {
         const {user,classes,loading}            = this.props;
         const {comment}                         = this.state;
 				const enabled                           = comment.body.length <= 0 || loading;
-				console.log(user)
         return (
             <div className="ui-block">
                 <div className="crumina-module crumina-heading with-title-decoration">
