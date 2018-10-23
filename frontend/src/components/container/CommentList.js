@@ -54,7 +54,6 @@ export class CommentList extends PureComponent {
 
     render() {
 				const { comments,authUser,onDeleteComment,voteComment,loading} = this.props;
-				console.log(comments.length)
         return (
             <div className="ui-block">
                 <div className="crumina-module crumina-heading with-title-decoration">
@@ -85,7 +84,6 @@ export class CommentList extends PureComponent {
 function mapStateToProps (state,ownProps) {
     const {user}    = state;
 		const {postId}  = ownProps;
-		console.log(user)
     return {
         comments : getCommentsByPost(postId)(state),
         authUser : user

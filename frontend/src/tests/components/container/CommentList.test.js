@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactRouterEnzymeContext from 'react-router-enzyme-context';
-import CommentListConnect ,{CommentList}from '../../../components/container/CommentList';
-import CommentDetail from '../../../components/presentational/CommentDetail';
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
+import CommentListConnect ,{CommentList}from '../../../components/container/CommentList';
+import CommentDetail from '../../../components/presentational/CommentDetail';
 
 import commentsMock from '../../mocks/comments';
 
@@ -27,8 +27,28 @@ describe('[Container Component] CommentList', () => {
     expect(global.shallow(<CommentList {...props} />,context.get()));
 	});
 
+	it('Shallow renders correctly', () => {
+
+		const mockStore = configureMockStore([thunk]);
+		const store = mockStore({
+			user: {name:"Udacity",avatar: "udacity"}
+		});
+
+		expect(global.shallow(<CommentListConnect store={store} postId={"sa"} />,context.get()));
+	});
+
 	it('Renders correctly', () => {
     expect(global.shallow(<CommentList {...props} />)).toMatchSnapshot();
+	});
+
+	it('Shallow renders correctly', () => {
+
+		const mockStore = configureMockStore([thunk]);
+		const store = mockStore({
+			user: {name:"Udacity",avatar: "udacity"}
+		});
+
+		expect(global.shallow(<CommentListConnect store={store} {...props} />)).toMatchSnapshot();
 	});
 
 	it('Expect to find same number os Comment Component equals to comments', () => {

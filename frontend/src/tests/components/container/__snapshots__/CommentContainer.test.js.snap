@@ -1,0 +1,359 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Container Component] CommentList Renders correctly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CommentContainer
+    app={
+        Object {
+            "loading": false,
+          }
+    }
+    comments={
+        Array [
+            Object {
+              "author": "Udacity",
+              "body": "Hi there! I am a COMMENT.",
+              "deleted": false,
+              "id": "894tuq4ut84ut8v4t8wun89g",
+              "parentDeleted": false,
+              "parentId": "8xf0y6ziyjabvozdd253n",
+              "timestamp": 1468166872634,
+              "votes": Array [],
+            },
+            Object {
+              "author": "Udacity",
+              "body": "Comments. Are. Cool.",
+              "deleted": false,
+              "id": "8tu4bsun805n8un48ve89",
+              "parentDeleted": false,
+              "parentId": "8xf0y6ziyjabvozdd253nd",
+              "timestamp": 1469479767190,
+              "votes": Array [],
+            },
+          ]
+    }
+    postId="8xf0y6ziyjabvozdd253nd"
+    user={
+        Object {
+            "avatar": "udacity",
+            "name": "Udacity",
+          }
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": <Unknown>
+        <Connect(CommentList)
+                loading={false}
+                onDeleteComment={[Function]}
+                onHandleSetComment={[Function]}
+                postId="8xf0y6ziyjabvozdd253nd"
+        />
+        <WithStyles(CommentForm)
+                comment={undefined}
+                loading={false}
+                onHandleComment={[Function]}
+                postId="8xf0y6ziyjabvozdd253nd"
+                user={
+                        Object {
+                                "avatar": "udacity",
+                                "name": "Udacity",
+                              }
+                }
+        />
+</Unknown>,
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <Connect(CommentList)
+            loading={false}
+            onDeleteComment={[Function]}
+            onHandleSetComment={[Function]}
+            postId="8xf0y6ziyjabvozdd253nd"
+/>,
+          <WithStyles(CommentForm)
+            comment={undefined}
+            loading={false}
+            onHandleComment={[Function]}
+            postId="8xf0y6ziyjabvozdd253nd"
+            user={
+                        Object {
+                                    "avatar": "udacity",
+                                    "name": "Udacity",
+                                  }
+            }
+/>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "loading": false,
+            "onDeleteComment": [Function],
+            "onHandleSetComment": [Function],
+            "postId": "8xf0y6ziyjabvozdd253nd",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "comment": undefined,
+            "loading": false,
+            "onHandleComment": [Function],
+            "postId": "8xf0y6ziyjabvozdd253nd",
+            "user": Object {
+              "avatar": "udacity",
+              "name": "Udacity",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": Symbol(react.fragment),
+    },
+    "type": Symbol(react.fragment),
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": <Unknown>
+          <Connect(CommentList)
+                    loading={false}
+                    onDeleteComment={[Function]}
+                    onHandleSetComment={[Function]}
+                    postId="8xf0y6ziyjabvozdd253nd"
+          />
+          <WithStyles(CommentForm)
+                    comment={undefined}
+                    loading={false}
+                    onHandleComment={[Function]}
+                    postId="8xf0y6ziyjabvozdd253nd"
+                    user={
+                              Object {
+                                        "avatar": "udacity",
+                                        "name": "Udacity",
+                                      }
+                    }
+          />
+</Unknown>,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            <Connect(CommentList)
+              loading={false}
+              onDeleteComment={[Function]}
+              onHandleSetComment={[Function]}
+              postId="8xf0y6ziyjabvozdd253nd"
+/>,
+            <WithStyles(CommentForm)
+              comment={undefined}
+              loading={false}
+              onHandleComment={[Function]}
+              postId="8xf0y6ziyjabvozdd253nd"
+              user={
+                            Object {
+                                          "avatar": "udacity",
+                                          "name": "Udacity",
+                                        }
+              }
+/>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "loading": false,
+              "onDeleteComment": [Function],
+              "onHandleSetComment": [Function],
+              "postId": "8xf0y6ziyjabvozdd253nd",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "comment": undefined,
+              "loading": false,
+              "onHandleComment": [Function],
+              "postId": "8xf0y6ziyjabvozdd253nd",
+              "user": Object {
+                "avatar": "udacity",
+                "name": "Udacity",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": Symbol(react.fragment),
+      },
+      "type": Symbol(react.fragment),
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`[Container Component] CommentList Shallow renders correctly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <withRouter(Connect(CommentContainer))
+    app={
+        Object {
+            "loading": false,
+          }
+    }
+    comments={
+        Array [
+            Object {
+              "author": "Udacity",
+              "body": "Hi there! I am a COMMENT.",
+              "deleted": false,
+              "id": "894tuq4ut84ut8v4t8wun89g",
+              "parentDeleted": false,
+              "parentId": "8xf0y6ziyjabvozdd253n",
+              "timestamp": 1468166872634,
+              "votes": Array [],
+            },
+            Object {
+              "author": "Udacity",
+              "body": "Comments. Are. Cool.",
+              "deleted": false,
+              "id": "8tu4bsun805n8un48ve89",
+              "parentDeleted": false,
+              "parentId": "8xf0y6ziyjabvozdd253nd",
+              "timestamp": 1469479767190,
+              "votes": Array [],
+            },
+          ]
+    }
+    postId="8xf0y6ziyjabvozdd253nd"
+    store={
+        Object {
+            "clearActions": [Function],
+            "dispatch": [Function],
+            "getActions": [Function],
+            "getState": [Function],
+            "replaceReducer": [Function],
+            "subscribe": [Function],
+          }
+    }
+    user={
+        Object {
+            "avatar": "udacity",
+            "name": "Udacity",
+          }
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": [Function],
+    },
+    "ref": null,
+    "rendered": [Function],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": [Function],
+      },
+      "ref": null,
+      "rendered": [Function],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

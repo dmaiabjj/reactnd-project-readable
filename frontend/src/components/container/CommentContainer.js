@@ -25,17 +25,17 @@ const defaultProps  = {
 
 
 /**
-*@description 
+*@description
 *Componente que representa a Sessão referente a comentários
 * @param {String} postId                    Id do Post referente aos comentários
 * @param {Object} user                      Usuário logado
 */
-class CommentContainer extends PureComponent {
+export class CommentContainer extends PureComponent {
 
     state = {
         comment: undefined
     }
-    
+
     /**
     * @description Seta o comment a ser atualizado e enviado ao form.
     * @param   {Object} comment  Comentário
@@ -46,7 +46,7 @@ class CommentContainer extends PureComponent {
 
 
     /**
-    * @description 
+    * @description
     * Faz o bind do objeto comentário para realizar a inserção ou atualização
     * @param {Event} comment  Comentário
     */
@@ -58,11 +58,11 @@ class CommentContainer extends PureComponent {
             updateComment(comment);
 
             this.setState({comment : {body: ""}});
-       
+
     }
 
      /**
-    * @description 
+    * @description
     * Responsável por deletar o comentário
     * @param {Event} comment  Comentário
     */
@@ -70,32 +70,32 @@ class CommentContainer extends PureComponent {
         event.preventDefault();
         const {deleteComment} = this.props ;
         deleteComment(id);
-        
+
         this.setState({comment : undefined});
-    
+
     }
 
     render() {
-       
+
         const {comment} = this.state;
-        const {postId,user,app} = this.props;
+				const {postId,user,app} = this.props;
         return (
                 <Fragment>
                     {postId
-                        && 
+                        &&
                         <Fragment>
-                            <CommentList 
-                                postId={postId} 
-                                onHandleSetComment={this.onHandleSetComment} 
+                            <CommentList
+                                postId={postId}
+                                onHandleSetComment={this.onHandleSetComment}
                                 loading={app.loading}
                                 onDeleteComment={this.onHandleDeleteComment}
                             />
-                            <CommentForm 
+                            <CommentForm
                                 postId={postId}
-                                comment={comment} 
-                                user={user} 
+                                comment={comment}
+                                user={user}
                                 loading={app.loading}
-                                onHandleComment={this.onHandleComment} 
+                                onHandleComment={this.onHandleComment}
                             />
                         </Fragment>
                     }
