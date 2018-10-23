@@ -24,7 +24,7 @@ const styles = {
       },
   }
 
-  
+
 
 const propTypes = {
     comment : PropTypes.shape({
@@ -57,7 +57,7 @@ const defaultProps  = {
 }
 
 /**
-* @description 
+* @description
 * Componente que representa o form de cadastro ou atualização de um comment
 * @param {String} comment                   Comment a ser atualizado
 * @param {String} postId                    Id do post a ser inserido o comentário
@@ -73,15 +73,15 @@ class CommentForm extends PureComponent {
     componentWillReceiveProps(props) {
          this.setState({comment : props.comment}) ;
     }
-    
+
     /**
-    * @description 
+    * @description
     * Faz o bind do objeto comentário para realizar a inserção ou atualização
     * @param {Event} event  Evento do click do botão
     */
     bindComment(event){
         event.preventDefault();
-        
+
         const {onHandleComment,user,postId} = this.props;
         const {comment}                     = this.state;
         const is_new                        = comment.id ?(false) :(true);
@@ -100,10 +100,10 @@ class CommentForm extends PureComponent {
     }
 
     /**
-    * @description 
+    * @description
     * Recebe o evento que representa a digitação do body do comment
-    * 
-    * @param   {Event} event Evento 
+    *
+    * @param   {Event} event Evento
     */
     onInputSearchChange = (event) => {
         event.preventDefault();
@@ -115,11 +115,11 @@ class CommentForm extends PureComponent {
     }
 
     render() {
-        
+
         const {user,classes,loading}            = this.props;
         const {comment}                         = this.state;
-        const enabled                           = comment.body.length <= 0 || loading;
-       
+				const enabled                           = comment.body.length <= 0 || loading;
+				console.log(user)
         return (
             <div className="ui-block">
                 <div className="crumina-module crumina-heading with-title-decoration">
@@ -136,7 +136,7 @@ class CommentForm extends PureComponent {
                         <div className="form-group label-floating">
                             <label className="control-label">Comment</label>
                             <textarea className="form-control" placeholder="Your Comment" value={comment.body} onChange={this.onInputSearchChange}>
-                               
+
                             </textarea>
                         </div>
                         <Button
@@ -150,7 +150,7 @@ class CommentForm extends PureComponent {
                         {loading && <CircularProgress size={24} className={classes.buttonProgress} />}
                     </div>
                 </div>
-            
+
             </div>
         )
     }
