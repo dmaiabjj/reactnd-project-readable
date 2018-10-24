@@ -17,21 +17,21 @@ import {Creators as PostCreators,getPostById} from '../../store/features/post'
 
 
 /**
-* @description 
+* @description
 * Componente que representa a página Post
 */
-class Post extends PureComponent {
+export class Post extends PureComponent {
 
     componentDidMount() {
         const {match:{params:{id}},fetchPost,post} = this.props;
         if(post === undefined)
             fetchPost(id);
-        
+
     }
-    
-    
+
+
     render() {
-        
+
         const {app,post,authUser,deletePost,votePost,reactPost} = this.props;
         return (
             <div>
@@ -41,22 +41,22 @@ class Post extends PureComponent {
                     <div className="col col-xl-8 m-auto col-lg-12 col-md-12 col-sm-12 col-12">
                     {!app.loading && app.fetched && !post &&  <SearchNotFound/>}
                     {post
-                        && 
+                        &&
                         <Fragment>
-                            <PostDetail 
-                                post={post} 
-                                authUser={authUser} 
+                            <PostDetail
+                                post={post}
+                                authUser={authUser}
                                 onDeletePost={deletePost}
                                 onVotePost={votePost}
                                 onReactPost={reactPost}
                             />
-                            <CommentContainer 
-                                postId={post.id} 
+                            <CommentContainer
+                                postId={post.id}
                                 user={authUser}
                             />
                         </Fragment>
                     }
-                    
+
                     </div>
                 </div>
                 <AddPostButton></AddPostButton>
