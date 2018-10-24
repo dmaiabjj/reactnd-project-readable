@@ -41,7 +41,7 @@ const defaultProps  = {
 }
 
 /**
-* @description 
+* @description
 * Componente que representa o formulário de Adição do Post
 * @constructor
 * @param {Object} post              Post a ser atualizado
@@ -53,7 +53,7 @@ const defaultProps  = {
 function AddPost({post,categories,onHandlePost,user})  {
 
     /**
-    * @description 
+    * @description
     * Faz o bind do objeto post para realizar a inserção ou atualização
     * @param {Function} onHandlePost    Método responsável por adicionar/atualizar um post
     * @param {Object} user              Usuário logado
@@ -76,13 +76,13 @@ function AddPost({post,categories,onHandlePost,user})  {
                     category: values.category.value
                 }
             );
-            resetForm({title:'',body: '',category:categories[0]});
+						resetForm({title:'',body: '',category:categories[0]});
             onHandlePost(update);
         }
     }
 
     const handlerPost = bindHandlerPost(onHandlePost,user,post,categories);
-  
+
     /* Style do Select importado da biblioteca ReacSelect */
     const customStyles = {
         placeholder : (base) => ({
@@ -129,10 +129,10 @@ function AddPost({post,categories,onHandlePost,user})  {
         category: Yup.string()
             .required('Categoria é obrigatório')
     })
-    
-    const defaultValue   = categories.find((c) => c.value === (post.category)) || categories[0];
+
+		const defaultValue   = categories.find((c) => c.value === (post.category)) || categories[0];
     return (
-        defaultValue ? 
+        defaultValue ?
             <Formik
                 initialValues={{title: post.title || '',body : post.body || '',category:defaultValue || '' }}
                 validationSchema={validationSchema}
@@ -165,13 +165,13 @@ function AddPost({post,categories,onHandlePost,user})  {
                                                     <div className="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                                                         <div className={`form-group label-floating ${touched.title ? (errors.title) ? ('has-error') :('has-success'):''}`}>
                                                             <label className="control-label">Título do Post</label>
-                                                            <input 
+                                                            <input
                                                                 name="title"
-                                                                className="form-control" 
-                                                                type="text" 
-                                                                placeholder="Título" 
-                                                                value={values.title} 
-                                                                onChange={handleChange} 
+                                                                className="form-control"
+                                                                type="text"
+                                                                placeholder="Título"
+                                                                value={values.title}
+                                                                onChange={handleChange}
                                                                 onBlur={handleBlur}
                                                                 />
                                                         </div>
@@ -180,6 +180,7 @@ function AddPost({post,categories,onHandlePost,user})  {
                                                         <div className="form-group label-floating is-select">
                                                             <label className="control-label">Select Category</label>
                                                             <Select
+																																id="category"
                                                                 name="category"
                                                                 value={values.category}
                                                                 options={categories}
@@ -192,11 +193,11 @@ function AddPost({post,categories,onHandlePost,user})  {
                                                     <div className="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                         <div className={`form-group label-floating ${touched.body ? (errors.body) ? ('has-error') :('has-success'):''}`}>
                                                             <label className="control-label">Body do Post</label>
-                                                            <textarea 
+                                                            <textarea
                                                                 name="body"
-                                                                className="form-control" 
-                                                                placeholder="Body" 
-                                                                value={values.body} 
+                                                                className="form-control"
+                                                                placeholder="Body"
+                                                                value={values.body}
                                                                 onChange={handleChange}
                                                                 onBlur={handleBlur}
                                                             >
@@ -204,15 +205,15 @@ function AddPost({post,categories,onHandlePost,user})  {
                                                         </div>
                                                     </div>
                                                     <div className="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                                                        <button 
-                                                            className="btn btn-secondary btn-lg full-width" 
+                                                        <button
+                                                            className="btn btn-secondary btn-lg full-width"
                                                             onClick={handleReset}
                                                         >
                                                             Cancel
                                                         </button>
                                                     </div>
                                                     <div className="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                                                        <button 
+                                                        <button
                                                             type="button"
                                                             className="btn btn-blue btn-lg full-width"
                                                             onClick={handleSubmit}>
@@ -227,8 +228,8 @@ function AddPost({post,categories,onHandlePost,user})  {
                             </div>
                         </Fragment>
                     )
-                }}  
-            </Formik> : 
+                }}
+            </Formik> :
                 <Fragment></Fragment>
     )
 }
