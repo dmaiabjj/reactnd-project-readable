@@ -8,13 +8,13 @@ import {Creators as CategoryCreators,} from '../../store/features/category'
 import {Creators as PostCreators,getPostById} from '../../store/features/post'
 
 /**
-* @description 
+* @description
 * Componente que representa o container do formulário para inserção do Post
 */
-class AddPostContainer extends PureComponent {
+export class AddPostContainer extends PureComponent {
 
     componentDidMount() {
-        const {match:{params:{id}},fetchPost,getAllCategories} = this.props;
+				const {match:{params:{id}},fetchPost,getAllCategories} = this.props;
         id && fetchPost(id);
         getAllCategories();
     }
@@ -24,7 +24,7 @@ class AddPostContainer extends PureComponent {
     }
 
      /**
-    * @description 
+    * @description
     * Faz o bind do objeto post para realizar a inserção ou atualização
     * @param {Object} post  Post
     */
@@ -35,12 +35,12 @@ class AddPostContainer extends PureComponent {
             addPost(post);
         else
             updatePost(post);
-        
+
 
         this.setState({post : {}});
         history.push(path);
 
-    
+
     }
 
     render() {
