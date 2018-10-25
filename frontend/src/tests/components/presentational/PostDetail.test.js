@@ -22,6 +22,10 @@ describe('[Presentation Component] PostDetail', () => {
 
   it('Shallow renders correctly', () => {
     expect(global.shallow(<PostDetail {...props} />,context.get()));
+	});
+
+	it('Renders correctly', () => {
+    expect(global.shallow(<PostDetail {...props} />)).toMatchSnapshot();
   });
 
 	it('Expect to find a Link owner inside', () => {
@@ -40,15 +44,21 @@ describe('[Presentation Component] PostDetail', () => {
 
 	it('Check if the onVotePost is been called', () => {
     const wrapper = global.mount(<PostDetail {...props} />, context.get());
-    wrapper.find('.post-add-icon.inline-items > a:first-child').simulate('click');
-    expect(props.onVotePost).toHaveBeenCalledTimes(1);
+   	const votes = wrapper.find('.post-add-icon.inline-items > a')
+		votes.forEach((r) => {
+			r.simulate('click');
+		})
+    expect(props.onVotePost).toHaveBeenCalledTimes(votes.length);
 	});
 
 
 	it('Check if the onReactPost is been called', () => {
-    const wrapper = global.mount(<PostDetail {...props} />, context.get());
-    wrapper.find('.choose-reaction.reaction-colored li:first-child > a').simulate('click');
-    expect(props.onReactPost).toHaveBeenCalledTimes(1);
+    const wrapper 	= global.mount(<PostDetail {...props} />, context.get());
+		const reactions = wrapper.find('.choose-reaction.reaction-colored li > a')
+		reactions.forEach((r) => {
+			r.simulate('click');
+		})
+    expect(props.onReactPost).toHaveBeenCalledTimes(reactions.length);
 	});
 
 

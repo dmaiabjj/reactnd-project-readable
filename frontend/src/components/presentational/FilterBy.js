@@ -4,15 +4,19 @@ import PropTypes from 'prop-types';
 
 
 const propTypes = {
-    search   : PropTypes.func.isRequired
+		search   		: PropTypes.func.isRequired,
+		properties 	: PropTypes.array.isRequired,
+		ordination 	: PropTypes.array.isRequired,
 }
 
 const defaultProps  = {
-    search : (filter,order) => {}
+		search : (filter,order) => {},
+		properties : [{value: "",label:""}],
+		ordination : [{value: "",label:""}]
 }
 
 /**
-* @description 
+* @description
 * Componente que irá mostrar as opções de ordenação das categorias
 *
 * @constructor
@@ -25,7 +29,7 @@ class FilterBy extends PureComponent {
       }
 
     /**
-    * @description 
+    * @description
     * Seta a opção do filtro a ser usado na busca dos posts e realiza a busca
     * @param {String} option  opção selecionada do dropdown
     */
@@ -35,7 +39,7 @@ class FilterBy extends PureComponent {
     }
 
     /**
-    * @description 
+    * @description
     * Seta a opção da ordenação a ser usado na busca dos posts e realiza a busca
     * @param {String} option  opção selecionada do dropdown
     */
@@ -44,21 +48,8 @@ class FilterBy extends PureComponent {
         this.props.search(this.state.propertySelected, option.value);
     }
 
-    properties = [
-        { value: 'votes', label: 'Vote' },
-        { value: 'timestamp', label: 'Data' },
-        { value: 'reactions', label: 'Reações' },
-        { value: 'commentCount', label: 'Comentários' }
-      ]
-
-    ordination = [
-        { value: 'desc', label: 'Decrescente' },
-        { value: 'asc', label: 'Crescente' }
-        
-    ]
-    
-
     render () {
+				const {properties,ordination} = this.props
         return (
             <div className="ui-block responsive-flex">
                 <div className="ui-block-title">
@@ -66,8 +57,8 @@ class FilterBy extends PureComponent {
                     <div className="w-select">
                         <div className="form-group label-floating is-select">
                             <Select
-                                defaultValue={this.properties[0]}
-                                options={this.properties}
+                                defaultValue={properties[0]}
+                                options={properties}
                                 onChange={this.handlePropertyChange}
                             />
                         </div>
@@ -75,9 +66,9 @@ class FilterBy extends PureComponent {
                     <div className="h6 title">Ordem: </div>
                     <div className="w-select">
                         <div className="form-group label-floating is-select">
-							<Select
-                                defaultValue={this.ordination[0]}
-                                options={this.ordination}
+														<Select
+                                defaultValue={ordination[0]}
+                                options={ordination}
                                 onChange={this.handleOrdinationChange}
                             />
 						</div>

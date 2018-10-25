@@ -15,10 +15,6 @@ describe('[Page Component] AddPost', () => {
     expect(global.shallow(<AddPost {...props} />));
 	});
 
-	it('Renders correctly', () => {
-    expect(global.shallow(<AddPost {...props} />)).toMatchSnapshot();
-	});
-
 	it('Shallow renders correctly', () => {
     expect(global.shallow(<ConnectedAddPost {...props} />));
 	});

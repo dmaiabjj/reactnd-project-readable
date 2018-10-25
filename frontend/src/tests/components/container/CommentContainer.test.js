@@ -27,6 +27,7 @@ describe('[Container Component] CommentList', () => {
     expect(global.shallow(<CommentContainer {...props} />,context.get()));
 	});
 
+
 	it('Shallow renders correctly', () => {
 
 		const mockStore = configureMockStore([thunk]);

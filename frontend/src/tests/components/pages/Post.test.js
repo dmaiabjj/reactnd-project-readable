@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactRouterEnzymeContext from 'react-router-enzyme-context';
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
+import {Link} from 'react-router-dom'
 
 import PostConnected,{Post} from '../../../components/pages/Post';
 import Head from '../../../components/presentational/Head';
@@ -42,10 +41,6 @@ describe('[Page Component] Post', () => {
 
 	it('Shallow renders correctly', () => {
     expect(global.shallow(<Post {...props} />,context.get()));
-	});
-
-	it('Renders correctly', () => {
-    expect(global.shallow(<Post {...props} />),context.get()).toMatchSnapshot();
 	});
 
 	it('Shallow renders correctly', () => {

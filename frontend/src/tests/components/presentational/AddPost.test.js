@@ -2,6 +2,7 @@ import React from 'react'
 import AddPost from '../../../components/presentational/AddPost'
 import ReactRouterEnzymeContext from 'react-router-enzyme-context'
 
+
 import posts from '../../mocks/posts';
 import categoriesMock from '../../mocks/categories';
 
@@ -22,9 +23,6 @@ describe('[Presentation Component] AddPost', () => {
         expect(shallow(<AddPost {...props} />,context.get()));
     });
 
-		it('Renders correctly', () => {
-			expect(global.shallow(<AddPost {...props} />),context.get()).toMatchSnapshot();
-		});
 
 		it('Expect to find all post data', () => {
 			const wrapper = global.mount(<AddPost {...props} />, context.get());

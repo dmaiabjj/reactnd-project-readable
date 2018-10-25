@@ -1,7 +1,6 @@
 import React,{Fragment, PureComponent} from 'react'
 import {withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-
 import Head from '../presentational/Head'
 import Footer from '../presentational/Footer'
 import AddPostButton from '../presentational/AddPostButton'
@@ -19,6 +18,19 @@ import {Creators as SharedCreators} from '../../store/features/shared'
 * Componente que representa a página Home
 */
 export class Home extends PureComponent {
+
+		properties = [
+			{ value: 'votes', label: 'Vote' },
+			{ value: 'timestamp', label: 'Data' },
+			{ value: 'reactions', label: 'Reações' },
+			{ value: 'commentCount', label: 'Comentários' }
+		]
+
+		ordination = [
+				{ value: 'desc', label: 'Decrescente' },
+				{ value: 'asc', label: 'Crescente' }
+
+		]
 
     filters = {
         "votes" :  function (obj) {
@@ -67,7 +79,9 @@ export class Home extends PureComponent {
                                     categories={this.props.categories}
                                 />
                                 <FilterBy
-                                    search={this.handleFilter}
+																		search={this.handleFilter}
+																		properties={this.properties}
+																		ordination={this.ordination}
                                 />
                             </Fragment>
                             </div>

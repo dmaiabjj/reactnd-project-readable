@@ -87,6 +87,38 @@ ShallowWrapper {
                                                             currentCategory="all"
                                                   />
                                                   <FilterBy
+                                                            ordination={
+                                                                      Array [
+                                                                                Object {
+                                                                                  "label": "Decrescente",
+                                                                                  "value": "desc",
+                                                                                },
+                                                                                Object {
+                                                                                  "label": "Crescente",
+                                                                                  "value": "asc",
+                                                                                },
+                                                                              ]
+                                                            }
+                                                            properties={
+                                                                      Array [
+                                                                                Object {
+                                                                                  "label": "Vote",
+                                                                                  "value": "votes",
+                                                                                },
+                                                                                Object {
+                                                                                  "label": "Data",
+                                                                                  "value": "timestamp",
+                                                                                },
+                                                                                Object {
+                                                                                  "label": "Reações",
+                                                                                  "value": "reactions",
+                                                                                },
+                                                                                Object {
+                                                                                  "label": "Comentários",
+                                                                                  "value": "commentCount",
+                                                                                },
+                                                                              ]
+                                                            }
                                                             search={[Function]}
                                                   />
                                         </Unknown>
@@ -156,6 +188,38 @@ ShallowWrapper {
                                                             currentCategory="all"
                                                 />
                                                 <FilterBy
+                                                            ordination={
+                                                                        Array [
+                                                                                    Object {
+                                                                                      "label": "Decrescente",
+                                                                                      "value": "desc",
+                                                                                    },
+                                                                                    Object {
+                                                                                      "label": "Crescente",
+                                                                                      "value": "asc",
+                                                                                    },
+                                                                                  ]
+                                                            }
+                                                            properties={
+                                                                        Array [
+                                                                                    Object {
+                                                                                      "label": "Vote",
+                                                                                      "value": "votes",
+                                                                                    },
+                                                                                    Object {
+                                                                                      "label": "Data",
+                                                                                      "value": "timestamp",
+                                                                                    },
+                                                                                    Object {
+                                                                                      "label": "Reações",
+                                                                                      "value": "reactions",
+                                                                                    },
+                                                                                    Object {
+                                                                                      "label": "Comentários",
+                                                                                      "value": "commentCount",
+                                                                                    },
+                                                                                  ]
+                                                            }
                                                             search={[Function]}
                                                 />
                                     </Unknown>
@@ -203,6 +267,38 @@ ShallowWrapper {
                                                                 currentCategory="all"
                                                 />
                                                 <FilterBy
+                                                                ordination={
+                                                                                Array [
+                                                                                                Object {
+                                                                                                  "label": "Decrescente",
+                                                                                                  "value": "desc",
+                                                                                                },
+                                                                                                Object {
+                                                                                                  "label": "Crescente",
+                                                                                                  "value": "asc",
+                                                                                                },
+                                                                                              ]
+                                                                }
+                                                                properties={
+                                                                                Array [
+                                                                                                Object {
+                                                                                                  "label": "Vote",
+                                                                                                  "value": "votes",
+                                                                                                },
+                                                                                                Object {
+                                                                                                  "label": "Data",
+                                                                                                  "value": "timestamp",
+                                                                                                },
+                                                                                                Object {
+                                                                                                  "label": "Reações",
+                                                                                                  "value": "reactions",
+                                                                                                },
+                                                                                                Object {
+                                                                                                  "label": "Comentários",
+                                                                                                  "value": "commentCount",
+                                                                                                },
+                                                                                              ]
+                                                                }
                                                                 search={[Function]}
                                                 />
                                 </Unknown>
@@ -247,6 +343,38 @@ ShallowWrapper {
                                                       currentCategory="all"
                                     />
                                     <FilterBy
+                                                      ordination={
+                                                                        Array [
+                                                                                          Object {
+                                                                                            "label": "Decrescente",
+                                                                                            "value": "desc",
+                                                                                          },
+                                                                                          Object {
+                                                                                            "label": "Crescente",
+                                                                                            "value": "asc",
+                                                                                          },
+                                                                                        ]
+                                                      }
+                                                      properties={
+                                                                        Array [
+                                                                                          Object {
+                                                                                            "label": "Vote",
+                                                                                            "value": "votes",
+                                                                                          },
+                                                                                          Object {
+                                                                                            "label": "Data",
+                                                                                            "value": "timestamp",
+                                                                                          },
+                                                                                          Object {
+                                                                                            "label": "Reações",
+                                                                                            "value": "reactions",
+                                                                                          },
+                                                                                          Object {
+                                                                                            "label": "Comentários",
+                                                                                            "value": "commentCount",
+                                                                                          },
+                                                                                        ]
+                                                      }
                                                       search={[Function]}
                                     />
                   </Unknown>
@@ -280,6 +408,38 @@ ShallowWrapper {
                                         currentCategory="all"
                     />
                     <FilterBy
+                                        ordination={
+                                                            Array [
+                                                                                Object {
+                                                                                  "label": "Decrescente",
+                                                                                  "value": "desc",
+                                                                                },
+                                                                                Object {
+                                                                                  "label": "Crescente",
+                                                                                  "value": "asc",
+                                                                                },
+                                                                              ]
+                                        }
+                                        properties={
+                                                            Array [
+                                                                                Object {
+                                                                                  "label": "Vote",
+                                                                                  "value": "votes",
+                                                                                },
+                                                                                Object {
+                                                                                  "label": "Data",
+                                                                                  "value": "timestamp",
+                                                                                },
+                                                                                Object {
+                                                                                  "label": "Reações",
+                                                                                  "value": "reactions",
+                                                                                },
+                                                                                Object {
+                                                                                  "label": "Comentários",
+                                                                                  "value": "commentCount",
+                                                                                },
+                                                                              ]
+                                        }
                                         search={[Function]}
                     />
 </Unknown>,
@@ -312,6 +472,38 @@ ShallowWrapper {
                         currentCategory="all"
 />,
                       <FilterBy
+                        ordination={
+                                                Array [
+                                                                        Object {
+                                                                          "label": "Decrescente",
+                                                                          "value": "desc",
+                                                                        },
+                                                                        Object {
+                                                                          "label": "Crescente",
+                                                                          "value": "asc",
+                                                                        },
+                                                                      ]
+                        }
+                        properties={
+                                                Array [
+                                                                        Object {
+                                                                          "label": "Vote",
+                                                                          "value": "votes",
+                                                                        },
+                                                                        Object {
+                                                                          "label": "Data",
+                                                                          "value": "timestamp",
+                                                                        },
+                                                                        Object {
+                                                                          "label": "Reações",
+                                                                          "value": "reactions",
+                                                                        },
+                                                                        Object {
+                                                                          "label": "Comentários",
+                                                                          "value": "commentCount",
+                                                                        },
+                                                                      ]
+                        }
                         search={[Function]}
 />,
                     ],
@@ -348,6 +540,34 @@ ShallowWrapper {
                       "key": undefined,
                       "nodeType": "class",
                       "props": Object {
+                        "ordination": Array [
+                          Object {
+                            "label": "Decrescente",
+                            "value": "desc",
+                          },
+                          Object {
+                            "label": "Crescente",
+                            "value": "asc",
+                          },
+                        ],
+                        "properties": Array [
+                          Object {
+                            "label": "Vote",
+                            "value": "votes",
+                          },
+                          Object {
+                            "label": "Data",
+                            "value": "timestamp",
+                          },
+                          Object {
+                            "label": "Reações",
+                            "value": "reactions",
+                          },
+                          Object {
+                            "label": "Comentários",
+                            "value": "commentCount",
+                          },
+                        ],
                         "search": [Function],
                       },
                       "ref": null,
@@ -448,6 +668,38 @@ ShallowWrapper {
                                                                         currentCategory="all"
                                                             />
                                                             <FilterBy
+                                                                        ordination={
+                                                                                    Array [
+                                                                                                Object {
+                                                                                                  "label": "Decrescente",
+                                                                                                  "value": "desc",
+                                                                                                },
+                                                                                                Object {
+                                                                                                  "label": "Crescente",
+                                                                                                  "value": "asc",
+                                                                                                },
+                                                                                              ]
+                                                                        }
+                                                                        properties={
+                                                                                    Array [
+                                                                                                Object {
+                                                                                                  "label": "Vote",
+                                                                                                  "value": "votes",
+                                                                                                },
+                                                                                                Object {
+                                                                                                  "label": "Data",
+                                                                                                  "value": "timestamp",
+                                                                                                },
+                                                                                                Object {
+                                                                                                  "label": "Reações",
+                                                                                                  "value": "reactions",
+                                                                                                },
+                                                                                                Object {
+                                                                                                  "label": "Comentários",
+                                                                                                  "value": "commentCount",
+                                                                                                },
+                                                                                              ]
+                                                                        }
                                                                         search={[Function]}
                                                             />
                                                 </Unknown>
@@ -517,6 +769,38 @@ ShallowWrapper {
                                                                       currentCategory="all"
                                                         />
                                                         <FilterBy
+                                                                      ordination={
+                                                                                    Array [
+                                                                                                  Object {
+                                                                                                    "label": "Decrescente",
+                                                                                                    "value": "desc",
+                                                                                                  },
+                                                                                                  Object {
+                                                                                                    "label": "Crescente",
+                                                                                                    "value": "asc",
+                                                                                                  },
+                                                                                                ]
+                                                                      }
+                                                                      properties={
+                                                                                    Array [
+                                                                                                  Object {
+                                                                                                    "label": "Vote",
+                                                                                                    "value": "votes",
+                                                                                                  },
+                                                                                                  Object {
+                                                                                                    "label": "Data",
+                                                                                                    "value": "timestamp",
+                                                                                                  },
+                                                                                                  Object {
+                                                                                                    "label": "Reações",
+                                                                                                    "value": "reactions",
+                                                                                                  },
+                                                                                                  Object {
+                                                                                                    "label": "Comentários",
+                                                                                                    "value": "commentCount",
+                                                                                                  },
+                                                                                                ]
+                                                                      }
                                                                       search={[Function]}
                                                         />
                                           </Unknown>
@@ -564,6 +848,38 @@ ShallowWrapper {
                                                                         currentCategory="all"
                                                       />
                                                       <FilterBy
+                                                                        ordination={
+                                                                                          Array [
+                                                                                                            Object {
+                                                                                                              "label": "Decrescente",
+                                                                                                              "value": "desc",
+                                                                                                            },
+                                                                                                            Object {
+                                                                                                              "label": "Crescente",
+                                                                                                              "value": "asc",
+                                                                                                            },
+                                                                                                          ]
+                                                                        }
+                                                                        properties={
+                                                                                          Array [
+                                                                                                            Object {
+                                                                                                              "label": "Vote",
+                                                                                                              "value": "votes",
+                                                                                                            },
+                                                                                                            Object {
+                                                                                                              "label": "Data",
+                                                                                                              "value": "timestamp",
+                                                                                                            },
+                                                                                                            Object {
+                                                                                                              "label": "Reações",
+                                                                                                              "value": "reactions",
+                                                                                                            },
+                                                                                                            Object {
+                                                                                                              "label": "Comentários",
+                                                                                                              "value": "commentCount",
+                                                                                                            },
+                                                                                                          ]
+                                                                        }
                                                                         search={[Function]}
                                                       />
                                     </Unknown>
@@ -608,6 +924,38 @@ ShallowWrapper {
                                                             currentCategory="all"
                                         />
                                         <FilterBy
+                                                            ordination={
+                                                                                Array [
+                                                                                                    Object {
+                                                                                                      "label": "Decrescente",
+                                                                                                      "value": "desc",
+                                                                                                    },
+                                                                                                    Object {
+                                                                                                      "label": "Crescente",
+                                                                                                      "value": "asc",
+                                                                                                    },
+                                                                                                  ]
+                                                            }
+                                                            properties={
+                                                                                Array [
+                                                                                                    Object {
+                                                                                                      "label": "Vote",
+                                                                                                      "value": "votes",
+                                                                                                    },
+                                                                                                    Object {
+                                                                                                      "label": "Data",
+                                                                                                      "value": "timestamp",
+                                                                                                    },
+                                                                                                    Object {
+                                                                                                      "label": "Reações",
+                                                                                                      "value": "reactions",
+                                                                                                    },
+                                                                                                    Object {
+                                                                                                      "label": "Comentários",
+                                                                                                      "value": "commentCount",
+                                                                                                    },
+                                                                                                  ]
+                                                            }
                                                             search={[Function]}
                                         />
                     </Unknown>
@@ -641,6 +989,38 @@ ShallowWrapper {
                                             currentCategory="all"
                       />
                       <FilterBy
+                                            ordination={
+                                                                  Array [
+                                                                                        Object {
+                                                                                          "label": "Decrescente",
+                                                                                          "value": "desc",
+                                                                                        },
+                                                                                        Object {
+                                                                                          "label": "Crescente",
+                                                                                          "value": "asc",
+                                                                                        },
+                                                                                      ]
+                                            }
+                                            properties={
+                                                                  Array [
+                                                                                        Object {
+                                                                                          "label": "Vote",
+                                                                                          "value": "votes",
+                                                                                        },
+                                                                                        Object {
+                                                                                          "label": "Data",
+                                                                                          "value": "timestamp",
+                                                                                        },
+                                                                                        Object {
+                                                                                          "label": "Reações",
+                                                                                          "value": "reactions",
+                                                                                        },
+                                                                                        Object {
+                                                                                          "label": "Comentários",
+                                                                                          "value": "commentCount",
+                                                                                        },
+                                                                                      ]
+                                            }
                                             search={[Function]}
                       />
 </Unknown>,
@@ -673,6 +1053,38 @@ ShallowWrapper {
                           currentCategory="all"
 />,
                         <FilterBy
+                          ordination={
+                                                    Array [
+                                                                              Object {
+                                                                                "label": "Decrescente",
+                                                                                "value": "desc",
+                                                                              },
+                                                                              Object {
+                                                                                "label": "Crescente",
+                                                                                "value": "asc",
+                                                                              },
+                                                                            ]
+                          }
+                          properties={
+                                                    Array [
+                                                                              Object {
+                                                                                "label": "Vote",
+                                                                                "value": "votes",
+                                                                              },
+                                                                              Object {
+                                                                                "label": "Data",
+                                                                                "value": "timestamp",
+                                                                              },
+                                                                              Object {
+                                                                                "label": "Reações",
+                                                                                "value": "reactions",
+                                                                              },
+                                                                              Object {
+                                                                                "label": "Comentários",
+                                                                                "value": "commentCount",
+                                                                              },
+                                                                            ]
+                          }
                           search={[Function]}
 />,
                       ],
@@ -709,6 +1121,34 @@ ShallowWrapper {
                         "key": undefined,
                         "nodeType": "class",
                         "props": Object {
+                          "ordination": Array [
+                            Object {
+                              "label": "Decrescente",
+                              "value": "desc",
+                            },
+                            Object {
+                              "label": "Crescente",
+                              "value": "asc",
+                            },
+                          ],
+                          "properties": Array [
+                            Object {
+                              "label": "Vote",
+                              "value": "votes",
+                            },
+                            Object {
+                              "label": "Data",
+                              "value": "timestamp",
+                            },
+                            Object {
+                              "label": "Reações",
+                              "value": "reactions",
+                            },
+                            Object {
+                              "label": "Comentários",
+                              "value": "commentCount",
+                            },
+                          ],
                           "search": [Function],
                         },
                         "ref": null,
