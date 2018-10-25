@@ -23,9 +23,9 @@ import {Creators as PostCreators,getPostById} from '../../store/features/post'
 export class Post extends PureComponent {
 
     componentDidMount() {
-        const {match:{params:{id}},fetchPost,post} = this.props;
+        const {match:{params:{post_id}},fetchPost,post} = this.props;
         if(post === undefined)
-            fetchPost(id);
+            fetchPost(post_id);
 
     }
 
@@ -69,9 +69,9 @@ export class Post extends PureComponent {
 
 function mapStateToProps (state,ownProps) {
     const {user,app} = state;
-    const {match:{params:{id}}} = ownProps;
+    const {match:{params:{post_id}}} = ownProps;
     return {
-        post : getPostById(id)(state),
+        post : getPostById(post_id)(state),
         authUser : user,
         app
     }

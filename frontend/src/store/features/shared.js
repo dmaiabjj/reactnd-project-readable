@@ -86,6 +86,7 @@ export default function reducer(state = INITIAL_STATE, action) {
 		case CommentTypes.VOTE_SUCCESS:
 		case CommentTypes.DELETE_SUCCESS:
 		case PostTypes.REACT_SUCCESS:
+		case PostTypes.DELETE_SUCCESS:
 		case PostTypes.ADD_SUCCESS:
 		case PostTypes.UPDATE_SUCCESS:
 		case PostTypes.VOTE_SUCCESS:

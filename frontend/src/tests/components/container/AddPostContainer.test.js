@@ -22,7 +22,7 @@ describe('[Container Component] AddPostContainer', () => {
 			user : {name: "Udacity",avatar: "udacity"},
 			app:{loading: false},
 			fetchPost: jest.fn(),
-			match:{params: { id : postId}},
+			match:{params: { post_id : postId}},
 			getAllCategories: jest.fn(),
 			addPost: jest.fn(),
 			updatePost: jest.fn(),

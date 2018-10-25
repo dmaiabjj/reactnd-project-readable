@@ -86,7 +86,7 @@ class PostDetail extends Component {
                             </div>
                         }
                     </div>
-                    <Link className="post-category bg-primary" to={`/post/category/${post.category}`}>
+                    <Link className="post-category bg-primary" to={`/${post.category}`}>
                         {post.category}
                     </Link>
                     <h1 className="post-title">{post.title}</h1>

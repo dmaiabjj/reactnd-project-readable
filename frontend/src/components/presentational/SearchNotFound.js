@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 /**
-* @description 
+* @description
 * Componente de 404 genérico da aplicação
 *
 * @constructor
@@ -21,7 +21,7 @@ function SearchNotFound() {
                                     Se você desejar, você pode voltar para homepage e iniciar outra busca
                                 </p>
                             </div>
-                            <Link className="btn btn-primary btn-lg" to={`/post/category/all`}>
+                            <Link className="btn btn-primary btn-lg" to={`/all`}>
                                 Homepage
                             </Link>
                         </div>

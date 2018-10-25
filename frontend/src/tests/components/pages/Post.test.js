@@ -18,10 +18,10 @@ import posts from '../../mocks/posts';
 describe('[Page Component] Post', () => {
 	const context 			= new ReactRouterEnzymeContext();
 	let props 					= {}
-
+	const post_id 			= "8xf0y6ziyjabvozdd253nd"
 	beforeEach(() => {
 		props = {
-			post: posts["8xf0y6ziyjabvozdd253nd"],
+			post: posts[post_id],
 			app : {
 				loading : false,
 				fetched : true,
@@ -29,7 +29,7 @@ describe('[Page Component] Post', () => {
 			authUser : {name: "Udacity",avatar: "udacity"},
 			match : {
 				params : {
-					id : "all"
+					post_id
 				}
 			},
 			deletePost : jest.fn(),

@@ -83,12 +83,12 @@ class Post extends Component  {
                                             <Link to={`/post/edit/${post.id}`}>Editar Post</Link>
                                         </li>
                                         <li>
-                                            <a onClick={(event) => this.onDelete(post.id,event)}>Apagar Post</a>
+                                            <a href="" onClick={(event) => this.onDelete(post.id,event)}>Apagar Post</a>
                                         </li>
                                     </ul>
                                 </div>
                                 }
-                                <Link className="post-category bg-primary" to={`/post/category/${post.category}`}>
+                                <Link className="post-category bg-primary" to={`/${post.category}`}>
                                     {post.category}
                                 </Link>
                                 <div className="post__author author vcard inline-items">
@@ -102,7 +102,7 @@ class Post extends Component  {
                                     </div>
                                 </div>
                                 <h4>
-                                    <Link to={`/post/detail/${post.id}`}>
+                                    <Link to={`/${post.category}/${post.id}`}>
                                             {post.title}
                                     </Link>
                                 </h4>

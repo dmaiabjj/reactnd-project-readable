@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import green from '@material-ui/core/colors/green';
 import CircularProgress from '@material-ui/core/CircularProgress';
-
+import _ from 'lodash'
 
 const styles = {
   buttonNormal: {
@@ -45,7 +45,8 @@ const propTypes = {
 
 const defaultProps  = {
     comment : {
-        body : ""
+				body : "",
+				author : ""
     },
     user : {
         name: ""
@@ -67,7 +68,9 @@ const defaultProps  = {
 class CommentForm extends PureComponent {
 
     state = {
-        comment : this.props.comment
+        comment : {
+					...this.props.comment,author : this.props.user.name
+				}
     }
 
     componentWillReceiveProps(props) {
@@ -82,22 +85,36 @@ class CommentForm extends PureComponent {
     bindComment(event){
         event.preventDefault();
 
-        const {onHandleComment,user,postId} = this.props;
+        const {onHandleComment,postId} 			= this.props;
         const {comment}                     = this.state;
         const is_new                        = comment.id ?(false) :(true);
         const id                            = is_new ?(genUUID()) :(comment.id);
         const update                        = Object.assign(comment,
             {
                 timestamp : + new Date(),
-                author : user.name,
                 parentId : postId,
                 id,
                 is_new
             }
         );
-        this.setState({comment : {body: ""}});
+        this.setState({comment : {body: "",author:""}});
         onHandleComment(update);
-    }
+		}
+
+		 /**
+    * @description
+    * Recebe o evento que representa a digitação do body do comment
+    *
+    * @param   {Event} event Evento
+    */
+	 	onInputAuthorChange = (event) => {
+					event.preventDefault();
+					const {comment} = this.state;
+					this.setState({comment : {
+							...comment,
+							...{author:event.target.value}
+					}}) ;
+		}
 
     /**
     * @description
@@ -105,7 +122,7 @@ class CommentForm extends PureComponent {
     *
     * @param   {Event} event Evento
     */
-    onInputSearchChange = (event) => {
+    onInputBodyChange = (event) => {
         event.preventDefault();
         const {comment} = this.state;
         this.setState({comment : {
@@ -116,10 +133,10 @@ class CommentForm extends PureComponent {
 
     render() {
 
-        const {user,classes,loading}            = this.props;
-        const {comment}                         = this.state;
-				const enabled                           = comment.body.length <= 0 || loading;
-        return (
+        const {classes,loading}           			= this.props;
+				const {comment}                         = this.state;
+				const disabled                          = _.isEmpty(comment.body) || _.isEmpty(comment.author) || (loading);
+				return (
             <div className="ui-block">
                 <div className="crumina-module crumina-heading with-title-decoration">
                     <h5 className="heading-title">Write a Comment</h5>
@@ -128,13 +145,13 @@ class CommentForm extends PureComponent {
                     <div className="col col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12">
                         <div className="form-group label-floating">
                             <label className="control-label">Name</label>
-                            <input className="form-control" placeholder="Your Name" readOnly defaultValue={user.name} type="text" />
+                            <input className="form-control" placeholder="Your Name" value={comment.author} type="text" onChange={this.onInputAuthorChange}/>
                         </div>
                     </div>
                     <div className="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
                         <div className="form-group label-floating">
                             <label className="control-label">Comment</label>
-                            <textarea className="form-control" placeholder="Your Comment" value={comment.body} onChange={this.onInputSearchChange}>
+                            <textarea className="form-control" placeholder="Your Comment" value={comment.body} onChange={this.onInputBodyChange}>
 
                             </textarea>
                         </div>
@@ -143,7 +160,7 @@ class CommentForm extends PureComponent {
                             color="primary"
                             className={classes.buttonNormal}
                             onClick={(event) => this.bindComment(event)}
-                            disabled={enabled}>
+                            disabled={disabled}>
                             Post your Comment
                         </Button>
                         {loading && <CircularProgress size={24} className={classes.buttonProgress} />}

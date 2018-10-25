@@ -61,14 +61,14 @@ function AddPost({post,categories,onHandlePost,user})  {
     * @param {Array} categories         Categorias que podem ser adicionadas no novo post
     * @returns {Function}  Retorna uma função que irá receber os valores do formik, dar um bind no objecto e chamar o método local de inserção/update
     */
-    const bindHandlerPost = (onHandlePost,user,post,categories) => {
+    const bindHandlerPost = () => {
         return (values,{resetForm}) => {
             const is_new                    = post.id ?(false) :(true);
             const id                        = is_new ?(genUUID()) :(post.id);
             const update                    = Object.assign(post,
                 {
                     timestamp : + new Date(),
-                    author : user.name,
+                    author : values.author,
                     id,
                     title : values.title,
                     body : values.body,
@@ -76,12 +76,12 @@ function AddPost({post,categories,onHandlePost,user})  {
                     category: values.category.value
                 }
             );
-						resetForm({title:'',body: '',category:categories[0]});
+						resetForm({title:'',body: '',category:categories[0],author : user.name});
             onHandlePost(update);
         }
     }
 
-    const handlerPost = bindHandlerPost(onHandlePost,user,post,categories);
+    const handlerPost = bindHandlerPost();
 
     /* Style do Select importado da biblioteca ReacSelect */
     const customStyles = {
@@ -134,7 +134,7 @@ function AddPost({post,categories,onHandlePost,user})  {
     return (
         defaultValue ?
             <Formik
-                initialValues={{title: post.title || '',body : post.body || '',category:defaultValue || '' }}
+                initialValues={{title: post.title || '',body : post.body || '',category:defaultValue || '',author : post.author || user.name }}
                 validationSchema={validationSchema}
                 onSubmit={handlerPost}
             >
@@ -171,6 +171,20 @@ function AddPost({post,categories,onHandlePost,user})  {
                                                                 type="text"
                                                                 placeholder="Título"
                                                                 value={values.title}
+                                                                onChange={handleChange}
+                                                                onBlur={handleBlur}
+                                                                />
+                                                        </div>
+																											</div>
+																											<div className="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+																												<div className={`form-group label-floating ${touched.author ? (errors.author) ? ('has-error') :('has-success'):''}`}>
+                                                            <label className="control-label">Autor</label>
+                                                            <input
+                                                                name="author"
+                                                                className="form-control"
+                                                                type="text"
+                                                                placeholder="Título"
+                                                                value={values.author}
                                                                 onChange={handleChange}
                                                                 onBlur={handleBlur}
                                                                 />

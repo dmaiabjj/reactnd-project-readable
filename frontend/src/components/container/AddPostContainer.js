@@ -13,15 +13,20 @@ import {Creators as PostCreators,getPostById} from '../../store/features/post'
 */
 export class AddPostContainer extends PureComponent {
 
-    componentDidMount() {
-				const {match:{params:{id}},fetchPost,getAllCategories} = this.props;
-        id && fetchPost(id);
-        getAllCategories();
-    }
+		state = {
+			post :{}
+		}
 
-    componentWillUnmount(){
-        this.setState({post : {}});
-    }
+    componentDidMount() {
+				const {match:{params:{post_id}},fetchPost,getAllCategories} = this.props;
+        (post_id && fetchPost(post_id));
+        getAllCategories();
+		}
+
+		componentWillUnmount()
+		{
+			this.setState({post : {}});
+		}
 
      /**
     * @description
@@ -30,7 +35,7 @@ export class AddPostContainer extends PureComponent {
     */
     onHandlePost = (post) =>{
         const {addPost,updatePost,history} = this.props ;
-        const path = `/post/detail/${post.id}`;
+        const path = `/${post.category}/${post.id}`;
         if(post.is_new)
             addPost(post);
         else
@@ -44,7 +49,7 @@ export class AddPostContainer extends PureComponent {
     }
 
     render() {
-        const {categories,user,post} = this.props;
+				const {categories,user,post} = this.props;
         return (
             <AddPost
                 categories={categories}
@@ -58,14 +63,14 @@ export class AddPostContainer extends PureComponent {
 
 function mapStateToProps (state,ownProps) {
     const {categories,user} = state;
-    const {match:{params:{id}}} = ownProps;
+		const {match:{params:{post_id}}} = ownProps;
     return {
         categories : categories.map((cat) => ({
             'value' : cat.name,
             'label' : cat.name.toUpperCase()
         })),
         user,
-        post : getPostById(id)(state),
+        post : getPostById(post_id)(state),
     }
 }
 

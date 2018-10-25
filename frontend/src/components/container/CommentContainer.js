@@ -57,7 +57,7 @@ export class CommentContainer extends PureComponent {
         else
             updateComment(comment);
 
-            this.setState({comment : {body: ""}});
+            this.setState({comment : {body: "",author: ""}});
 
     }
 
