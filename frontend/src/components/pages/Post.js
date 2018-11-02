@@ -24,8 +24,7 @@ export class Post extends PureComponent {
 
     componentDidMount() {
         const {match:{params:{post_id}},fetchPost,post} = this.props;
-        if(post === undefined)
-            fetchPost(post_id);
+          fetchPost(post_id);
 
     }
 

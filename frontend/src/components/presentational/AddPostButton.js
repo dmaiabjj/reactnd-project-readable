@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 /**
-* @description 
+* @description
 * Componente que representa o botão que redireciona pra página de adicionar Post
 */
 function AddPostButton() {

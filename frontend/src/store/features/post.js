@@ -128,12 +128,13 @@ export const Creators = {
     * Step 1 - Sucesso - Dispacha a ação de ADD_SUCCESS
     * Step 2 - Falha   - Dispacha a ação de FAILURE
     */
-   add:(post) => {
+   add:(post,history,path) => {
     return (dispatch) => {
         dispatch(SharedCreators.loading(true));
          return addPost(post)
           .then((result) => {
-              dispatch(Creators.addSuccess(result));
+							dispatch(Creators.addSuccess(result));
+							history.push(path);
             })
           .catch(function(error) {
             dispatch(SharedCreators.failure(error));
@@ -152,12 +153,13 @@ export const Creators = {
     * Step 1 - Sucesso - Dispacha a ação de UPDATE_SUCCESS
     * Step 2 - Falha   - Dispacha a ação de FAILURE
     */
-    update:(post) => {
+    update:(post,history,path) => {
         return (dispatch) => {
             dispatch(SharedCreators.loading(true));
             return updatePost(post)
-            .then((result) => { 
-                dispatch(Creators.updateSuccess(result));
+            .then((result) => {
+								dispatch(Creators.updateSuccess(result));
+								history.push(path);
             })
             .catch(function(error) {
                 dispatch(SharedCreators.failure(error));
@@ -229,14 +231,14 @@ export default function reducer(state = INITIAL_STATE,action)
                 ...state,
                 [action.id] : {
                     ...state[action.id],...{reactions : [...action.reactions]}
-                } 
+                }
             }
             case Types.VOTE_SUCCESS:
             return {
                 ...state,
                 [action.id] : {
                     ...state[action.id],...{votes : [...action.votes]}
-                } 
+                }
             }
         case Types.DELETE_SUCCESS:
             return _.omit(state, action.id);
@@ -252,7 +254,7 @@ const postsEntitiesSelector = state => state.posts
 
 
 /**
-* @description          
+* @description
 * Filtras os posts através dos filtros passados
 *
 * @param   {String} category            Categoria
@@ -267,12 +269,12 @@ export const getPostByFilter = (category = 'all',filter='timestamp',order='asc')
             return posts &&  _.orderBy(Object.keys(posts)
             .map(id => posts[id])
             .filter(post => category === 'all' || post.category === category),[filter],[order])
-        } 
+        }
     )
 }
 
 /**
-* @description          
+* @description
 * Busca um post especifico
 *
 * @param   {Number} id      Id do post
@@ -283,7 +285,7 @@ export const getPostById = (id) => {
         postsEntitiesSelector,
         (posts) => {
             return posts && posts[id]
-        } 
+        }
     )
 }
 

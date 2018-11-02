@@ -34,16 +34,15 @@ export class AddPostContainer extends PureComponent {
     * @param {Object} post  Post
     */
     onHandlePost = (post) =>{
-        const {addPost,updatePost,history} = this.props ;
-        const path = `/${post.category}/${post.id}`;
+				const {addPost,updatePost} 	= this.props ;
+				const path 									= `/${post.category}/${post.id}`;
         if(post.is_new)
-            addPost(post);
+            addPost(post,path);
         else
-            updatePost(post);
+            updatePost(post,path);
 
 
         this.setState({post : {}});
-        history.push(path);
 
 
     }
@@ -74,14 +73,15 @@ function mapStateToProps (state,ownProps) {
     }
 }
 
-function mapDispatchToProps (dispatch) {
-    return {
+function mapDispatchToProps (dispatch,ownProps) {
+		const {history} = ownProps;
+		return {
        getAllCategories: ()   =>  dispatch(CategoryCreators.fetch()),
-       addPost: (post) => {
-            dispatch(PostCreators.add(post))
+       addPost: (post,path) => {
+            dispatch(PostCreators.add(post,history,path))
         },
-        updatePost: (post) => {
-            dispatch(PostCreators.update(post))
+        updatePost: (post,path) => {
+            dispatch(PostCreators.update(post,history,path))
         },
         fetchPost: (id) => {
             dispatch(PostCreators.fetchById(id))

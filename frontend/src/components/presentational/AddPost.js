@@ -1,4 +1,4 @@
-import React,{Fragment} from 'react'
+import React,{Fragment,Component} from 'react'
 import Select from 'react-select'
 import PropTypes from 'prop-types';
 import {Formik} from 'formik'
@@ -50,9 +50,9 @@ const defaultProps  = {
 * @param {Function} onHandlePost    Método responsável por adicionar/atualizar um post
 */
 
-function AddPost({post,categories,onHandlePost,user})  {
+class AddPost extends Component {
 
-    /**
+		/**
     * @description
     * Faz o bind do objeto post para realizar a inserção ou atualização
     * @param {Function} onHandlePost    Método responsável por adicionar/atualizar um post
@@ -61,30 +61,27 @@ function AddPost({post,categories,onHandlePost,user})  {
     * @param {Array} categories         Categorias que podem ser adicionadas no novo post
     * @returns {Function}  Retorna uma função que irá receber os valores do formik, dar um bind no objecto e chamar o método local de inserção/update
     */
-    const bindHandlerPost = () => {
-        return (values,{resetForm}) => {
-            const is_new                    = post.id ?(false) :(true);
-            const id                        = is_new ?(genUUID()) :(post.id);
-            const update                    = Object.assign(post,
-                {
-                    timestamp : + new Date(),
-                    author : values.author,
-                    id,
-                    title : values.title,
-                    body : values.body,
-                    is_new,
-                    category: values.category.value
-                }
-            );
-						resetForm({title:'',body: '',category:categories[0],author : user.name});
-            onHandlePost(update);
-        }
-    }
-
-    const handlerPost = bindHandlerPost();
+    handlerPost= (values,{resetForm}) => {
+			const {categories,user,onHandlePost} 	= this.props;
+			const is_new                    			= values.id ?(false) :(true);
+			const id                        			= is_new ?(genUUID()) :(values.id);
+			const update                    			= Object.assign({},
+					{
+							timestamp : + new Date(),
+							author : values.author,
+							id,
+							title : values.title,
+							body : values.body,
+							is_new,
+							category: values.category.value
+					}
+			);
+			resetForm({title:'',body: '',category:categories[0],author : user.name});
+			onHandlePost(update);
+		};
 
     /* Style do Select importado da biblioteca ReacSelect */
-    const customStyles = {
+    customStyles = {
         placeholder : (base) => ({
             ...base,
             padding: '0 0 0 10px'
@@ -121,7 +118,7 @@ function AddPost({post,categories,onHandlePost,user})  {
       }
 
     /* Schema de validaçào do formulário de inserção do cadastro */
-    const validationSchema = Yup.object().shape({
+    validationSchema = Yup.object().shape({
         title: Yup.string()
             .required('Título é obrigatório'),
         body: Yup.string()
@@ -130,13 +127,18 @@ function AddPost({post,categories,onHandlePost,user})  {
             .required('Categoria é obrigatório')
     })
 
-		const defaultValue   = categories.find((c) => c.value === (post.category)) || categories[0];
-    return (
+
+
+		render()
+		{
+			const {post = {},categories,user} = this.props;
+			const defaultValue   = categories.find((c) => c.value === (post.category)) || categories[0];
+			return (
         defaultValue ?
             <Formik
-                initialValues={{title: post.title || '',body : post.body || '',category:defaultValue || '',author : post.author || user.name }}
-                validationSchema={validationSchema}
-                onSubmit={handlerPost}
+                initialValues={{id: post.id || '',title: post.title || '',body : post.body || '',category:defaultValue || '',author : post.author || user.name }}
+                validationSchema={this.validationSchema}
+                onSubmit={this.handlerPost}
             >
                 {props => {
                     const {values,errors,touched,handleSubmit,handleChange,handleBlur,handleReset,setFieldValue} = props;
@@ -198,7 +200,7 @@ function AddPost({post,categories,onHandlePost,user})  {
                                                                 name="category"
                                                                 value={values.category}
                                                                 options={categories}
-                                                                styles={customStyles}
+                                                                styles={this.customStyles}
                                                                 onChange={(option) => setFieldValue('category', option)}
                                                                 onBlur={handleBlur}
                                                             />
@@ -246,6 +248,8 @@ function AddPost({post,categories,onHandlePost,user})  {
             </Formik> :
                 <Fragment></Fragment>
     )
+		}
+
 }
 
 AddPost.propTypes    = propTypes;
